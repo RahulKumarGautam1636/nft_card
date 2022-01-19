@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: hsl(215, 51%, 70%);
+}
+main {
+  height: 100vh;
+  background: hsl(217, 54%, 11%);
+  display: grid;
+  place-items: center;
+}
+.outer-container {
+  height: 66%;
+  max-height: 35rem;
+  width: 30%;
+  min-width: 20rem;
+  max-width: 20.5rem;
+  background: hsl(216, 50%, 16%);
+  padding: 1.3rem;
+  border-radius: 17px;
+  min-height: 35.5rem;
+  box-shadow: hsl(217deg 54% 10%) 0px 17px 4px 20px, hsl(217deg 54% 9%) 0px 2px 65px 0px;
+}
+.content-box {
+  /* height: 48%; */
+}
+.img-container {
+  height: fit-content;
+}
+#preview {
+  width: 100%;
+  border-radius: 10px;
+}
+.top-box {
+  height: 70%;
+  margin: 1rem 0 1.6rem 0;
+}
+#about {
+  margin: 1.3rem 0;
+}
+.top-box > div {
+  display: flex;
+  justify-content: space-between;
+}
+.top-box > div > div {
+  display: flex;
+  width: auto;
+  align-items: center;
+}
+.top-box > div > div > img {
+  margin-right: 0.5rem;
+}
+.top-box > div > div >  {
+  font-size: 1rem;
+}
+.bottom-box {
+  height: 4.2rem;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid hsl(215, 32%, 27%);
+}
+#avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 1rem;
+}
+#heading {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.6rem;
+}
+@media only screen and (max-width: 320px) {
+  .outer-container {
+    width: 90%;
+    min-width: auto;
+    min-height: auto;
+  }
+}
