@@ -13,6 +13,7 @@ main {
   background: hsl(217, 54%, 11%);
   display: grid;
   place-items: center;
+  min-height: 50rem;
 }
 .outer-container {
   height: 66%;
