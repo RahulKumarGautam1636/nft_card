@@ -13,7 +13,6 @@ main {
   background: hsl(217, 54%, 11%);
   display: grid;
   place-items: center;
-  min-height: 50rem;
 }
 .outer-container {
   height: 66%;
@@ -76,10 +75,28 @@ main {
   color: hsl(0, 0%, 100%);
   font-size: 1.6rem;
 }
+.attribution {
+  text-align: center;
+  background: hsl(233, 12%, 13%);
+}
+
+.attribution a {
+  font-size: 0.7rem;
+  text-decoration: none;
+  color: hsl(39, 89%, 49%);
+}
+
+.attribution p {
+  font-size: 0.7rem;
+  color: hsl(189, 59%, 53%);
+}
 @media only screen and (max-width: 320px) {
   .outer-container {
     width: 90%;
     min-width: auto;
     min-height: auto;
+  }
+  .attribution a, .attribution p {
+    font-size: 2.5vw;
   }
 }
