@@ -36,17 +36,34 @@ export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) =
     return <Slider {...settings} className={name} responsive={responsive}>{dataList}</Slider>;
 }
 
-export const MainBannerSlider = ({ homeBanners }) => {
+export const HomeBannerSlider = ({ homeBanners }) => {
 
   const responsive_4 = [
     { breakpoint: 700, settings: { slidesToShow: 1, centerPadding: 0, dots: true, arrows: false } }
   ]
 
-  const bannersSlide = homeBanners.map(i => (<BannerCard data={i} key={i.id} />));
+  const bannersSlide = homeBanners.map(i => (<BannerCard data={i} key={i.id} classes='px-3' />));
 
   return (
     <div className="relative">
       <MySlider name={'banner-slider'} responsive={responsive_4} dataList={bannersSlide} customSettings={{variableWidth: false, slidesToShow: 1, centerPadding: "150px", centerMode: true, dots: false}} />
+    </div>
+  )
+}
+
+
+export const PromoBanner = ({ banners }) => {
+  const responsive_4 = [
+    { breakpoint: 1200, settings: { slidesToShow: 3 } },
+    { breakpoint: 1000, settings: { slidesToShow: 2 } },
+    { breakpoint: 700, settings: { slidesToShow: 1, centerPadding: 0, arrows: false } }
+  ]
+
+  const bannersSlide = banners.map(i => (<BannerCard data={i} key={i.id} classes='pe-0 md:pe-3' />));
+
+  return (
+    <div className="relative">
+      <MySlider name={'promo-slider'} responsive={responsive_4} dataList={bannersSlide} customSettings={{variableWidth: false, dots: false, slidesToShow: 3}} />
     </div>
   )
 }
@@ -78,9 +95,9 @@ export default function BasicTabs({ categories }) {
 
 export const ProductSlider = ({ productsData }) => {
 
-  const responsive_4 = [
-    { breakpoint: 700, settings: { slidesToShow: 1, centerPadding: 0, dots: true, arrows: false } }
-  ]
+  // const responsive = [
+  //   { breakpoint: 700, settings: { dots: true, arrows: false } }
+  // ]
 
   const productSlide = productsData.products.map(i => (<div className='pe-3' key={i}><ProductCard data={i} /></div>));
   return (

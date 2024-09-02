@@ -1,10 +1,10 @@
 import { Star, StarHalf } from "@mui/icons-material";
 
-export const BannerCard = ({ data }) => {
+export const BannerCard = ({ data, classes }) => {
 
     return (
-      <div className="px-3">
-        <img src={data.images[0]} alt="banner" style={{width: '100%'}} />
+      <div className={`home-banner-card ${classes}`}>
+        <img src={data.images[0]} className="rounded-md" alt="banner" style={{width: '100%'}} />
       </div>
     )
 }
@@ -12,8 +12,8 @@ export const BannerCard = ({ data }) => {
 export const ProductCard = ({ data, classes }) => {
   
   return (
-    <div className={`product-card max-w-[230px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`}>
-      <div className="card-img h-[230px] overflow-hidden">
+    <div className={`product-card bg-gray-100 max-w-[230px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`}>
+      <div className="card-img h-[230px] overflow-hidden bg-white">
         <img className="max-w-full" src={data.images[0]} alt="product" />
       </div>
       <div className="card-content flex flex-col gap-2 p-3 bg-gray-100">

@@ -1,6 +1,8 @@
 import { getBanners, getCategories, getFeaturedProducts, getFilteredProducts, getHomeBanners, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
-import BasicTabs, { MainBannerSlider, ProductSlider } from "@/components/utils";
+import BasicTabs, { HomeBannerSlider, ProductSlider, PromoBanner } from "@/components/utils";
+import { Button } from "@mui/material";
+import { IoSearch } from "react-icons/io5";
 
 export default async function Home() {
   
@@ -13,7 +15,7 @@ export default async function Home() {
 
   return (
     <div className="home mt-3">  
-      <MainBannerSlider homeBanners={homeBanners} />
+      <HomeBannerSlider homeBanners={homeBanners} />
       <main className="container mx-auto px-3">
         <section className="py-7">
           <h2 className="text-2xl font-semibold mb-4">Feature Categories</h2>
@@ -50,8 +52,9 @@ export default async function Home() {
             <div className="mt-4">
               <ProductSlider productsData={filteredProducts} />
             </div>
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {banners.map(i => (<img key={i.id} className="hover:shadow-md border border-gray-300 rounded-md w-full" src={i.images[0]} alt="promotion"/>))}                                                
+            <div className="mt-4">
+              {/* {banners.map(i => (<img key={i.id} className="hover:shadow-md border border-gray-300 rounded-md w-full" src={i.images[0]} alt="promotion"/>))} */}
+              <PromoBanner banners={banners} />
             </div>
             <div className="mt-4">
               <div className="">
@@ -74,6 +77,23 @@ export default async function Home() {
           </div>
         </section>
       </main>
+      <section className="px-3 bg-purple-600 pt-4 pb-4 mt-4">
+        <div className="container mx-auto grid grid-cols-2 gap-4 w-full">
+          <div className="pt-12">
+            <p className="text-white text-2xl font-semibold">$20 discount for your first order</p>
+            <h2 className="text-white text-5xl my-4 font-bold">Join our newsletter and get...</h2>
+            <p className="text-gray-300 text-md mb-6 font-semibold">Join our email subscription now to get updates on <br/> promotions and coupons.</p>
+            <div className="relative max-w-[520px]">
+              <input className="p-4 border-2 border-slate-300 bg-slate-100 outline-none text-sm rounded w-full" />
+              {/* <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-gray-600"/> */}
+              <Button className="bg-purple-800 text-white rounded-lg py-2 px-3 hover:bg-purple-500 absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2">Sign in</Button>
+            </div>
+          </div>
+          <div className="ms-auto">
+            <img className="max-w-full max-h-[330px]" src="https://fullstack-ecommerce.netlify.app/static/media/newsletter.5931358dd220a40019fc.png" alt="slide" />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
