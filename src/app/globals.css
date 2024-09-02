@@ -16,18 +16,13 @@
   }
 }
 
+* { margin: 0; padding: 0; box-sizing: 0; }
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #000c;
+  font-family: Lato,sans-serif;
+  font-size: 1rem;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+
