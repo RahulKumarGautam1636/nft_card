@@ -1,6 +1,7 @@
 import { getBanners, getCategories, getFeaturedProducts, getFilteredProducts, getHomeBanners, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
 import BasicTabs, { HomeBannerSlider, ProductSlider, PromoBanner } from "@/components/utils";
+import { Email } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { IoSearch } from "react-icons/io5";
 
@@ -73,6 +74,13 @@ export default async function Home() {
               <div className="grid gap-3 mt-4 product-grid">
                 {featuredProducts.reverse().map(i => (<ProductCard key={i.id} data={i} classes='max-w-none' />))}
               </div>
+              <section className="bg-red-200 flex gap-3 items-center justify-between p-7 mt-4">
+                <div>
+                  <p className="text-lg text-gray-600 mb-3">Always Taking Care</p>
+                  <h3 className="text-3xl text-gray-900 font-bold">In store or online your health & safety is our top priority.</h3>
+                </div>
+                <img src="./images/banner-box2.webp" />
+              </section>
             </div>
           </div>
         </section>
@@ -83,10 +91,10 @@ export default async function Home() {
             <p className="text-white text-2xl font-semibold">$20 discount for your first order</p>
             <h2 className="text-white text-5xl my-4 font-bold">Join our newsletter and get...</h2>
             <p className="text-gray-300 text-md mb-6 font-semibold">Join our email subscription now to get updates on <br/> promotions and coupons.</p>
-            <div className="relative max-w-[520px]">
-              <input className="p-4 border-2 border-slate-300 bg-slate-100 outline-none text-sm rounded w-full" />
-              {/* <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-gray-600"/> */}
-              <Button className="bg-purple-800 text-white rounded-lg py-2 px-3 hover:bg-purple-500 absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2">Sign in</Button>
+            <div className="flex gap-2 max-w-[520px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
+              <Email className="text-4xl my-auto text-gray-500" />
+              <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Your Email Address" />
+              <Button className="bg-purple-800 text-white text-nowrap rounded-lg py-1 px-7 hover:bg-purple-500">Sign in</Button>
             </div>
           </div>
           <div className="ms-auto">

@@ -44,7 +44,7 @@ const Header = async () => {
                     </div>
                 </nav>
                 <div className="flex justify-between items-start gap-5 px-3">
-                    <div className="relative group hidden md:flex">                        
+                    <div className="relative group hidden md:flex text-nowrap">                        
                         <Button className="gap-2 bg-purple-800 hover:bg-purple-700 p-2 rounded-full text-white min-w-fit">
                             <GiHamburgerMenu />
                             <h4>ALL CATEGORIES</h4>
@@ -54,9 +54,9 @@ const Header = async () => {
                             {categories.categoryList.map(i => (
                                 <li className="relative group/subGroup" key={i.id}>
                                     <Button className="w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2"  href="#contained-buttons">{i.name}</Button>
-                                    {i.children.length ? <ul className="hidden group-hover/subGroup:flex flex-col shadow-md border border-gray-200 absolute z-10 top-0 left-full w-full py-2 bg-white">
+                                    {i.children.length ? <ul className="hidden group-hover/subGroup:flex flex-col shadow-md border border-gray-200 absolute z-10 top-0 left-full min-w-full py-2 bg-white">
                                         {i.children.map(x => (
-                                            <Button key={x.id} className="w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2"  href="#contained-buttons">{x.name}</Button>
+                                            <Button key={x.id} className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2 px-4"  href="#contained-buttons">{x.name}</Button>
                                         ))}
                                     </ul> : ''}
                                 </li>
@@ -70,7 +70,7 @@ const Header = async () => {
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
                                 <Button className="bg-white text-sm text-gray-700 rounded-full py-2 md:px-4">{i.name}</Button>
-                                {i.children.length ? <List className="w-40 absolute bg-white shadow-xl border border-gray-400 rounded-lg z-10 top-full left-0 hidden group-hover:block">
+                                {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-400 rounded-lg z-10 top-full left-0 hidden group-hover:block">
                                     {i.children.map(x => (
                                         <ListItemButton key={x.id} component="a" href="#simple-list" className="hover:bg-purple-100">
                                             <ListItemText primary={x.name} />
