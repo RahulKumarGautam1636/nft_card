@@ -21,6 +21,15 @@
 .product-grid {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
+.count-down span {
+    height: 2rem;
+    width: 2.3rem;
+    background: #e4e4e4;
+    display: grid;
+    place-items: center;
+    color: black;
+    font-weight: 500;
+}
 
 
 @media only screen and (max-width: 500px) {
