@@ -42,6 +42,10 @@ const Header = async () => {
                         <Button className="bg-purple-800 text-white rounded-lg py-2 px-3 hover:bg-purple-500 hidden md:block">Sign in</Button>
                         <Button className="rounded-full bg-red-50 min-w-0 p-2 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
+
+
+
+                    
                 </nav>
                 <div className="flex justify-between items-start gap-5 px-3">
                     <div className="relative group hidden md:flex text-nowrap">                        
