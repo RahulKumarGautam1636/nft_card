@@ -2,8 +2,10 @@ import { getBanners, getCategories, getFeaturedProducts, getFilteredProducts, ge
 import { ProductCard } from "@/components/cards";
 import BasicTabs, { HomeBannerSlider, ProductSlider, PromoBanner } from "@/components/utils";
 import { Email, Star } from "@mui/icons-material";
+import { TbTruckDelivery } from "react-icons/tb";
+import { RiDiscountPercentLine, RiMoneyRupeeCircleLine } from "react-icons/ri";
+import { SiCodefresh } from "react-icons/si";
 import { Button, ButtonBase } from "@mui/material";
-import { IoSearch } from "react-icons/io5";
 
 export default async function Home() {
   
@@ -63,7 +65,7 @@ export default async function Home() {
                 <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
               </div>
               <div className="grid gap-3 mt-4 product-grid">
-                {productsData.products.reverse().map(i => (<ProductCard key={i.id} data={i} classes='max-w-none' />))}
+                {productsData.products.reverse().map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
               </div>
             </div>
             <div className="mt-7">
@@ -75,7 +77,7 @@ export default async function Home() {
                 <Button className="text-purple-800 bg-white text-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
               </div>
               <div className="grid gap-3 mt-4 product-grid">
-                {featuredProducts.reverse().map(i => (<ProductCard key={i.id} data={i} classes='max-w-none' />))}
+                {featuredProducts.reverse().map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
               </div>
               <div className="grid grid-cols-2 gap-3 p-7 pb-8 mt-4 overflow-hidden rounded border border-gray-200" style={{background: '#F8EFEA'}}>
                 <div>
@@ -126,7 +128,7 @@ export default async function Home() {
                     </div>
                   </div> 
                 </div>
-                <div className="mt-4 bg-red-200 flex flex-col flex-md-row justify-center gap-4 items-center p-7 rounded-md">
+                <div className="mt-4 bg-red-200 flex flex-col md:flex-row flex-md-row justify-center gap-4 items-center p-7 rounded-md">
                   <p className="text-lg">Super discount for your <strong className="underline">FIRST PURCHASE</strong></p>
                   <ButtonBase className="py-2 px-4 border-[3px] border-red-600 border-dashed rounded-md">FREE25%</ButtonBase>
                   <span>Use discount code in checkout!</span>
@@ -152,6 +154,14 @@ export default async function Home() {
             <img className="max-w-full max-h-[330px]" src="https://fullstack-ecommerce.netlify.app/static/media/newsletter.5931358dd220a40019fc.png" alt="slide" />
           </div>
         </div>
+      </section>
+      <section className="mt-4 grid place-items-center border-y border-gray-300 mb-8">
+        <ul className="container mx-auto flex flex-col md:flex-row ps-10 md:ps-4">
+          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-5 md:py-10"><SiCodefresh className="text-4xl text-purple-800" /> Everyday fresh products</li>
+          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-6 md:py-10 md:border-x md:border-gray-300"><TbTruckDelivery className="text-4xl text-purple-800" /> Free delivery for order over $70</li>
+          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-6 md:py-10 md:border-x md:border-gray-300"><RiDiscountPercentLine className="text-4xl text-purple-800" /> Daily Mega Discounts</li>
+          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-6 md:py-10"><RiMoneyRupeeCircleLine className="text-4xl text-purple-800" /> Best price on the market</li>
+        </ul>
       </section>
     </div>
   );

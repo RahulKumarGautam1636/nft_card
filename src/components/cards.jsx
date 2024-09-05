@@ -9,12 +9,12 @@ export const BannerCard = ({ data, classes }) => {
     )
 }
   
-export const ProductCard = ({ data, classes }) => {
+export const ProductCard = ({ data, classes, styles={} }) => {
   
   return (
-    <div className={`product-card bg-gray-100 max-w-[230px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`}>
-      <div className="card-img h-[230px] overflow-hidden bg-white">
-        <img className="max-w-full" src={data.images[0]} alt="product" />
+    <div className={`product-card bg-gray-100 max-w-[186px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`} style={{...styles}}>
+      <div className="card-img h-[215px] lg:h-[230px] overflow-hidden bg-white flex justify-center items-center">
+        <img className="max-w-full max-h-full" src={data.images[0]} alt="product" />
       </div>
       <div className="card-content flex flex-col gap-2 p-3 bg-gray-100">
         <h4 className="text-md font-semibold">{data.name.substr(1, 30)}...</h4>
