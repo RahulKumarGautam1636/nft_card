@@ -69,11 +69,11 @@ const Header = async () => {
                     </div>
                     <ul className="flex gap-0 md:gap-3 items-center md:flex-wrap text-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
                         <li className="relative group">
-                            <Button className="bg-white text-lg font-medium text-gray-700 rounded-full py-2 md:px-4">Home</Button>
+                            <Button className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">Home</Button>
                         </li>
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
-                                <Button className="bg-white text-lg font-medium text-gray-700 rounded-full py-2 md:px-4">{i.name}</Button>
+                                <Button className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">{i.name}</Button>
                                 {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-400 rounded-lg z-10 top-full left-0 hidden group-hover:block">
                                     {i.children.map(x => (
                                         <ListItemButton key={x.id} component="a" href="#simple-list" className="hover:bg-purple-100">

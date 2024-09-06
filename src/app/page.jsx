@@ -25,7 +25,7 @@ export default async function Home() {
           <div className="flex overflow-auto gap-3 md:gap-10">
             {categories.categoryList.map(i => (
               <div key={i.id} className="text-center min-w-fit cursor-pointer group">
-                  <img className="rounded-full border border-gray-300 shadow-md group-hover:border-gray-500" src={i.images[0]} />
+                  <img className="rounded-full max-w-[7rem] lg:max-w-[9.5rem] p-[0.3rem] border border-gray-300 shadow-md group-hover:border-gray-500" src={i.images[0]} />
                   <h3 className="text-lg font-semibold mt-2">{i.name}</h3>
               </div>
             ))}
@@ -35,10 +35,10 @@ export default async function Home() {
           <div className="relative col-span-2">
             <div className="sticky top-0 flex lg:flex-col gap-5">
               <div>
-                <img className="max-w-full" src="/images/promotions/banner1.jpg" />
+                <img className="w-full" src="/images/promotions/banner1.jpg" />
               </div>
               <div>
-                <img className="max-w-full" src="/images/promotions/banner2.jpg" />
+                <img className="w-full" src="/images/promotions/banner2.jpg" />
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default async function Home() {
                   <h2 className="text-2xl font-semibold">Featured Products</h2>
                   <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
                 </div>
-                <Button className="text-purple-800 bg-white text-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
+                <Button className="text-purple-800 bg-white whitespace-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
               </div>
               <div className="grid gap-3 mt-4 product-grid">
                 {featuredProducts.reverse().map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
@@ -94,7 +94,7 @@ export default async function Home() {
                     <h2 className="text-2xl font-semibold">HOT Product of the Week</h2>
                     <p className="text-gray-500 ">Dont miss this opportunity at a special discount just for this week.</p>
                   </div>
-                  <Button className="text-purple-800 bg-white text-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
+                  <Button className="text-purple-800 bg-white whitespace-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
                 </div>
                 <div className="border border-red-500 flex flex-col md:flex-row rounded-lg mt-4 overflow-hidden">
                   <div className="p-3 grid place-items-center">
@@ -147,7 +147,7 @@ export default async function Home() {
             <div className="flex gap-2 max-w-[520px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
               <Email className="text-4xl my-auto text-gray-500" />
               <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Your Email Address" />
-              <Button className="bg-purple-800 text-white text-nowrap rounded-lg py-1 px-7 hover:bg-purple-500">Sign in</Button>
+              <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-7 hover:bg-purple-500">Sign in</Button>
             </div>
           </div>
           <div className="ms-auto hidden md:block">

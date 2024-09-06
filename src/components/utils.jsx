@@ -81,7 +81,7 @@ export default function BasicTabs({ categories }) {
     <div>
       <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" className="filterTabs">
         {categories.map((category, index) => (
-          <Tab key={category.id} label={category.name} onClick={() => setselectedCat(category.name)} />
+          <Tab key={category.id} label={category.name} onClick={() => setselectedCat(category.name)} style={{fontSize: '0.975rem', minHeight: '3.55rem', padding: '1rem 1.2rem', minWidth: '5.625rem'}} />
         ))}
       </Tabs>
         {/* {categories.map((category, index) => (
