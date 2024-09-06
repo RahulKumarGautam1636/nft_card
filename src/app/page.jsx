@@ -31,8 +31,8 @@ export default async function Home() {
             ))}
           </div>
         </section>
-        <section className="grid grid-cols-1 lg:grid-cols-6 gap-5">
-          <div className="relative">
+        <section className="grid grid-cols-2 lg:grid-cols-10 gap-5">
+          <div className="relative col-span-2">
             <div className="sticky top-0 flex lg:flex-col gap-5">
               <div>
                 <img className="max-w-full" src="/images/promotions/banner1.jpg" />
@@ -42,7 +42,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-          <div className="col-span-5">
+          <div className="col-span-8">
             <div className="flex justify-between flex-wrap">
               <div className="">
                 <h2 className="text-2xl font-semibold">Popular Products</h2>

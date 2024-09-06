@@ -1,3 +1,7 @@
+html {
+    font-size: 85%;
+}
+
 .custom-arrow {
     position: absolute;
     top: 50%;
@@ -34,7 +38,7 @@
 
 @media only screen and (max-width: 500px) {
     html {
-        font-size: 82%;
+        font-size: 75%;
     }
 
     .product-grid {
