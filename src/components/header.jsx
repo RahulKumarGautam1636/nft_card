@@ -42,10 +42,6 @@ const Header = async () => {
                         <Button className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>
                         <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
-
-
-
-                    
                 </nav>
                 <div className="flex justify-between items-start gap-5 px-3">
                     <div className="relative group hidden md:flex text-nowrap">                        
@@ -74,7 +70,7 @@ const Header = async () => {
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
                                 <Button className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">{i.name}</Button>
-                                {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-400 rounded-lg z-10 top-full left-0 hidden group-hover:block">
+                                {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full left-0 hidden group-hover:block">
                                     {i.children.map(x => (
                                         <ListItemButton key={x.id} component="a" href="#simple-list" className="hover:bg-purple-100">
                                             <ListItemText primary={x.name} />
