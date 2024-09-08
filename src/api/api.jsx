@@ -31,3 +31,17 @@ export const getFilteredProducts = async () => {
     const res = await axios.get(isLive ? 'https://server-node-93tx.onrender.com/api/products/catName?catName=Fashion&location=All' : 'http://localhost:3000/filteredProducts');
     return res.data;
 }
+
+export const getProduct = async (id) => {
+    const res = await axios.get(isLive ? `https://server-node-93tx.onrender.com/api/products/${id}` : 'http://localhost:3000/filteredProducts');
+    return res.data;
+}
+export const getReviews = async (id) => {
+    const res = await axios.get(isLive ? `https://server-node-93tx.onrender.com/api/productReviews?productId=${id}` : 'http://localhost:3000/filteredProducts');
+    return res.data;
+}
+
+export const getSubCatProducts = async (subCatId, location) => {
+    const res = await axios.get(isLive ? `https://server-node-93tx.onrender.com/api/products/subCatId?subCatId=${subCatId}&location=${location}` : 'http://localhost:3000/filteredProducts');
+    return res.data;
+}

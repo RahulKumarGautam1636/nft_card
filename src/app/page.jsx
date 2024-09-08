@@ -25,7 +25,9 @@ export default async function Home() {
           <div className="flex overflow-auto gap-3 md:gap-10">
             {categories.categoryList.map(i => (
               <div key={i.id} className="text-center min-w-fit cursor-pointer group">
-                  <img className="rounded-full max-w-[7rem] lg:max-w-[9.5rem] p-[0.3rem] border border-gray-300 shadow-md group-hover:border-gray-500" src={i.images[0]} />
+                  <div className="rounded-full max-w-[7rem] lg:max-w-[9.5rem] p-[1.7rem] border border-gray-300 group-hover:shadow-xl group-hover:border-gray-400" style={{background: i.color}}>
+                    <img className="max-w-full" src={i.images[0]} />
+                  </div>
                   <h3 className="text-lg font-semibold mt-2">{i.name}</h3>
               </div>
             ))}
