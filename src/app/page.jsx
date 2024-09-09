@@ -2,9 +2,6 @@ import { getBanners, getCategories, getFeaturedProducts, getFilteredProducts, ge
 import { ProductCard } from "@/components/cards";
 import BasicTabs, { HomeBannerSlider, ProductSlider, PromoBanner } from "@/components/utils";
 import { Email, Star } from "@mui/icons-material";
-import { TbTruckDelivery } from "react-icons/tb";
-import { RiDiscountPercentLine, RiMoneyRupeeCircleLine } from "react-icons/ri";
-import { SiCodefresh } from "react-icons/si";
 import { Button, ButtonBase } from "@mui/material";
 
 export default async function Home() {
@@ -156,14 +153,6 @@ export default async function Home() {
             <img className="max-w-full max-h-[330px]" src="https://fullstack-ecommerce.netlify.app/static/media/newsletter.5931358dd220a40019fc.png" alt="slide" />
           </div>
         </div>
-      </section>
-      <section className="mt-4 grid place-items-center border-y border-gray-300 mb-8">
-        <ul className="container mx-auto flex flex-col md:flex-row ps-10 md:ps-4">
-          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-5 md:py-10"><SiCodefresh className="text-4xl text-purple-800" /> Everyday fresh products</li>
-          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-6 md:py-10 md:border-x md:border-gray-300"><TbTruckDelivery className="text-4xl text-purple-800" /> Free delivery for order over $70</li>
-          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-6 md:py-10 md:border-x md:border-gray-300"><RiDiscountPercentLine className="text-4xl text-purple-800" /> Daily Mega Discounts</li>
-          <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-6 md:py-10"><RiMoneyRupeeCircleLine className="text-4xl text-purple-800" /> Best price on the market</li>
-        </ul>
       </section>
     </div>
   );
