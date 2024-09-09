@@ -88,7 +88,7 @@ const Footer = () => {
             </section>
             <section class="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-5 border-b border-gray-300 pt-11 pb-8" style={{fontSize: '0.94rem'}}>
                 {footerLinks.map(item => (
-                    <div className="pb-4 ps-4 md:ps-12">
+                    <div className="pb-4 ps-4 md:ps-12" key={item.title}>
                         <h5 className="text-lg font-semibold mb-5">{item.title}</h5>
                         <ul className="flex flex-col gap-[0.6rem]">
                             {item.links.map(i => (<li key={i.name}><Link href={i.href}>{i.name}</Link></li>))}
