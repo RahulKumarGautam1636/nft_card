@@ -7,7 +7,8 @@ import { BannerCard, ProductCard } from './cards';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getFilteredProducts } from '@/api/api';
 
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
@@ -69,27 +70,42 @@ export const PromoBanner = ({ banners }) => {
 }
 
 
-export default function BasicTabs({ categories }) {
-  const [value, setValue] = useState(1);
-  const [selectedCat, setselectedCat] = useState('');
+export default function FilterTabs({ data, filteredProducts }) {
+  const [activeCat, setActiveCat] = useState(data[0]);
+  const [value, setValue] = useState(0);
+  const [products, setProducts] = useState(filteredProducts);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   }; 
-  
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const res = await getFilteredProducts(activeCat.slug, 'All');
+      setProducts(res);
+    }
+    getProducts();
+  }, [activeCat])
+
   return (
-    <div>
-      <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" className="filterTabs">
-        {categories.map((category, index) => (
-          <Tab key={category.id} label={category.name} onClick={() => setselectedCat(category.name)} style={{fontSize: '0.975rem', minHeight: '3.55rem', padding: '1rem 1.2rem', minWidth: '5.625rem'}} />
-        ))}
-      </Tabs>
-        {/* {categories.map((category, index) => (
-          <div className={`${value === index ? 'block' : 'hidden'} `}>
-            {category.title}
-          </div>
-        ))} */}
-    </div>
+    <>
+      <div className="flex justify-between flex-wrap">
+        <div className="">
+          <h2 className="text-2xl font-semibold">Popular Products</h2>
+          <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
+        </div>
+        <div className="max-w-full">
+          <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" className="filterTabs">
+            {data.map((category, index) => (
+              <Tab key={category.id} label={category.name} onClick={() => setActiveCat(category)} style={{fontSize: '0.975rem', minHeight: '3.55rem', padding: '1rem 1.2rem', minWidth: '5.625rem'}} />
+            ))}
+          </Tabs>
+        </div>
+      </div>
+      <div className="mt-4">
+        <ProductSlider productsData={products} />
+      </div>
+    </>
   );
 }
 
@@ -112,12 +128,10 @@ export function DescriptionTabs({ tabs, reviews }) {
   const [value, setValue] = useState(0);
   const [selectedCat, setselectedCat] = useState('');
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (event, newActive) => {
+    setValue(newActive);
+    alert('test');
   }; 
-
-  console.log(reviews);
-  
   
   return (
     <div>
@@ -279,3 +293,5 @@ export function DescriptionTabs({ tabs, reviews }) {
     </div>
   );
 }
+
+

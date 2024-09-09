@@ -27,8 +27,8 @@ export const getFeaturedProducts = async () => {
     return res.data;
 }
 
-export const getFilteredProducts = async () => {
-    const res = await axios.get(isLive ? 'https://server-node-93tx.onrender.com/api/products/catName?catName=Fashion&location=All' : 'http://localhost:3000/filteredProducts');
+export const getFilteredProducts = async (catName, location) => {
+    const res = await axios.get(isLive ? `https://server-node-93tx.onrender.com/api/products/catName?catName=${catName}&location=${location}` : 'http://localhost:3000/filteredProducts');
     return res.data;
 }
 

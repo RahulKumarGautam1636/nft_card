@@ -1,6 +1,6 @@
 import { getBanners, getCategories, getFeaturedProducts, getFilteredProducts, getHomeBanners, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
-import BasicTabs, { HomeBannerSlider, ProductSlider, PromoBanner } from "@/components/utils";
+import FilterTabs, { HomeBannerSlider, ProductSlider, PromoBanner } from "@/components/utils";
 import { Email, Star } from "@mui/icons-material";
 import { Button, ButtonBase } from "@mui/material";
 
@@ -9,7 +9,7 @@ export default async function Home() {
   const homeBanners = await getHomeBanners();
   const banners = await getBanners();
   const categories = await getCategories();
-  const filteredProducts = await getFilteredProducts();
+  const filteredProducts = await getFilteredProducts('Fashion', 'All');
   const productsData = await getProducts();
   const featuredProducts = await getFeaturedProducts();
 
@@ -42,20 +42,8 @@ export default async function Home() {
             </div>
           </div>
           <div className="col-span-8">
-            <div className="flex justify-between flex-wrap">
-              <div className="">
-                <h2 className="text-2xl font-semibold">Popular Products</h2>
-                <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
-              </div>
-              <div className="max-w-full">
-                <BasicTabs categories={categories.categoryList} />
-              </div>
-            </div>
+            <FilterTabs data={categories.categoryList} filteredProducts={filteredProducts} />
             <div className="mt-4">
-              <ProductSlider productsData={filteredProducts} />
-            </div>
-            <div className="mt-4">
-              {/* {banners.map(i => (<img key={i.id} className="hover:shadow-md border border-gray-300 rounded-md w-full" src={i.images[0]} alt="promotion"/>))} */}
               <PromoBanner banners={banners} />
             </div>
             <div className="mt-7">
