@@ -122,7 +122,7 @@ const Footer = () => {
                     </div>
                 </div>
             </section>
-            <section className="container mx-auto py-5 flex gap-3 justify-center lg:justify-between text-center items-center text-sm flex-wrap">
+            <section className="container mx-auto px-4 py-5 flex gap-3 justify-center lg:justify-between text-center items-center text-sm flex-wrap">
                 <p>Copyright 2024 © Bacola WordPress Theme. All rights reserved. Powered by KlbTheme.</p>
                 <ul className="flex gap-4 items-center flex-wrap justify-center">
                     <li><Link href='/'>Privacy Policy</Link></li>

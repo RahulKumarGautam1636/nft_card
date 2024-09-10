@@ -1,7 +1,7 @@
 'use client';
 import Slider from 'react-slick';
 import { IconButton } from '@mui/material';
-import { ChevronLeft, Star } from '@mui/icons-material';
+import { ChevronLeft, Star, StarHalf } from '@mui/icons-material';
 import { BannerCard, ProductCard } from './cards';
 
 import Tabs from '@mui/material/Tabs';
@@ -74,6 +74,7 @@ export default function FilterTabs({ data, filteredProducts }) {
   const [activeCat, setActiveCat] = useState(data[0]);
   const [value, setValue] = useState(0);
   const [products, setProducts] = useState(filteredProducts);
+  const [isLoading, setLoading] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -81,14 +82,17 @@ export default function FilterTabs({ data, filteredProducts }) {
 
   useEffect(() => {
     const getProducts = async () => {
+      setLoading(true);
       const res = await getFilteredProducts(activeCat.slug, 'All');
       setProducts(res);
+      setLoading(false);
     }
     getProducts();
   }, [activeCat])
 
   return (
-    <>
+    <div className='relative'>
+      {isLoading ? <div className='absolute inset-0 z-10' style={{background: '#f8f8f8ad'}}></div> : ''}
       <div className="flex justify-between flex-wrap">
         <div className="">
           <h2 className="text-2xl font-semibold">Popular Products</h2>
@@ -105,7 +109,7 @@ export default function FilterTabs({ data, filteredProducts }) {
       <div className="mt-4">
         <ProductSlider productsData={products} />
       </div>
-    </>
+    </div>
   );
 }
 
@@ -246,7 +250,7 @@ export function DescriptionTabs({ tabs, reviews }) {
               <div>
                 <div className="flex gap-6 items-start mb-6 w-full">
                   <img src="/images/categories/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
-                  <div>
+                  <div className='flex-1'>
                     <div className="flex justify-between gap-x-4 gap-y-2 flex-wrap w-full">
                       <h4 className="text-xl font-semibold">Satyam Kumar</h4>
                       <div className="text-yellow-600 flex items-center gap-[0.1rem]">
@@ -260,11 +264,12 @@ export function DescriptionTabs({ tabs, reviews }) {
                 {reviews.map(review => (
                   <div className="flex gap-6 items-start mb-6 w-full" key={review.id}>
                     <img src="/images/categories/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
-                    <div>
+                    <div className='flex-1'>
                       <div className="flex justify-between gap-x-4 gap-y-2 flex-wrap w-full">
                         <h4 className="text-xl font-semibold">{review.customerName}</h4>
                         <div className="text-yellow-600 flex items-center gap-[0.1rem]">
-                            {Array.from(Array(review.customerRating).keys()).map(i => (<Star className="text-[1.4rem]" key={i} />))}
+                            {Array.from(Array(Math.floor(review.customerRating)).keys()).map(i => (<Star className="text-[1.4rem]" key={i} />))}
+                            {(review.customerRating % 1) ? <StarHalf /> : ''}
                         </div>
                       </div>
                       <span className="text-gray-400 mt-2 mb-3 block">{new Date(review.dateCreated).toDateString()}</span>

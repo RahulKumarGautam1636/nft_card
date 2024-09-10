@@ -25,7 +25,21 @@ export default async function Product({ params }) {
 
   // console.log(reviews);
   // console.log(relatedProducts);
-  
+
+  if (!product) {
+    return (
+      <div>Loading...</div>
+    )
+  } 
+  // else {
+  //   return (
+  //     <h2>
+  //       <pre>
+  //         {JSON.stringify(product)}
+  //       </pre>
+  //     </h2>
+  //   )
+  // }  
   
   return (
     <div className="product-page mt-3 py-8 bg-gray-100">  

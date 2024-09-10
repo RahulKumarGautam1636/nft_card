@@ -23,7 +23,8 @@ export const ProductCard = ({ data, classes, styles={} }) => {
         <h4 className="text-md font-semibold">{data.name.substr(1, 30)}...</h4>
         {data.countInStock > 0 ? <p className="text-green-600">In Stock</p> : <p className="text-red-600">Out of Stock</p>}
         <div className="text-yellow-600 flex gap-2">
-          {Array.from(Array(data.rating).keys()).map(i => (<Star key={i} />))}
+          {Array.from(Array(Math.floor(data.rating)).keys()).map(i => (<Star key={i} />))}
+          {(data.rating % 1) ? <StarHalf /> : ''}
         </div>
         <h5 className="flex gap-2 text-md">
           <span className="text-gray-600 line-through">Rs {data.oldPrice}</span>
