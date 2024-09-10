@@ -3,6 +3,8 @@ import { RiDiscountPercentLine, RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { SiCodefresh } from "react-icons/si";
 import Link from "next/link";
 import { BiPhoneCall } from "react-icons/bi";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 
 const Footer = () => {
 
@@ -96,14 +98,38 @@ const Footer = () => {
                     </div>
                 ))}
             </section>
-            <section className="container mx-auto py-11">
+            <section className="container mx-auto px-4 py-9 md:py-11 flex gap-y-5 justify-between items-center border-b border-gray-300 flex-wrap">
                 <div className="flex gap-3">
-                    <BiPhoneCall className="text-[3.6rem] border border-gray-300 text-gray-500 p-2 rounded-full"/>
+                    <BiPhoneCall className="text-[3.2rem] border border-gray-300 text-gray-500 p-2 rounded-full"/>
                     <div>
-                        <h3 className="mb-1 text-2xl font-semibold text-gray-900">8 800 555-55</h3>
+                        <h3 className="text-[1.4rem] font-semibold text-gray-900">8 800 555-55</h3>
                         <p className="text-[0.9rem]">Working 8:00 - 22:00</p>
                     </div>
                 </div>
+                <div className="flex gap-8 gap-y-6 items-center flex-wrap">
+                    <div>
+                        <h3 className="mb-1 md:mb-0 text-[1.1rem] font-semibold text-gray-900">Download App on Mobile :</h3>
+                        <p className="text-sm">15% discount on your first purchase</p>
+                    </div>
+                    <div className="flex gap-2">
+                        <img src="/images/google-play.webp" alt="Google" />
+                        <img src="/images/app-store.webp" alt="Google" />
+                    </div>
+                    <div className="flex gap-3">
+                        <FaFacebook className="text-3xl text-blue-500" />
+                        <FaXTwitter className="text-3xl text-black" />
+                        <FaInstagramSquare className="text-3xl text-red-600" />
+                    </div>
+                </div>
+            </section>
+            <section className="container mx-auto py-5 flex gap-3 justify-center lg:justify-between text-center items-center text-sm flex-wrap">
+                <p>Copyright 2024 © Bacola WordPress Theme. All rights reserved. Powered by KlbTheme.</p>
+                <ul className="flex gap-4 items-center flex-wrap justify-center">
+                    <li><Link href='/'>Privacy Policy</Link></li>
+                    <li><Link href='/'>Terms and Conditions</Link></li>
+                    <li><Link href='/'>Cookie</Link></li>
+                    <li><img src="/images/payments.webp" alt="payments" /></li>
+                </ul>
             </section>
         </footer>
     )
