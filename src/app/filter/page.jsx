@@ -1,4 +1,4 @@
-export const Filter = () => {
+const Filter = () => {
 
     return (
         <section>
@@ -6,3 +6,5 @@ export const Filter = () => {
         </section>
     )
 }
+
+export default Filter;
