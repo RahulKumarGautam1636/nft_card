@@ -92,7 +92,7 @@ export default function FilterTabs({ data, filteredProducts }) {
 
   return (
     <div className='relative'>
-      {isLoading ? <div className='absolute inset-0 z-10' style={{background: '#f8f8f8ad'}}></div> : ''}
+      {isLoading ? <div className='absolute inset-0 z-10 flex justify-center items-center' style={{background: '#f8f8f8ad'}}><img src='/loader.svg' alt='loading..' /></div> : ''}
       <div className="flex justify-between flex-wrap">
         <div className="">
           <h2 className="text-2xl font-semibold">Popular Products</h2>
@@ -134,7 +134,6 @@ export function DescriptionTabs({ tabs, reviews }) {
 
   const handleChange = (event, newActive) => {
     setValue(newActive);
-    alert('test');
   }; 
   
   return (
