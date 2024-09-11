@@ -42,7 +42,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="col-span-8">
-            <FilterTabs data={categories.categoryList} filteredProducts={filteredProducts} />
+            <FilterTabs categories={categories.categoryList} filteredProducts={filteredProducts} />
             <div className="mt-4">
               <PromoBanner banners={banners} />
             </div>

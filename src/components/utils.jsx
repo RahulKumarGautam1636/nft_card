@@ -70,8 +70,8 @@ export const PromoBanner = ({ banners }) => {
 }
 
 
-export default function FilterTabs({ data, filteredProducts }) {
-  const [activeCat, setActiveCat] = useState(data[0]);
+export default function FilterTabs({ categories, filteredProducts }) {
+  const [activeCat, setActiveCat] = useState(categories[0]);
   const [value, setValue] = useState(0);
   const [products, setProducts] = useState(filteredProducts);
   const [isLoading, setLoading] = useState(false);
@@ -81,6 +81,9 @@ export default function FilterTabs({ data, filteredProducts }) {
   }; 
 
   useEffect(() => {
+    // console.log(categories);
+    // const subCategoriesList = c.map(category => category.children );
+    // const subCategories = subCategoriesList.reduce((total, current) => [...total, ...current]);
     const getProducts = async () => {
       setLoading(true);
       const res = await getFilteredProducts(activeCat.slug, 'All');
@@ -100,7 +103,7 @@ export default function FilterTabs({ data, filteredProducts }) {
         </div>
         <div className="max-w-full">
           <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" className="filterTabs">
-            {data.map((category, index) => (
+            {categories.map((category, index) => (
               <Tab key={category.id} label={category.name} onClick={() => setActiveCat(category)} style={{fontSize: '0.975rem', minHeight: '3.55rem', padding: '1rem 1.2rem', minWidth: '5.625rem'}} />
             ))}
           </Tabs>
