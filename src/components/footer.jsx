@@ -88,7 +88,7 @@ const Footer = () => {
                     <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-6 md:py-10"><RiMoneyRupeeCircleLine className="text-4xl text-purple-800" /> Best price on the market</li>
                 </ul>
             </section>
-            <section class="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-5 border-b border-gray-300 pt-11 pb-8" style={{fontSize: '0.94rem'}}>
+            <section className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-5 border-b border-gray-300 pt-11 pb-8" style={{fontSize: '0.94rem'}}>
                 {footerLinks.map(item => (
                     <div className="pb-4 ps-8 md:ps-12" key={item.title}>
                         <h5 className="text-lg font-semibold mb-5">{item.title}</h5>

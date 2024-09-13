@@ -877,7 +877,7 @@ const Filter = () => {
                         <div>
                             <ul>
                                 {allCategories.map(i => (
-                                    <li>
+                                    <li key={i.id}>
                                         <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={checked} onChange={handleChange} inputProps={{ 'aria-label': 'controlled' }} /> } label={i.name} />
                                     </li>
                                 ))}

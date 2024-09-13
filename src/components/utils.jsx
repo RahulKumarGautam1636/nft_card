@@ -154,8 +154,8 @@ export function DescriptionTabs({ tabs, reviews }) {
           </p>
         </div>
         <div className={`tab-item p-4 ${value === 1 ? 'block' : 'hidden'} `}>
-          <div class="table-responsive">
-              <table class="table table-bordered text-left w-full">
+          <div className="table-responsive">
+              <table className="table table-bordered text-left w-full">
                 <tbody>
                   <tr>
                     <th>Stand Up</th>
