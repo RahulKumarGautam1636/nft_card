@@ -4,14 +4,16 @@ import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import { FaListUl } from "react-icons/fa";
 import { BsFillGridFill, BsGrid3X3GapFill  } from "react-icons/bs";
-
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { ProductCard } from '@/components/cards';
+// import { useSelector } from 'react-redux';
 
-const Filter = () => {
+export const FilterSection = ({ cat }) => {
+
+    const categories = cat // useSelector((state) => state.categories);
 
     const allCategories = [
         {
@@ -876,7 +878,7 @@ const Filter = () => {
                         <h2 className="text-xl font-semibold mb-3">Product Categories</h2>
                         <div>
                             <ul>
-                                {allCategories.map(i => (
+                                {categories.categoryList.map(i => (
                                     <li key={i.id}>
                                         <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={checked} onChange={handleChange} inputProps={{ 'aria-label': 'controlled' }} /> } label={i.name} />
                                     </li>
@@ -945,5 +947,3 @@ const Filter = () => {
         </main>
     )
 }
-
-export default Filter;

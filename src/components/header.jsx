@@ -6,14 +6,14 @@ import { IoSearch, IoBagHandleOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { getCategories } from "@/api/api";
 
-const Header = async () => {
+const Header = async ({ categories }) => {
 
-    const categories = await getCategories();
+    // const categories = await getCategories();
 
     return (
         <>
             <p className="text-white bg-purple-700 w-full text-center text-xs py-2">Due to the COVID 19 epidemic, orders may be processed with a slight delay</p>
-            <header className="container mx-auto">
+            <header className="container mx-auto invisible">
                 <nav className="text-nowrap py-3 md:py-6 px-4 flex items-center gap-4 justify-between md:mb-3">
                     <Link href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />

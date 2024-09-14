@@ -35,6 +35,18 @@ const { navToggled } = navSlice.actions;
 const navReducer = navSlice.reducer;
 
 
+const categorySlice = createSlice({
+  name: 'CATEGORIES', initialState: '',
+  reducers: {
+    categoryToggled: (state, action) => { 
+      return action.payload;  
+    }
+  }
+})
+const { categoryToggled } = navSlice.actions;
+const categoryReducer = categorySlice.reducer;
 
 
-export { modalToggled, modalReducer, navToggled, navReducer };                                          
+
+
+export { modalToggled, modalReducer, navToggled, navReducer, categoryToggled, categoryReducer };                                          
