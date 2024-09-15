@@ -17,8 +17,6 @@ export default async function Product({ params }) {
     { name: 'Reviews (0)', id: 3 }
   ]
 
-  console.log(params.id); 
-
   const product = await getProduct(params.id);
   const reviews = await getReviews(params.id);
   const relatedProducts = await getSubCatProducts(product.subCatId, product.location);

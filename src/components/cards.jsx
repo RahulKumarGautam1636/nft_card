@@ -13,7 +13,7 @@ export const BannerCard = ({ data, classes }) => {
 export const ProductCard = ({ data, classes, styles={} }) => {
   
   return (
-    <div className={`invisible product-card bg-gray-100 max-w-[186px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`} style={{...styles}}>
+    <div className={`product-card bg-gray-100 max-w-[186px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`} style={{...styles}}>
       <div className="card-img h-[215px] lg:h-[230px] overflow-hidden bg-white flex justify-center items-center">
         <Link href={`/product/${data.id}`}>
           <img className="max-w-full max-h-full" src={data.images[0]} alt="product" />

@@ -13,7 +13,7 @@ const Header = async ({ categories }) => {
     return (
         <>
             <p className="text-white bg-purple-700 w-full text-center text-xs py-2">Due to the COVID 19 epidemic, orders may be processed with a slight delay</p>
-            <header className="container mx-auto invisible">
+            <header className="container mx-auto">
                 <nav className="text-nowrap py-3 md:py-6 px-4 flex items-center gap-4 justify-between md:mb-3">
                     <Link href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
@@ -65,14 +65,14 @@ const Header = async ({ categories }) => {
                     </div>
                     <ul className="flex gap-0 md:gap-3 items-center md:flex-wrap text-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
                         <li className="relative group">
-                            <Button className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">Home</Button>
+                            <Button href="/" className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">Home</Button>
                         </li>
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
-                                <Button className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">{i.name}</Button>
+                                <Button href={`/filter/catId/${i.id}`} className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">{i.name}</Button>
                                 {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full left-0 hidden group-hover:block">
                                     {i.children.map(x => (
-                                        <ListItemButton key={x.id} component="a" href="#simple-list" className="hover:bg-purple-100">
+                                        <ListItemButton key={x.id} component="a" href={`/filter/subCatId/${x.id}`} className="hover:bg-purple-100">
                                             <ListItemText primary={x.name} />
                                         </ListItemButton>
                                     ))}

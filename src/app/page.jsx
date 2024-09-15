@@ -1,4 +1,4 @@
-import { getBanners, getCategories, getFeaturedProducts, getFilteredProducts, getHomeBanners, getProducts } from "@/api/api";
+import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, getFilteredProducts, getHomeBanners, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
 import FilterTabs, { HomeBannerSlider, PromoBanner } from "@/components/utils";
 import { Email, Star } from "@mui/icons-material";
@@ -8,8 +8,8 @@ export default async function Home() {   // homeBanners, banners, categories, fi
   
   const homeBanners = await getHomeBanners();
   const banners = await getBanners();
-  const categories = await getCategories();
-  const filteredProducts = await getCatProducts('Fashion', 'All');
+  const categories = await getCategories('home');
+  const filteredProducts = await getCatNameProducts('Fashion', 'All');
   const productsData = await getProducts();
   const featuredProducts = await getFeaturedProducts();
 

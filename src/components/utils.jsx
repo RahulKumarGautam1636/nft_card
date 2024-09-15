@@ -8,7 +8,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
-import { getFilteredProducts } from '@/api/api';
+import { getCatNameProducts } from '@/api/api';
 
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
@@ -86,7 +86,7 @@ export default function FilterTabs({ categories, filteredProducts }) {
     // const subCategories = subCategoriesList.reduce((total, current) => [...total, ...current]);
     const getProducts = async () => {
       setLoading(true);
-      const res = await getFilteredProducts(activeCat.slug, 'All');
+      const res = await getCatNameProducts(activeCat.slug, 'All');
       setProducts(res);
       setLoading(false);
     }

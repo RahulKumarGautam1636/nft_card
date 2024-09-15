@@ -18,7 +18,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const categories = await getCategories();
+  const categories = await getCategories('filter');
 
   return (
     <html lang="en">

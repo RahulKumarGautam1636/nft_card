@@ -11,7 +11,10 @@ import Select from '@mui/material/Select';
 import { ProductCard } from '@/components/cards';
 // import { useSelector } from 'react-redux';
 
-export const FilterSection = ({ cat }) => {
+export const FilterSection = ({ cat, filteredProducts }) => {
+
+    // console.log(filteredProducts);
+    
 
     const categories = cat // useSelector((state) => state.categories);
 
@@ -940,7 +943,7 @@ export const FilterSection = ({ cat }) => {
                         </li>
                     </ul>
                     <div className="grid gap-3 mt-4 product-grid">
-                        {productData.products.map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
+                        {filteredProducts.products.map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
                     </div>
                 </div>
             </div>
