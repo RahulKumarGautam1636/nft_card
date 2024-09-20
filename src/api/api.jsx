@@ -4,17 +4,12 @@ const isLive = true;
 
 const baseURL = 'https://node-server-ecommerce.onrender.com';
 
-export const getHomeBanners = async () => {
-    console.log('getHomeBanners');
-    
-    const res = await axios.get(isLive ? `${baseURL}/api/homeBanner` : 'http://localhost:3000/homeBanners');
-    return res.data;
-}
 
-export const getBanners = async () => {
-    console.log('getBanners');
+export const getBanners = async (type) => {
+    console.log(`getBanners ${type}`);    
+    console.log(`${baseURL}/api/${type}`);
     
-    const res = await axios.get(isLive ? `${baseURL}/api/banners` : 'http://localhost:3000/banners');
+    const res = await axios.get(isLive ? `${baseURL}/api/${type}` : `http://localhost:3000/${type}`);
     return res.data;
 }
 

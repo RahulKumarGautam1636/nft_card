@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
         <StoreProvider>
           <Header categories={categories} />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </StoreProvider>
       </body>
     </html>

@@ -7,7 +7,7 @@ import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
 import { HiMiniArrowUturnLeft } from "react-icons/hi2";
 import BasicTabs, { DescriptionTabs, ProductSlider } from "@/components/utils";
-import { getProduct, getReviews, getSubCatProducts } from "@/api/api";
+import { getProduct, getReviews, getCatIdProducts } from "@/api/api";
 
 export default async function Product({ params }) {
 
@@ -19,7 +19,7 @@ export default async function Product({ params }) {
 
   const product = await getProduct(params.id);
   const reviews = await getReviews(params.id);
-  const relatedProducts = await getSubCatProducts(product.subCatId, product.location);
+  const relatedProducts = await getCatIdProducts('subCatId', product.subCatId, product.location);
 
   // console.log(reviews);
   // console.log(relatedProducts);

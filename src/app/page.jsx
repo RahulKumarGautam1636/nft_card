@@ -1,4 +1,4 @@
-import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, getFilteredProducts, getHomeBanners, getProducts } from "@/api/api";
+import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, getFilteredProducts, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
 import FilterTabs, { HomeBannerSlider, PromoBanner } from "@/components/utils";
 import { Email, Star } from "@mui/icons-material";
@@ -6,8 +6,10 @@ import { Button, ButtonBase } from "@mui/material";
 
 export default async function Home() {   // homeBanners, banners, categories, filteredProducts, productsData, featuredProducts
   
-  const homeBanners = await getHomeBanners();
-  const banners = await getBanners();
+  const homeBanners = await getBanners('homeBanner');
+  const banners = await getBanners('banners');
+  const homeSideBanners = await getBanners('homeSideBanners');
+  const homeBottomBanners = await getBanners('homeBottomBanners');
   const categories = await getCategories('home');
   const filteredProducts = await getCatNameProducts('Fashion', 'All');
   const productsData = await getProducts();
@@ -33,12 +35,17 @@ export default async function Home() {   // homeBanners, banners, categories, fi
         <section className="grid grid-cols-2 lg:grid-cols-10 gap-5">
           <div className="relative col-span-2">
             <div className="sticky top-0 flex lg:flex-col gap-5">
-              <div>
+              {homeSideBanners.map(i => (
+                <div key={i.id}>
+                  <img className="w-full" src={i.images[0]} alt="banner" />
+                </div>
+              ))}
+              {/* <div>
                 <img className="w-full" src="/images/promotions/banner1.jpg" />
               </div>
               <div>
                 <img className="w-full" src="/images/promotions/banner2.jpg" />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-span-8">
@@ -122,6 +129,11 @@ export default async function Home() {   // homeBanners, banners, categories, fi
                 </div>
               </section>
             </div>
+          </div>
+        </section>
+        <section>
+          <div className="mt-4">
+            <PromoBanner banners={homeBottomBanners} />
           </div>
         </section>
       </main>

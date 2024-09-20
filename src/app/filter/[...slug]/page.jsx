@@ -1,4 +1,4 @@
-import { getCategories, getFilteredProducts } from '@/api/api';
+import { getBanners, getCategories, getFilteredProducts } from '@/api/api';
 import { FilterSection } from '../filterSection';
 
 async function Filter({ params }) {
@@ -9,12 +9,11 @@ async function Filter({ params }) {
     const catId = slug[1];
 
     const categories = await getCategories('filter');
-    // const filteredProducts = await getFilteredProducts('66c0dfab3490222862ae78c7', 100, 100000, 'All');
     const filteredProducts = await getFilteredProducts(catType, catId, 100, 100000, 'All');
-    // const filteredProducts = { categoryList: [] };
+    // const homeSideBanners = await getBanners('homeSideBanners');
 
     return (
-        <FilterSection cat={categories} filteredProducts={filteredProducts} />
+        <FilterSection cat={categories} filteredProducts={filteredProducts}  />
     )
 }
 
