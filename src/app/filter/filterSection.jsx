@@ -11,14 +11,15 @@ import Select from '@mui/material/Select';
 import { ProductCard } from '@/components/cards';
 import { Star, StarBorder, StarHalf } from '@mui/icons-material';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { getFilteredProducts } from '@/api/api';
 // import { useRouter } from 'next/router';
 // import { useSelector } from 'react-redux';
 
 export const FilterSection = ({ cat, filteredProducts }) => {  
     
-    const [products, setProducts] = useState({ loading: false, data: {}, err: { status: false, msg: '' }});
+    const [products, setProducts] = useState({ loading: false, data: filteredProducts, err: { status: false, msg: '' }});
     const categories = cat // useSelector((state) => state.categories);
-    // const filters = { rating: '', price: '' };
+    const [filters, setFilters] = useState({ catName: '', catId: '', rating: '', price: [100, 100000] });
     const router = useRouter();
 
     const params = useParams().slug;
@@ -27,28 +28,48 @@ export const FilterSection = ({ cat, filteredProducts }) => {
 
 
     const searchParams = useSearchParams();
-    const minPrice = searchParams.get('minPrice');
-    const maxPrice = searchParams.get('maxPrice');
-    const rating = searchParams.get('rating');       
+    let minPrice = searchParams.get('minPrice') || '';
+    let maxPrice = searchParams.get('maxPrice') || '';
+    let rating = searchParams.get('rating') || '';
+    let location = searchParams.get('location') || '';
 
     const filterProducts = async () => {
-        const filteredProducts = await getFilteredProducts(catName, catId, minPrice, maxPrice, 'All');
-        console.log(filteredProducts);        
+        // if (minPrice || maxPrice || rating) return;
+        setProducts(pre => ({ ...pre, loading: true }));
+        const filterResult = await getFilteredProducts(catName, catId, minPrice=100, maxPrice=100000, location='All');
+        console.log(filterResult);  
+        setTimeout(() => {
+            setProducts(pre => ({ ...pre, loading: false, data: filterResult }));
+        }, [2000])
     }
 
-    // useEffect(async () => {
-    //     // const filteredProducts = await getFilteredProducts(catName, catId, 100, price, 'All');
-    //     console.log(minPrice, maxPrice);        
-    // }, [minPrice, maxPrice])
+    useEffect(() => {
+        filterProducts(catName, catId, minPrice, maxPrice, location);   
+        console.log(catName, catId, minPrice, maxPrice, location);   
+    }, [catName, catId, minPrice, maxPrice, location])
+
+    useEffect(() => {
+        updateFilters(catName, catId, minPrice, maxPrice);   
+    }, [catName, catId, minPrice, maxPrice, rating, location])
+
+    const updateFilters = (catName, catId, minPrice=100, maxPrice=100000) => {
+        setFilters({ catName: catName, catId: catId, rating: rating, price: [minPrice, maxPrice] });
+    }
 
     const handleFilters = () => {
-        router.push(`/product/${catName}/${catId}/?minPrice=${200}&maxPrice=${100000}`);
+        console.log(filters);
+        router.push(`/filter/${filters.catName}/${filters.catId}/?minPrice=${filters.price[0]}&maxPrice=${filters.price[1]}&location=${location}`);
     }
 
     const [checked, setChecked] = useState(true);
 
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
+    const handleCheck = (e, item) => {
+        console.log(item);        
+        if (item.children.length) {
+            setFilters(pre => ({ ...pre, catName: 'catId', catId: item.id }));       
+        } else {
+            setFilters(pre => ({ ...pre, catName: 'subCatId', catId: item.id }));       
+        }
     };
 
     const [age, setAge] = useState('');
@@ -56,6 +77,10 @@ export const FilterSection = ({ cat, filteredProducts }) => {
     const handleChange2 = (event) => {
       setAge(event.target.value);
     };
+
+    const handleRange = (event, newValue) => {
+        setFilters(pre => ({ ...pre, price: newValue }));
+    };       
 
     return (
         <main className='mt-12'>
@@ -65,9 +90,9 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                         <h2 className="text-xl font-semibold mb-3">Product Categories</h2>
                         <div>
                             <ul>
-                                {categories.categoryList.map(i => (
+                                {categories.map(i => (
                                     <li key={i.id}>
-                                        <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={checked} onChange={handleChange} inputProps={{ 'aria-label': 'controlled' }} /> } label={i.name} />
+                                        <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={filters.catId === i.id ? true : false} onChange={(e) => handleCheck(e, i)} inputProps={{ 'aria-label': 'controlled' }} /> } label={i.name} />
                                     </li>
                                 ))}
                             </ul>
@@ -75,7 +100,23 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                     </div>
                     <div className='mb-6'>
                         <h2 className="text-xl font-semibold mb-3">Filter By Price</h2>
-                        <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+                        {/* <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" /> */}
+                        <div>
+                            <Slider
+                                getAriaLabel={() => 'Temperature range'}
+                                value={filters.price}
+                                onChange={handleRange}
+                                // onChangeCommitted={handleRange}
+                                valueLabelDisplay="auto"
+                                getAriaValueText={() => 'Value Text'}
+                                min={100}
+                                max={100000}
+                            />
+                            <div className='flex justify-between items-center'>
+                                <p>₹ {filters.price[0]}</p>
+                                <p>₹ {filters.price[1]}</p>
+                            </div>
+                        </div>
                     </div>
                     <div className='mb-4'>
                         <h2 className="text-xl font-semibold mb-3">Filter By Rating</h2>
@@ -92,10 +133,10 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                         <div>
                             <ul>
                                 <li>
-                                    <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={checked} onChange={handleChange} inputProps={{ 'aria-label': 'controlled' }} /> } label={'In Stock'} />
+                                    <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={checked} onChange={() => {}} inputProps={{ 'aria-label': 'controlled' }} /> } label={'In Stock'} />
                                 </li>
                                 <li>
-                                    <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={checked} onChange={handleChange} inputProps={{ 'aria-label': 'controlled' }} /> } label={'In Sale'} />
+                                    <FormControlLabel control={<Checkbox className='py-[0.35rem]' checked={checked} onChange={() => {}} inputProps={{ 'aria-label': 'controlled' }} /> } label={'In Sale'} />
                                 </li>
                             </ul>
                         </div>
@@ -138,8 +179,9 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                             </FormControl>
                         </li>
                     </ul>
-                    <div className="grid gap-3 mt-4 product-grid">
-                        {filteredProducts.products.map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
+                    <div className="grid gap-3 mt-4 product-grid relative">
+                        {products.loading ? <div className='absolute inset-0 z-10 flex justify-center items-center' style={{background: '#f8f8f8ad'}}><img src='/loader.svg' alt='loading..' /></div> : ''}
+                        {products.data.products.map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
                     </div>
                 </div>
             </div>

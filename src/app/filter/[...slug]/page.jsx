@@ -9,11 +9,12 @@ async function Filter({ params }) {
     const catId = slug[1];
 
     const categories = await getCategories('filter');
+    const allCategories = categories.categoryList.map(i => i.children).reduce((all, current) => [ ...all, ...current ]);
     const filteredProducts = await getFilteredProducts(catType, catId, 100, 100000, 'All');
     // const homeSideBanners = await getBanners('homeSideBanners');
 
     return (
-        <FilterSection cat={categories} filteredProducts={filteredProducts}  />
+        <FilterSection cat={allCategories} filteredProducts={filteredProducts}  />
     )
 }
 

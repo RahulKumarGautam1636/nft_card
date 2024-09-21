@@ -69,5 +69,3 @@ export const getFilteredProducts = async (catType, id, minPrice, maxPrice, locat
     return res.data;
 }
 
-// https://node-server-ecommerce.onrender.com/api/products/fiterByPrice?minPrice=100&maxPrice=100000&subCatId=66c0dfab3490222862ae78c7&location=All
-
