@@ -68,11 +68,11 @@ const Header = async ({ categories }) => {
                             <div className="minicart min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full right-0 hidden group-hover:block"> 
                                 <div className="p-4">
                                     <ul>
-                                        {[1,2,3].map(i => (
+                                        {[1,2,3,4].map(i => (
                                             <li key={i}>
                                                 <div className="minicart-card flex gap-3 p-2 relative">
                                                     <div className="h-20 w-20">
-                                                        <img className="rounded" src="/images/categories/3.jpg" alt="Product" />
+                                                        <img className="rounded" src={`/images/categories/${i}.jpg`} alt="Product" />
                                                     </div>
                                                     <div className="text-start border-b border-gray-300 pr-[3.6rem]">
                                                         <h4 className="text-gray-900 mb-1" style={{fontSize: '1rem'}}>All Natural Italian Style</h4>
@@ -88,16 +88,16 @@ const Header = async ({ categories }) => {
                                         <h3 className="text-blue-800 font-semibold">$ 230.00</h3>
                                     </div>
                                     <div className="flex gap-2">
-                                        <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 flex-1">Visit Cart</Button>
+                                        <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 flex-1" href="/cart">Visit Cart</Button>
                                         <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 flex-1">Checkout</Button>
                                     </div>
                                 </div>
-                                <div className="text-center">
+                                {/* <div className="text-center">
                                     <div className="p-5 pt-8 flex justify-center border-b border-gray-300">
                                         <IoMdCart className="text-[6rem] text-pink-700" />
                                     </div>
                                     <p className="text-gray-700 text-[1rem] py-4 px-16">Your Cart is Empty</p>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <Button className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>

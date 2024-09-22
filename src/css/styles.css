@@ -53,6 +53,11 @@ html {
     padding: 1rem 1.5rem;
 }
 
+.cart-progress > span {
+    background-color: #e91e63;
+    border-radius: 0.25rem;
+}
+
 
 
 
