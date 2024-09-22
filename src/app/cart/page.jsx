@@ -24,7 +24,7 @@ export default function Cart() {
                                         <th>Remove</th>
                                     </tr>
                                     {[1,2,3].map(i => (
-                                        <tr className="text-gray-700 font-semibold">
+                                        <tr className="text-gray-700 font-semibold" key={i}>
                                             <td className="" style={{paddingRight: 0}}>
                                                 <img className="rounded h-24 w-24" src="/images/categories/3.jpg" alt="Product" />
                                             </td>
