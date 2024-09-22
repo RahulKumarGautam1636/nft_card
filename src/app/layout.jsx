@@ -8,6 +8,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import StoreProvider from "@/lib/storeProvider";
 import { getCategories } from "@/api/api";
+// import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const categories = await getCategories('filter');
+  const categories = await getCategories('filter');   // {categoryList: []}
 
   return (
     <html lang="en">

@@ -62,7 +62,7 @@ export const getCatIdProducts = async (catName, id, location) => {
     return res.data;
 }
 
-export const getFilteredProducts = async (catType, id, minPrice, maxPrice, location) => {
+export const getFilteredProducts = async (catType, id, minPrice=100, maxPrice=100000, location='All') => {
     console.log('getFilteredProducts');
     
     const res = await axios.get(isLive ? `${baseURL}/api/products/fiterByPrice?minPrice=${minPrice}&maxPrice=${maxPrice}&${catType}=${id}&location=${location}` : 'http://localhost:3000/filteredProducts');

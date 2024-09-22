@@ -12,7 +12,6 @@ import { ProductCard } from '@/components/cards';
 import { Star, StarBorder, StarHalf } from '@mui/icons-material';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { getFilteredProducts } from '@/api/api';
-// import { useRouter } from 'next/router';
 // import { useSelector } from 'react-redux';
 
 export const FilterSection = ({ cat, filteredProducts }) => {  
@@ -31,12 +30,11 @@ export const FilterSection = ({ cat, filteredProducts }) => {
     let minPrice = searchParams.get('minPrice') || '';
     let maxPrice = searchParams.get('maxPrice') || '';
     let rating = searchParams.get('rating') || '';
-    let location = searchParams.get('location') || '';
+    let location = searchParams.get('location') || 'All';
 
-    const filterProducts = async () => {
-        // if (minPrice || maxPrice || rating) return;
-        setProducts(pre => ({ ...pre, loading: true }));
-        const filterResult = await getFilteredProducts(catName, catId, minPrice=100, maxPrice=100000, location='All');
+    const filterProducts = async (catName, catId, minPrice=100, maxPrice=100000, location='All') => {
+        setProducts(pre => ({ ...pre, loading: true }));        
+        const filterResult = await getFilteredProducts(catName, catId, minPrice, maxPrice, location);
         console.log(filterResult);  
         setTimeout(() => {
             setProducts(pre => ({ ...pre, loading: false, data: filterResult }));
@@ -44,20 +42,21 @@ export const FilterSection = ({ cat, filteredProducts }) => {
     }
 
     useEffect(() => {
+        if (!minPrice && !maxPrice && !rating) return;
         filterProducts(catName, catId, minPrice, maxPrice, location);   
-        console.log(catName, catId, minPrice, maxPrice, location);   
-    }, [catName, catId, minPrice, maxPrice, location])
+        console.log(catName, catId, minPrice, maxPrice);   
+    }, [catName, catId, minPrice, maxPrice])
 
     useEffect(() => {
-        updateFilters(catName, catId, minPrice, maxPrice);   
-    }, [catName, catId, minPrice, maxPrice, rating, location])
+        updateFilters(catName, catId, minPrice || 100, maxPrice || 100000);   
+    }, [catName, catId, minPrice, maxPrice, rating])
 
-    const updateFilters = (catName, catId, minPrice=100, maxPrice=100000) => {
+    const updateFilters = (catName, catId, minPrice, maxPrice) => {
         setFilters({ catName: catName, catId: catId, rating: rating, price: [minPrice, maxPrice] });
     }
 
+    console.log(filters);
     const handleFilters = () => {
-        console.log(filters);
         router.push(`/filter/${filters.catName}/${filters.catId}/?minPrice=${filters.price[0]}&maxPrice=${filters.price[1]}&location=${location}`);
     }
 
@@ -84,6 +83,7 @@ export const FilterSection = ({ cat, filteredProducts }) => {
 
     return (
         <main className='mt-12'>
+            {products.loading ? <div className='fixed inset-0 z-10 flex justify-center items-center' style={{background: '#f8f8f8ad'}}><img src='/loader.svg' alt='loading..' /></div> : ''}
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div>
                     <div className="mb-6">
@@ -102,16 +102,7 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                         <h2 className="text-xl font-semibold mb-3">Filter By Price</h2>
                         {/* <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" /> */}
                         <div>
-                            <Slider
-                                getAriaLabel={() => 'Temperature range'}
-                                value={filters.price}
-                                onChange={handleRange}
-                                // onChangeCommitted={handleRange}
-                                valueLabelDisplay="auto"
-                                getAriaValueText={() => 'Value Text'}
-                                min={100}
-                                max={100000}
-                            />
+                            <Slider getAriaLabel={() => 'Temperature range'} value={filters.price} onChange={handleRange} valueLabelDisplay="auto" getAriaValueText={() => 'Value Text'} min={100} max={100000} />
                             <div className='flex justify-between items-center'>
                                 <p>₹ {filters.price[0]}</p>
                                 <p>₹ {filters.price[1]}</p>
@@ -122,8 +113,8 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                         <h2 className="text-xl font-semibold mb-3">Filter By Rating</h2>
                         <div>
                             {[5,4,3,2,1].map(i => (
-                                <div className="text-yellow-600 flex gap-2 cursor-pointer">
-                                    {[1,2,3,4,5].map(x => x <= i ? <Star /> : <StarBorder />)}
+                                <div key={i} className="text-yellow-600 flex gap-2 cursor-pointer">
+                                    {[1,2,3,4,5].map(x => x <= i ? <Star key={x} /> : <StarBorder key={x} />)}
                                 </div>
                             ))}
                         </div>
@@ -180,7 +171,6 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                         </li>
                     </ul>
                     <div className="grid gap-3 mt-4 product-grid relative">
-                        {products.loading ? <div className='absolute inset-0 z-10 flex justify-center items-center' style={{background: '#f8f8f8ad'}}><img src='/loader.svg' alt='loading..' /></div> : ''}
                         {products.data.products.map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
                     </div>
                 </div>
