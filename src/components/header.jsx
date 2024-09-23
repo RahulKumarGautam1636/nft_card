@@ -1,5 +1,5 @@
 "use client";
-import { Button, List, ListItemButton, ListItemText } from "@mui/material";
+import { Button, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
@@ -13,10 +13,13 @@ import { IoMdCart } from "react-icons/io";
 import { Modals } from "./modals";
 import { useDispatch } from "react-redux";
 import { modalAction } from "@/lib/slices";
+import { useState } from "react";
+import { BiX } from "react-icons/bi";
 
 const Header = ({ categories }) => {
 
     const dispatch = useDispatch();
+    const [active, setActive] = useState(false);
 
     return (
         <>
@@ -109,20 +112,37 @@ const Header = ({ categories }) => {
                             </div>
                         </div>
                         <Button className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>
-                        <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
+                        <Button onClick={() => setActive(!active)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
                 </nav>
                 <div className="flex justify-between items-start gap-5 px-3">
-                    <div className="relative group hidden md:flex text-nowrap">                        
-                        <Button className="gap-2 bg-purple-800 hover:bg-purple-700 p-2 rounded-full text-white min-w-fit">
+                    <div className="fixed inset-0 bg-slate-600 z-10 md:relative md:bg-transparent group text-nowrap" style={{display: active ? 'flex' : 'none'}}>         {/* hidden md:flex  */}               
+                        <Button className="gap-2 bg-purple-800 hover:bg-purple-700 p-2 rounded-full text-white min-w-fit hidden md:flex">
                             <GiHamburgerMenu />
                             <h4>ALL CATEGORIES</h4>
                             <FaChevronDown />
                         </Button>
-                        <ul className="hidden group-hover:flex flex-col shadow-md border border-gray-200 absolute z-10 top-full left-0 w-full py-2 bg-white">
+                        <ul className={`flex md:hidden md:group-hover:flex relative p-6 flex-col h-full md:h-fit shadow-md border border-gray-200 md:absolute z-10 md:top-full md:left-0 w-full md:py-2 md:px-0 bg-white`}> {/* style={{transform: 'translate(-100%)'}} */}  
+                            <li className="flex justify-between items-center md:hidden">
+                                <Link href={'/'}>
+                                    <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
+                                </Link>
+                                <IconButton className="bg-gray-100 text-[2rem]" onClick={() => setActive(false)}>
+                                    <BiX />
+                                </IconButton>
+                            </li>
+                            <li className="py-5 md:hidden">
+                                <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5 justify-between w-full" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true, data: ''}))}>
+                                    <div className="text-left">
+                                        <span className="name block text-gray-500 text-xs mb-1">Your Location</span>
+                                        <span className="label text-slate-800 text-sm">All</span>
+                                    </div>
+                                    <FaChevronDown />
+                                </Button>
+                            </li>
                             {categories.categoryList.map(i => (
                                 <li className="relative group/subGroup" key={i.id}>
-                                    <Button className="w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2"  href="#contained-buttons">{i.name}</Button>
+                                    <Button className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-3 md:py-2 px-4"  href="#contained-buttons">{i.name}</Button>
                                     {i.children.length ? <ul className="hidden group-hover/subGroup:flex flex-col shadow-md border border-gray-200 absolute z-10 top-0 left-full min-w-full py-2 bg-white">
                                         {i.children.map(x => (
                                             <Button key={x.id} className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2 px-4"  href="#contained-buttons">{x.name}</Button>
@@ -130,15 +150,15 @@ const Header = ({ categories }) => {
                                     </ul> : ''}
                                 </li>
                             ))}
+                            <li className="mt-4 md:hidden">
+                                <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
+                            </li>
                         </ul>
                     </div>
                     <ul className="flex gap-0 md:gap-3 items-center md:flex-wrap text-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
-                        <li className="relative group">
-                            <Button href="/" className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">Home</Button>
-                        </li>
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
-                                <Button href={`/filter/catId/${i.id}`} className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 md:px-4">{i.name}</Button>
+                                <Button href={`/filter/catId/${i.id}`} className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 px-4">{i.name}</Button>
                                 {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full left-0 hidden group-hover:block">
                                     {i.children.map(x => (
                                         <ListItemButton key={x.id} component="a" href={`/filter/subCatId/${x.id}`} className="hover:bg-purple-100">

@@ -1,6 +1,6 @@
 'use client';
 import Slider from 'react-slick';
-import { IconButton } from '@mui/material';
+import { IconButton, Slide } from '@mui/material';
 import { ChevronLeft, Star, StarHalf } from '@mui/icons-material';
 import { BannerCard, ProductCard } from './cards';
 import Tabs from '@mui/material/Tabs';
@@ -315,7 +315,11 @@ export const BasicModal = ({ child, name }) => {
 
   return (
     <Modal className='flex justify-center items-center p-4' open={isActive} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-      {child}
+      <Slide direction="up" in={isActive} mountOnEnter unmountOnExit>
+        <div>
+          {child}
+        </div>
+      </Slide>
     </Modal>
   );
 }
