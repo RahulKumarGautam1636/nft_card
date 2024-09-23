@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { categoryReducer, modalReducer, navReducer } from './slices';
+import { categoryReducer, dataReducer, modalReducer } from './slices';
 
 export const store = () => {
   return configureStore({
     reducer: {
         modals: modalReducer,
-        navMenu: navReducer,
+        siteData: dataReducer,
         categories: categoryReducer
     }
   })

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { BiPhoneCall } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
+import { Email } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 const Footer = () => {
 
@@ -13,10 +15,10 @@ const Footer = () => {
             title: 'FRUIT & VEGETABLES', 
             links: [
                 { name: 'Fresh Vegetables', href: '/' },
-                { name: 'Herbs & Seasonings', href: '/' },
-                { name: 'Fresh Fruits', href: '/' },
-                { name: 'Cuts & Sprouts', href: '/' },
-                { name: 'Exotic Fruits & Veggies', href: '/' },
+                { name: 'Herbs & Seasonings', href: '/cart' },
+                { name: 'Fresh Fruits', href: '/aboutUs' },
+                { name: 'Cuts & Sprouts', href: '/filter/subCatId/66cf36e97f21a4cf0943b0d5' },
+                { name: 'Exotic Fruits & Veggies', href: '/product/66e137f967c833713b2474ac' },
                 { name: 'Packaged Produce', href: '/' },
                 { name: 'Party Trays', href: '/' },
             ]
@@ -80,6 +82,23 @@ const Footer = () => {
     
     return (
         <footer className="footer">
+            <section className="px-3 bg-purple-600 pt-4 pb-4 mt-4 ">
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                <div className="pt-10">
+                    <p className="text-white text-2xl font-semibold">$20 discount for your first order</p>
+                    <h2 className="text-white text-[2.5rem] md:text-5xl my-4 font-bold">Join our newsletter and get...</h2>
+                    <p className="text-gray-300 text-md mb-6 font-semibold">Join our email subscription now to get updates on <br/> promotions and coupons.</p>
+                    <div className="flex gap-2 max-w-[520px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
+                    <Email className="text-4xl my-auto text-gray-500" />
+                    <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Your Email Address" />
+                    <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-7 hover:bg-purple-500">Sign in</Button>
+                    </div>
+                </div>
+                <div className="ms-auto hidden md:block">
+                    <img className="max-w-full max-h-[330px]" src="https://fullstack-ecommerce.netlify.app/static/media/newsletter.5931358dd220a40019fc.png" alt="slide" />
+                </div>
+                </div>
+            </section>
             <section className="mt-4 grid place-items-center border-y border-gray-300">
                 <ul className="container mx-auto flex flex-col md:flex-row ps-10 md:ps-4">
                     <li className="flex-1 flex items-center justify-start md:justify-center gap-4 md:gap-2 py-5 md:py-10"><SiCodefresh className="text-4xl text-purple-800" /> Everyday fresh products</li>

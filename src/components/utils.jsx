@@ -3,12 +3,14 @@ import Slider from 'react-slick';
 import { IconButton } from '@mui/material';
 import { ChevronLeft, Star, StarHalf } from '@mui/icons-material';
 import { BannerCard, ProductCard } from './cards';
-
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 import { getCatNameProducts } from '@/api/api';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { modalAction } from '@/lib/slices';
 
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
@@ -81,9 +83,6 @@ export default function FilterTabs({ categories, filteredProducts }) {
   }; 
 
   useEffect(() => {
-    // console.log(categories);
-    // const subCategoriesList = c.map(category => category.children );
-    // const subCategories = subCategoriesList.reduce((total, current) => [...total, ...current]);
     const getProducts = async () => {
       setLoading(true);
       const res = await getCatNameProducts(activeCat.slug, 'All');
@@ -298,6 +297,26 @@ export function DescriptionTabs({ tabs, reviews }) {
         </div>
       </div>
     </div>
+  );
+}
+
+
+
+
+
+export const BasicModal = ({ child, name }) => {
+
+  const dispatch = useDispatch();
+  const isActive = useSelector((state) => state.modals[name].status);
+
+  const handleClose = () => {
+    dispatch(modalAction({name: name, status: !isActive, data: ''}));
+  }
+
+  return (
+    <Modal className='flex justify-center items-center p-4' open={isActive} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      {child}
+    </Modal>
   );
 }
 

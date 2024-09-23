@@ -82,7 +82,7 @@ export const FilterSection = ({ cat, filteredProducts }) => {
     };       
 
     return (
-        <main className='mt-12'>
+        <main className='mt-12 '>
             {products.loading ? <div className='fixed inset-0 z-10 flex justify-center items-center' style={{background: '#f8f8f8ad'}}><img src='/loader.svg' alt='loading..' /></div> : ''}
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div>

@@ -2,12 +2,12 @@ import { LinearProgress } from "@mui/material";
 import { TiDelete } from "react-icons/ti";
 import { IconButton } from "@mui/material";
 import { BiMinus, BiPlus } from "react-icons/bi";
-import { Email } from "@mui/icons-material";
+import { RiDiscountPercentLine } from "react-icons/ri";
 import { Button } from "@mui/material";
 
 export default function Cart() {
     return (
-        <main className='mt-12'>
+        <main className='mt-12 '>
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div className="w-full">
                     <div className="rounded-lg p-6 border border-gray-300 bg-gray-50 mb-4">
@@ -56,19 +56,20 @@ export default function Cart() {
                                                 <TiDelete className="text-red-600 text-4xl bg-white" style={{fontSize: '1.95rem'}} />
                                             </td>
                                         </tr>
-                                        ))}
-                                        <tr>
-                                            <td colSpan={6}>
-                                                <div className="flex justify-between gap-4 items-center">
-                                                    <div className="flex gap-2 max-w-[520px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
-                                                        <Email className="text-4xl my-auto text-gray-500" />
-                                                        <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Your Email Address" />
-                                                        <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-7 hover:bg-purple-500">Sign in</Button>
-                                                    </div>
-                                                    <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-[0.86rem] px-7 hover:bg-purple-500">Sign in</Button>
+                                    ))}
+                                    <tr>
+                                        <td colSpan={6}>
+                                            <div className="flex justify-between gap-4 items-center">
+                                                <div className="flex gap-2 max-w-[420px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
+                                                    {/* <Email className="text-4xl my-auto text-gray-500" /> */}
+                                                    <RiDiscountPercentLine className="text-[3.25rem] my-auto text-purple-800" />
+                                                    <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Enter Coupon Code" />
+                                                    <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-10 hover:bg-purple-500">Apply Coupon</Button>
                                                 </div>
-                                            </td>
-                                        </tr>
+                                                <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-[0.86rem] px-7 hover:bg-purple-500">Remove All</Button>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

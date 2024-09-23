@@ -1,52 +1,53 @@
+import { locations } from '@/constants';
 import { createSlice } from '@reduxjs/toolkit'
 
 // modal Reducer ---------------------------------------------------------------------------------------------------------
 
-const modals = {                                                  // state of all modals.
-    PARTNER_FORM: {status: false, data: ''},
-    QUOTE_FORM: {status: false, data: ''},
-    FAQ: {status: false, data: ''},
-    RETURN_POLICY: {status: false, data: ''},
+const modals = {                                                 
+    LOCATION_MODAL: {status: false, data: ''},
 };
 
 const modalSlice = createSlice({
   name: 'MODAL', initialState: modals,
   reducers: {
-    modalToggled: (state, action) => { 
+    modalAction: (state, action) => { 
+      let { name, status, data } = action.payload;
       console.log(action); 
-      return {...state, [action.payload.name]: {status: action.payload.status, data: action.payload.data}};
+      return {...state, [name]: {status: status, data: data}};
     },
   }
 })
-const { modalToggled } = modalSlice.actions;
+const { modalAction } = modalSlice.actions;
 const modalReducer = modalSlice.reducer;
 
-// NAV Reducer ---------------------------------------------------------------------------------------------------------
+// Data Reducer ---------------------------------------------------------------------------------------------------------
 
-const navSlice = createSlice({
-  name: 'NAV_MENU', initialState: '#/',
+const initData = { 
+  locations: { current: {id: 3, name: 'Kolkata'}, all: locations }
+}
+
+const dataSlice = createSlice({
+  name: 'SITE_DATA', initialState: initData,
   reducers: {
-    navToggled: (state, action) => { 
+    dataAction: (state, action) => { 
       return action.payload;  
     }
   }
 })
-const { navToggled } = navSlice.actions;
-const navReducer = navSlice.reducer;
+const { dataAction } = dataSlice.actions;
+const dataReducer = dataSlice.reducer;
 
 
 const categorySlice = createSlice({
   name: 'CATEGORIES', initialState: '',
   reducers: {
-    categoryToggled: (state, action) => { 
+    categoryAction: (state, action) => { 
       return action.payload;  
     }
   }
 })
-const { categoryToggled } = navSlice.actions;
+const { categoryAction } = categorySlice.actions;
 const categoryReducer = categorySlice.reducer;
 
 
-
-
-export { modalToggled, modalReducer, navToggled, navReducer, categoryToggled, categoryReducer };                                          
+export { modalAction, modalReducer, dataAction, dataReducer, categoryAction, categoryReducer };                                          

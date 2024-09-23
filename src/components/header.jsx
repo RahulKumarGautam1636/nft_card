@@ -1,3 +1,4 @@
+"use client";
 import { Button, List, ListItemButton, ListItemText } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,24 +10,31 @@ import { GrSecure } from "react-icons/gr";
 import { PiPhoneCallBold } from "react-icons/pi";
 import { TiDelete } from "react-icons/ti";
 import { IoMdCart } from "react-icons/io";
+import { Modals } from "./modals";
+import { useDispatch } from "react-redux";
+import { modalAction } from "@/lib/slices";
 
-const Header = async ({ categories }) => {
+const Header = ({ categories }) => {
 
-    // const categories = await getCategories();
+    const dispatch = useDispatch();
 
     return (
         <>
-            <p className="text-white bg-purple-700 w-full text-center text-xs py-2">Due to the COVID 19 epidemic, orders may be processed with a slight delay</p>
+            <Modals />
+            <p className="text-white bg-purple-700 w-full text-center text-xs py-2 ">Due to the COVID 19 epidemic, orders may be processed with a slight delay</p>
             <div className="border-b border-gray-300 hidden lg:block">
                 <div className="container mx-auto flex justify-between text-sm py-2 px-4">
                     <ul className="flex gap-5">
                         <li>
                             <Link href={'#'}>About Us</Link>
-                        </li>                        <li>
+                        </li>                        
+                        <li>
                             <Link href={'#'}>My Account</Link>
-                        </li>                        <li>
+                        </li>                        
+                        <li>
                             <Link href={'#'}>Wishlist</Link>
-                        </li>                        <li>
+                        </li>                        
+                        <li>
                             <Link href={'#'}>Order Tracking</Link>
                         </li>
                     </ul>
@@ -43,7 +51,7 @@ const Header = async ({ categories }) => {
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1">
                         <div className="hidden md:block">
-                            <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5" style={{border: '1px solid #e0e0e0'}}>
+                            <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true, data: ''}))}>
                                 <div className="text-left">
                                     <span className="name block text-gray-500 text-xs mb-1">Your Location</span>
                                     <span className="label text-slate-800 text-sm">All</span>
@@ -65,7 +73,7 @@ const Header = async ({ categories }) => {
                             <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
                                 <IoBagHandleOutline className="text-2xl text-purple-800"/>
                             </Button>
-                            <div className="minicart min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full right-0 hidden group-hover:block"> 
+                            <div className="minicart min-w-[23rem] absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full right-0 hidden group-hover:block"> 
                                 <div className="p-4">
                                     <ul>
                                         {[1,2,3,4].map(i => (

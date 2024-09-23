@@ -40,7 +40,7 @@ export default async function Product({ params }) {
   // }  
   
   return (
-    <div className="product-page mt-3 py-8 bg-gray-100">  
+    <div className="product-page mt-3 py-8 bg-gray-100 ">  
       <main className="container mx-auto max-w-[1315px]">
         <section className="mx-7 rounded-[1.3rem] p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white">
           <div>

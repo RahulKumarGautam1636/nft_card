@@ -1,7 +1,7 @@
-import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, getFilteredProducts, getProducts } from "@/api/api";
+import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
 import FilterTabs, { HomeBannerSlider, PromoBanner } from "@/components/utils";
-import { Email, Star } from "@mui/icons-material";
+import { Star } from "@mui/icons-material";
 import { Button, ButtonBase } from "@mui/material";
 
 export default async function Home() {   // homeBanners, banners, categories, filteredProducts, productsData, featuredProducts
@@ -16,7 +16,7 @@ export default async function Home() {   // homeBanners, banners, categories, fi
   const featuredProducts = await getFeaturedProducts();
 
   return (
-    <div className="home mt-3">  
+    <div className="home mt-3 ">  
       <HomeBannerSlider homeBanners={homeBanners} />
       <main className="container mx-auto px-3">
         <section className="py-7">
@@ -40,12 +40,6 @@ export default async function Home() {   // homeBanners, banners, categories, fi
                   <img className="w-full" src={i.images[0]} alt="banner" />
                 </div>
               ))}
-              {/* <div>
-                <img className="w-full" src="/images/promotions/banner1.jpg" />
-              </div>
-              <div>
-                <img className="w-full" src="/images/promotions/banner2.jpg" />
-              </div> */}
             </div>
           </div>
           <div className="col-span-8">
@@ -137,23 +131,6 @@ export default async function Home() {   // homeBanners, banners, categories, fi
           </div>
         </section>
       </main>
-      <section className="px-3 bg-purple-600 pt-4 pb-4 mt-4">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-          <div className="pt-10">
-            <p className="text-white text-2xl font-semibold">$20 discount for your first order</p>
-            <h2 className="text-white text-[2.5rem] md:text-5xl my-4 font-bold">Join our newsletter and get...</h2>
-            <p className="text-gray-300 text-md mb-6 font-semibold">Join our email subscription now to get updates on <br/> promotions and coupons.</p>
-            <div className="flex gap-2 max-w-[520px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
-              <Email className="text-4xl my-auto text-gray-500" />
-              <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Your Email Address" />
-              <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-7 hover:bg-purple-500">Sign in</Button>
-            </div>
-          </div>
-          <div className="ms-auto hidden md:block">
-            <img className="max-w-full max-h-[330px]" src="https://fullstack-ecommerce.netlify.app/static/media/newsletter.5931358dd220a40019fc.png" alt="slide" />
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
