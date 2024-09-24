@@ -9,17 +9,38 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { GrSecure } from "react-icons/gr";
 import { PiPhoneCallBold } from "react-icons/pi";
 import { TiDelete } from "react-icons/ti";
-import { IoMdCart } from "react-icons/io";
+import { TbWorldSearch } from "react-icons/tb";
 import { Modals } from "./modals";
 import { useDispatch } from "react-redux";
 import { modalAction } from "@/lib/slices";
-import { useState } from "react";
-import { BiX } from "react-icons/bi";
+import { useEffect, useState } from "react";
+import { BiHeart, BiX } from "react-icons/bi";
+import { ShoppingCart, ShoppingCartOutlined } from "@mui/icons-material";
+import { searchProducts } from "@/api/api";
 
 const Header = ({ categories }) => {
 
     const dispatch = useDispatch();
     const [active, setActive] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [searchKey, setSearchKey] = useState('');
+
+
+    useEffect(() => {
+        const getSearchProducts = async (key) => {
+            const res = await searchProducts(key);
+            if (res) {
+                setProducts(res);
+            }
+        }
+        const timer = setTimeout(() => {
+            if (searchKey.length < 2) return;
+            getSearchProducts(searchKey);  
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [searchKey])
+
 
     return (
         <>
@@ -62,18 +83,52 @@ const Header = ({ categories }) => {
                                 <FaChevronDown />
                             </Button>
                         </div>
-                        <div className="hidden md:block w-full">
-                            <div className="flex gap-3 items-center flex-1 h-full">
-                                <FaChevronLeft className="close-search hidden" />
+                        <div className={`fixed inset-0 bg-gray-50 z-10 md:relative w-full p-7 md:p-0 transition-opacity duration-400 md:opacity-100 ${searchOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                            <div className="flex gap-3 items-center flex-1 h-[3.8rem] md:h-full bg-purple-700 rounded-lg pl-2 md:pl-0">
+                                <FaChevronLeft className="close-search text-white text-[1.7rem] md:hidden" onClick={() => setSearchOpen(false)} />
                                 <div className="relative flex-1 h-full">
-                                    <input className="h-full px-3 py-3 border-2 border-slate-200 bg-slate-100 outline-none text-sm rounded w-full" />
-                                    <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-gray-600"/>
+                                    <input value={searchKey} onChange={(e) => setSearchKey(e.target.value)} placeholder="Search Products.." className="h-full px-3 py-3 border-2 border-slate-200 bg-slate-100 outline-none text-lg rounded w-full" />
+                                    <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-gray-600"/>
+                                </div>
+                            </div>
+                            <div className="max-h-[86vh] overflow-auto relative md:absolute md:top-full md:left-0 md:right-0 z-10">
+                                <div className="minicart w-full bg-white mt-4 shadow-xl border border-gray-200 rounded-lg"> 
+                                    <div className="p-4">
+                                        {products.length ? 
+                                        <ul>
+                                            {products.map(i => (
+                                                <li key={i}>
+                                                    <Link href={`/product/${i.id}`} className="minicart-card flex gap-3 p-2 relative">
+                                                        <div className="h-[5.6rem] w-[5.6rem]">
+                                                            <img className="rounded w-full h-full" src={i.images[0]} alt="Product" />
+                                                        </div>
+                                                        <div className="text-start border-b border-gray-300 flex-1 overflow-hidden">
+                                                            <h4 className="text-gray-900 mb-1 font-semibold" style={{fontSize: '1rem'}}>{i.name}</h4>
+                                                            <p className="text-gray-500"><span className="text-blue-800" style={{fontSize: '1rem'}}>$ {i.price}</span></p>
+                                                        </div>
+                                                        <div className="bg-white z-10 absolute top-[65%] right-0 transform -translate-y-1/2 flex gap-4">
+                                                            <BiHeart className="text-[1.7rem] text-pink-600" />
+                                                            {/* <ShoppingCart className="text-4xl text-green-600" style={{fontSize: '1.75rem'}}/> */}
+                                                            <ShoppingCartOutlined className="text-4xl text-green-600" style={{fontSize: '1.7rem'}} />
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        :
+                                        <div className="text-center">
+                                            <div className="p-5 pt-8 flex justify-center border-b border-gray-300">
+                                                <TbWorldSearch className="text-[6rem] text-pink-700" />
+                                            </div>
+                                            <p className="text-gray-700 text-[1rem] pt-4 px-16">No Results Found</p>
+                                        </div>}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="header-cta flex gap-3">
-                        <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
+                        <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
                         <div className="group relative">
                             <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
                                 <IoBagHandleOutline className="text-2xl text-purple-800"/>
@@ -145,8 +200,8 @@ const Header = ({ categories }) => {
                             </li>
                             {categories.categoryList.map(i => (
                                 <li className="relative group/subGroup" key={i.id}>
-                                    <Button className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-3 md:py-2 px-4"  href="#contained-buttons">{i.name}</Button>
-                                    {i.children.length ? <ul className="hidden group-hover/subGroup:flex flex-col shadow-md border border-gray-200 absolute z-10 top-0 left-full min-w-full py-2 bg-white">
+                                    <Button className="justify-between w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-3 md:py-2 px-4"  href="#contained-buttons">{i.name} {i.children.length ? <FaChevronDown /> : ''}</Button>
+                                    {i.children.length ? <ul className="hidden group-hover/subGroup:flex flex-col shadow-md border border-gray-200 absolute z-10 top-full left-0 md:top-0 md:left-full min-w-full py-2 bg-white">
                                         {i.children.map(x => (
                                             <Button key={x.id} className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2 px-4"  href="#contained-buttons">{x.name}</Button>
                                         ))}

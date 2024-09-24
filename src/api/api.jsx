@@ -69,3 +69,9 @@ export const getFilteredProducts = async (catType, id, minPrice=100, maxPrice=10
     return res.data;
 }
 
+export const searchProducts = async (query) => {    
+    console.log('searchProducts');
+    
+    const res = await axios.get(isLive ? `${baseURL}/api/search?q=${query}` : `http://localhost:3000/api/search?q=${query}`);
+    return res.data;
+}

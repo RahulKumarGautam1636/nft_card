@@ -19,7 +19,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const categories = {categoryList: []} //await getCategories('filter');  
+  const categories = await getCategories('filter');  // {categoryList: []}
 
   return (
     <html lang="en">

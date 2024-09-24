@@ -6,10 +6,10 @@ import { Button, ButtonBase } from "@mui/material";
 
 export default async function Home() {   // homeBanners, banners, categories, filteredProducts, productsData, featuredProducts
   
-  const homeBanners = await getBanners('homeBanner');
-  const banners = await getBanners('banners');
-  const homeSideBanners = await getBanners('homeSideBanners');
-  const homeBottomBanners = await getBanners('homeBottomBanners');
+  const homeBanners =  []; // await getBanners('homeBanner');
+  const banners =  []; // await getBanners('banners');
+  const homeSideBanners =  []; // await getBanners('homeSideBanners');
+  const homeBottomBanners =  []; // await getBanners('homeBottomBanners');
   const categories = await getCategories('home');
   const filteredProducts = await getCatNameProducts('Fashion', 'All');
   const productsData = await getProducts();
