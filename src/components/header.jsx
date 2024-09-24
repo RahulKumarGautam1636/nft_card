@@ -62,11 +62,13 @@ const Header = ({ categories }) => {
                                 <FaChevronDown />
                             </Button>
                         </div>
-                        <div className="hidden md:flex gap-3 items-center flex-1">
-                            <FaChevronLeft className="close-search hidden" />
-                            <div className="relative flex-1 h-full">
-                                <input className="h-full px-3 py-3 border-2 border-slate-200 bg-slate-100 outline-none text-sm rounded w-full" />
-                                <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-gray-600"/>
+                        <div className="hidden md:block w-full">
+                            <div className="flex gap-3 items-center flex-1 h-full">
+                                <FaChevronLeft className="close-search hidden" />
+                                <div className="relative flex-1 h-full">
+                                    <input className="h-full px-3 py-3 border-2 border-slate-200 bg-slate-100 outline-none text-sm rounded w-full" />
+                                    <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-gray-600"/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,13 +118,14 @@ const Header = ({ categories }) => {
                     </div>
                 </nav>
                 <div className="flex justify-between items-start gap-5 px-3">
-                    <div className="fixed inset-0 bg-slate-600 z-10 md:relative md:bg-transparent group text-nowrap" style={{display: active ? 'flex' : 'none'}}>         {/* hidden md:flex  */}               
+                    <div className={`fixed inset-0 bg-opacity-30 z-10 md:relative md:bg-transparent group text-nowrap flex transition-colors md:pointer-events-auto duration-300 ${active ? 'bg-slate-600' : 'pointer-events-none'}`}>         
+                        <div className={`absolute inset-0`} onClick={() => setActive(false)}></div>             
                         <Button className="gap-2 bg-purple-800 hover:bg-purple-700 p-2 rounded-full text-white min-w-fit hidden md:flex">
                             <GiHamburgerMenu />
                             <h4>ALL CATEGORIES</h4>
                             <FaChevronDown />
                         </Button>
-                        <ul className={`flex md:hidden md:group-hover:flex relative p-6 flex-col h-full md:h-fit shadow-md border border-gray-200 md:absolute z-10 md:top-full md:left-0 w-full md:py-2 md:px-0 bg-white`}> {/* style={{transform: 'translate(-100%)'}} */}  
+                        <ul className={`flex md:hidden md:group-hover:flex relative p-6 flex-col max-w-[80%] md:max-w-full h-full md:h-fit shadow-md border border-gray-200 md:absolute z-10 md:top-full transition-all ease-in-out duration-500 ${active ? 'left-0' : 'left-[-105%]'} md:left-0 w-full md:py-2 md:px-0 bg-white`} > {/* style={{left: active ? 0 : '-100%'}} */}  
                             <li className="flex justify-between items-center md:hidden">
                                 <Link href={'/'}>
                                     <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
