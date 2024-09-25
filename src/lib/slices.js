@@ -49,5 +49,22 @@ const categorySlice = createSlice({
 const { categoryAction } = categorySlice.actions;
 const categoryReducer = categorySlice.reducer;
 
+const cartSlice = createSlice({
+  name: 'CART', initialState: {},
+  reducers: {
+    addToCart: (state, action) => { 
+      return { ...state, [action.payload.id]: action.payload };  
+    }, 
+    removeFromCart: (state, action) => {
+      console.log(action.payload);
+      
+      delete state[action.payload];
+      return state;
+    }
+  }
+})
+const { addToCart, removeFromCart } = cartSlice.actions;
+const cartReducer = cartSlice.reducer;
 
-export { modalAction, modalReducer, dataAction, dataReducer, categoryAction, categoryReducer };                                          
+
+export { modalAction, modalReducer, dataAction, dataReducer, categoryAction, categoryReducer, addToCart, removeFromCart, cartReducer };                                          

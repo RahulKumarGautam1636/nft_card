@@ -1,11 +1,18 @@
+"use client";
 import { LinearProgress } from "@mui/material";
 import { TiDelete } from "react-icons/ti";
 import { IconButton } from "@mui/material";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { RiDiscountPercentLine } from "react-icons/ri";
 import { Button } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Cart() {
+
+    const dispatch = useDispatch();
+    const cart = useSelector(state => state.cart);
+    const cartList = Object.values(cart);
+
     return (
         <main className='mt-12 '>
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
@@ -25,16 +32,16 @@ export default function Cart() {
                                         <th>Total</th>
                                         <th>Remove</th>
                                     </tr>
-                                    {[1,2,3].map(i => (
-                                        <tr className="text-gray-700 font-semibold" key={i}>
-                                            <td className="" style={{paddingRight: 0}}>
-                                                <img className="rounded h-24 w-24" src="/images/categories/3.jpg" alt="Product" />
+                                    {cartList.map(i => (
+                                        <tr className="text-gray-700 font-semibold" key={i.id}>
+                                            <td className="w-24" style={{paddingRight: 0}}>
+                                                <img className="rounded h-24" src={i.images[0]} alt="Product" />
                                             </td>
                                             <td className="font-medium text-gray-900">
-                                                Blue Diamond Almonds Lightly Salted
+                                                {i.name}
                                             </td>
                                             <td className="text-gray-500">
-                                                $10.58
+                                                ${i.price}
                                             </td>
                                             <td>
                                                 <div className="flex gap-[1.3rem]">
@@ -50,7 +57,7 @@ export default function Cart() {
                                                 </div>
                                             </td>
                                             <td>
-                                                $21.16
+                                                ${i.price}
                                             </td>
                                             <td>
                                                 <TiDelete className="text-red-600 text-4xl bg-white" style={{fontSize: '1.95rem'}} />

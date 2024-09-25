@@ -11,12 +11,12 @@ import { PiPhoneCallBold } from "react-icons/pi";
 import { TiDelete } from "react-icons/ti";
 import { TbWorldSearch } from "react-icons/tb";
 import { Modals } from "./modals";
-import { useDispatch } from "react-redux";
-import { modalAction } from "@/lib/slices";
+import { useDispatch, useSelector } from "react-redux";
+import { modalAction, removeFromCart } from "@/lib/slices";
 import { useEffect, useState } from "react";
-import { BiHeart, BiX } from "react-icons/bi";
-import { ShoppingCart, ShoppingCartOutlined } from "@mui/icons-material";
+import { BiX } from "react-icons/bi";
 import { searchProducts } from "@/api/api";
+import { ProductCard_2 } from "./cards";
 
 const Header = ({ categories }) => {
 
@@ -25,6 +25,8 @@ const Header = ({ categories }) => {
     const [searchOpen, setSearchOpen] = useState(false);
     const [products, setProducts] = useState([]);
     const [searchKey, setSearchKey] = useState('');
+    const cart = useSelector(state => state.cart);
+    const cartList = Object.values(cart);
 
 
     useEffect(() => {
@@ -46,7 +48,7 @@ const Header = ({ categories }) => {
         <>
             <Modals />
             <p className="text-white bg-purple-700 w-full text-center text-xs py-2 ">Due to the COVID 19 epidemic, orders may be processed with a slight delay</p>
-            <div className="border-b border-gray-300 hidden lg:block">
+            <div className="border-b border-gray-300 hidden lg:block ">
                 <div className="container mx-auto flex justify-between text-sm py-2 px-4">
                     <ul className="flex gap-5">
                         <li>
@@ -70,11 +72,11 @@ const Header = ({ categories }) => {
             </div>
             <header className="container mx-auto">
                 <nav className="text-nowrap py-3 md:py-6 px-4 flex items-center gap-4 justify-between md:mb-3">
-                    <Link href={'/'}>
+                    <Link className="" href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1">
-                        <div className="hidden md:block">
+                        <div className="hidden md:block ">
                             <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true, data: ''}))}>
                                 <div className="text-left">
                                     <span className="name block text-gray-500 text-xs mb-1">Your Location</span>
@@ -83,35 +85,28 @@ const Header = ({ categories }) => {
                                 <FaChevronDown />
                             </Button>
                         </div>
-                        <div className={`fixed inset-0 bg-gray-50 z-10 md:relative w-full p-7 md:p-0 transition-opacity duration-400 md:opacity-100 ${searchOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                        <div className={`fixed inset-0 bg-gray-50 z-10 md:relative w-full p-7 md:p-0 transition-opacity duration-400 md:opacity-100 ${searchOpen ? 'opacity-100' : 'opacity-0 pointer-events-none md:pointer-events-auto'}`}>
                             <div className="flex gap-3 items-center flex-1 h-[3.8rem] md:h-full bg-purple-700 rounded-lg pl-2 md:pl-0">
                                 <FaChevronLeft className="close-search text-white text-[1.7rem] md:hidden" onClick={() => setSearchOpen(false)} />
                                 <div className="relative flex-1 h-full">
-                                    <input value={searchKey} onChange={(e) => setSearchKey(e.target.value)} placeholder="Search Products.." className="h-full px-3 py-3 border-2 border-slate-200 bg-slate-100 outline-none text-lg rounded w-full" />
+                                    <input value={searchKey} onChange={(e) => setSearchKey(e.target.value)} onClick={() => setSearchOpen(true)} placeholder="Search Products.." className="h-full px-3 py-3 border-2 border-slate-200 bg-slate-100 outline-none text-lg rounded w-full" />
                                     <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-gray-600"/>
                                 </div>
                             </div>
-                            <div className="max-h-[86vh] overflow-auto relative md:absolute md:top-full md:left-0 md:right-0 z-10">
+                            {searchOpen ? <div className="max-h-[86vh] overflow-auto relative md:absolute md:top-full md:left-0 md:right-0 z-10">
                                 <div className="minicart w-full bg-white mt-4 shadow-xl border border-gray-200 rounded-lg"> 
                                     <div className="p-4">
                                         {products.length ? 
                                         <ul>
+                                            <li>
+                                                <div className="flex justify-between p-2">
+                                                    <h3 className="text-black">Products Found: {products.length}</h3>
+                                                    <h3 className="text-blue-800 font-semibold" onClick={() => setSearchOpen(false)}>Close</h3>
+                                                </div>
+                                            </li>
                                             {products.map(i => (
-                                                <li key={i}>
-                                                    <Link href={`/product/${i.id}`} className="minicart-card flex gap-3 p-2 relative">
-                                                        <div className="h-[5.6rem] w-[5.6rem]">
-                                                            <img className="rounded w-full h-full" src={i.images[0]} alt="Product" />
-                                                        </div>
-                                                        <div className="text-start border-b border-gray-300 flex-1 overflow-hidden">
-                                                            <h4 className="text-gray-900 mb-1 font-semibold" style={{fontSize: '1rem'}}>{i.name}</h4>
-                                                            <p className="text-gray-500"><span className="text-blue-800" style={{fontSize: '1rem'}}>$ {i.price}</span></p>
-                                                        </div>
-                                                        <div className="bg-white z-10 absolute top-[65%] right-0 transform -translate-y-1/2 flex gap-4">
-                                                            <BiHeart className="text-[1.7rem] text-pink-600" />
-                                                            {/* <ShoppingCart className="text-4xl text-green-600" style={{fontSize: '1.75rem'}}/> */}
-                                                            <ShoppingCartOutlined className="text-4xl text-green-600" style={{fontSize: '1.7rem'}} />
-                                                        </div>
-                                                    </Link>
+                                                <li key={i.id}>
+                                                    <ProductCard_2 data={i} />
                                                 </li>
                                             ))}
                                         </ul>
@@ -124,7 +119,7 @@ const Header = ({ categories }) => {
                                         </div>}
                                     </div>
                                 </div>
-                            </div>
+                            </div> : ''}
                         </div>
                     </div>
                     <div className="header-cta flex gap-3">
@@ -133,20 +128,20 @@ const Header = ({ categories }) => {
                             <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
                                 <IoBagHandleOutline className="text-2xl text-purple-800"/>
                             </Button>
-                            <div className="minicart min-w-[23rem] absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full right-0 hidden group-hover:block"> 
+                            <div className="minicart w-[23rem] absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full right-0 hidden group-hover:block"> 
                                 <div className="p-4">
                                     <ul>
-                                        {[1,2,3,4].map(i => (
-                                            <li key={i}>
+                                        {cartList.map(i => (
+                                            <li key={i.id}>
                                                 <div className="minicart-card flex gap-3 p-2 relative">
                                                     <div className="h-20 w-20">
-                                                        <img className="rounded" src={`/images/categories/${i}.jpg`} alt="Product" />
+                                                        <img className="rounded" src={i.images[0]} alt="Product" />
                                                     </div>
-                                                    <div className="text-start border-b border-gray-300 pr-[3.6rem]">
-                                                        <h4 className="text-gray-900 mb-1" style={{fontSize: '1rem'}}>All Natural Italian Style</h4>
-                                                        <p className="text-gray-500">1 &nbsp;x&nbsp;&nbsp;<span className="text-blue-800" style={{fontSize: '1rem'}}>$7.25</span></p>
+                                                    <div className="text-start border-b border-gray-300 pr-[3.6rem] max-w-full text-nowrap overflow-hidden">
+                                                        <h4 className="text-gray-900 mb-1" style={{fontSize: '1rem'}}>{i.name}</h4>
+                                                        <p className="text-gray-500">1 &nbsp;x&nbsp;&nbsp;<span className="text-blue-800" style={{fontSize: '1rem'}}>${i.price}</span></p>
                                                     </div>
-                                                    <TiDelete className="text-red-600 text-4xl bg-white z-10 absolute top-1/2 right-0 transform -translate-y-1/2 " style={{fontSize: '1.95rem'}} />
+                                                    <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white z-10 absolute top-1/2 right-0 transform -translate-y-1/2 " style={{fontSize: '1.95rem'}} />
                                                 </div>
                                             </li>
                                         ))}
@@ -172,7 +167,7 @@ const Header = ({ categories }) => {
                         <Button onClick={() => setActive(!active)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
                 </nav>
-                <div className="flex justify-between items-start gap-5 px-3">
+                <div className="flex justify-between items-start gap-5 px-3 ">
                     <div className={`fixed inset-0 bg-opacity-30 z-10 md:relative md:bg-transparent group text-nowrap flex transition-colors md:pointer-events-auto duration-300 ${active ? 'bg-slate-600' : 'pointer-events-none'}`}>         
                         <div className={`absolute inset-0`} onClick={() => setActive(false)}></div>             
                         <Button className="gap-2 bg-purple-800 hover:bg-purple-700 p-2 rounded-full text-white min-w-fit hidden md:flex">
