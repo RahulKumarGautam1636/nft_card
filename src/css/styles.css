@@ -1,6 +1,9 @@
 html {
     font-size: 85%;
 }
+body {
+    opacity: 0.1;
+}
 
 .custom-arrow {
     position: absolute;

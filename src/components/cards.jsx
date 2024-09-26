@@ -49,7 +49,7 @@ export const ProductCard_2 = ({ data }) => {
       </div>
       <Link href={`/product/${data.id}`} className="text-start border-b border-gray-300 flex-1 overflow-hidden ">
           <h4 className="text-nowrap text-gray-900 mb-1 font-semibold" style={{fontSize: '1rem'}}>{data.name}</h4>
-          <p className="text-gray-500"><span className="text-blue-800" style={{fontSize: '1rem'}}>$ {data.price}</span></p>
+          <p className="text-gray-500"><span className="text-blue-800" style={{fontSize: '1rem'}}>₹ {data.price}</span></p>
       </Link>
       <div className="bg-white z-10 absolute top-[65%] right-0 transform -translate-y-1/2 flex gap-4">
           <BiHeart className="text-[1.7rem] text-pink-600" />

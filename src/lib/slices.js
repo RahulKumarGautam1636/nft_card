@@ -13,7 +13,7 @@ const modalSlice = createSlice({
     modalAction: (state, action) => { 
       let { name, status, data } = action.payload;
       console.log(action); 
-      return {...state, [name]: {status: status, data: data}};
+      return {...state, [name]: {status: status, data: data ? data : ''}};
     },
   }
 })
@@ -30,11 +30,15 @@ const dataSlice = createSlice({
   name: 'SITE_DATA', initialState: initData,
   reducers: {
     dataAction: (state, action) => { 
-      return action.payload;  
+      return { ...state, ...action.payload };  
+    },
+    toggleLocation: (state, action) => {
+      state.locations = { ...state.locations, ...action.payload };
+      return state;
     }
   }
 })
-const { dataAction } = dataSlice.actions;
+const { dataAction, toggleLocation } = dataSlice.actions;
 const dataReducer = dataSlice.reducer;
 
 
@@ -55,16 +59,29 @@ const cartSlice = createSlice({
     addToCart: (state, action) => { 
       return { ...state, [action.payload.id]: action.payload };  
     }, 
-    removeFromCart: (state, action) => {
-      console.log(action.payload);
-      
+    removeFromCart: (state, action) => {   
       delete state[action.payload];
       return state;
+    },
+    dumpCart: (state, action) => {
+      return {}
     }
   }
 })
-const { addToCart, removeFromCart } = cartSlice.actions;
+const { addToCart, removeFromCart, dumpCart } = cartSlice.actions;
 const cartReducer = cartSlice.reducer;
 
 
-export { modalAction, modalReducer, dataAction, dataReducer, categoryAction, categoryReducer, addToCart, removeFromCart, cartReducer };                                          
+export { 
+  modalAction, 
+  modalReducer, 
+  dataAction, 
+  toggleLocation,
+  dataReducer, 
+  categoryAction, 
+  categoryReducer, 
+  addToCart, 
+  removeFromCart, 
+  dumpCart, 
+  cartReducer
+};                                          

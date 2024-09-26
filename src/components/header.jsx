@@ -26,6 +26,7 @@ const Header = ({ categories }) => {
     const [products, setProducts] = useState([]);
     const [searchKey, setSearchKey] = useState('');
     const cart = useSelector(state => state.cart);
+    const location = useSelector(state => state.siteData.locations.current);
     const cartList = Object.values(cart);
 
 
@@ -77,10 +78,10 @@ const Header = ({ categories }) => {
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1">
                         <div className="hidden md:block ">
-                            <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true, data: ''}))}>
+                            <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true}))}>
                                 <div className="text-left">
                                     <span className="name block text-gray-500 text-xs mb-1">Your Location</span>
-                                    <span className="label text-slate-800 text-sm">All</span>
+                                    <span className="label text-slate-800 text-sm">{location.name}</span>
                                 </div>
                                 <FaChevronDown />
                             </Button>
@@ -137,9 +138,9 @@ const Header = ({ categories }) => {
                                                     <div className="h-20 w-20">
                                                         <img className="rounded" src={i.images[0]} alt="Product" />
                                                     </div>
-                                                    <div className="text-start border-b border-gray-300 pr-[3.6rem] max-w-full text-nowrap overflow-hidden">
-                                                        <h4 className="text-gray-900 mb-1" style={{fontSize: '1rem'}}>{i.name}</h4>
-                                                        <p className="text-gray-500">1 &nbsp;x&nbsp;&nbsp;<span className="text-blue-800" style={{fontSize: '1rem'}}>${i.price}</span></p>
+                                                    <div className="text-start border-b border-gray-300 pr-[3.6rem] max-w-full overflow-hidden">
+                                                        <h4 className="text-gray-900 mb-1 text-nowrap overflow-ellipsis" style={{fontSize: '1rem'}}>{i.name}</h4>
+                                                        <p className="text-gray-500">1 &nbsp;x&nbsp;&nbsp;<span className="text-blue-800" style={{fontSize: '1rem'}}>₹ {i.price}</span></p>
                                                     </div>
                                                     <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white z-10 absolute top-1/2 right-0 transform -translate-y-1/2 " style={{fontSize: '1.95rem'}} />
                                                 </div>
@@ -151,8 +152,12 @@ const Header = ({ categories }) => {
                                         <h3 className="text-blue-800 font-semibold">$ 230.00</h3>
                                     </div>
                                     <div className="flex gap-2">
-                                        <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 flex-1" href="/cart">Visit Cart</Button>
-                                        <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 flex-1">Checkout</Button>
+                                        <Link className="flex-1" href="/cart">
+                                            <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 w-full">Visit Cart</Button>
+                                        </Link>
+                                        <Link className="flex-1" href="/checkout">
+                                            <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
+                                        </Link>
                                     </div>
                                 </div>
                                 {/* <div className="text-center">
@@ -185,7 +190,7 @@ const Header = ({ categories }) => {
                                 </IconButton>
                             </li>
                             <li className="py-5 md:hidden">
-                                <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5 justify-between w-full" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true, data: ''}))}>
+                                <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5 justify-between w-full" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true}))}>
                                     <div className="text-left">
                                         <span className="name block text-gray-500 text-xs mb-1">Your Location</span>
                                         <span className="label text-slate-800 text-sm">All</span>

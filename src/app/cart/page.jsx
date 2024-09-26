@@ -6,6 +6,7 @@ import { BiMinus, BiPlus } from "react-icons/bi";
 import { RiDiscountPercentLine } from "react-icons/ri";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart, dumpCart, removeFromCart } from "@/lib/slices";
 
 export default function Cart() {
 
@@ -35,32 +36,32 @@ export default function Cart() {
                                     {cartList.map(i => (
                                         <tr className="text-gray-700 font-semibold" key={i.id}>
                                             <td className="w-24" style={{paddingRight: 0}}>
-                                                <img className="rounded h-24" src={i.images[0]} alt="Product" />
+                                                <img className="rounded h-24 " src={i.images[0]} alt="Product" />
                                             </td>
                                             <td className="font-medium text-gray-900">
                                                 {i.name}
                                             </td>
-                                            <td className="text-gray-500">
-                                                ${i.price}
+                                            <td className="text-gray-500 text-nowrap">
+                                                ₹ {i.price}
                                             </td>
                                             <td>
                                                 <div className="flex gap-[1.3rem]">
                                                     <div className="text-gray-900 flex items-center gap-[1.3rem]">
-                                                        <IconButton className="bg-gray-100 text-[2rem]">
+                                                        <IconButton onClick={() => dispatch(addToCart({ ...i, qty: i.qty + 1 }))} className="bg-gray-100 text-[2rem] cursor-pointer">
                                                             <BiPlus />
                                                         </IconButton>
-                                                        <span>1</span>
-                                                        <IconButton className="bg-gray-100 text-[2rem]">
+                                                        <span>{i.qty}</span>
+                                                        <IconButton onClick={() => {if (i.qty !== 1) dispatch(addToCart({ ...i, qty: i.qty - 1 }))}} className="bg-gray-100 text-[2rem] cursor-pointer">
                                                             <BiMinus />
                                                         </IconButton>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
-                                                ${i.price}
+                                            <td className="text-nowrap">
+                                                ₹ {i.price * i.qty}
                                             </td>
                                             <td>
-                                                <TiDelete className="text-red-600 text-4xl bg-white" style={{fontSize: '1.95rem'}} />
+                                                <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white cursor-pointer" style={{fontSize: '1.95rem'}} />
                                             </td>
                                         </tr>
                                     ))}
@@ -73,7 +74,7 @@ export default function Cart() {
                                                     <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Enter Coupon Code" />
                                                     <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-10 hover:bg-purple-500">Apply Coupon</Button>
                                                 </div>
-                                                <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-[0.86rem] px-7 hover:bg-purple-500">Remove All</Button>
+                                                <Button onClick={() => dispatch(dumpCart())} className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-[0.86rem] px-7 hover:bg-purple-500">Remove All</Button>
                                             </div>
                                         </td>
                                     </tr>
