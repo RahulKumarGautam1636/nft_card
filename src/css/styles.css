@@ -1,9 +1,9 @@
 html {
     font-size: 85%;
 }
-body {
+/* body {
     opacity: 0.1;
-}
+} */
 
 .custom-arrow {
     position: absolute;
@@ -65,8 +65,28 @@ body {
     font-family: inherit;
 }
 
+/* *::-webkit-scrollbar {
+	width: 5px;
+	background: #e0e0ff;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+	background: #4e97b7;
+	border-radius: 10px;
+} */
+
+.main-search-box {
+    width: clamp(24rem, 38vw, 43rem);
+}
 
 
+@media only screen and (max-width: 768px) {
+    .main-search-box {
+        width: 100%;
+    }
+}
 
 @media only screen and (max-width: 500px) {
     html {
