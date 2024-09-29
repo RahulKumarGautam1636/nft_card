@@ -11,6 +11,7 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalAction } from '@/lib/slices';
+import { BiX } from 'react-icons/bi';
 
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
@@ -304,7 +305,7 @@ export function DescriptionTabs({ tabs, reviews }) {
 
 
 
-export const BasicModal = ({ child, name }) => {
+export const BasicModal = ({ child, name, direction='up', icon=true, canvas }) => {
 
   const dispatch = useDispatch();
   const isActive = useSelector((state) => state.modals[name].status);
@@ -314,12 +315,15 @@ export const BasicModal = ({ child, name }) => {
   }
 
   return (
-    <Modal className='flex justify-center items-center p-4' open={isActive} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-      <Slide direction="up" in={isActive} mountOnEnter unmountOnExit>
-        <div>
+    <Modal className={`flex items-center justify-center ${canvas || 'px-4'}`} open={isActive} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      <Slide direction={direction} in={isActive} mountOnEnter unmountOnExit>
+        <div className='relative max-h-full overflow-auto'>
+          {icon && <IconButton className="bg-gray-100 hover:bg-gray-300 text-[2rem] absolute top-4 right-4" onClick={handleClose}>
+            <BiX />
+          </IconButton>}
           {child}
         </div>
-      </Slide>
+      </Slide>  
     </Modal>
   );
 }

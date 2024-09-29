@@ -2,7 +2,7 @@
 import { Button, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { FaChevronDown, FaChevronLeft, FaHeart, FaRegUser } from "react-icons/fa";
+import { FaChevronDown, FaChevronLeft, FaHeart, FaRegUser, FaUser } from "react-icons/fa";
 import { IoSearch, IoBagHandleOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 // import { getCategories } from "@/api/api";
@@ -179,7 +179,8 @@ const Header = ({ categories }) => {
                                 }
                             </div>
                         </div>
-                        <Button className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>
+                        <Button onClick={() => dispatch(modalAction({name: 'LOGIN_MODAL', status: true}))} className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>
+                        <Button onClick={() => dispatch(modalAction({name: 'LOGIN_MODAL', status: true}))} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><FaUser className="text-2xl text-purple-800"/></Button>
                         <Button onClick={() => setActive(!active)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
                 </nav>

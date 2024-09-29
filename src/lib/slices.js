@@ -5,6 +5,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const modals = {                                                 
     LOCATION_MODAL: {status: false, data: ''},
+    LOGIN_MODAL: {status: true, data: ''},
 };
 
 const modalSlice = createSlice({
