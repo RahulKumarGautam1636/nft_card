@@ -143,7 +143,7 @@ export default function Checkout() {
                     <h2 className="text-xl font-semibold border-b border-gray-300 pb-5">Your Order</h2>
                     <div className="pt-8 flex flex-col gap-4">
                         {cartList.map(i => (
-                            <div className="flex justify-between gap-5 mb-3">
+                            <div className="flex justify-between gap-5 mb-3" key={i.id}>
                                 <h4 className="">{i.name} <span className="text-blue-600 font-semibold">x {i.qty}</span></h4>
                                 <p className="font-semibold text-nowrap">₹ {i.price}</p>
                             </div>
