@@ -81,7 +81,7 @@ const Footer = () => {
 
     
     return (
-        <footer className="footer">
+        <footer className="footer invisible">
             <section className="px-3 bg-purple-600 pt-4 pb-4 mt-4 ">
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                 <div className="pt-10">

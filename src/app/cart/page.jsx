@@ -7,6 +7,10 @@ import { RiDiscountPercentLine } from "react-icons/ri";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, dumpCart, removeFromCart } from "@/lib/slices";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 
 export default function Cart() {
 
@@ -15,7 +19,7 @@ export default function Cart() {
     const cartList = Object.values(cart);
 
     return (
-        <main className='mt-12 '>
+        <main className='mt-5 md:mt-12'>
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div className="w-full">
                     <div className="rounded-lg p-6 border border-gray-300 bg-gray-50 mb-4">
@@ -90,22 +94,34 @@ export default function Cart() {
                             <h4 className="font-semibold">Subtotal</h4>
                             <p className="font-semibold">$29.14</p>
                         </div>
+                        <div className="flex justify-between items-start">
+                            <h4 className="font-semibold pt-2">Shipping Details</h4>
+                            <div>
+                                <FormControl>
+                                    {/* <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel> */}
+                                    <RadioGroup aria-labelledby="demo-radio-buttons-group-label" defaultValue="female" name="radio-buttons-group">
+                                        <FormControlLabel labelPlacement="start" value="female" control={<Radio />} label="Home Delivery" />
+                                        <FormControlLabel labelPlacement="start" value="male" control={<Radio />} label="Local Pickup" />
+                                    </RadioGroup>
+                                </FormControl>
+                            </div>
+                        </div>
                         <div className="flex justify-between">
+                            <h4 className="font-semibold">Delivery Charge</h4>
+                            <p className="font-semibold">$ 50</p>
+                        </div>
+                        {/* <div className="flex justify-between">
                             <h4 className="font-semibold">Deliver To</h4>
                             <p className="">Rahul K. Gautam</p>
                         </div>
                         <div className="flex justify-between">
                             <h4 className="font-semibold">Address:</h4>
-                            <p className="">Madhya Bangla mallick bazar.</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <h4 className="font-semibold">Delivery Charge:</h4>
-                            <p className="font-semibold">$5.00</p>
+                            <p className="">Madhya Bangla mallick bazar.</p>    
                         </div>
                         <div className="flex justify-between">
                             <h4 className="font-semibold">Payment Mode:</h4>
                             <p className="font-semibold">Cash on Delivery</p>
-                        </div>
+                        </div> */}
                         <div className="flex justify-between items-end mt-6 md:mt-28">
                             <h4 className="font-semibold">TOTAL:</h4>
                             <p className="font-semibold text-3xl text-blue-600">$34.14</p>

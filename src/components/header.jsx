@@ -2,7 +2,7 @@
 import { Button, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { FaChevronDown, FaChevronLeft, FaHeart, FaRegUser, FaUser } from "react-icons/fa";
+import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
 import { IoSearch, IoBagHandleOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 // import { getCategories } from "@/api/api";
@@ -14,10 +14,9 @@ import { Modals } from "./modals";
 import { useDispatch, useSelector } from "react-redux";
 import { modalAction, removeFromCart } from "@/lib/slices";
 import { useEffect, useState } from "react";
-import { BiHeart, BiX } from "react-icons/bi";
+import { BiX } from "react-icons/bi";
 import { searchProducts } from "@/api/api";
 import { ProductCard_2 } from "./cards";
-import { LuGift } from "react-icons/lu";
 import { IoMdCart } from "react-icons/io";
 
 const Header = ({ categories }) => {
@@ -125,15 +124,6 @@ const Header = ({ categories }) => {
                     </div>
                     <div className="header-cta flex gap-4 md:gap-7">
                         <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
-                        <Button className="hidden md:flex rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
-                            <BiHeart className="text-2xl text-red-700"/>
-                        </Button>
-                        <Button className="hidden md:flex rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
-                            <LuGift className="text-2xl text-pink-700"/>
-                        </Button>
-                        <Button className="hidden md:flex rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
-                            <FaRegUser className="text-2xl text-pink-700"/>
-                        </Button>
                         <div className="group relative">
                             <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
                                 <IoBagHandleOutline className="text-2xl text-purple-800"/>
@@ -180,7 +170,6 @@ const Header = ({ categories }) => {
                             </div>
                         </div>
                         <Button onClick={() => dispatch(modalAction({name: 'LOGIN_MODAL', status: true}))} className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>
-                        <Button onClick={() => dispatch(modalAction({name: 'LOGIN_MODAL', status: true}))} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><FaUser className="text-2xl text-purple-800"/></Button>
                         <Button onClick={() => setActive(!active)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
                 </nav>

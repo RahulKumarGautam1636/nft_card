@@ -14,7 +14,7 @@ export const Login = () => {
     const [tab, setTab] = useState('login');
 
     return (
-        <div className="login-modal w-screen p-4 md:py-10 bg-gray-400 flex justify-center h-full">
+        <div className="login-modal min-h-screen p-4 md:py-10 bg-gray-400 flex justify-center h-full">
             <div className="container bg-white flex flex-col md:flex-row rounded-2xl h-fit shadow-2xl max-w-[80rem] overflow-hidden">
                 <div className="flex-1 p-12 bg-purple-500">
                     <h2 className="text-3xl md:text-4xl text-center text-white font-semibold">WELCOME TO</h2>
@@ -27,11 +27,11 @@ export const Login = () => {
                         <>
                             <div>
                                 <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaPhoneVolume className="text-purple-700" /> Phone Number</label>
-                                <input className="text-lg px-5 py-[0.9rem] bg-gray-200 w-full mb-7 border border-gray-400 rounded-lg outline-none" type="text" placeholder="Enter your name." />
+                                <input className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full mb-7 border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your name." />
                             </div>
                             <div>
                                 <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaLock className="text-purple-700" /> Your Password</label>
-                                <input className="text-lg px-5 py-[0.9rem] bg-gray-200 w-full mb-12 border border-gray-400 rounded-lg outline-none" type="text" placeholder="Enter your password." />
+                                <input className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full mb-12 border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your password." />
                             </div>
                             <div className="flex items-center mb-6 gap-3">
                                 {/* <Checkbox className='py-[0.35rem]' checked={true} onChange={(e) => {}} inputProps={{ 'aria-label': 'controlled' }} /> */}
@@ -50,19 +50,19 @@ export const Login = () => {
                             <div className="flex gap-4 mb-7">
                                 <div>
                                     <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaRegUser className="text-purple-700" /> Your Name</label>
-                                    <input className="text-lg px-5 py-[0.9rem] bg-gray-200 w-full border border-gray-400 rounded-lg outline-none" type="text" placeholder="Enter your name." />
+                                    <input className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your name." />
                                 </div>
                                 <div>
                                     <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaPhoneVolume className="text-purple-700" /> Phone Number</label>
-                                    <input className="text-lg px-5 py-[0.9rem] bg-gray-200 w-full border border-gray-400 rounded-lg outline-none" type="text" placeholder="Enter phone Number." />
+                                    <input className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter phone Number." />
                                 </div>
                             </div>
                             <div>
                                 <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaLock className="text-purple-700" /> Your Password</label>
-                                <input className="text-lg px-5 py-[0.9rem] bg-gray-200 w-full border mb-12 border-gray-400 rounded-lg outline-none" type="text" placeholder="Enter your password." />
+                                <input className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border mb-12 border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your password." />
                             </div>
                             <div className="flex items-center mb-4 gap-3">
-                                <input type="checkbox" checked />
+                                <input type="checkbox" checked readOnly />
                                 <p>By Signing Up, I Agree with Terms & Conditions.</p>
                             </div>
                             <p className="mb-6 text-sm">Already have an Account please <span className="text-blue-500">Login..</span></p>

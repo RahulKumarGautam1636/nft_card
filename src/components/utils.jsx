@@ -317,7 +317,7 @@ export const BasicModal = ({ child, name, direction='up', icon=true, canvas }) =
   return (
     <Modal className={`flex items-center justify-center ${canvas || 'px-4'}`} open={isActive} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
       <Slide direction={direction} in={isActive} mountOnEnter unmountOnExit>
-        <div className='relative max-h-full overflow-auto'>
+        <div className={`relative max-h-full overflow-auto ${canvas && 'w-full'}`}>
           {icon && <IconButton className="bg-gray-100 hover:bg-gray-300 text-[2rem] absolute top-4 right-4" onClick={handleClose}>
             <BiX />
           </IconButton>}
