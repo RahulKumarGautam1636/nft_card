@@ -1,13 +1,11 @@
 import { Check, Star } from "@mui/icons-material";
-import { Button, IconButton } from "@mui/material";
-import { BiMinus, BiPlus } from "react-icons/bi";
-import { FaExchangeAlt, FaRegHeart } from "react-icons/fa";
 import { SiCodefresh } from "react-icons/si";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
 import { HiMiniArrowUturnLeft } from "react-icons/hi2";
-import BasicTabs, { DescriptionTabs, ProductSlider } from "@/components/utils";
+import { ActionBox, DescriptionTabs, ProductSlider } from "@/components/utils";
 import { getProduct, getReviews, getCatIdProducts } from "@/api/api";
+
 
 export default async function Product({ params }) {
 
@@ -20,24 +18,6 @@ export default async function Product({ params }) {
   const product = await getProduct(params.id);
   const reviews = await getReviews(params.id);
   const relatedProducts = await getCatIdProducts('subCatId', product.subCatId, product.location);
-
-  // console.log(reviews);
-  // console.log(relatedProducts);
-
-  if (!product) {
-    return (
-      <div>Loading...</div>
-    )
-  } 
-  // else {
-  //   return (
-  //     <h2>
-  //       <pre>
-  //         {JSON.stringify(product)}
-  //       </pre>
-  //     </h2>
-  //   )
-  // }  
   
   return (
     <div className="product-page mt-3 py-8 bg-gray-100 ">  
@@ -73,24 +53,7 @@ export default async function Product({ params }) {
               </h5>
               {product.countInStock ? <span className="bg-green-100 text-green-700 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl mt-4 inline-block">In Stock</span> : ''}
               <p className="mt-6 mb-[1.8rem] leading-7">{product.description}</p>
-              <div className="flex gap-[1.3rem]">
-                <div className="text-gray-900 flex items-center gap-[1.3rem]">
-                  <IconButton className="bg-gray-100 text-[2rem]">
-                    <BiPlus />
-                  </IconButton>
-                  <span>1</span>
-                  <IconButton className="bg-gray-100 text-[2rem]">
-                    <BiMinus />
-                  </IconButton>
-                </div>
-                <div className="w-full">
-                  <Button variant="contained" className="rounded-full h-full w-full max-w-[16rem]">Add To Cart</Button>
-                </div>
-              </div>
-              <div className="mt-11">
-                <Button variant="outlined" className="me-4 rounded-full"><FaRegHeart className="me-3"/> Add To Wishlist</Button>
-                <Button variant="text"><FaExchangeAlt className="me-3" /> Compare</Button>
-              </div>
+              <ActionBox product={product} />
               <ul className="mt-11">
                 <li className="mb-[0.65rem]"><Check className="text-green-500 me-3" /> Weight: <span>{product.productWeight.length ? product.productWeight[0] : 'N/A'}</span></li>
                 <li className="mb-[0.65rem]"><Check className="text-green-500 me-3" /> MFG: <span>{new Date(product.dateCreated).toDateString()}</span></li>
@@ -121,3 +84,6 @@ export default async function Product({ params }) {
     </div>
   );
 }
+
+
+

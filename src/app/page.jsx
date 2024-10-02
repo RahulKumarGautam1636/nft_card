@@ -34,7 +34,7 @@ export default async function Home() {   // homeBanners, banners, categories, fi
         </section>
         <section className="grid grid-cols-2 lg:grid-cols-10 gap-5">
           <div className="relative col-span-2">
-            <div className="sticky top-0 flex lg:flex-col gap-5">
+            <div className="sticky top-0 flex lg:flex-col gap-5 invisible">
               {homeSideBanners.map(i => (
                 <div key={i.id}>
                   <img className="w-full" src={i.images[0]} alt="banner" />

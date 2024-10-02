@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { cartReducer, categoryReducer, dataReducer, modalReducer } from './slices';
+import { cartReducer, categoryReducer, dataReducer, modalReducer, wishlistReducer } from './slices';
 
 export const store = () => {
   return configureStore({
@@ -8,6 +8,7 @@ export const store = () => {
         siteData: dataReducer,
         categories: categoryReducer,
         cart: cartReducer,
+        wishlist: wishlistReducer
     }
   })
 }

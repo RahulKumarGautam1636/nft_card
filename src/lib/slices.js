@@ -72,6 +72,24 @@ const cartSlice = createSlice({
 const { addToCart, removeFromCart, dumpCart } = cartSlice.actions;
 const cartReducer = cartSlice.reducer;
 
+const wishlistSlice = createSlice({
+  name: 'WISHLIST', initialState: {},
+  reducers: {
+    addToWishlist: (state, action) => { 
+      return { ...state, [action.payload.id]: action.payload };  
+    }, 
+    removeFromWishlist: (state, action) => {   
+      delete state[action.payload];
+      return state;
+    },
+    dumpWishlist: (state, action) => {
+      return {}
+    }
+  }
+})
+const { addToWishlist, removeFromWishlist, dumpWishlist } = wishlistSlice.actions;
+const wishlistReducer = wishlistSlice.reducer;
+
 
 export { 
   modalAction, 
@@ -84,5 +102,9 @@ export {
   addToCart, 
   removeFromCart, 
   dumpCart, 
-  cartReducer
+  cartReducer,
+  wishlistReducer,
+  addToWishlist,
+  removeFromWishlist,
+  dumpWishlist
 };                                          

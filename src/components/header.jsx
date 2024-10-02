@@ -1,5 +1,5 @@
 "use client";
-import { Button, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
+import { Badge, Button, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
@@ -125,9 +125,11 @@ const Header = ({ categories }) => {
                     <div className="header-cta flex gap-4 md:gap-7">
                         <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
                         <div className="group relative">
-                            <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
-                                <IoBagHandleOutline className="text-2xl text-purple-800"/>
-                            </Button>
+                            <Badge badgeContent={cartList.length} color="primary">
+                                <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
+                                    <IoBagHandleOutline className="text-2xl text-purple-800"/>
+                                </Button>
+                            </Badge>
                             <div className="minicart w-[23rem] absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full right-0 hidden group-hover:block"> 
                                 {cartList.length ? 
                                     <div className="p-4">

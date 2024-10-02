@@ -1,9 +1,13 @@
+'use client';
 import { Star, StarBorder, StarHalf } from "@mui/icons-material";
 import Link from "next/link";
-import { BiHeart } from "react-icons/bi";
-import { ShoppingCart, ShoppingCartOutlined } from "@mui/icons-material";
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/lib/slices";
+import { BiHeart, BiPlus } from "react-icons/bi";
+import { ShoppingCartOutlined } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, addToWishlist } from "@/lib/slices";
+import { IconButton } from "@mui/material";
+import { IoMdHeart } from "react-icons/io";
+import { MdOutlineShoppingCart, MdShoppingCart } from "react-icons/md";
 
 export const BannerCard = ({ data, classes }) => {
 
@@ -15,18 +19,35 @@ export const BannerCard = ({ data, classes }) => {
 }
   
 export const ProductCard = ({ data, classes, styles={} }) => {
-  
+
+  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
+  const cartList = Object.values(cart);
+  const wishlist = useSelector(state => state.wishlist);
+  const wishlistList = Object.values(wishlist);
+  const isAddedToCart = cartList.find(i => i.id === data.id);
+  const isAddedToWishlist = wishlistList.find(i => i.id === data.id);
+
   return (
     <div className={`product-card bg-gray-100 max-w-[186px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`} style={{...styles}}>
-      <div className="card-img h-[215px] lg:h-[230px] overflow-hidden bg-white flex justify-center items-center">
+      <div className="card-img h-[215px] lg:h-[230px] overflow-hidden bg-white flex justify-center items-center relative">
         <Link href={`/product/${data.id}`}>
           <img className="max-w-full max-h-full" src={data.images[0]} alt="product" />
         </Link>
+        {/* <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button> */}
+        <div className="flex gap-3 items-center absolute bottom-[3%] right-[4%]">
+          <IconButton className="bg-gray-50 hover:bg-gray-200 shadow-gray-500 shadow-sm text-[1.35rem] text-red-500 p-[0.4rem]" onClick={() => dispatch(addToWishlist({ ...data, qty: 1 }))}>
+            {isAddedToWishlist ? <IoMdHeart /> : <BiHeart title="Add to cart" />}
+          </IconButton>
+          <IconButton className="bg-gray-50 hover:bg-gray-200 shadow-gray-500 shadow-sm text-[1.35rem] text-purple-500 p-[0.4rem]" onClick={() => dispatch(addToCart({ ...data, qty: 1 }))} >
+            {isAddedToCart ? <MdShoppingCart /> : <MdOutlineShoppingCart title="Add to wishlist" />}
+          </IconButton>
+        </div>
       </div>
       <div className="card-content flex flex-col gap-2 p-3 bg-gray-100">
         <h4 className="text-md font-semibold">{data.name.substr(1, 30)}...</h4>
         {data.countInStock > 0 ? <p className="text-green-600">In Stock</p> : <p className="text-red-600">Out of Stock</p>}
-        <div className="text-yellow-600 flex gap-2">
+        <div className="text-yellow-600 flex gap-[0.4rem]">
           {Array.from(Array(Math.floor(data.rating)).keys()).map(i => (<Star key={i} />))}
           {(data.rating % 1) ? <StarHalf /> : ''}
         </div>

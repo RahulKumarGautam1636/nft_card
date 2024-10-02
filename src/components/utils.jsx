@@ -1,6 +1,6 @@
 'use client';
 import Slider from 'react-slick';
-import { IconButton, Slide } from '@mui/material';
+import { IconButton, Slide, Button } from '@mui/material';
 import { ChevronLeft, Star, StarHalf } from '@mui/icons-material';
 import { BannerCard, ProductCard } from './cards';
 import Tabs from '@mui/material/Tabs';
@@ -8,11 +8,12 @@ import Tab from '@mui/material/Tab';
 import { useEffect, useState } from 'react';
 import { getCatNameProducts } from '@/api/api';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalAction } from '@/lib/slices';
 import { BiX } from 'react-icons/bi';
-
+import { addToCart, addToWishlist } from "@/lib/slices";
+import { BiMinus, BiPlus } from "react-icons/bi";
+import { FaExchangeAlt, FaRegHeart, FaHeart  } from "react-icons/fa";
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
     const Arrow = ({ customClass, onClick, el }) => {
@@ -329,3 +330,44 @@ export const BasicModal = ({ child, name, direction='up', icon=true, canvas }) =
 }
 
 
+export const ActionBox = ({ product }) => {
+
+  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
+  const cartList = Object.values(cart);
+  const isAddedToCart = cartList.find(i => i.id === product.id);
+  const wishlist = useSelector(state => state.wishlist);
+  const wishlistList = Object.values(wishlist);
+  const isAddedToWishlist = wishlistList.find(i => i.id === product.id);
+  const [count, setCount] = useState(1);
+  
+
+  return (
+    <>
+      <div className="flex gap-[1.3rem]">
+        <div className="text-gray-900 flex items-center gap-[1.3rem]">
+          <IconButton className="bg-gray-100 text-[2rem]" onClick={() => setCount(pre => pre + 1)}>
+            <BiPlus />
+          </IconButton>
+          <span>{count}</span>
+          <IconButton className="bg-gray-100 text-[2rem]" onClick={() => {if (count !== 1) setCount(pre => pre - 1)}}>
+            <BiMinus />
+          </IconButton>
+        </div>
+        <div className="w-full">
+          <Button variant="contained" className="rounded-full h-full w-full max-w-[16rem]" onClick={() => dispatch(addToCart({ ...product, qty: count }))}>{isAddedToCart ? 'Added to Cart' : 'Add To Cart'}</Button>
+        </div>
+      </div>
+      <div className="mt-11">
+        <Button variant="outlined" className="me-4 rounded-full" onClick={() => dispatch(addToWishlist({ ...product, qty: 1 }))}>
+          {isAddedToWishlist ? 
+            <><FaHeart  className="me-3" onClick={() => dispatch(addToWishlist({ ...product, qty: 1 }))}/> Added To Wishlist</>
+            : 
+            <><FaRegHeart className="me-3" onClick={() => dispatch(addToWishlist({ ...product, qty: 1 }))}/> Add To Wishlist</>
+          }  
+          </Button>
+        <Button variant="text"><FaExchangeAlt className="me-3" /> Compare</Button>
+      </div>
+    </>
+  )
+}
