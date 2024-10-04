@@ -93,27 +93,36 @@ export const ProductCard = ({ data, classes, styles={} }) => {
 
 export const ProductCard_2 = ({ data }) => {
   const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
+  const cartList = Object.values(cart);
+  const wishlist = useSelector(state => state.wishlist);
+  const wishlistList = Object.values(wishlist);
+  const isAddedToCart = cartList.find(i => i.id === data.id);
+  const isAddedToWishlist = wishlistList.find(i => i.id === data.id);
 
   return (
     <div className="minicart-card flex gap-3 py-2 relative">
-      <div className="h-[6.6rem] w-[6.6rem] ">
-          <img className="rounded w-full h-full" src={data.images[0]} alt="Product" />
+      <div className="h-[6.6rem] w-[6.6rem]">
+          <img className="rounded w-full h-full border border-gray-200" src={data.images[0]} alt="Product" />
       </div>
       <Link href={`/product/${data.id}`} className="text-start border-b border-gray-300 flex-1 overflow-hidden ">
-          <h4 className="text-nowrap text-gray-900 font-semibold overflow-ellipsis overflow-hidden" style={{fontSize: '1rem'}}>{data.name}</h4>
-          <div className="flex gap-[0.65rem] my-[0.45rem] items-end">
-            <span className="text-red-600 text-sm line-through">{data.oldPrice}</span>
-            <span className="text-blue-800" style={{fontSize: '1rem'}}>₹ {data.price}</span>
-            <span className="text-cyan-100 bg-cyan-700 text-sm font-medium py-[0.15rem] px-[0.6rem] rounded-2xl inline-block">{data.discount}% OFF</span>
+          <h4 className="text-nowrap text-gray-900 font-semibold overflow-ellipsis overflow-hidden" style={{fontSize: '0.95rem'}}>{data.name}</h4>
+          <div className="flex gap-[0.65rem] my-[0.55rem] items-end">
+            <span className="text-red-600 text-[0.75rem] line-through">{data.oldPrice}</span>
+            <span className="text-blue-800" style={{fontSize: '0.88rem'}}>₹ {data.price}</span>
+            <span className="text-cyan-100 bg-cyan-700 text-[0.75rem] font-medium py-[0.15rem] px-[0.6rem] rounded-2xl inline-block">{data.discount}% OFF</span>
           </div>
           <div className="text-yellow-600 flex cursor-pointer">
-              {[1,2,3,4,5].map(x => <Star key={x} className="text-[1.4rem]" />)}
+              {[1,2,3,4,5].map(x => <Star key={x} className="text-[1.2rem]" />)}
           </div>
       </Link>
-      <div className="bg-white z-10 absolute top-[65%] right-0 transform -translate-y-1/2 flex gap-4">
-          <BiHeart className="text-[1.7rem] text-pink-600" />
-          {/* <ShoppingCart className="text-4xl text-green-600" style={{fontSize: '1.75rem'}}/> */}
-          <ShoppingCartOutlined onClick={() => dispatch(addToCart({ ...data, qty: 1 }))} className="text-4xl text-green-600" style={{fontSize: '1.7rem'}} />
+      <div className="bg-white z-10 absolute top-[65%] right-0 transform -translate-y-1/2 flex gap-2">
+          <IconButton>
+            {isAddedToWishlist ? <IoMdHeart className="text-[1.7rem] text-pink-600" /> : <BiHeart className="text-[1.7rem] text-pink-600" title="Add to wishlist" onClick={() => dispatch(addToWishlist({ ...data, qty: 1 }))} />}
+          </IconButton>
+          <IconButton>
+            {isAddedToCart ? <MdShoppingCart className="text-[1.7rem] text-green-600" /> : <MdOutlineShoppingCart className="text-[1.7rem] text-green-600" title="Add to cart" onClick={() => dispatch(addToCart({ ...data, qty: 1 }))} />}
+          </IconButton>
       </div>
   </div>
   )

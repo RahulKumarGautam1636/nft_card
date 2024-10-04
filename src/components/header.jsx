@@ -2,7 +2,7 @@
 import { Badge, Button, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
+import { FaChevronDown, FaChevronLeft, FaRegUser } from "react-icons/fa";
 import { IoSearch, IoBagHandleOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 // import { getCategories } from "@/api/api";
@@ -13,11 +13,12 @@ import { TbWorldSearch } from "react-icons/tb";
 import { Modals } from "./modals";
 import { useDispatch, useSelector } from "react-redux";
 import { modalAction, removeFromCart } from "@/lib/slices";
-import { useEffect, useState } from "react";
-import { BiX } from "react-icons/bi";
+import { useEffect, useRef, useState } from "react";
+import { BiX, BiHeart } from "react-icons/bi";
 import { searchProducts } from "@/api/api";
 import { ProductCard_2 } from "./cards";
 import { IoMdCart } from "react-icons/io";
+import { LuGift } from "react-icons/lu";
 
 const Header = ({ categories }) => {
 
@@ -26,6 +27,7 @@ const Header = ({ categories }) => {
     const [searchOpen, setSearchOpen] = useState(false);
     const [products, setProducts] = useState([]);
     const [searchKey, setSearchKey] = useState('');
+    const searchBoxRef = useRef();
     const cart = useSelector(state => state.cart);
     const location = useSelector(state => state.siteData.locations.current);
     const cartList = Object.values(cart);
@@ -44,6 +46,16 @@ const Header = ({ categories }) => {
         }, 500);
         return () => clearTimeout(timer);
     }, [searchKey])
+
+    useEffect(() => {
+        const onBodyClick = (event) => {
+          if (searchBoxRef.current && searchBoxRef.current.contains(event.target)) return;               
+          setSearchOpen(false);                                                                                                                                                                          
+          setProducts([]);                                                                                                   
+        }                                                                                                                       
+        document.body.addEventListener('click', onBodyClick, { capture: true });                                                
+        return () => document.body.removeEventListener('click', onBodyClick, { capture: true });                                
+    }, [])    
 
 
     return (
@@ -77,8 +89,8 @@ const Header = ({ categories }) => {
                     <Link className="" href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
                     </Link>
-                    <div className="header-search-box flex gap-4 w-full flex-1 ms-auto">
-                        <div className="hidden md:block ms-auto">
+                    <div className="header-search-box flex gap-4 w-full flex-1 mx-auto">
+                        <div className="hidden md:block">
                             <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true}))}>
                                 <div className="text-left">
                                     <span className="name block text-gray-500 text-xs mb-1">Your Location</span>
@@ -87,7 +99,7 @@ const Header = ({ categories }) => {
                                 <FaChevronDown />
                             </Button>
                         </div>
-                        <div className={`main-search-box fixed inset-0 bg-gray-50 z-10 md:relative w-full p-6 md:p-0 transition-opacity duration-400 md:opacity-100 ${searchOpen ? 'opacity-100' : 'opacity-0 pointer-events-none md:pointer-events-auto'}`}>
+                        <div ref={searchBoxRef} className={`main-search-box fixed inset-0 bg-gray-50 z-10 md:relative w-full p-6 md:p-0 transition-opacity duration-400 md:opacity-100 ${searchOpen ? 'opacity-100' : 'opacity-0 pointer-events-none md:pointer-events-auto'}`}>
                             <div className="flex gap-3 items-center flex-1 h-[3.8rem] md:h-full bg-purple-700 rounded-lg pl-2 md:pl-0">
                                 <FaChevronLeft className="close-search text-white text-[1.7rem] md:hidden" onClick={() => setSearchOpen(false)} />
                                 <div className="relative flex-1 h-full">
@@ -123,6 +135,9 @@ const Header = ({ categories }) => {
                         </div>
                     </div>
                     <div className="header-cta flex gap-4 md:gap-7">
+                        <Link href={'/wishlist'}><Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><BiHeart className="text-2xl text-purple-800"/></Button></Link>
+                        <Link href={'/myOrders'}><Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
+                        <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><FaRegUser className="text-2xl text-purple-800"/></Button>
                         <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
                         <div className="group relative">
                             <Badge badgeContent={cartList.length} color="primary">

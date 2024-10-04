@@ -62,20 +62,20 @@ html {
 }
 
 .css-10hburv-MuiTypography-root, button {
-    font-family: inherit;
+    font-family: inherit !important;
 }
 
-/* *::-webkit-scrollbar {
+*::-webkit-scrollbar {
 	width: 5px;
-	background: #e0e0ff;
+	background: #ffffff;
 }
 body::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
 }
 *::-webkit-scrollbar-thumb {
-	background: #4e97b7;
+	background: #c4c4c4;
 	border-radius: 10px;
-} */
+}
 
 .main-search-box {
     width: clamp(24rem, 38vw, 43rem);

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const isLive = true;
-const emptyRes = false;
+const emptyRes = true;
 
 const baseURL = 'https://node-server-ecommerce.onrender.com';
 

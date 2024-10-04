@@ -11,6 +11,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
+import Link from "next/link";
 
 export default function Cart() {
 
@@ -127,8 +128,12 @@ export default function Cart() {
                             <p className="font-semibold text-3xl text-blue-600">$34.14</p>
                         </div>
                         <div className="flex gap-2">
-                            <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 flex-1">My Orders</Button>
-                            <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 flex-1">Checkout</Button>
+                            <Link className="flex-1" href={`/myOrders`}>
+                                <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 w-full">My Orders</Button>
+                            </Link>
+                            <Link className="flex-1" href={`/checkout`}>
+                                <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

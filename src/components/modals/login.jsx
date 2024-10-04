@@ -14,11 +14,12 @@ export const Login = () => {
     const [tab, setTab] = useState('login');
 
     return (
-        <div className="login-modal min-h-screen p-4 md:py-10 bg-gray-400 flex justify-center h-full">
-            <div className="container bg-white flex flex-col md:flex-row rounded-2xl h-fit shadow-2xl max-w-[80rem] overflow-hidden">
-                <div className="flex-1 p-12 bg-purple-500">
-                    <h2 className="text-3xl md:text-4xl text-center text-white font-semibold">WELCOME TO</h2>
-                    <Image src={'/images/logo.jpg'} className="rounded-md mx-auto mt-10" width={150} height={50} alt="Logo" />
+        <div className="login-modal min-h-screen p-4 md:py-10 bg-gray-200 flex justify-center h-full">
+            <div className="container bg-white flex flex-col md:flex-row rounded-2xl h-fit max-w-[80rem] overflow-hidden shadow-md shadow-gray-400">
+                <div className="flex-1 px-2 py-8 md:px-8 md:py-12 bg-purple-500">
+                    {/* <h2 className="text-3xl md:text-4xl text-center text-white font-semibold">WELCOME TO</h2> */}
+                    <Image src={'/images/logo.jpg'} className="rounded-md mx-auto mt-0 md:mt-10" width={150} height={50} alt="Logo" />
+                    <img src={'/online-shop.png'} className="mx-auto max-h-[24rem] md:max-h-[32rem]" alt="Logo" />
                 </div>
                 <div className="flex-1 p-7 md:p-12 flex flex-col items-center">
                     <div className="max-w-[35rem] w-full">

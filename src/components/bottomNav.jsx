@@ -28,7 +28,7 @@ export const BottomNav = () => {
                     </Link>
                 </li>
                 <li className="flex-1">
-                    <Link className="flex flex-col gap-[0.5em] items-center pt-[0.7em] pb-[0.2em]" href='/orders'>
+                    <Link className="flex flex-col gap-[0.5em] items-center pt-[0.7em] pb-[0.2em]" href='/myOrders'>
                         <LuGift className="text-[1.7em] text-purple-600" /> Orders
                     </Link>
                 </li>
