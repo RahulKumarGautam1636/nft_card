@@ -29,8 +29,10 @@ const Header = ({ categories }) => {
     const [searchKey, setSearchKey] = useState('');
     const searchBoxRef = useRef();
     const cart = useSelector(state => state.cart);
+    const wishlist = useSelector(state => state.wishlist);
     const location = useSelector(state => state.siteData.locations.current);
     const cartList = Object.values(cart);
+    const wishlistList = Object.values(wishlist);
 
 
     useEffect(() => {
@@ -85,7 +87,7 @@ const Header = ({ categories }) => {
                 </div>
             </div>
             <header className="container mx-auto">
-                <nav className="text-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
+                <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
                     <Link className="" href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
                     </Link>
@@ -135,12 +137,14 @@ const Header = ({ categories }) => {
                         </div>
                     </div>
                     <div className="header-cta flex gap-4 md:gap-7">
-                        <Link href={'/wishlist'}><Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><BiHeart className="text-2xl text-purple-800"/></Button></Link>
+                        <Badge badgeContent={wishlistList.length} color="warning" className="font-semibold">
+                            <Link href={'/wishlist'}><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><BiHeart className="text-2xl text-purple-800"/></Button></Link>
+                        </Badge>
                         <Link href={'/myOrders'}><Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
                         <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><FaRegUser className="text-2xl text-purple-800"/></Button>
                         <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
                         <div className="group relative">
-                            <Badge badgeContent={cartList.length} color="primary">
+                            <Badge badgeContent={cartList.length} color="info" className="font-semibold">
                                 <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}>
                                     <IoBagHandleOutline className="text-2xl text-purple-800"/>
                                 </Button>
@@ -150,16 +154,16 @@ const Header = ({ categories }) => {
                                     <div className="p-4">
                                         <ul>
                                             {cartList.map(i => (
-                                                <li key={i.id}>
-                                                    <div className="minicart-card flex gap-3 p-2 relative">
+                                                <li key={i.id} className="overflow-hidden relative">
+                                                    <div className="minicart-card inline-flex gap-3 p-2">
                                                         <div className="h-20 w-20">
-                                                            <img className="rounded" src={i.images[0]} alt="Product" />
+                                                            <img className="rounded h-full w-full" src={i.images[0]} alt="Product" />
                                                         </div>
-                                                        <div className="text-start border-b border-gray-300 pr-[3.6rem] max-w-full overflow-hidden">
-                                                            <h4 className="text-gray-900 mb-1 text-nowrap overflow-ellipsis" style={{fontSize: '1rem'}}>{i.name}</h4>
+                                                        <div className="text-start border-b border-gray-300">
+                                                            <h4 className="text-gray-900 mb-1 whitespace-nowrap overflow-ellipsis" style={{fontSize: '0.95rem'}}>{i.name}</h4>
                                                             <p className="text-gray-500">1 &nbsp;x&nbsp;&nbsp;<span className="text-blue-800" style={{fontSize: '1rem'}}>₹ {i.price}</span></p>
                                                         </div>
-                                                        <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white z-10 absolute top-1/2 right-0 transform -translate-y-1/2 " style={{fontSize: '1.95rem'}} />
+                                                        <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white z-10 absolute top-1/2 right-0 transform -translate-y-1/2 cursor-pointer" style={{fontSize: '1.95rem'}} />
                                                     </div>
                                                 </li>
                                             ))}
@@ -191,7 +195,7 @@ const Header = ({ categories }) => {
                     </div>
                 </nav>
                 <div className="flex justify-between items-start gap-5 px-3 ">
-                    <div className={`fixed inset-0 bg-opacity-30 z-10 md:relative md:bg-transparent group text-nowrap flex transition-colors md:pointer-events-auto duration-300 ${active ? 'bg-slate-600' : 'pointer-events-none'}`}>         
+                    <div className={`fixed inset-0 bg-opacity-30 z-10 md:relative md:bg-transparent group whitespace-nowrap flex transition-colors md:pointer-events-auto duration-300 ${active ? 'bg-slate-600' : 'pointer-events-none'}`}>         
                         <div className={`absolute inset-0`} onClick={() => setActive(false)}></div>             
                         <Button className="gap-2 bg-purple-800 hover:bg-purple-700 p-2 rounded-full text-white min-w-fit hidden md:flex">
                             <GiHamburgerMenu />
@@ -231,7 +235,7 @@ const Header = ({ categories }) => {
                             </li>
                         </ul>
                     </div>
-                    <ul className="flex gap-0 md:gap-3 items-center md:flex-wrap text-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
+                    <ul className="flex gap-0 md:gap-3 items-center md:flex-wrap whitespace-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
                                 <Button href={`/filter/catId/${i.id}`} className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 px-4">{i.name}</Button>

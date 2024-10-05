@@ -45,7 +45,7 @@ export default function Wishlist() {
                                             <td className="font-medium text-gray-900">
                                                 {i.name}
                                             </td>
-                                            <td className="text-gray-500 text-nowrap">
+                                            <td className="text-gray-500 whitespace-nowrap">
                                                 ₹ {i.price}
                                             </td>
                                             <td>
@@ -61,7 +61,7 @@ export default function Wishlist() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="text-nowrap">
+                                            <td className="whitespace-nowrap">
                                                 ₹ {i.price * i.qty}
                                             </td>
                                             <td>

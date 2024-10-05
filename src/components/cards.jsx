@@ -106,7 +106,7 @@ export const ProductCard_2 = ({ data }) => {
           <img className="rounded w-full h-full border border-gray-200" src={data.images[0]} alt="Product" />
       </div>
       <Link href={`/product/${data.id}`} className="text-start border-b border-gray-300 flex-1 overflow-hidden ">
-          <h4 className="text-nowrap text-gray-900 font-semibold overflow-ellipsis overflow-hidden" style={{fontSize: '0.95rem'}}>{data.name}</h4>
+          <h4 className="whitespace-nowrap text-gray-900 font-semibold overflow-ellipsis overflow-hidden" style={{fontSize: '0.95rem'}}>{data.name}</h4>
           <div className="flex gap-[0.65rem] my-[0.55rem] items-end">
             <span className="text-red-600 text-[0.75rem] line-through">{data.oldPrice}</span>
             <span className="text-blue-800" style={{fontSize: '0.88rem'}}>₹ {data.price}</span>

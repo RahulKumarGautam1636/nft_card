@@ -7,11 +7,12 @@ import { RiDiscountPercentLine } from "react-icons/ri";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, dumpCart, removeFromCart } from "@/lib/slices";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
+// import Radio from '@mui/material/Radio';
+// import RadioGroup from '@mui/material/RadioGroup';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import FormControl from '@mui/material/FormControl';
 import Link from "next/link";
+// import { useState } from "react";
 
 export default function Cart() {
 
@@ -19,14 +20,13 @@ export default function Cart() {
     const cart = useSelector(state => state.cart);
     const cartList = Object.values(cart);
 
+    const cartItemsValueList = cartList.map(item => item.qty * item.price);                           // Array of all item's price * quantity selected.
+    const cartSubtotal = cartItemsValueList.reduce((total, num) => total + num, 0).toFixed(2); 
+
     return (
         <main className='mt-5 md:mt-12'>
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div className="w-full">
-                    <div className="rounded-lg p-6 border border-gray-300 bg-gray-50 mb-4">
-                        <p className="mb-4">Add <span className="text-red-500 font-bold text-xl mx-2">$20.86</span> more to cart and get free shipping!</p>
-                        <LinearProgress className="rounded h-[0.5rem] cart-progress bg-pink-100" variant="determinate" value={50} />
-                    </div>
                     <div className="rounded-lg border border-gray-300 bg-gray-50">
                         <div className="table-responsive overflow-auto">
                             <table className="table-type-1 w-full min-w-[720px]">
@@ -46,7 +46,7 @@ export default function Cart() {
                                             <td className="font-medium text-gray-900">
                                                 {i.name}
                                             </td>
-                                            <td className="text-gray-500 text-nowrap">
+                                            <td className="text-gray-500 whitespace-nowrap">
                                                 ₹ {i.price}
                                             </td>
                                             <td>
@@ -62,7 +62,7 @@ export default function Cart() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="text-nowrap">
+                                            <td className="whitespace-nowrap">
                                                 ₹ {i.price * i.qty}
                                             </td>
                                             <td>
@@ -88,52 +88,58 @@ export default function Cart() {
                         </div>
                     </div>
                 </div>
-                <div className="rounded-lg p-6 border border-gray-300 w-full max-w-[35rem]">
-                    <h2 className="text-xl font-semibold border-b border-gray-300 pb-5">Cart Totals</h2>
-                    <div className="pt-8 flex flex-col gap-4">
-                        <div className="flex justify-between">
-                            <h4 className="font-semibold">Subtotal</h4>
-                            <p className="font-semibold">$29.14</p>
-                        </div>
-                        <div className="flex justify-between items-start">
-                            <h4 className="font-semibold pt-2">Shipping Details</h4>
-                            <div>
-                                <FormControl>
-                                    {/* <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel> */}
-                                    <RadioGroup aria-labelledby="demo-radio-buttons-group-label" defaultValue="female" name="radio-buttons-group">
-                                        <FormControlLabel labelPlacement="start" value="female" control={<Radio />} label="Home Delivery" />
-                                        <FormControlLabel labelPlacement="start" value="male" control={<Radio />} label="Local Pickup" />
-                                    </RadioGroup>
-                                </FormControl>
+
+                <div className="w-full max-w-[35rem]">
+                    <div className="rounded-lg p-6 border border-gray-300 bg-gray-50 mb-4">
+                        <p className="mb-4">Add <span className="text-red-500 font-bold text-xl mx-2">₹ 75</span> more to cart and get free shipping!</p>
+                        <LinearProgress className="rounded h-[0.5rem] cart-progress bg-pink-100" variant="determinate" value={50} />
+                    </div>
+                    <div className="rounded-lg p-6 border border-gray-300">
+                        <h2 className="text-xl font-semibold border-b border-gray-300 pb-5">Cart Totals</h2>
+                        <div className="pt-8 flex flex-col gap-4">
+                            <div className="flex justify-between">
+                                <h4 className="font-semibold">Subtotal</h4>
+                                <p className="font-semibold">₹ {cartSubtotal}</p>
                             </div>
-                        </div>
-                        <div className="flex justify-between">
-                            <h4 className="font-semibold">Delivery Charge</h4>
-                            <p className="font-semibold">$ 50</p>
-                        </div>
-                        {/* <div className="flex justify-between">
-                            <h4 className="font-semibold">Deliver To</h4>
-                            <p className="">Rahul K. Gautam</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <h4 className="font-semibold">Address:</h4>
-                            <p className="">Madhya Bangla mallick bazar.</p>    
-                        </div>
-                        <div className="flex justify-between">
-                            <h4 className="font-semibold">Payment Mode:</h4>
-                            <p className="font-semibold">Cash on Delivery</p>
-                        </div> */}
-                        <div className="flex justify-between items-end mt-6 md:mt-28">
-                            <h4 className="font-semibold">TOTAL:</h4>
-                            <p className="font-semibold text-3xl text-blue-600">$34.14</p>
-                        </div>
-                        <div className="flex gap-2">
-                            <Link className="flex-1" href={`/myOrders`}>
-                                <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 w-full">My Orders</Button>
-                            </Link>
-                            <Link className="flex-1" href={`/checkout`}>
-                                <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
-                            </Link>
+                            {/* <div className="flex justify-between items-start">
+                                <h4 className="font-semibold pt-2">Shipping Details</h4>
+                                <div>
+                                    <FormControl>
+                                        <RadioGroup aria-labelledby="demo-radio-buttons-group-label" defaultValue="female" name="radio-buttons-group" value={deliveryType} onChange={(e) => setDeliveryType(e.target.value)}>
+                                            <FormControlLabel labelPlacement="start" value="home-delivery" control={<Radio />} label="Home Delivery" />
+                                            <FormControlLabel labelPlacement="start" value="local-pickup" control={<Radio />} label="Local Pickup" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </div>
+                            </div> */}
+                            <div className="flex justify-between">
+                                <h4 className="font-semibold">Discount Coupon</h4>
+                                <p className="font-semibold">N/A</p>
+                            </div>
+                            {/* <div className="flex justify-between">
+                                <h4 className="font-semibold">Deliver To</h4>
+                                <p className="">Rahul K. Gautam</p>
+                            </div>
+                            <div className="flex justify-between">
+                                <h4 className="font-semibold">Address:</h4>
+                                <p className="">Madhya Bangla mallick bazar.</p>    
+                            </div>
+                            <div className="flex justify-between">
+                                <h4 className="font-semibold">Payment Mode:</h4>
+                                <p className="font-semibold">Cash on Delivery</p>
+                            </div> */}
+                            <div className="flex justify-between items-end mt-6 md:mt-28">
+                                <h4 className="font-semibold">TOTAL:</h4>
+                                <p className="font-semibold text-3xl text-blue-600">₹ {cartSubtotal}</p>
+                            </div>
+                            <div className="flex gap-2">
+                                <Link className="flex-1" href={`/myOrders`}>
+                                    <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 w-full">My Orders</Button>
+                                </Link>
+                                <Link className="flex-1" href={`/checkout`}>
+                                    <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

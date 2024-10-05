@@ -6,12 +6,19 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
+import { useState } from "react";
 
 export default function Checkout() {
 
     // const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
     const cartList = Object.values(cart);
+    
+    const [deliveryType, setDeliveryType] = useState('Home Delivery');
+    const cartItemsValueList = cartList.map(item => item.qty * item.price);                           
+    const cartSubtotal = cartItemsValueList.reduce((total, num) => total + num, 0).toFixed(2); 
+    const deliveryCharge = deliveryType === 'Home Delivery' ? 50 : 0;
+    const grandTotal = parseFloat(cartSubtotal) + deliveryCharge;
 
     return (
         <main className='mt-5 md:mt-12'>
@@ -40,7 +47,7 @@ export default function Checkout() {
                                             <td className="font-medium text-gray-900">
                                                 {i.name}
                                             </td>
-                                            <td className="text-gray-500 text-nowrap">
+                                            <td className="text-gray-500 whitespace-nowrap">
                                                 ₹ {i.price}
                                             </td>
                                             <td>
@@ -56,7 +63,7 @@ export default function Checkout() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="text-nowrap">
+                                            <td className="whitespace-nowrap">
                                                 ₹ {i.price * i.qty}
                                             </td>
                                             <td>
@@ -127,11 +134,11 @@ export default function Checkout() {
                             </div>
                             <div className="flex items-center mb-4 gap-3 pt-3">
                                 <input type="checkbox" checked readOnly />
-                                <p>Create an account ?</p>
+                                <p>Please add your address correctly.</p>
                             </div>
                             <div className="flex items-center mb-6 gap-3">
                                 <input type="checkbox" checked readOnly />
-                                <p>Ship to a different address ?</p>
+                                <p>Make sure your PIN Code is correct.</p>
                             </div>
                             <div>
                                 <textarea className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
@@ -145,12 +152,12 @@ export default function Checkout() {
                         {cartList.map(i => (
                             <div className="flex justify-between gap-5 mb-3" key={i.id}>
                                 <h4 className="">{i.name} <span className="text-blue-600 font-semibold">x {i.qty}</span></h4>
-                                <p className="font-semibold text-nowrap">₹ {i.price}</p>
+                                <p className="font-semibold whitespace-nowrap">₹ {i.price}</p>
                             </div>
                         ))}
                         <div className="flex justify-between border-y border-gray-200 py-3 mb-3">
                             <h4 className="font-semibold">Subtotal</h4>
-                            <p className="font-semibold">$29.14</p>
+                            <p className="font-semibold">₹ {cartSubtotal}</p>
                         </div>
                         <div className="flex justify-between">
                             <h4 className="font-semibold">Deliver To</h4>
@@ -161,19 +168,19 @@ export default function Checkout() {
                             <p className="">Madhya Bangla mallick bazar.</p>
                         </div>
                         <div className="flex justify-between items-start">
-                            <h4 className="font-semibold pt-2">Shipping Details</h4>
+                            <h4 className="font-semibold pt-2">Delivery Type</h4>
                             <div>
                                 <FormControl>
-                                    <RadioGroup aria-labelledby="demo-radio-buttons-group-label" defaultValue="female" name="radio-buttons-group">
-                                        <FormControlLabel labelPlacement="start" value="female" control={<Radio />} label="Home Delivery" />
-                                        <FormControlLabel labelPlacement="start" value="male" control={<Radio />} label="Local Pickup" />
+                                    <RadioGroup aria-labelledby="demo-radio-buttons-group-label" defaultValue="female" name="radio-buttons-group" value={deliveryType} onChange={(e) => setDeliveryType(e.target.value)}>
+                                        <FormControlLabel labelPlacement="start" value="Home Delivery" control={<Radio />} label="Home Delivery" />
+                                        <FormControlLabel labelPlacement="start" value="Local Pickup" control={<Radio />} label="Local Pickup" />
                                     </RadioGroup>
                                 </FormControl>
                             </div>
                         </div>
                         <div className="flex justify-between">
                             <h4 className="font-semibold">Delivery Charge:</h4>
-                            <p className="font-semibold">$5.00</p>
+                            <p className="font-semibold">₹ {deliveryCharge}</p>
                         </div>
                         <div className="flex justify-between">
                             <h4 className="font-semibold">Payment Mode:</h4>
@@ -181,7 +188,7 @@ export default function Checkout() {
                         </div>
                         <div className="flex justify-between items-end mt-6 md:mt-28">
                             <h4 className="font-semibold">TOTAL:</h4>
-                            <p className="font-semibold text-3xl text-blue-600">$34.14</p>
+                            <p className="font-semibold text-3xl text-blue-600">₹ {grandTotal}</p>
                         </div>
                         <div className="flex gap-2">
                             <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 font-bold flex-1">PLACE ORDER</Button>
