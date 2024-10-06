@@ -25,3 +25,5 @@ export const locations = [
     { id: 24, name: 'Nashik' },
     { id: 25, name: 'Faridabad' },
 ]
+
+export const NEXT_APP_BASE_URL = 'https://myapps.gsterpsoft.com';

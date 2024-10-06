@@ -74,7 +74,6 @@ export default function Cart() {
                                         <td colSpan={6}>
                                             <div className="flex justify-between gap-4 items-center">
                                                 <div className="flex gap-2 max-w-[420px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
-                                                    {/* <Email className="text-4xl my-auto text-gray-500" /> */}
                                                     <RiDiscountPercentLine className="text-[3.25rem] my-auto text-purple-800" />
                                                     <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Enter Coupon Code" />
                                                     <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-10 hover:bg-purple-500">Apply Coupon</Button>

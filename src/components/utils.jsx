@@ -14,6 +14,7 @@ import { BiX } from 'react-icons/bi';
 import { addToCart, addToWishlist } from "@/lib/slices";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { FaExchangeAlt, FaRegHeart, FaHeart  } from "react-icons/fa";
+import CryptoJS from 'crypto-js';
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
     const Arrow = ({ customClass, onClick, el }) => {
@@ -370,4 +371,25 @@ export const ActionBox = ({ product }) => {
       </div>
     </>
   )
+}
+
+
+export const handleNumberInputs = (e, setStateName) => {
+  const {name, value} = e.target;
+  const re = /^[0-9\b]+$/;
+  if (value === '' || re.test(value)) {
+   setStateName(preValue => {
+       return {...preValue, [name]: value};
+     });
+  }
+}
+
+export const encrypt = (data) => '' //CryptoJS.AES.encrypt(JSON.stringify(data), process.env.REACT_APP_SECRET_KEY).toString();
+
+export const decrypt = (data) => {
+  // if (!data) return false;
+  // if (data.length > 200) return false;
+  // var bytes  = CryptoJS.AES.decrypt(data, process.env.REACT_APP_SECRET_KEY);
+  // var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+  // return decryptedData;
 }

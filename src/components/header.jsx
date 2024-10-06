@@ -29,6 +29,8 @@ const Header = ({ categories }) => {
     const [searchKey, setSearchKey] = useState('');
     const searchBoxRef = useRef();
     const cart = useSelector(state => state.cart);
+    const isLoggedIn = useSelector(state => state.isLoggedIn);
+    const user = useSelector(state => state.user);
     const wishlist = useSelector(state => state.wishlist);
     const location = useSelector(state => state.siteData.locations.current);
     const cartList = Object.values(cart);
@@ -91,7 +93,7 @@ const Header = ({ categories }) => {
                     <Link className="" href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
                     </Link>
-                    <div className="header-search-box flex gap-4 w-full flex-1 mx-auto">
+                    <div className="header-search-box flex gap-4 w-full flex-1 mx-auto justify-center">
                         <div className="hidden md:block">
                             <Button className="gap-4 bg-slate-50 pt-[0.6rem] pb-1 ps-4 pe-5" style={{border: '1px solid #e0e0e0'}} onClick={() => dispatch(modalAction({name: 'LOCATION_MODAL', status: true}))}>
                                 <div className="text-left">
@@ -136,12 +138,10 @@ const Header = ({ categories }) => {
                             </div> : ''}
                         </div>
                     </div>
-                    <div className="header-cta flex gap-4 md:gap-7">
-                        <Badge badgeContent={wishlistList.length} color="warning" className="font-semibold">
-                            <Link href={'/wishlist'}><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><BiHeart className="text-2xl text-purple-800"/></Button></Link>
+                    <div className="header-cta flex gap-4 md:gap-7 items-center">
+                        <Badge badgeContent={wishlistList.length} color="warning" className="font-semibold hidden md:block">
+                            <Link href={'/wishlist'}><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><BiHeart className="text-2xl text-purple-800"/></Button></Link>
                         </Badge>
-                        <Link href={'/myOrders'}><Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
-                        <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><FaRegUser className="text-2xl text-purple-800"/></Button>
                         <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
                         <div className="group relative">
                             <Badge badgeContent={cartList.length} color="info" className="font-semibold">
@@ -190,7 +190,25 @@ const Header = ({ categories }) => {
                                 }
                             </div>
                         </div>
-                        <Button onClick={() => dispatch(modalAction({name: 'LOGIN_MODAL', status: true}))} className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>
+                        {isLoggedIn ?
+                            <>
+                                <Link href={'/myOrders'}><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
+                                <div className="hidden md:block">
+                                    <Button className="gap-4 bg-slate-50 p-2" style={{border: '1px solid #d8d8d8'}}>
+                                        <div className="p-[0.8rem] rounded-lg bg-pink-600">
+                                            <FaRegUser className="text-2xl text-white"/>
+                                        </div>
+                                        <div className="text-left">
+                                            <span className="label text-slate-800 text-sm block mb-1">{user.Name}</span>
+                                            <span className="name text-gray-500 text-sm">{user.RegMob1}</span>
+                                        </div>
+                                        <FaChevronDown />
+                                    </Button>
+                                </div>
+                            </>
+                            :
+                            <Button onClick={() => dispatch(modalAction({name: 'LOGIN_MODAL', status: true}))} className="bg-purple-600 text-white rounded-lg py-3 px-5 hover:bg-purple-400 hidden md:block">Sign in</Button>
+                        }
                         <Button onClick={() => setActive(!active)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
                 </nav>

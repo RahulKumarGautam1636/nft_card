@@ -3,6 +3,49 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // modal Reducer ---------------------------------------------------------------------------------------------------------
 
+const loginSlice = createSlice({
+name: 'IS_LOGGED_IN', initialState: false,
+reducers: {
+  loginAction: (state, action) => { 
+    return action.payload;
+  },
+}
+})
+const { loginAction } = loginSlice.actions;
+const loginReducer = loginSlice.reducer;
+
+let currentUser = {
+  Name: '',
+  EncCompanyId: 'FFCeIi27FQMTNGpatwiktw==',
+  PartyCode: '',
+  RegMob1: '',
+  Address: '',
+  UserPassword: '',
+  UserType: 'Customer',
+  State: '3',
+  StateName: 'West Bengal',
+  City: '',
+  Pin: '',
+  Address2: '',
+}
+
+const userSlice = createSlice({
+name: 'USER', initialState: currentUser,
+reducers: {
+  addUser: (state, action) => { 
+    return Object.assign(state, action.payload);                 
+  },
+  dumpUser: (state, action) => { 
+    return currentUser;                 
+  }
+}
+})
+const { addUser, dumpUser } = userSlice.actions;
+const userReducer = userSlice.reducer;
+
+
+// modal Reducer ---------------------------------------------------------------------------------------------------------
+
 const modals = {                                                 
     LOCATION_MODAL: {status: false, data: ''},
     LOGIN_MODAL: {status: false, data: ''},
@@ -92,19 +135,11 @@ const wishlistReducer = wishlistSlice.reducer;
 
 
 export { 
-  modalAction, 
-  modalReducer, 
-  dataAction, 
-  toggleLocation,
-  dataReducer, 
-  categoryAction, 
-  categoryReducer, 
-  addToCart, 
-  removeFromCart, 
-  dumpCart, 
-  cartReducer,
-  wishlistReducer,
-  addToWishlist,
-  removeFromWishlist,
-  dumpWishlist
+  userReducer, addUser, dumpUser,
+  loginReducer, loginAction,
+  modalAction, modalReducer, 
+  dataAction, dataReducer, toggleLocation,
+  categoryAction, categoryReducer, 
+  addToCart, removeFromCart, dumpCart, cartReducer,
+  wishlistReducer, addToWishlist, removeFromWishlist, dumpWishlist
 };                                          

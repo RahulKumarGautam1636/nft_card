@@ -12,6 +12,7 @@ export default function Checkout() {
 
     // const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
+    const user = useSelector(state => state.user);
     const cartList = Object.values(cart);
     
     const [deliveryType, setDeliveryType] = useState('Home Delivery');
@@ -91,45 +92,45 @@ export default function Checkout() {
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> First Name</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.Name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Last Name</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.Name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Phone Number</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.RegMob1} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Email address *</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.Email} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Street Address *</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.Address} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Town / City *</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.City} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> State *</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.StateName} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> ZIP Code *</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={user.Pin} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Country</label>
-                                    <input className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={'India'} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
                             <div className="flex items-center mb-4 gap-3 pt-3">
@@ -159,13 +160,13 @@ export default function Checkout() {
                             <h4 className="font-semibold">Subtotal</h4>
                             <p className="font-semibold">₹ {cartSubtotal}</p>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between gap-12 text-end">
                             <h4 className="font-semibold">Deliver To</h4>
-                            <p className="">Rahul K. Gautam</p>
+                            <p className="">{user.Name} &nbsp;<span className="text-sm font-semibold">({user.RegMob1})</span></p>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between gap-12 text-end">
                             <h4 className="font-semibold">Address:</h4>
-                            <p className="">Madhya Bangla mallick bazar.</p>
+                            <p className="">{user.Address}</p>
                         </div>
                         <div className="flex justify-between items-start">
                             <h4 className="font-semibold pt-2">Delivery Type</h4>
