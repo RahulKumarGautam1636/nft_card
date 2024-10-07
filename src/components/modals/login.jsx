@@ -137,12 +137,12 @@ export const Login = () => {
         if (loginData.phone.length < 10) return alert('Please enter a valid phone number.');
         if (loginData.phone.length < 4) return alert('Minimum length for password is 4.');
         console.log(loginData);        
-        makeLoginRequest();
+        makeLoginRequest(loginData);
     }
 
-    const makeLoginRequest = async () => {
+    const makeLoginRequest = async (params) => {
         // loaderAction(true);
-        const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${loginData.phone}&UP=${loginData.password}&CID=${compCode}`);
+        const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.phone}&UP=${params.password}&CID=${compCode}`);
         // loaderAction(false);
         if (res.data.Remarks === 'INVALID') {
           setLoginError({status: true, message: 'The username or password is incorrect.'});
@@ -152,7 +152,7 @@ export const Login = () => {
             dispatch(addUser(res.data));
             dispatch(loginAction(true));
             dispatch(modalAction({name: 'LOGIN_MODAL', status: false}));
-            localStorage.setItem("userLogin", JSON.stringify({ phone: loginData.phone, password: loginData.password, compCode: compCode }));
+            localStorage.setItem("userLogin", JSON.stringify({ phone: params.phone, password: params.password, compCode: compCode }));
         //   let userLoginData = {
         //                         Name: res.data.UserFullName,
         //                         RegMob1: loginData.phone,

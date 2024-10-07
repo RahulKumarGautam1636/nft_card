@@ -12,13 +12,15 @@ import { TiDelete } from "react-icons/ti";
 import { TbWorldSearch } from "react-icons/tb";
 import { Modals } from "./modals";
 import { useDispatch, useSelector } from "react-redux";
-import { modalAction, removeFromCart } from "@/lib/slices";
+import { addUser, loginAction, modalAction, removeFromCart } from "@/lib/slices";
 import { useEffect, useRef, useState } from "react";
 import { BiX, BiHeart } from "react-icons/bi";
 import { searchProducts } from "@/api/api";
 import { ProductCard_2 } from "./cards";
 import { IoMdCart } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
+import { NEXT_APP_BASE_URL } from "@/constants";
+import axios from "axios";
 
 const Header = ({ categories }) => {
 
@@ -61,6 +63,29 @@ const Header = ({ categories }) => {
         return () => document.body.removeEventListener('click', onBodyClick, { capture: true });                                
     }, [])    
 
+    useEffect(() => {
+        const makeLoginRequest = async (params) => {
+            let compCode = 'FFCeIi27FQMTNGpatwiktw==';
+            // loaderAction(true);
+            const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.phone}&UP=${params.password}&CID=${compCode}`);
+            // loaderAction(false);
+            if (res.data.Remarks === 'INVALID') {
+                console.log('The username or password is incorrect.');
+            } else if (res.data.Remarks === 'NOTINCOMPANY') {
+                console.log('User is not Registered in this Company.');
+            } else {           
+                dispatch(addUser(res.data));
+                dispatch(loginAction(true));
+             }
+        }
+        const autoLogin = () => {
+            const savedLoginData = JSON.parse(localStorage.getItem('userLogin'));
+            if (savedLoginData && savedLoginData.compCode) {
+                makeLoginRequest({ phone: savedLoginData.phone, password: savedLoginData.password, compCode: savedLoginData.compCode });
+            }
+        } 
+        autoLogin();                            
+    }, [])    
 
     return (
         <>
@@ -90,7 +115,7 @@ const Header = ({ categories }) => {
             </div>
             <header className="container mx-auto">
                 <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
-                    <Link className="" href={'/'}>
+                    <Link className="invisible" href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1 mx-auto justify-center">

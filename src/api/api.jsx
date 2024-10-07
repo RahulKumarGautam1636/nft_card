@@ -3,8 +3,8 @@ import axios from "axios";
 const isLive = true;
 const emptyRes = false;
 
-const baseURL = 'https://node-server-ecommerce.onrender.com';
-
+const baseURL = 'https://node-server-jyhc.onrender.com';
+                // https://node-server-ecommerce.onrender.com 
 
 export const getBanners = async (type) => {
     console.log(`getBanners ${type}`);   

@@ -61,7 +61,7 @@ html {
     border-radius: 0.25rem;
 }
 
-.css-10hburv-MuiTypography-root, button {
+.css-10hburv-MuiTypography-root, button, a {
     font-family: inherit !important;
 }
 

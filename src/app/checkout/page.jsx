@@ -6,7 +6,9 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NEXT_APP_BASE_URL } from "@/constants";
+import axios from "axios";
 
 export default function Checkout() {
 
@@ -21,6 +23,86 @@ export default function Checkout() {
     const deliveryCharge = deliveryType === 'Home Delivery' ? 50 : 0;
     const grandTotal = parseFloat(cartSubtotal) + deliveryCharge;
 
+    // Update Address starts ----------------------------------------------------------------------------
+    const [statesList, setStatesList] = useState([{Description: 'West Bengal', CodeId: 3}]); 
+    const [regData, setRegData] = useState({
+        Name: '',        
+        EncCompanyId: 'FFCeIi27FQMTNGpatwiktw==',
+        PartyCode: '0',
+        PartyId: '0',
+        UserId: '0',
+        RegMob1: '',
+        Email: '', 
+        Address: '',
+        UserPassword: '',
+        UserType: 'Customer',
+        Address2: '',
+        City: '',
+        State: 3,
+        StateName: 'West Bengal',
+        Pin: '',        
+    });
+
+    useEffect(() => {
+        setRegData({
+            Name: user.Name,        
+            EncCompanyId: user.EncCompanyId,
+            PartyCode: user.PartyCode,
+            PartyId: user.PartyId,
+            UserId: user.UserId,
+            RegMob1: user.RegMob1,
+            Email: user.Email, 
+            Address: user.Address,
+            UserPassword: user.UserPassword,
+            UserType: user.UserType,
+            Address2: user.Address2,
+            City: user.City,
+            State: user.State,
+            StateName: user.StateName,
+            Pin: user.Pin,        
+        })
+    }, [user])
+
+    const handleRegForm = (e) => {
+        const { name, value} = e.target;
+        setRegData(pre => ({...pre, [name]: value}));
+    } 
+
+    const handleRegisterFormSubmit = async (e) => {
+        e.preventDefault();
+        console.log(regData);        
+        if (isLoggedIn) {
+            let status = await makeRegisterationRequest(regData);
+            if (status) {
+                let loginStatus = await refreshUserInfo(regData);
+                if (loginStatus) {
+                    alert('Successfully updated the Address');
+                } else {
+                    alert('We could not log you in, Please log in again manually.');
+                }
+            } 
+
+        }
+    }
+    
+    const refreshUserInfo = async (params) => {
+        try {
+            // loaderAction(true);
+            const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.RegMob1}&UP=${params.UserPassword}&CID=${compCode}`);
+            // loaderAction(false);
+            if (res.data.UserId === 0) {
+              return false;
+            } else {
+              dispatch(addUser(res.data));
+              return true;
+            }
+        } catch (err) {
+            alert(err)
+        }
+    }
+
+    // Registeration ends ----------------------------------------------------------------------------
+
     return (
         <main className='mt-5 md:mt-12'>
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
@@ -30,63 +112,6 @@ export default function Checkout() {
                         <LinearProgress className="rounded h-[0.5rem] cart-progress bg-pink-100" variant="determinate" value={50} />
                     </div>
                     <div className="rounded-lg border border-gray-300 p-6">
-                        {/* <div className="table-responsive overflow-auto">
-                            <table className="table-type-1 w-full min-w-[720px]">
-                                <tbody>
-                                    <tr>
-                                        <th colSpan={2}>Product</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Remove</th>
-                                    </tr>
-                                    {cartList.map(i => (
-                                        <tr className="text-gray-700 font-semibold" key={i.id}>
-                                            <td className="w-24" style={{paddingRight: 0}}>
-                                                <img className="rounded h-24 " src={i.images[0]} alt="Product" />
-                                            </td>
-                                            <td className="font-medium text-gray-900">
-                                                {i.name}
-                                            </td>
-                                            <td className="text-gray-500 whitespace-nowrap">
-                                                ₹ {i.price}
-                                            </td>
-                                            <td>
-                                                <div className="flex gap-[1.3rem]">
-                                                    <div className="text-gray-900 flex items-center gap-[1.3rem]">
-                                                        <IconButton onClick={() => dispatch(addToCart({ ...i, qty: i.qty + 1 }))} className="bg-gray-100 text-[2rem] cursor-pointer">
-                                                            <BiPlus />
-                                                        </IconButton>
-                                                        <span>{i.qty}</span>
-                                                        <IconButton onClick={() => {if (i.qty !== 1) dispatch(addToCart({ ...i, qty: i.qty - 1 }))}} className="bg-gray-100 text-[2rem] cursor-pointer">
-                                                            <BiMinus />
-                                                        </IconButton>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td className="whitespace-nowrap">
-                                                ₹ {i.price * i.qty}
-                                            </td>
-                                            <td>
-                                                <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white cursor-pointer" style={{fontSize: '1.95rem'}} />
-                                            </td>
-                                        </tr>
-                                    ))}
-                                    <tr>
-                                        <td colSpan={6}>
-                                            <div className="flex justify-between gap-4 items-center">
-                                                <div className="flex gap-2 max-w-[420px] border-8 border-slate-100 bg-slate-100 outline-none text-sm rounded">
-                                                    <RiDiscountPercentLine className="text-[3.25rem] my-auto text-purple-800" />
-                                                    <input className="p-3 w-full border-0 outline-none text-lg" placeholder="Enter Coupon Code" />
-                                                    <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-10 hover:bg-purple-500">Apply Coupon</Button>
-                                                </div>
-                                                <Button onClick={() => dispatch(dumpCart())} className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-[0.86rem] px-7 hover:bg-purple-500">Remove All</Button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> */}
                         <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Billing Details</h2>
                         <div className="mt-6">
                             <div className="flex gap-4 mb-4">
@@ -112,38 +137,39 @@ export default function Checkout() {
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Street Address *</label>
-                                    <input readOnly value={user.Address} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input value={regData.Address} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Town / City *</label>
-                                    <input readOnly value={user.City} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input value={regData.City} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> State *</label>
-                                    <input readOnly value={user.StateName} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={regData.StateName} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> ZIP Code *</label>
-                                    <input readOnly value={user.Pin} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input value={regData.Pin} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Country</label>
                                     <input readOnly value={'India'} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
-                            <div className="flex items-center mb-4 gap-3 pt-3">
-                                <input type="checkbox" checked readOnly />
-                                <p>Please add your address correctly.</p>
-                            </div>
-                            <div className="flex items-center mb-6 gap-3">
-                                <input type="checkbox" checked readOnly />
-                                <p>Make sure your PIN Code is correct.</p>
-                            </div>
                             <div>
                                 <textarea className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
                             </div>
+                            <div className="flex items-center mb-4 gap-3 pt-3 text-[0.95rem]">
+                                <input type="checkbox" checked readOnly />
+                                <p>Please add your address correctly.</p>
+                            </div>
+                            <div className="flex items-center mb-6 gap-3 text-[0.95rem]">
+                                <input type="checkbox" checked readOnly />
+                                <p>Make sure your PIN Code is correct.</p>
+                            </div>
+                            <Button onClick={handleRegisterFormSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Update Address</Button>
                         </div>
                     </div>
                 </div>
