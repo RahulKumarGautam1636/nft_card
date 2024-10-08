@@ -14,7 +14,7 @@ import { BiX } from 'react-icons/bi';
 import { addToCart, addToWishlist } from "@/lib/slices";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { FaExchangeAlt, FaRegHeart, FaHeart  } from "react-icons/fa";
-import CryptoJS from 'crypto-js';
+// import CryptoJS from 'crypto-js';
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
     const Arrow = ({ customClass, onClick, el }) => {
@@ -392,4 +392,11 @@ export const decrypt = (data) => {
   // var bytes  = CryptoJS.AES.decrypt(data, process.env.REACT_APP_SECRET_KEY);
   // var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
   // return decryptedData;
+}
+
+export const logOut = () => {
+  // dispatch(dumpUser());
+  // dispatch(loginAction(false));
+  localStorage.removeItem('userLogin');
+  window.location.reload();
 }
