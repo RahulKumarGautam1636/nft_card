@@ -27,6 +27,32 @@ let currentUser = {
   City: '',
   Pin: '',
   Address2: '',
+
+  DOB: '',
+  DOBstr: '',
+  Age: '',
+  AgeMonth: '',
+  AgeDay: '',
+  IsDOBCalculated: 'N',
+  GenderDesc: 'Male',
+  Gender: 104,
+  Country: 1,
+  MemberId: '',
+
+  RegNo: "",                                // Unused fields.
+  Aadhaar: "",
+  Salutation: "",
+  Qualification: "",
+  SpecialistId: '',
+  AnniversaryDate: "",
+  AnniversaryDatestr: "",
+  compName: "",
+  compAddress: "",
+  compState: "",
+  compPin: "",
+  compPhone1: "",
+  compPhone2: "",
+  compMail: ""    
 }
 
 const userSlice = createSlice({
@@ -49,6 +75,7 @@ const userReducer = userSlice.reducer;
 const modals = {                                                 
     LOCATION_MODAL: {status: false, data: ''},
     LOGIN_MODAL: {status: false, data: ''},
+    PROFILE_MODAL: {status: false, data: ''},
 };
 
 const modalSlice = createSlice({

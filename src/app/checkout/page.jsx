@@ -9,12 +9,14 @@ import FormControl from '@mui/material/FormControl';
 import { useEffect, useState } from "react";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import axios from "axios";
+import { addUser } from "@/lib/slices";
 
 export default function Checkout() {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
     const user = useSelector(state => state.user);
+    const isLoggedIn = useSelector(state => state.isLoggedIn);
     const cartList = Object.values(cart);
     
     const [deliveryType, setDeliveryType] = useState('Home Delivery');
@@ -24,7 +26,7 @@ export default function Checkout() {
     const grandTotal = parseFloat(cartSubtotal) + deliveryCharge;
 
     // Update Address starts ----------------------------------------------------------------------------
-    const [statesList, setStatesList] = useState([{Description: 'West Bengal', CodeId: 3}]); 
+    // const [statesList, setStatesList] = useState([{Description: 'West Bengal', CodeId: 3}]); 
     const [regData, setRegData] = useState({
         Name: '',        
         EncCompanyId: 'FFCeIi27FQMTNGpatwiktw==',
@@ -40,11 +42,38 @@ export default function Checkout() {
         City: '',
         State: 3,
         StateName: 'West Bengal',
-        Pin: '',        
+        Pin: '', 
+
+        DOB: '',
+        DOBstr: '',
+        Age: '',
+        AgeMonth: '',
+        AgeDay: '',
+        IsDOBCalculated: 'N',
+        GenderDesc: 'Male',
+        Gender: 104,
+        Country: 1,
+        MemberId: '',
+
+        RegNo: "",                                // Unused fields.
+        Aadhaar: "",
+        Salutation: "",
+        Qualification: "",
+        SpecialistId: '',
+        AnniversaryDate: "",
+        AnniversaryDatestr: "",
+        compName: "",
+        compAddress: "",
+        compState: "",
+        compPin: "",
+        compPhone1: "",
+        compPhone2: "",
+        compMail: ""       
     });
 
     useEffect(() => {
-        setRegData({
+        setRegData(pre => ({
+            ...pre,
             Name: user.Name,        
             EncCompanyId: user.EncCompanyId,
             PartyCode: user.PartyCode,
@@ -59,8 +88,19 @@ export default function Checkout() {
             City: user.City,
             State: user.State,
             StateName: user.StateName,
-            Pin: user.Pin,        
-        })
+            Pin: user.Pin,  
+            
+            DOB: new Date(user.DOB).toLocaleDateString('en-TT'),
+            DOBstr: new Date(user.DOB).toLocaleDateString('en-TT'),
+            Age: user.Age,
+            AgeMonth: user.AgeMonth,
+            AgeDay: user.AgeDay,
+            IsDOBCalculated: user.IsDOBCalculated,
+            GenderDesc: user.GenderDesc,
+            Gender: user.Gender,
+            Country: user.Country,
+            MemberId: user.MemberId
+        }))
     }, [user])
 
     const handleRegForm = (e) => {
@@ -84,6 +124,25 @@ export default function Checkout() {
 
         }
     }
+
+    const makeRegisterationRequest = async (params) => {
+        console.log(params);
+        try {
+            // loaderAction(true);
+            const res = await axios.post(`${NEXT_APP_BASE_URL}/api/UserReg`, params);
+            // loaderAction(false);
+            console.log(res.data);
+            if (res.data[0] === 'Y') { 
+                return true;
+            }      
+        } catch (err) {
+            console.log(err);
+            return false;
+        }
+        return true;
+    } 
+
+    const compCode = 'FFCeIi27FQMTNGpatwiktw==';
     
     const refreshUserInfo = async (params) => {
         try {
@@ -117,41 +176,41 @@ export default function Checkout() {
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> First Name</label>
-                                    <input readOnly value={user.Name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input name='Name' value={regData.Name} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Last Name</label>
-                                    <input readOnly value={user.Name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={regData.Name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Phone Number</label>
-                                    <input readOnly value={user.RegMob1} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <input readOnly value={regData.RegMob1} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> Email address *</label>
-                                    <input readOnly value={user.Email} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
-                                </div>
-                            </div>
-                            <div className="flex gap-4 mb-4">
-                                <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> Street Address *</label>
-                                    <input value={regData.Address} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
-                                </div>
-                                <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> Town / City *</label>
-                                    <input value={regData.City} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <label className="text-black text-[0.9rem] mb-2 block"> Email address <span className="text-red-500">*</span></label>
+                                    <input name='Email' value={regData.Email} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> State *</label>
+                                    <label className="text-black text-[0.9rem] mb-2 block"> Street Address <span className="text-red-500">*</span></label>
+                                    <input name='Address' value={regData.Address} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                </div>
+                                <div className="flex-1">
+                                    <label className="text-black text-[0.9rem] mb-2 block"> Town / City <span className="text-red-500">*</span></label>
+                                    <input name='City' value={regData.City} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                </div>
+                            </div>
+                            <div className="flex gap-4 mb-4">
+                                <div className="flex-1">
+                                    <label className="text-black text-[0.9rem] mb-2 block"> State <span className="text-red-500">*</span></label>
                                     <input readOnly value={regData.StateName} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> ZIP Code *</label>
-                                    <input value={regData.Pin} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <label className="text-black text-[0.9rem] mb-2 block"> ZIP Code <span className="text-red-500">*</span></label>
+                                    <input name='Pin' value={regData.Pin} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Country</label>
