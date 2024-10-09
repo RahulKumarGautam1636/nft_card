@@ -9,7 +9,16 @@ import FormControl from '@mui/material/FormControl';
 import { useEffect, useState } from "react";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import axios from "axios";
-import { addUser } from "@/lib/slices";
+import { addUser, modalAction } from "@/lib/slices";
+
+import { FaMoneyBill1Wave } from "react-icons/fa6";
+import { MdPhoneInTalk } from "react-icons/md";
+import { IoMdMail } from "react-icons/io";
+import { FaLocationPin } from "react-icons/fa6";
+import { PiCityBold } from "react-icons/pi";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { FaDotCircle } from "react-icons/fa";
+import { GiIsland } from "react-icons/gi";
 
 export default function Checkout() {
 
@@ -172,7 +181,7 @@ export default function Checkout() {
                     </div>
                     <div className="rounded-lg border border-gray-300 p-6">
                         <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Billing Details</h2>
-                        <div className="mt-6">
+                        {/* <div className="mt-6">
                             <div className="flex gap-4 mb-4">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> First Name</label>
@@ -229,7 +238,33 @@ export default function Checkout() {
                                 <p>Make sure your PIN Code is correct.</p>
                             </div>
                             <Button onClick={handleRegisterFormSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Update Address</Button>
+                        </div> */}
+                        <div className="my-6 grid gap-4" style={{gridTemplateColumns: '9rem 1fr'}}>
+                            <h4 className="font-medium flex gap-3 items-center"><FaMoneyBill1Wave className="text-xl text-gray-600" /> Billing To</h4>
+                            <p className="text-blue-600 font-medium">{user.Name}</p>
+                            <h4 className="font-medium flex gap-3 items-center"><MdPhoneInTalk className="text-xl text-gray-600" /> Phone Number</h4>
+                            <p className="">{user.RegMob1}</p>
+                            <h4 className="font-medium flex gap-3 items-center"><IoMdMail className="text-xl text-gray-600" /> Email</h4>
+                            <p className="">1636rahul@gmail.com</p>
+                            <h4 className="font-medium flex gap-3 items-center"><FaLocationPin className="text-xl text-gray-600" /> Address</h4>
+                            <p className="">{user.Address}</p>
+                            <h4 className="font-medium flex gap-3 items-center"><PiCityBold className="text-xl text-gray-600" /> City</h4>
+                            <p className="">{user.City}</p>
+                            <h4 className="font-medium flex gap-3 items-center"><FaMapMarkedAlt className="text-xl text-gray-600" /> State</h4>
+                            <p className="">{user.StateName}</p>
+                            <h4 className="font-medium flex gap-3 items-center"><FaDotCircle className="text-xl text-gray-600" /> Pin</h4>
+                            <p className="">{user.Pin}</p>
+                            <h4 className="font-medium flex gap-3 items-center"><GiIsland className="text-xl text-gray-600" /> Coutry</h4>
+                            <p className="">INDIA</p>
                         </div>
+                        <div>
+                            <textarea className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
+                        </div>
+                        <div className="flex items-centermb-4 gap-3 pt-3 pb-4 md:py-3 text-[0.95rem]">
+                            <input type="checkbox" checked readOnly />
+                            <p>Make sure your PIN Code is correct.</p>
+                        </div>
+                        <Button onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: true}))} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Change Address</Button>
                     </div>
                 </div>
                 <div className="rounded-lg p-6 border border-gray-300 w-full max-w-[35rem]">

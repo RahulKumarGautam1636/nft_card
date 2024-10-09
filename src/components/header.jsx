@@ -115,7 +115,7 @@ const Header = ({ categories }) => {
             </div>
             <header className="container mx-auto">
                 <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
-                    <Link className="" href={'/'}>
+                    <Link className="invisible" href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1 mx-auto justify-center">
