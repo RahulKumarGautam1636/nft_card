@@ -1,6 +1,9 @@
 import axios from "axios";
+import { dummyUser, NEXT_APP_BASE_URL } from "@/constants";
+import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners } from "@/data";
 
 const isLive = true;
+const fixedData = true;
 const emptyRes = true;
 
 const baseURL = 'https://node-server-jyhc.onrender.com';
@@ -8,6 +11,17 @@ const baseURL = 'https://node-server-jyhc.onrender.com';
 
 export const getBanners = async (type) => {
     console.log(`getBanners ${type}`);   
+    if (fixedData) {
+        if (type === 'banners') {
+            return banners;
+        } else if (type === 'homeBanner') {
+            return homeBanners;
+        } else if (type === 'homeSideBanners') {
+            return homeSideBanners;
+        } else if (type === 'homeBottomBanners') {
+            return homeBottomBanners;
+        }
+    }
     if (emptyRes) return [];
     const res = await axios.get(isLive ? `${baseURL}/api/${type}` : `http://localhost:3000/${type}`);
     return res.data;
@@ -15,6 +29,7 @@ export const getBanners = async (type) => {
 
 export const getCategories = async (caller) => {
     console.log('getCategories', caller);
+    if (fixedData) return category;
     if (emptyRes) return { categoryList: [{ name: '', slug: '2342322342', children: [], images: ['']}] };
     const res = await axios.get(isLive ? `${baseURL}/api/category` : 'http://localhost:3000/category');
     return res.data;
@@ -29,6 +44,7 @@ export const getProducts = async () => {
 
 export const getFeaturedProducts = async () => {
     console.log('getFeaturedProducts');
+    if (fixedData) return featured;
     if (emptyRes) return [];
     const res = await axios.get(isLive ? `${baseURL}/api/products/featured?location=All` : 'http://localhost:3000/featured');
     return res.data;
@@ -50,6 +66,7 @@ export const getReviews = async (id) => {
 
 export const getCatNameProducts = async (catName, location) => {
     console.log('getCatNameProducts');
+    if (fixedData) return catNameData;
     if (emptyRes) return {products: []};
     const res = await axios.get(isLive ? `${baseURL}/api/products/catName?catName=${catName}&location=${location}` : 'http://localhost:3000/filteredProducts');
     return res.data;
@@ -57,6 +74,7 @@ export const getCatNameProducts = async (catName, location) => {
 
 export const getCatIdProducts = async (catName, id, location) => {
     console.log('getCatIdProducts');
+    if (fixedData) return categoryId;
     if (emptyRes) return {products: []};
     const res = await axios.get(isLive ? `${baseURL}/api/products/${catName}?${catName}=${id}&location=${location}` : 'http://localhost:3000/filteredProducts');
     return res.data;
@@ -74,3 +92,41 @@ export const searchProducts = async (query) => {
     const res = await axios.get(isLive ? `${baseURL}/api/search?q=${query}` : `http://localhost:3000/api/search?q=${query}`);
     return res.data;
 }
+
+// LOGIN API ---------------------------------------------------------------------------------------
+
+export const login = async (phone, password, compCode) => { 
+    if (emptyRes) return { data: dummyUser };  
+    const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${phone}&UP=${password}&CID=${compCode}`);
+    return res;
+}
+
+export const register = async (params) => {
+    console.log(params);
+    try {
+        // loaderAction(true);
+        const res = await axios.post(`${NEXT_APP_BASE_URL}/api/UserReg`, params);
+        // loaderAction(false);
+        console.log(res.data);
+        if (res.data[0] === 'Y') { 
+            return true;
+        }      
+    } catch (err) {
+        console.log(err);
+        return false;
+    }
+} 
+
+// export const getOtp = async () => {
+//     loaderAction(true);
+//     const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserReg/0?name=Subscriber&mob=${regData.RegMob1}`);
+//     loaderAction(false);
+//     if (res.status === 200) {
+//       console.log(res.data);
+//       return res.data;
+//     }
+//     alert('An Error Occured, Try again later.');
+//     return 'asdfasdasdf';
+// }
+
+export const getOtp = () => '0'; 

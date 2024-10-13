@@ -239,22 +239,22 @@ export default function Checkout() {
                             </div>
                             <Button onClick={handleRegisterFormSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Update Address</Button>
                         </div> */}
-                        <div className="my-6 grid gap-4" style={{gridTemplateColumns: '9rem 1fr'}}>
-                            <h4 className="font-medium flex gap-3 items-center"><FaMoneyBill1Wave className="text-xl text-gray-600" /> Billing To</h4>
+                        <div className="my-6 grid gap-4" style={{gridTemplateColumns: '10.2rem 1fr'}}>
+                            <h4 className="font-medium flex gap-3 items-center"><FaMoneyBill1Wave className="text-xl text-[#44558c]" /> Billing To</h4>
                             <p className="text-blue-600 font-medium">{user.Name}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><MdPhoneInTalk className="text-xl text-gray-600" /> Phone Number</h4>
+                            <h4 className="font-medium flex gap-3 items-center"><MdPhoneInTalk className="text-xl text-[#44558c]" /> Phone Number</h4>
                             <p className="">{user.RegMob1}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><IoMdMail className="text-xl text-gray-600" /> Email</h4>
+                            <h4 className="font-medium flex gap-3 items-center"><IoMdMail className="text-xl text-[#44558c]" /> Email</h4>
                             <p className="">1636rahul@gmail.com</p>
-                            <h4 className="font-medium flex gap-3 items-center"><FaLocationPin className="text-xl text-gray-600" /> Address</h4>
+                            <h4 className="font-medium flex gap-3 items-center"><FaLocationPin className="text-xl text-[#44558c]" /> Address</h4>
                             <p className="">{user.Address}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><PiCityBold className="text-xl text-gray-600" /> City</h4>
+                            <h4 className="font-medium flex gap-3 items-center"><PiCityBold className="text-xl text-[#44558c]" /> City</h4>
                             <p className="">{user.City}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><FaMapMarkedAlt className="text-xl text-gray-600" /> State</h4>
+                            <h4 className="font-medium flex gap-3 items-center"><FaMapMarkedAlt className="text-xl text-[#44558c]" /> State</h4>
                             <p className="">{user.StateName}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><FaDotCircle className="text-xl text-gray-600" /> Pin</h4>
+                            <h4 className="font-medium flex gap-3 items-center"><FaDotCircle className="text-xl text-[#44558c]" /> Pin</h4>
                             <p className="">{user.Pin}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><GiIsland className="text-xl text-gray-600" /> Coutry</h4>
+                            <h4 className="font-medium flex gap-3 items-center"><GiIsland className="text-xl text-[#44558c]" /> Coutry</h4>
                             <p className="">INDIA</p>
                         </div>
                         <div>

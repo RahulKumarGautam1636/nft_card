@@ -11,6 +11,7 @@ import { encrypt, handleNumberInputs } from "../utils";
 import axios from "axios";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import { addUser, loginAction, modalAction } from "@/lib/slices";
+import { getOtp, login, register } from "@/api/api";
 
 export const Login = () => {
     
@@ -75,7 +76,7 @@ export const Login = () => {
             const userExist = await checkExistingUser();
             if (userExist) return;
             console.log('sending OTP');
-            const receivedOtp = await makeOtpRequest();
+            const receivedOtp = await getOtp();
             setOTP({...otp, isOpen: true, sent: true, recievedValue: receivedOtp});
         } else if (otp.sent) {
             if (otp.recievedValue !== otp.enteredValue) return alert('Wrong OTP.');
@@ -83,7 +84,7 @@ export const Login = () => {
             setOTP({...otp, isOpen: false, verified: true, read_only: true});
             // setAllFields(true);
 
-            let status = await makeRegisterationRequest(regData);
+            let status = await register(regData);
             if (status) {
                 let loginStatus = await refreshUserInfo(regData);
                 if (loginStatus) {
@@ -96,23 +97,6 @@ export const Login = () => {
             console.log(regData);
         }
     }
-
-    const makeRegisterationRequest = async (params) => {
-        console.log(params);
-        try {
-            // loaderAction(true);
-            const res = await axios.post(`${NEXT_APP_BASE_URL}/api/UserReg`, params);
-            // loaderAction(false);
-            console.log(res.data);
-            if (res.data[0] === 'Y') { 
-                return true;
-            }      
-        } catch (err) {
-            console.log(err);
-            return false;
-        }
-        return true;
-    } 
     
     const refreshUserInfo = async (params) => {
         try {
@@ -142,7 +126,8 @@ export const Login = () => {
 
     const makeLoginRequest = async (params) => {
         // loaderAction(true);
-        const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.phone}&UP=${params.password}&CID=${compCode}`);
+        const res = await login(params.phone, params.password, compCode);
+        // const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.phone}&UP=${params.password}&CID=${compCode}`);
         // loaderAction(false);
         if (res.data.Remarks === 'INVALID') {
           setLoginError({status: true, message: 'The username or password is incorrect.'});
@@ -153,24 +138,7 @@ export const Login = () => {
             dispatch(loginAction(true));
             dispatch(modalAction({name: 'LOGIN_MODAL', status: false}));
             localStorage.setItem("userLogin", JSON.stringify({ phone: params.phone, password: params.password, compCode: compCode }));
-        //   let userLoginData = {
-        //                         Name: res.data.UserFullName,
-        //                         RegMob1: loginData.phone,
-        //                         UserId: res.data.UserId,
-        //                         UserType: res.data.UserType,
-        //                         PartyCode: res.data.PartyCode,
-        //                         EncCompanyId: compCode,
-        //                         Age: res.data.Age,
-        //                         Gender: res.data.GenderDesc,
-        //                         MPartyCode: res.data.MPartyCode,
-        //                         Address: res.data.Address,
-        //                         Qualification: res.data.Qualification,
-        //                         SpecialistDesc: res.data.SpecialistDesc,
-        //                         RegNo: res.data.RegNo
-        //                      };
-        //   localStorage.setItem("userLoginData", JSON.stringify(userLoginData));
-        //   userInfoAction(userLoginData);
-         }
+        }
     }   
 
     const checkExistingUser = async () => {
@@ -195,19 +163,6 @@ export const Login = () => {
         }
     }
 
-    // const makeOtpRequest = async () => {
-    //     loaderAction(true);
-    //     const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserReg/0?name=Subscriber&mob=${regData.RegMob1}`);
-    //     loaderAction(false);
-    //     if (res.status === 200) {
-    //       console.log(res.data);
-    //       return res.data;
-    //     }
-    //     alert('An Error Occured, Try again later.');
-    //     return 'asdfasdasdf';
-    // }
-
-    const makeOtpRequest = () => '0'; 
     const isLoggedIn = false;
     const compCode = 'FFCeIi27FQMTNGpatwiktw==';
 

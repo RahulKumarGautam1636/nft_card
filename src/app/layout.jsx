@@ -3,12 +3,14 @@ import "./globals.css";
 import "../css/styles.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import StoreProvider from "@/lib/storeProvider";
 import { getCategories } from "@/api/api";
 import { BottomNav } from "@/components/bottomNav";
+import { ToastContainer } from "react-toastify";
 // import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,7 +22,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const categories = {categoryList: []} // await getCategories('filter'); //   
+  const categories = await getCategories('filter'); // {categoryList: []} //
 
   return (
     <html lang="en">
@@ -30,6 +32,7 @@ export default async function RootLayout({ children }) {
           {children}
           <Footer />
           <BottomNav />
+          <ToastContainer className="my-toast" />    {/* we can use most of individual toast classes on the this container and that will be applied to all the toast that apear in this container */}
         </StoreProvider>
       </body>
     </html>

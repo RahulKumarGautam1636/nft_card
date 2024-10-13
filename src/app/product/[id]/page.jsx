@@ -3,7 +3,7 @@ import { SiCodefresh } from "react-icons/si";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
 import { HiMiniArrowUturnLeft } from "react-icons/hi2";
-import { ActionBox, DescriptionTabs, ProductSlider } from "@/components/utils";
+import { ActionBox, DescriptionTabs, ProductSlider, ZoomComponent } from "@/components/utils";
 import { getProduct, getReviews, getCatIdProducts } from "@/api/api";
 
 
@@ -40,11 +40,12 @@ export default async function Product({ params }) {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-10">
             <div className="relative pt-8 pb-4 md:p-0 rounded-xl border border-gray-200 overflow-hidden h-fit me-0 lg:me-8">
-              <div className="flex md:flex-col gap-3 items-start absolute top-4 left-4">
+              <div className="flex md:flex-col gap-3 items-start absolute top-4 left-4 z-10">
                 <span className="text-gray-200 bg-gray-800 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl inline-block">Recomended</span>
                 <span className="text-cyan-100 bg-cyan-700 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl inline-block">25% OFF</span>
               </div>
-              <img src={product.images[0]} className="max-w-full" />
+              {/* <img src={product.images[0]} className="max-w-full" /> */}
+              <ZoomComponent product={product} />
             </div>
             <div>
               <h5 className="flex gap-4 text-2xl items-end">

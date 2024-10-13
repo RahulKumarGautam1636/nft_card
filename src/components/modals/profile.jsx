@@ -29,6 +29,8 @@ import { useEffect, useState } from "react";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import axios from "axios";
 import { addUser } from "@/lib/slices";
+import { register } from "@/api/api";
+import Link from "next/link";
 
 export const Profile = () => {
 
@@ -135,7 +137,7 @@ export const Profile = () => {
         e.preventDefault();
         console.log(regData);        
         if (isLoggedIn) {
-            let status = await makeRegisterationRequest(regData);
+            let status = await register(regData);
             if (status) {
                 let loginStatus = await refreshUserInfo(regData);
                 if (loginStatus) {
@@ -144,26 +146,8 @@ export const Profile = () => {
                     alert('We could not log you in, Please log in again manually.');
                 }
             } 
-
         }
     }
-
-    const makeRegisterationRequest = async (params) => {
-        console.log(params);
-        try {
-            // loaderAction(true);
-            const res = await axios.post(`${NEXT_APP_BASE_URL}/api/UserReg`, params);
-            // loaderAction(false);
-            console.log(res.data);
-            if (res.data[0] === 'Y') { 
-                return true;
-            }      
-        } catch (err) {
-            console.log(err);
-            return false;
-        }
-        return true;
-    } 
 
     const compCode = 'FFCeIi27FQMTNGpatwiktw==';
     
@@ -198,9 +182,15 @@ export const Profile = () => {
                     <ul className="profile-cta pt-5 border-b border-gray-400">     {/* style={{backdropFilter: 'blur(5px)'}} */}
                        {/* {tabs.map(i => (<li className="p-[0.95rem] border-t border-white flex gap-4 items-center text-white" key={i.name}><span className="text-lg">{i.icon}</span> {i.name}</li>))} */}
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('Personal Information')}><span className="text-xl"><GrCircleInformation /></span> Personal Information</li>
-                        <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('shopping-cart')}><span className="text-xl"><PiShoppingCartBold /></span> Shopping Cart</li>
-                        <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('my-orders')}><span className="text-xl"><LuGift /></span> My Orders</li>
-                        <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('my-wishlist')}><span className="text-xl"><BiHeart /></span> My Wishlist</li>
+                        <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('shopping-cart')}>
+                            <Link className='flex gap-4 items-center' href='/cart'><span className="text-xl"><PiShoppingCartBold /></span> Shopping Cart</Link>
+                        </li>
+                        <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-orders')}>
+                            <Link className='flex gap-4 items-center' href='/myOrders'><span className="text-xl"><LuGift /></span> My Orders</Link>
+                        </li>
+                        <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
+                            <Link className='flex gap-4 items-center' href='/wishlist'><span className="text-xl"><BiHeart /></span> My Wishlist</Link>
+                        </li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('my-addresses')}><span className="text-xl"><IoMdPin /></span> My Addresses</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('payment-methods')}><span className="text-xl"><MdPayment /></span> Payment Methods</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('customer-care')}><span className="text-xl"><RiCustomerService2Fill /></span> Customer Care</li>
@@ -214,7 +204,7 @@ export const Profile = () => {
                                 <div className="p-6">
                                     <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Personal Information</h2>
                                     <div className="mt-6">
-                                        <div className="flex gap-4 mb-4">
+                                        <div className="flex gap-4 mb-5">
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> First Name</label>
                                                 <input name='Name' value={regData.Name} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
@@ -224,7 +214,7 @@ export const Profile = () => {
                                                 <input readOnly value={regData.Name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                             </div>
                                         </div>
-                                        <div className="flex gap-4 mb-4">
+                                        <div className="flex gap-4 mb-5">
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> Phone Number</label>
                                                 <input readOnly value={regData.RegMob1} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
@@ -234,17 +224,17 @@ export const Profile = () => {
                                                 <input name='Email' value={regData.Email} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                             </div>
                                         </div>
-                                        <div className="flex gap-4 mb-4">
+                                        <div className="flex gap-4 mb-5">
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> Street Address <span className="text-red-500">*</span></label>
-                                                <input name='Address' value={regData.Address} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                                <textarea name='Address' value={regData.Address} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
                                             </div>
-                                            <div className="flex-1">
+                                            {/* <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> Town / City <span className="text-red-500">*</span></label>
                                                 <input name='City' value={regData.City} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
-                                            </div>
+                                            </div> */}
                                         </div>
-                                        <div className="flex gap-4 mb-4">
+                                        <div className="flex gap-4 mb-5">
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> State <span className="text-red-500">*</span></label>
                                                 <input readOnly value={regData.StateName} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
@@ -258,9 +248,9 @@ export const Profile = () => {
                                                 <input readOnly value={'India'} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                             </div>
                                         </div>
-                                        <div>
+                                        {/* <div>
                                             <textarea className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
-                                        </div>
+                                        </div> */}
                                         <div className="flex items-center mb-4 gap-3 pt-3 text-[0.95rem]">
                                             <input type="checkbox" checked readOnly />
                                             <p>Please add your address correctly.</p>

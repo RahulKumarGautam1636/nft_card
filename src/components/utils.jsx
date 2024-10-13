@@ -15,6 +15,11 @@ import { addToCart, addToWishlist } from "@/lib/slices";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { FaExchangeAlt, FaRegHeart, FaHeart  } from "react-icons/fa";
 // import CryptoJS from 'crypto-js';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import { toast } from 'react-toastify';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) => {
     const Arrow = ({ customClass, onClick, el }) => {
@@ -400,3 +405,43 @@ export const logOut = () => {
   localStorage.removeItem('userLogin');
   window.location.reload();
 }
+
+export const ZoomComponent = ({ product }) => {
+  return (
+    <InnerImageZoom zoomType={'hover'} src={product.images[0]} zoomSrc={product.images[0]} />
+  )
+}
+
+
+export const ProductToastCard = ({ toastData, closeToast }) => {
+  return (
+    <div className="toast fade show">
+      <div className="toast-header flex justify-between items-center" style={{color: 'var(--bg-2)'}}>
+        <Image className='mr-2' src={'/images/favicon.png'} width={25} height={25} alt="Logo" />
+        {/* <FaHeart className='text-xl mr-2'/> */}
+        <strong className="mr-auto text-gray-700">{toastData.msg}</strong>
+        <small className='text-muted'>Just now</small>
+        <button type="button" onClick={closeToast} className="btn-close"></button>
+      </div>
+      <div className="toast-body">
+        <div className="w-100 flex justify-between py-3 whitespace-nowrap items-center">
+          <p className="mb-0 font-semibold text-black overflow-hidden max-w-52 text-ellipsis">{toastData.product.name}</p>
+          {/* <p className="mb-0 font-bold mark bg-success rounded-3xl px-4">₹ {toastData.product.price}</p> */}
+          <span className="text-cyan-100 bg-cyan-700 text-sm font-bold py-[0.35rem] px-[0.8rem] rounded-2xl inline-block">₹ {toastData.product.price}</span>
+        </div>
+        {/* <Link className="controlled-btn mt-2" onClick={closeToast} href={toastData.button.link} style={{display: 'inline-block', fontFamily: 'Poppins', padding: '0.4em 1.4em 0.3em'}}>{toastData.button.text}</Link> */}
+        <div className="flex gap-2">
+          <Link className="flex-1" onClick={closeToast} href={toastData.button.link}>
+            <Button className="bg-pink-600 text-white rounded-lg p-2 hover:bg-pink-500 font-bold w-full">CANCEL ORDER</Button>
+          </Link>
+          <Link className="flex-1" href={`#`}>
+            <Button className="bg-purple-600 text-white rounded-lg p-2 hover:bg-purple-500 font-bold w-full">{toastData.button.text}</Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export const productToast = (productToastData, options) => toast(<ProductToastCard toastData={productToastData} />, { position: "top-right", autoClose: 2500, closeButton: false, className: 'product-toast', ...options });
+export const stringToast = (toastData, type='') => toast(toastData, { type: type, autoClose: 2000 });

@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, loginAction, modalAction, removeFromCart } from "@/lib/slices";
 import { useEffect, useRef, useState } from "react";
 import { BiX, BiHeart } from "react-icons/bi";
-import { searchProducts } from "@/api/api";
+import { login, searchProducts } from "@/api/api";
 import { ProductCard_2 } from "./cards";
 import { IoMdCart } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
@@ -67,7 +67,7 @@ const Header = ({ categories }) => {
         const makeLoginRequest = async (params) => {
             let compCode = 'FFCeIi27FQMTNGpatwiktw==';
             // loaderAction(true);
-            const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.phone}&UP=${params.password}&CID=${compCode}`);
+            const res = await login(params.phone, params.password, compCode);
             // loaderAction(false);
             if (res.data.Remarks === 'INVALID') {
                 console.log('The username or password is incorrect.');
@@ -115,7 +115,7 @@ const Header = ({ categories }) => {
             </div>
             <header className="container mx-auto">
                 <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
-                    <Link className="invisible" href={'/'}>
+                    <Link className="" href={'/'}>
                         <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1 mx-auto justify-center">
@@ -237,10 +237,10 @@ const Header = ({ categories }) => {
                         <Button onClick={() => setActive(!active)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button>
                     </div>
                 </nav>
-                <div className="flex justify-between items-start gap-5 px-3 ">
+                <div className="flex justify-between items-center gap-5 px-3 ">
                     <div className={`fixed inset-0 bg-opacity-30 z-10 md:relative md:bg-transparent group whitespace-nowrap flex transition-colors md:pointer-events-auto duration-300 ${active ? 'bg-slate-600' : 'pointer-events-none'}`}>         
                         <div className={`absolute inset-0`} onClick={() => setActive(false)}></div>             
-                        <Button className="gap-2 bg-purple-800 hover:bg-purple-700 p-2 rounded-full text-white min-w-fit hidden md:flex">
+                        <Button className="gap-2 bg-purple-800 hover:bg-purple-700 py-[0.7rem] px-4 rounded-full text-white min-w-fit hidden md:flex">
                             <GiHamburgerMenu />
                             <h4>ALL CATEGORIES</h4>
                             <FaChevronDown />
