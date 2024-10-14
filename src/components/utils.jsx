@@ -346,7 +346,18 @@ export const ActionBox = ({ product }) => {
   const wishlistList = Object.values(wishlist);
   const isAddedToWishlist = wishlistList.find(i => i.id === product.id);
   const [count, setCount] = useState(1);
+
+  const handleCart = () => {
+    dispatch(addToCart({ ...product, qty: count }));
+    let productToastData = { msg: 'Added to Cart', product: { ...product, qty: count }, button: {text: 'Visit Cart', link: '/cart'} };
+    productToast(productToastData);
+  }
   
+  const handleWishlist = () => {
+    dispatch(addToWishlist({ ...product, qty: 1 }));
+    let productToastData = { msg: 'Added to Wishlist', product: { ...product, qty: 1 }, button: {text: 'Visit Cart', link: '/wishlist'} };
+    productToast(productToastData);
+  }  
 
   return (
     <>
@@ -361,15 +372,15 @@ export const ActionBox = ({ product }) => {
           </IconButton>
         </div>
         <div className="w-full">
-          <Button variant="contained" className="rounded-full h-full w-full max-w-[16rem]" onClick={() => dispatch(addToCart({ ...product, qty: count }))}>{isAddedToCart ? 'Added to Cart' : 'Add To Cart'}</Button>
+          <Button variant="contained" className="rounded-full h-full w-full max-w-[16rem]" onClick={handleCart}>{isAddedToCart ? 'Added to Cart' : 'Add To Cart'}</Button>
         </div>
       </div>
       <div className="mt-11">
-        <Button variant="outlined" className="me-4 rounded-full" onClick={() => dispatch(addToWishlist({ ...product, qty: 1 }))}>
+        <Button variant="outlined" className="me-4 rounded-full" onClick={handleWishlist}>
           {isAddedToWishlist ? 
-            <><FaHeart  className="me-3" onClick={() => dispatch(addToWishlist({ ...product, qty: 1 }))}/> Added To Wishlist</>
+            <><FaHeart  className="me-3" /> Added To Wishlist</>
             : 
-            <><FaRegHeart className="me-3" onClick={() => dispatch(addToWishlist({ ...product, qty: 1 }))}/> Add To Wishlist</>
+            <><FaRegHeart className="me-3" /> Add To Wishlist</>
           }  
           </Button>
         <Button variant="text"><FaExchangeAlt className="me-3" /> Compare</Button>
@@ -424,12 +435,23 @@ export const ProductToastCard = ({ toastData, closeToast }) => {
         <button type="button" onClick={closeToast} className="btn-close"></button>
       </div>
       <div className="toast-body">
-        <div className="w-100 flex justify-between py-3 whitespace-nowrap items-center">
+        {/* <div className="w-100 flex justify-between py-3 whitespace-nowrap items-center">
           <p className="mb-0 font-semibold text-black overflow-hidden max-w-52 text-ellipsis">{toastData.product.name}</p>
-          {/* <p className="mb-0 font-bold mark bg-success rounded-3xl px-4">₹ {toastData.product.price}</p> */}
           <span className="text-cyan-100 bg-cyan-700 text-sm font-bold py-[0.35rem] px-[0.8rem] rounded-2xl inline-block">₹ {toastData.product.price}</span>
-        </div>
-        {/* <Link className="controlled-btn mt-2" onClick={closeToast} href={toastData.button.link} style={{display: 'inline-block', fontFamily: 'Poppins', padding: '0.4em 1.4em 0.3em'}}>{toastData.button.text}</Link> */}
+        </div> */}
+        <ul>
+          <li className="overflow-hidden relative">
+              <div className="minicart-card inline-flex gap-3 p-2">
+                  <div className="h-16 w-16">
+                      <img className="rounded h-full w-full" src={toastData.product.images[0]} alt="Product" />
+                  </div>
+                  <div className="text-start border-b border-gray-300">
+                      <h4 className="text-gray-900 mb-1 whitespace-nowrap overflow-ellipsis" style={{fontSize: '0.95rem'}}>{toastData.product.name}</h4>
+                      <p className="text-gray-500">{toastData.product.qty || 1} &nbsp;x&nbsp;&nbsp;<span className="text-blue-800" style={{fontSize: '1rem'}}>₹ {toastData.product.price}</span></p>
+                  </div>
+              </div>
+          </li>
+        </ul>
         <div className="flex gap-2">
           <Link className="flex-1" onClick={closeToast} href={toastData.button.link}>
             <Button className="bg-pink-600 text-white rounded-lg p-2 hover:bg-pink-500 font-bold w-full">CANCEL ORDER</Button>

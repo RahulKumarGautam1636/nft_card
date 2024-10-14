@@ -31,13 +31,13 @@ export const ProductCard = ({ data, classes, styles={} }) => {
 
   const handleCart = () => {
     dispatch(addToCart({ ...data, qty: 1 }))
-    let productToastData = { msg: 'Added to Cart', product: {name: data.name, price: data.price}, button: {text: 'Visit Cart', link: '/cart'} };
+    let productToastData = { msg: 'Added to Cart', product: data, button: {text: 'Visit Cart', link: '/cart'} };
     productToast(productToastData);
   }
   
   const handleWishlist = () => {
     dispatch(addToWishlist({ ...data, qty: 1 }));
-    let productToastData = { msg: 'Added to Wishlist', product: {name: data.name, price: data.price}, button: {text: 'Visit Cart', link: '/wishlist'} };
+    let productToastData = { msg: 'Added to Wishlist', product: data, button: {text: 'Visit Cart', link: '/wishlist'} };
     productToast(productToastData);
   }
 

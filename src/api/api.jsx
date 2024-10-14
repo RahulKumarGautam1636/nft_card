@@ -3,8 +3,8 @@ import { dummyUser, NEXT_APP_BASE_URL } from "@/constants";
 import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners } from "@/data";
 
 const isLive = true;
-const fixedData = true;
-const emptyRes = true;
+const fixedData = false;
+const emptyRes = false;
 
 const baseURL = 'https://node-server-jyhc.onrender.com';
                 // https://node-server-ecommerce.onrender.com 

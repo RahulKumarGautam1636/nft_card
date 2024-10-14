@@ -116,7 +116,7 @@ const Header = ({ categories }) => {
             <header className="container mx-auto">
                 <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
                     <Link className="" href={'/'}>
-                        <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
+                        <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1 mx-auto justify-center">
                         <div className="hidden md:block">
@@ -248,7 +248,7 @@ const Header = ({ categories }) => {
                         <ul className={`flex md:hidden md:group-hover:flex relative p-6 flex-col max-w-[80%] md:max-w-full h-full md:h-fit shadow-md border border-gray-200 md:absolute z-10 md:top-full transition-all ease-in-out duration-500 ${active ? 'left-0' : 'left-[-105%]'} md:left-0 w-full md:py-2 md:px-0 bg-white`} > {/* style={{left: active ? 0 : '-100%'}} */}  
                             <li className="flex justify-between items-center md:hidden">
                                 <Link href={'/'}>
-                                    <Image src={'/images/logo.jpg'} width={150} height={50} alt="Logo" />
+                                    <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
                                 </Link>
                                 <IconButton className="bg-gray-100 text-[2rem]" onClick={() => setActive(false)}>
                                     <BiX />
