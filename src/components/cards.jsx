@@ -50,10 +50,10 @@ export const ProductCard = ({ data, classes, styles={} }) => {
         {/* <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button> */}
         <div className="flex gap-3 items-center absolute bottom-[3%] right-[4%]">
           <IconButton className="bg-gray-50 hover:bg-gray-200 shadow-gray-500 shadow-sm text-[1.35rem] text-red-500 p-[0.4rem]" onClick={handleWishlist}>
-            {isAddedToWishlist ? <IoMdHeart /> : <BiHeart title="Add to cart" />}
+            {isAddedToWishlist ? <IoMdHeart /> : <BiHeart title="Add to wishlist" />}
           </IconButton>
           <IconButton className="bg-gray-50 hover:bg-gray-200 shadow-gray-500 shadow-sm text-[1.35rem] text-purple-500 p-[0.4rem]" onClick={handleCart} >
-            {isAddedToCart ? <MdShoppingCart /> : <MdOutlineShoppingCart title="Add to wishlist" />}
+            {isAddedToCart ? <MdShoppingCart /> : <MdOutlineShoppingCart title="Add to cart" />}
           </IconButton>
         </div>
       </div>

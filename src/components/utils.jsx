@@ -363,11 +363,11 @@ export const ActionBox = ({ product }) => {
     <>
       <div className="flex gap-[1.3rem]">
         <div className="text-gray-900 flex items-center gap-[1.3rem]">
-          <IconButton className="bg-gray-100 text-[2rem]" onClick={() => setCount(pre => pre + 1)}>
+          <IconButton className="bg-gray-100 shadow-gray-500 shadow-sm text-[2rem]" onClick={() => setCount(pre => pre + 1)}>
             <BiPlus />
           </IconButton>
           <span>{count}</span>
-          <IconButton className="bg-gray-100 text-[2rem]" onClick={() => {if (count !== 1) setCount(pre => pre - 1)}}>
+          <IconButton className="bg-gray-100 shadow-gray-500 shadow-sm text-[2rem]" onClick={() => {if (count !== 1) setCount(pre => pre - 1)}}>
             <BiMinus />
           </IconButton>
         </div>
@@ -427,7 +427,7 @@ export const ZoomComponent = ({ product }) => {
 export const ProductToastCard = ({ toastData, closeToast }) => {
   return (
     <div className="toast fade show">
-      <div className="toast-header flex justify-between items-center" style={{color: 'var(--bg-2)'}}>
+      <div className="toast-header flex justify-between items-center pb-2 border-b border-gray-300">
         <Image className='mr-2' src={'/images/favicon.png'} width={25} height={25} alt="Logo" />
         {/* <FaHeart className='text-xl mr-2'/> */}
         <strong className="mr-auto text-gray-700">{toastData.msg}</strong>
@@ -441,7 +441,7 @@ export const ProductToastCard = ({ toastData, closeToast }) => {
         </div> */}
         <ul>
           <li className="overflow-hidden relative">
-              <div className="minicart-card inline-flex gap-3 p-2">
+              <div className="minicart-card inline-flex gap-3 py-2">
                   <div className="h-16 w-16">
                       <img className="rounded h-full w-full" src={toastData.product.images[0]} alt="Product" />
                   </div>
@@ -452,11 +452,11 @@ export const ProductToastCard = ({ toastData, closeToast }) => {
               </div>
           </li>
         </ul>
-        <div className="flex gap-2">
-          <Link className="flex-1" onClick={closeToast} href={toastData.button.link}>
-            <Button className="bg-pink-600 text-white rounded-lg p-2 hover:bg-pink-500 font-bold w-full">CANCEL ORDER</Button>
+        <div className="flex gap-2 pt-1">
+          <Link className="flex-1" href={'/checkout'} onClick={closeToast}>
+            <Button className="bg-pink-600 text-white rounded-lg p-2 hover:bg-pink-500 font-bold w-full">CHECKOUT</Button>
           </Link>
-          <Link className="flex-1" href={`#`}>
+          <Link className="flex-1" href={toastData.button.link}>
             <Button className="bg-purple-600 text-white rounded-lg p-2 hover:bg-purple-500 font-bold w-full">{toastData.button.text}</Button>
           </Link>
         </div>

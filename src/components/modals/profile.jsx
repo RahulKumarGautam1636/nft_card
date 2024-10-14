@@ -176,8 +176,8 @@ export const Profile = () => {
                 <div className="h-full w-full md:w-[25rem] bg-gray-100 p-8" style={{background: 'linear-gradient(#3036ff, #6a31c1, #af28c7, #d31e8b)'}}>    {/* style={{backgroundImage: 'url(/profile-bg-2.jpg)', backgroundSize: '100% 100%', padding: '2rem 0rem', border: '1px solid #e4e4e4'}} */}
                     <div className="flex flex-col items-center">
                         <img className="rounded-full max-w-32" src="/images/categories/1.jpg" alt="User" />
-                        <h3 className="mt-5 mb-1 text-lg font-semibold text-white">Rahul K Gautam</h3>
-                        <p className="font-semibold text-white">7003290982</p>
+                        <h3 className="mt-5 mb-1 text-lg font-semibold text-white">{user.Name}</h3>
+                        <p className="font-semibold text-white">{user.RegMob1}</p>
                     </div>
                     <ul className="profile-cta pt-5 border-b border-gray-400">     {/* style={{backdropFilter: 'blur(5px)'}} */}
                        {/* {tabs.map(i => (<li className="p-[0.95rem] border-t border-white flex gap-4 items-center text-white" key={i.name}><span className="text-lg">{i.icon}</span> {i.name}</li>))} */}

@@ -20,10 +20,10 @@ export default async function Home() {   // homeBanners, banners, categories, fi
       <HomeBannerSlider homeBanners={homeBanners} />
       <main className="container mx-auto px-3">
         <section className="py-7">
-          <h2 className="text-2xl font-semibold mb-4">Feature Categories</h2>
+          <h2 className="text-2xl font-semibold mb-4">Featured Categories</h2>
           <div className="flex overflow-auto gap-3 md:gap-10">
             {categories.categoryList.map(i => (
-              <div key={i.id} className="text-center min-w-fit cursor-pointer group">
+              <div key={i.id} className="text-center min-w-fit cursor-pointer group flex-1">
                   <div className="rounded-full max-w-[7rem] lg:max-w-[9.5rem] p-[1.7rem] border border-gray-300 group-hover:shadow-xl group-hover:border-gray-400" style={{background: i.color}}>
                     <img className="max-w-full" src={i.images[0]} />
                   </div>

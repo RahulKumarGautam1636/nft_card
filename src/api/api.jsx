@@ -73,7 +73,7 @@ export const getCatNameProducts = async (catName, location) => {
 }
 
 export const getCatIdProducts = async (catName, id, location) => {
-    console.log('getCatIdProducts');
+    console.log(`${baseURL}/api/products/${catName}?${catName}=${id}&location=${location}`);
     if (fixedData) return categoryId;
     if (emptyRes) return {products: []};
     const res = await axios.get(isLive ? `${baseURL}/api/products/${catName}?${catName}=${id}&location=${location}` : 'http://localhost:3000/filteredProducts');
@@ -96,7 +96,7 @@ export const searchProducts = async (query) => {
 // LOGIN API ---------------------------------------------------------------------------------------
 
 export const login = async (phone, password, compCode) => { 
-    if (emptyRes) return { data: dummyUser };  
+    if (emptyRes || fixedData) return { data: dummyUser };  
     const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${phone}&UP=${password}&CID=${compCode}`);
     return res;
 }
