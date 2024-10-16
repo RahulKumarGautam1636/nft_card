@@ -29,7 +29,7 @@ export default function Cart() {
                 <div className="w-full">
                     <div className="rounded-lg border border-gray-300 bg-gray-50">
                         <div className="table-responsive overflow-auto">
-                            <table className="table-type-1 w-full min-w-[720px]">
+                            {/* <table className="table-type-1 w-full min-w-[720px]">
                                 <tbody>
                                     <tr>
                                         <th colSpan={2}>Product</th>
@@ -82,6 +82,57 @@ export default function Cart() {
                                             </div>
                                         </td>
                                     </tr>
+                                </tbody>
+                            </table> */}
+                            <table className="table-type-1 w-full md:min-w-[720px]">
+                                <tbody>
+                                    <tr className="text-center hidden md:table-row">
+                                        <th colSpan={2}>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                    {cartList.map(i => (
+                                        <tr className="text-gray-700 font-semibold block md:table-row" key={i.id}>
+                                            <td className="w-full md:w-24 flex justify-center md:table-cell" style={{paddingRight: 0}}>
+                                                <img className="rounded h-60 md:h-24 " src={i.images[0]} alt="Product" />
+                                            </td>
+                                            <td className="flex justify-between gap-12 md:table-cell">
+                                                <strong className="block md:hidden font-bold">Name</strong>
+                                                <span className="font-medium text-gray-900 text-end">{i.name}</span>
+                                            </td>
+                                            <td className="whitespace-nowrap flex justify-between md:table-cell">
+                                                <strong className="block md:hidden font-bold">Price</strong>
+                                                <span className="text-gray-500">₹ {i.price}</span>
+                                            </td>
+                                            <td className="flex justify-between items-center md:table-cell">
+                                                <strong className="block md:hidden font-bold">Quantity</strong>
+                                                <div className="flex gap-[1.3rem]">
+                                                    <div className="text-gray-900 flex items-center gap-[1.3rem]">
+                                                        <IconButton onClick={() => dispatch(addToCart({ ...i, qty: i.qty + 1 }))} className="bg-gray-100 text-[2rem] cursor-pointer">
+                                                            <BiPlus />
+                                                        </IconButton>
+                                                        <span>{i.qty}</span>
+                                                        <IconButton onClick={() => {if (i.qty !== 1) dispatch(addToCart({ ...i, qty: i.qty - 1 }))}} className="bg-gray-100 text-[2rem] cursor-pointer">
+                                                            <BiMinus />
+                                                        </IconButton>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td className="whitespace-nowrap flex justify-between md:table-cell">
+                                                <strong className="block md:hidden font-bold">Total</strong>
+                                                ₹ {i.price * i.qty}
+                                            </td>
+                                            <td className="flex justify-between md:table-cell">
+                                                <strong className="block md:hidden font-bold">Action</strong>
+                                                <div className="flex gap-6">
+                                                    <BiHeart  className="text-red-600 text-4xl bg-white cursor-pointer" style={{fontSize: '1.95rem'}}/>
+                                                    <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white cursor-pointer" style={{fontSize: '1.95rem'}} />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>

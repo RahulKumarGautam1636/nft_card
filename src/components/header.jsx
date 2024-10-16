@@ -116,7 +116,7 @@ const Header = ({ categories }) => {
             <header className="container mx-auto">
                 <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
                     <Link className="" href={'/'}>
-                        <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
+                        <Image src={'/images/logo.jpg'} className="invisible" width={150} height={50} alt="Logo" />
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1 mx-auto justify-center">
                         <div className="hidden md:block">
@@ -217,7 +217,7 @@ const Header = ({ categories }) => {
                         </div>
                         {isLoggedIn ?
                             <>
-                                <Link href={'/myOrders'}><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 hidden md:block" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
+                                <Link href={'/myOrders'} className="hidden md:block"><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
                                 <div className="hidden md:block">
                                     <Button className="gap-4 bg-slate-50 p-2" style={{border: '1px solid #d8d8d8'}} onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: true}))}>
                                         <div className="p-[0.8rem] rounded-lg bg-pink-600">

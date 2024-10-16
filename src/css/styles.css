@@ -91,7 +91,14 @@ body::-webkit-scrollbar {
 }
 
 
+/* @media only screen and (min-width: 768px) {
+
+} */
+
 @media only screen and (max-width: 768px) {
+    .table-type-1 td {
+        border: 1px solid #ebebeb;
+    }
     .main-search-box {
         width: 100%;
     }

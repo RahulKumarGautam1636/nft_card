@@ -1,12 +1,13 @@
 import axios from "axios";
 import { dummyUser, NEXT_APP_BASE_URL } from "@/constants";
-import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners } from "@/data";
+import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners, productPerPage } from "@/data";
 
 const isLive = true;
 const fixedData = false;
 const emptyRes = false;
 
-const baseURL = 'https://node-server-jyhc.onrender.com';
+const baseURL = 'https://node-server-utis.onrender.com';
+                // https://node-server-jyhc.onrender.com
                 // https://node-server-ecommerce.onrender.com 
 
 export const getBanners = async (type) => {
@@ -37,6 +38,7 @@ export const getCategories = async (caller) => {
 
 export const getProducts = async () => {
     console.log('getProducts');
+    if (fixedData) return productPerPage;
     if (emptyRes) return { products: [] };
     const res = await axios.get(isLive ? `${baseURL}/api/products?page=1&perPage=8&location=All` : 'http://localhost:3000/productsPerPage');
     return res.data;
