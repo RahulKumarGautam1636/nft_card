@@ -6,7 +6,8 @@ const isLive = true;
 const fixedData = false;
 const emptyRes = false;
 
-const baseURL = 'https://node-server-utis.onrender.com';
+const baseURL = 'https://node-server-dux3.onrender.com';
+                // https://node-server-utis.onrender.com
                 // https://node-server-jyhc.onrender.com
                 // https://node-server-ecommerce.onrender.com 
 

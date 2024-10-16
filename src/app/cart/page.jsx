@@ -2,8 +2,7 @@
 import { LinearProgress } from "@mui/material";
 import { TiDelete } from "react-icons/ti";
 import { IconButton } from "@mui/material";
-import { BiMinus, BiPlus } from "react-icons/bi";
-import { RiDiscountPercentLine } from "react-icons/ri";
+import { BiHeart, BiMinus, BiPlus } from "react-icons/bi";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, dumpCart, removeFromCart } from "@/lib/slices";

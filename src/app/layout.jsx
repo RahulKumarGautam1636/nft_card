@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
       {/* <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-      <body className={inter.className}>
+      <body className={inter.className} style={{opacity: '0.1'}}>
         <StoreProvider>
           <Header categories={categories} />
           {children}
