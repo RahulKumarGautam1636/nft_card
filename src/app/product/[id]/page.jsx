@@ -7,14 +7,14 @@ import { ActionBox, DescriptionTabs, ProductSlider, ZoomComponent } from "@/comp
 import { getProduct, getReviews, getCatIdProducts } from "@/api/api";
 
 
-export default async function Product({ params }) {
+export default async function Product({ params, searchParams }) {
 
   const tabs = [
     { name: 'Description', id: 1 },
     { name: 'Additional Info', id: 2 },
     { name: 'Reviews (0)', id: 3 }
   ]
-
+  console.log(searchParams);
   const product = await getProduct(params.id);
   console.log(product);
   

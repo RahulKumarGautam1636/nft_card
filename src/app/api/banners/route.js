@@ -1,43 +1,40 @@
-// var data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+import { NextRequest, NextResponse } from "next/server";
+import fs from 'fs';
+import generateUniqueId from "generate-unique-id";
 
-// app.get('/banners', (req, res) => {
-//     var banners = data.banners;
-//     res.json(banners);
-// })
+export async function GET(req, { params }) {
 
-// app.get('/homeBanners', (req, res) => {
-//     var homeBanners = data.homeBanners;
-//     res.json(homeBanners);
-// })
+    var data = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/data.json', 'utf8'));
 
-// app.get('/homeSideBanners', (req, res) => {
-//     var homeSideBanners = data.homeSideBanners;
-//     res.json(homeSideBanners);
-// })
-
-// app.get('/homeBottomBanners', (req, res) => {
-//     var homeBottomBanners = data.homeBottomBanners;
-//     res.json(homeBottomBanners);
-// })
+    const searchParams = req.nextUrl.searchParams;       
+    let type = searchParams.get('type');           
+    console.log(type);
+    let banners = data[type];
+    
+    if (!banners?.length) return NextResponse.json({ error: 'No Banners found.' }, { status: 404 });
+    return NextResponse.json(banners);
+}
 
 
-// app.get('/addBanners', (req, res) => {
-//     let allData = JSON.parse(fs.readFileSync('db.json', 'utf8'));
-//     let id = uniqueId({ length: 24 });
-//     let newBanner = {
-//         id: id,
-//         images: [ "no image" ],
-//         catId: "66c0d705430f507021d32294",
-//         catName: "New Category Item",
-//         subCatId: null,
-//         subCatName: null
-//     }
-//     allData.banners.push(newBanner);
-//     fs.writeFile('db.json', JSON.stringify(allData), 'utf8', (err, data) => {
-//         if (err) {
-//             return console.log(err);
-//         } else {
-//             res.send(JSON.stringify(newBanner));
-//         }
-//     });
-// })
+export async function POST() {
+
+    var data = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/data.json', 'utf8'));
+
+    let id = generateUniqueId({ length: 24 });
+    let newBanner = {
+        id: id,
+        images: [ "no image" ],
+        catId: "66c0d705430f507021d32294",
+        catName: "New Category Item",
+        subCatId: null,
+        subCatName: null
+    }
+    data.banners.push(newBanner);
+
+    try {
+        await fs.writeFileSync(process.cwd() + '/src/app/api/data.json', JSON.stringify(data), 'utf8');
+        return NextResponse.json(newBanner);
+    } catch (error) {
+        return NextResponse.json({ error: 'Something went wrong.' }, { status: 400 });
+    }
+}

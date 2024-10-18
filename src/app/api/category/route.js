@@ -1,6 +1,15 @@
-// var data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+import { NextRequest, NextResponse } from "next/server";
+import fs from 'fs';
 
-// app.get('/category', (req, res) => {
-//     var category = data.category;
-//     res.json(category);
-// })
+export async function GET(req, { params }) {
+
+    var data = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/data.json', 'utf8'));
+
+    if (req.method === 'GET') {
+
+        let categories = data.category;
+        if (!categories.categoryList.length) return NextResponse.json({ error: 'No Categories found.' }, { status: 404 });
+        return NextResponse.json(categories);
+    }
+}
+

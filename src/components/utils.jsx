@@ -467,3 +467,13 @@ export const ProductToastCard = ({ toastData, closeToast }) => {
 
 export const productToast = (productToastData, options) => toast(<ProductToastCard toastData={productToastData} />, { position: "top-right", autoClose: 2500, closeButton: false, className: 'product-toast', ...options });
 export const stringToast = (toastData, type='') => toast(toastData, { type: type, autoClose: 2000 });
+
+
+export const isEmpty = (obj) => {
+  for (const prop in obj) {
+    if (Object.hasOwn(obj, prop)) {
+      return false;
+    }
+  }
+  return true;
+}

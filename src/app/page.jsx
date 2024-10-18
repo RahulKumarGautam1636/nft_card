@@ -12,7 +12,7 @@ export default async function Home() {   // homeBanners, banners, categories, fi
   const homeBottomBanners = await getBanners('homeBottomBanners');   
   const categories = await getCategories('home');
   const filteredProducts = await getCatNameProducts('Fashion', 'All');
-  const productsData = await getProducts();
+  const productsData = await getProducts({ page: 1, perPage: 8, location: 'All' });
   const featuredProducts = await getFeaturedProducts();
 
   return (

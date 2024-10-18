@@ -296,7 +296,7 @@
             }
         ]
     },
-    "homeBanners": [
+    "homeBanner": [
         {
             "_id": "66e011ddb227328f1f7ed145",
             "images": [
