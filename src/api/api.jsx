@@ -2,11 +2,11 @@ import axios from "axios";
 import { dummyUser, NEXT_APP_BASE_URL } from "@/constants";
 import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners, productPerPage } from "@/data";
 
-const isLive = true;
-const fixedData = false;
+const isLive = false;
+const fixedData = true;
 const emptyRes = false;
 
-const baseURL = 'https://ecommerce-server-node.onrender.com';
+const baseURL = isLive ? 'https://ecommerce-server-node.onrender.com' : `http://localhost:3000`;
                 // 'https://node-server-dux3.onrender.com';
                 // https://node-server-utis.onrender.com
                 // https://node-server-jyhc.onrender.com
@@ -26,7 +26,7 @@ export const getBanners = async (type) => {     //
         }
     }
     if (emptyRes) return [];
-    const res = await axios.get(isLive ? `${baseURL}/api/${type}` : `http://localhost:3001/api/banners?type=${type}`);
+    const res = await axios.get(isLive ? `${baseURL}/api/${type}` : `${baseURL}/api/banners?type=${type}`);
     return res.data;
 }
 
@@ -34,7 +34,7 @@ export const getCategories = async (caller) => {        //
     console.log('getCategories', caller);
     if (fixedData) return category;
     if (emptyRes) return { categoryList: [{ name: '', slug: '2342322342', children: [], images: ['']}] };
-    const res = await axios.get(isLive ? `${baseURL}/api/category` : 'http://localhost:3001/api/category');
+    const res = await axios.get(isLive ? `${baseURL}/api/category` : `${baseURL}/api/category`);
     return res.data;
 }
 
@@ -42,7 +42,7 @@ export const getProducts = async ({ catName, catId, subCatId, page, perPage, loc
     console.log('getProducts');
     if (fixedData) return productPerPage;
     if (emptyRes) return { products: [] };
-    const res = await axios.get(isLive ? `${baseURL}/api/products?page=1&perPage=8&location=All` : `http://localhost:3001/api/products?catId=${catId || ''}&subCatId=${subCatId || ''}&catName=${catName || ''}&page=${page || ''}&perPage=${perPage || ''}&location=${location || ''}`);
+    const res = await axios.get(isLive ? `${baseURL}/api/products?page=1&perPage=8&location=All` : `${baseURL}/api/products?catId=${catId || ''}&subCatId=${subCatId || ''}&catName=${catName || ''}&page=${page || ''}&perPage=${perPage || ''}&location=${location || ''}`);
     return res.data;
 }
 
@@ -50,7 +50,7 @@ export const getFeaturedProducts = async () => {            //
     console.log('getFeaturedProducts');
     if (fixedData) return featured;
     if (emptyRes) return [];
-    const res = await axios.get(isLive ? `${baseURL}/api/products/featured?location=All` : 'http://localhost:3001/api/products/featured?location=All');
+    const res = await axios.get(isLive ? `${baseURL}/api/products/featured?location=All` : `${baseURL}/api/products/featured?location=All`);
     return res.data;
 }
 
@@ -58,42 +58,42 @@ export const getFeaturedProducts = async () => {            //
 export const getProduct = async (id) => {         //
     console.log('getProduct');
     // if (emptyRes) return [];
-    const res = await axios.get(isLive ? `${baseURL}/api/products/${id}` : `http://localhost:3001/api/products/${id}`);
+    const res = await axios.get(isLive ? `${baseURL}/api/products/${id}` : `${baseURL}/api/products/${id}`);
     return res.data;
 }
 export const getReviews = async (id) => {
-    console.log('getReviews');
-    if (emptyRes) return [];
-    const res = await axios.get(isLive ? `${baseURL}/api/productReviews?productId=${id}` : 'http://localhost:3001/api/filteredProducts');
-    return res.data;
+    // console.log('getReviews');
+    // if (emptyRes) return [];
+    // const res = await axios.get(isLive ? `${baseURL}/api/productReviews?productId=${id}` : `${baseURL}/api/filteredProducts`);
+    // return res.data;
 }
 
 export const getCatNameProducts = async (catName, location) => {        //
     console.log('getCatNameProducts');
     if (fixedData) return catNameData;
-    if (emptyRes) return {products: []};
-    const res = await axios.get(isLive ? `${baseURL}/api/products/catName?catName=${catName}&location=${location}` : `/api/products?catName=${catName}&location=${location}`);
+    // if (emptyRes) return {products: []};
+    const res = await axios.get(isLive ? `${baseURL}/api/products/catName?catName=${catName}&location=${location}` : `${baseURL}/api/products?catName=${catName}&location=${location}`);
     return res.data;
 }
 
-export const getCatIdProducts = async (catName, id, location) => {
-    console.log(`${baseURL}/api/products/${catName}?${catName}=${id}&location=${location}`);
+export const getCatIdProducts = async (catTypeName, catIdValue, location) => {
+    console.log(`${baseURL}/api/products/${catTypeName}?${catTypeName}=${catIdValue}&location=${location}`);
     if (fixedData) return categoryId;
     if (emptyRes) return {products: []};
-    const res = await axios.get(isLive ? `${baseURL}/api/products/${catName}?${catName}=${id}&location=${location}` : 'http://localhost:3001/api/filteredProducts');
+    const res = await axios.get(isLive ? `${baseURL}/api/products/${catTypeName}?${catTypeName}=${catIdValue}&location=${location}` : `${baseURL}/api/products?${catTypeName}=${catIdValue}&location=${location}`);
     return res.data;
 }
 
 export const getFilteredProducts = async (catType, id, minPrice=100, maxPrice=100000, location='All') => {
     console.log('getFilteredProducts');
     if (emptyRes) return [];
-    const res = await axios.get(isLive ? `${baseURL}/api/products/fiterByPrice?minPrice=${minPrice}&maxPrice=${maxPrice}&${catType}=${id}&location=${location}` : 'http://localhost:3001/api/filteredProducts');
+    const res = await axios.get(isLive ? `${baseURL}/api/products/fiterByPrice?minPrice=${minPrice}&maxPrice=${maxPrice}&${catType}=${id}&location=${location}` : `${baseURL}/api/filteredProducts`);
     return res.data;
 }
 
 export const searchProducts = async (query) => {    
     console.log('searchProducts');
-    const res = await axios.get(isLive ? `${baseURL}/api/search?q=${query}` : `/api/api/search?q=${query}`);
+    const res = await axios.get(`${baseURL}/api/search?q=${query}`);
     return res.data;
 }
 

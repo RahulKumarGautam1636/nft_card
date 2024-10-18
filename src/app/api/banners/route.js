@@ -8,7 +8,6 @@ export async function GET(req, { params }) {
 
     const searchParams = req.nextUrl.searchParams;       
     let type = searchParams.get('type');           
-    console.log(type);
     let banners = data[type];
     
     if (!banners?.length) return NextResponse.json({ error: 'No Banners found.' }, { status: 404 });

@@ -25,14 +25,14 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const categories = await getCategories('filter'); // {categoryList: []} //
+  const categories = {categoryList: []} // await getCategories('filter'); // 
 
   return (
     <html lang="en">
       {/* <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-      <body className={inter.className} style={{opacity: '0.1'}}>
+      <body className={inter.className} style={{opacity: '1'}}>
         <StoreProvider>
           <Header categories={categories} />
           {children}

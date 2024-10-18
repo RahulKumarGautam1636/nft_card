@@ -18,7 +18,7 @@ export default async function Product({ params, searchParams }) {
   const product = await getProduct(params.id);
   console.log(product);
   
-  const reviews = await getReviews(params.id);
+  // const reviews = await getReviews(params.id);
   const relatedProducts = await getCatIdProducts('subCatId', product.subCatId, product.location[0].value);
   
   return (
@@ -77,7 +77,7 @@ export default async function Product({ params, searchParams }) {
           </div>
         </section>
         <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white">
-          <DescriptionTabs tabs={tabs} reviews={reviews} />
+          {/* <DescriptionTabs tabs={tabs} reviews={reviews} /> */}
         </section>
         <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white">
           <h2 className="text-2xl font-semibold mb-6">Related Products</h2>

@@ -19,7 +19,6 @@ export async function GET(req, { params }) {
 
     // if (!allQueryStrings) {
     //     products = products.find(i => i.id === id);
-    //     console.log(products);
     //     if (!products) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
     //     return NextResponse.json(products);
     // }
