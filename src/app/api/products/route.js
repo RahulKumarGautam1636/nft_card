@@ -17,14 +17,8 @@ export async function GET(req, { params }) {
     let page = parseInt(searchParams.get('page'));
     let products = allProducts.products;
 
-    // if (!allQueryStrings) {
-    //     products = products.find(i => i.id === id);
-    //     if (!products) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
-    //     return NextResponse.json(products);
-    // }
-
     if (location !== 'All') {        
-        products = products.filter(i => {                 // filter by location.
+        products = products.filter(i => {                
             let exist = i.location.find(x => x.label === location);
             if (exist) return i;
         })
@@ -34,12 +28,13 @@ export async function GET(req, { params }) {
         products = products.filter(i => i.catId === catId);
     } else if (subCatId) {
         products = products.filter(i => i.subCatId === subCatId);
+        // if (!products.length) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
+        // return NextResponse.json({ products: products });
     } else if (catName) {
         products = products.filter(i => i.catName === catName);
+        // if (!products.length) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
+        // return NextResponse.json({ products: products });
     } 
-    // else if (id === 'featured') {
-    //     products = products.filter(i => i.isFeatured);
-    // }
 
     if (page && perPage) {
         let start = (page - 1) * perPage;
@@ -51,5 +46,5 @@ export async function GET(req, { params }) {
     } 
 
     if (!products.length) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
-    return NextResponse.json(products);
+    return NextResponse.json({ products: products });
 }

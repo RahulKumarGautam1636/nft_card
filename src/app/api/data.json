@@ -88,42 +88,34 @@
     "category": {
         "categoryList": [
             {
-                "_id": "66c0d6d9430f507021d32280",
-                "id": "66c0d6d9430f507021d32280",
+                "_id": "670f544ce86c762e3cad6c8b",
+                "id": "670f544ce86c762e3cad6c8b",
                 "name": "Fashion",
                 "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960852/1725960851153_fash.png"
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
                 ],
                 "color": "#ecffec",
                 "slug": "Fashion",
                 "children": [
                     {
-                        "_id": "66c0df9d3490222862ae78bb",
-                        "id": "66c0df9d3490222862ae78bb",
+                        "_id": "670f54f5e86c762e3cad6cd9",
+                        "id": "670f54f5e86c762e3cad6cd9",
                         "name": "Men",
                         "images": [],
                         "slug": "Men",
                         "children": []
                     },
                     {
-                        "_id": "66c0dfa43490222862ae78c1",
-                        "id": "66c0dfa43490222862ae78c1",
+                        "_id": "670f54fbe86c762e3cad6cdf",
+                        "id": "670f54fbe86c762e3cad6cdf",
                         "name": "Women",
                         "images": [],
                         "slug": "Women",
                         "children": []
                     },
                     {
-                        "_id": "66c0dfab3490222862ae78c7",
-                        "id": "66c0dfab3490222862ae78c7",
-                        "name": "Boys",
-                        "images": [],
-                        "slug": "Boys",
-                        "children": []
-                    },
-                    {
-                        "_id": "66c0dfb13490222862ae78cd",
-                        "id": "66c0dfb13490222862ae78cd",
+                        "_id": "670f5502e86c762e3cad6ce5",
+                        "id": "670f5502e86c762e3cad6ce5",
                         "name": "Girls",
                         "images": [],
                         "slug": "Girls",
@@ -132,50 +124,42 @@
                 ]
             },
             {
-                "_id": "66c0d6f0430f507021d3228a",
-                "id": "66c0d6f0430f507021d3228a",
+                "_id": "670f5463e86c762e3cad6c95",
+                "id": "670f5463e86c762e3cad6c95",
                 "name": "Electronics",
                 "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960839/1725960838876_3659898.png"
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
                 ],
                 "color": "#feefea",
                 "slug": "Electronics",
                 "children": [
                     {
-                        "_id": "66c0dfb73490222862ae78d3",
-                        "id": "66c0dfb73490222862ae78d3",
+                        "_id": "670f5511e86c762e3cad6cf1",
+                        "id": "670f5511e86c762e3cad6cf1",
                         "name": "Mobiles",
                         "images": [],
                         "slug": "Mobiles",
                         "children": []
                     },
                     {
-                        "_id": "66c18d6319e2c0f542b72fd8",
-                        "id": "66c18d6319e2c0f542b72fd8",
-                        "name": "Tv",
-                        "images": [],
-                        "slug": "Tv",
-                        "children": []
-                    },
-                    {
-                        "_id": "66cf36e97f21a4cf0943b0d5",
-                        "id": "66cf36e97f21a4cf0943b0d5",
+                        "_id": "670f5518e86c762e3cad6cf7",
+                        "id": "670f5518e86c762e3cad6cf7",
                         "name": "Computers and Accessories",
                         "images": [],
                         "slug": "Computers and Accessories",
                         "children": []
                     },
                     {
-                        "_id": "66e65df7f3a7f44f94fc7877",
-                        "id": "66e65df7f3a7f44f94fc7877",
+                        "_id": "670f5521e86c762e3cad6cfd",
+                        "id": "670f5521e86c762e3cad6cfd",
                         "name": "Cameras",
                         "images": [],
                         "slug": "Cameras",
                         "children": []
                     },
                     {
-                        "_id": "66ebe21ebba6f038380946a5",
-                        "id": "66ebe21ebba6f038380946a5",
+                        "_id": "670f5527e86c762e3cad6d03",
+                        "id": "670f5527e86c762e3cad6d03",
                         "name": "Smart Watch Accessories",
                         "images": [],
                         "slug": "Smart Watch Accessories",
@@ -184,26 +168,65 @@
                 ]
             },
             {
-                "_id": "66c0d705430f507021d32294",
-                "id": "66c0d705430f507021d32294",
+                "_id": "670f5477e86c762e3cad6c9f",
+                "id": "670f5477e86c762e3cad6c9f",
+                "name": "Bags",
+                "images": [
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+                ],
+                "color": "#fdf0ff",
+                "slug": "Bags",
+                "children": []
+            },
+            {
+                "_id": "670f548ce86c762e3cad6ca9",
+                "id": "670f548ce86c762e3cad6ca9",
+                "name": "Footwear",
+                "images": [
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+                ],
+                "color": "#def3ff",
+                "slug": "Footwear",
+                "children": [
+                    {
+                        "_id": "670f5550e86c762e3cad6d15",
+                        "id": "670f5550e86c762e3cad6d15",
+                        "name": "Men Footwear",
+                        "images": [],
+                        "slug": "Men Footwear",
+                        "children": []
+                    },
+                    {
+                        "_id": "670f5559e86c762e3cad6d1b",
+                        "id": "670f5559e86c762e3cad6d1b",
+                        "name": "Women FootWear",
+                        "images": [],
+                        "slug": "Women FootWear",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "_id": "670f54a3e86c762e3cad6cb3",
+                "id": "670f54a3e86c762e3cad6cb3",
                 "name": "Groceries",
                 "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960829/1725960828798_3514242.png"
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
                 ],
-                "color": "#e7e7e7",
+                "color": "#ffe8f8",
                 "slug": "Groceries",
                 "children": [
                     {
-                        "_id": "66c0dfd53490222862ae78df",
-                        "id": "66c0dfd53490222862ae78df",
+                        "_id": "670f5534e86c762e3cad6d09",
+                        "id": "670f5534e86c762e3cad6d09",
                         "name": "Cooking Essentials",
                         "images": [],
                         "slug": "Cooking Essentials",
                         "children": []
                     },
                     {
-                        "_id": "66c0dff73490222862ae78e5",
-                        "id": "66c0dff73490222862ae78e5",
+                        "_id": "670f5541e86c762e3cad6d0f",
+                        "id": "670f5541e86c762e3cad6d0f",
                         "name": "Home Care",
                         "images": [],
                         "slug": "Home Care",
@@ -212,85 +235,35 @@
                 ]
             },
             {
-                "_id": "66c0d72a430f507021d3229e",
-                "id": "66c0d72a430f507021d3229e",
-                "name": "Footwear",
-                "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960814/1725960813279_1334203.png"
-                ],
-                "color": "#def3ff",
-                "slug": "Footwear",
-                "children": [
-                    {
-                        "_id": "66c0e0033490222862ae78eb",
-                        "id": "66c0e0033490222862ae78eb",
-                        "name": "Men Footwear",
-                        "images": [],
-                        "slug": "Men Footwear",
-                        "children": []
-                    },
-                    {
-                        "_id": "66c0e00a3490222862ae78f1",
-                        "id": "66c0e00a3490222862ae78f1",
-                        "name": "Women FootWear",
-                        "images": [],
-                        "slug": "Women FootWear",
-                        "children": []
-                    },
-                    {
-                        "_id": "66ea3c19c017f4365fafc4b6",
-                        "id": "66ea3c19c017f4365fafc4b6",
-                        "name": "Boys Footwear",
-                        "images": [
-                            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726626408/1726626407704_ushawu-medium-dome-satchel-model2-460815865_brown-2-202408141116.jpg",
-                            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726626409/1726626408218_ushawu-medium-dome-satchel-model3-460815865_brown-3-202408141116.jpg"
-                        ],
-                        "slug": "Boys Footwear",
-                        "children": []
-                    }
-                ]
-            },
-            {
-                "_id": "66c0d747430f507021d322a8",
-                "id": "66c0d747430f507021d322a8",
+                "_id": "670f54b8e86c762e3cad6cbd",
+                "id": "670f54b8e86c762e3cad6cbd",
                 "name": "Beauty",
                 "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960798/1725960797783_1940922.png"
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
                 ],
-                "color": "#ffe8f8",
+                "color": "#e3fffa",
                 "slug": "Beauty",
                 "children": []
             },
             {
-                "_id": "66c0d76e430f507021d322b7",
-                "id": "66c0d76e430f507021d322b7",
+                "_id": "670fb77905878e94678d8d9a",
+                "id": "670fb77905878e94678d8d9a",
                 "name": "Wellness",
                 "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960784/1725960783990_3048398.png"
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729083251/1729083249213_well.png"
                 ],
-                "color": "#c9ffd0",
-                "slug": " Wellness",
+                "color": "#fff3ff",
+                "slug": "Wellness",
                 "children": []
             },
             {
-                "_id": "66c0d82c430f507021d322d5",
-                "id": "66c0d82c430f507021d322d5",
-                "name": "Bags",
-                "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1726036714/1726036714463_13542454.png"
-                ],
-                "color": "#fffceb",
-                "slug": "Bags",
-                "children": []
-            },
-            {
-                "_id": "66e267db72e7bc09c7a2dd08",
-                "id": "66e267db72e7bc09c7a2dd08",
+                "_id": "670fbd4605878e94678d9368",
+                "id": "670fbd4605878e94678d9368",
                 "name": "Jewellery",
                 "images": [
-                    "https://res.cloudinary.com/da26rdzwp/image/upload/v1726113744/1726113743791_4259798.png"
+                    "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729084741/1729084739196_jw.png"
                 ],
-                "color": "#ecffec",
+                "color": "#fff8e3",
                 "slug": "Jewellery",
                 "children": []
             }
@@ -298,160 +271,124 @@
     },
     "homeBanner": [
         {
-            "_id": "66e011ddb227328f1f7ed145",
+            "_id": "670f53d2e86c762e3cad6c4c",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960668/1725960667532_New_Project_8.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057745/1729057742516_1721277298204_banner.jpg"
             ],
             "__v": 0,
-            "id": "66e011ddb227328f1f7ed145"
+            "id": "670f53d2e86c762e3cad6c4c"
         },
         {
-            "_id": "66e011eeb227328f1f7ed14f",
+            "_id": "670f53e1e86c762e3cad6c56",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960685/1725960683838_1722687677537_1721277206951_banner4.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057759/1729057757497_New_Project_13.jpg"
             ],
             "__v": 0,
-            "id": "66e011eeb227328f1f7ed14f"
+            "id": "670f53e1e86c762e3cad6c56"
         },
         {
-            "_id": "66e5a77579f9293cc4f9c74b",
+            "_id": "670f53efe86c762e3cad6c60",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726326641/1726326640915_New_Project_27.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057773/1729057769748_New_Project_10.jpg"
             ],
             "__v": 0,
-            "id": "66e5a77579f9293cc4f9c74b"
+            "id": "670f53efe86c762e3cad6c60"
         },
         {
-            "_id": "66efb05e53494db6a050bba3",
+            "_id": "670f53fde86c762e3cad6c6a",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726984280/1726984279764_New_Project_10.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057788/1729057785030_New_Project_8.jpg"
             ],
             "__v": 0,
-            "id": "66efb05e53494db6a050bba3"
+            "id": "670f53fde86c762e3cad6c6a"
         },
         {
-            "_id": "66efb07253494db6a050bbbb",
+            "_id": "670f5414e86c762e3cad6c76",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726984302/1726984301617_New_Project_13.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057810/1729057807459_New_Project_6.jpg"
             ],
             "__v": 0,
-            "id": "66efb07253494db6a050bbbb"
+            "id": "670f5414e86c762e3cad6c76"
         },
         {
-            "_id": "66efb08653494db6a050bbce",
+            "_id": "670f5421e86c762e3cad6c80",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726984322/1726984321798_New_Project_15.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057824/1729057821944_New_Project_7.jpg"
             ],
             "__v": 0,
-            "id": "66efb08653494db6a050bbce"
+            "id": "670f5421e86c762e3cad6c80"
         },
         {
-            "_id": "66efb0a153494db6a050bbdb",
+            "_id": "67137f666e22c6d375da761d",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726984350/1726984350028_New_Project_14.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729331039/1729331039175_Screenshot_from_2024-10-19_09-57-31.png"
             ],
             "__v": 0,
-            "id": "66efb0a153494db6a050bbdb"
-        },
-        {
-            "_id": "66f54a76e8869a5fda16e8ba",
-            "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1727351410/1727351409323_New_Project_30.jpg"
-            ],
-            "__v": 0,
-            "id": "66f54a76e8869a5fda16e8ba"
-        },
-        {
-            "_id": "66f54aa3e8869a5fda16e8de",
-            "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1727351455/1727351455267_New_Project_31.jpg"
-            ],
-            "__v": 0,
-            "id": "66f54aa3e8869a5fda16e8de"
-        },
-        {
-            "_id": "6703dd1569e6c4bb7af18f6d",
-            "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1728306444/1728306443746_New_Project_6.jpg"
-            ],
-            "__v": 0,
-            "id": "6703dd1569e6c4bb7af18f6d"
+            "id": "67137f666e22c6d375da761d"
         }
     ],
     "homeSideBanners": [
         {
-            "_id": "66e5ca26e4c4114ee1ddf868",
+            "_id": "670f55f7e86c762e3cad6d77",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726335522/1726335520004_home-20-product-block-collection-3.webp"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729058293/1729058292132_New_Project_34.jpg"
             ],
-            "catId": "66c0d6f0430f507021d3228a",
+            "catId": "670f5463e86c762e3cad6c95",
             "catName": null,
-            "subCatId": "66cf36e97f21a4cf0943b0d5",
+            "subCatId": "670f5518e86c762e3cad6cf7",
             "subCatName": null,
             "__v": 0,
-            "id": "66e5ca26e4c4114ee1ddf868"
+            "id": "670f55f7e86c762e3cad6d77"
         },
         {
-            "_id": "670774d115f0a6583af1cd92",
+            "_id": "670f5601e86c762e3cad6d81",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1728541900/1728541900022_New_Project_33.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729058303/1729058302157_New_Project_35.jpg"
             ],
-            "catId": "66c0d705430f507021d32294",
+            "catId": "670f54a3e86c762e3cad6cb3",
             "catName": "Groceries",
             "subCatId": null,
             "subCatName": null,
             "__v": 0,
-            "id": "670774d115f0a6583af1cd92"
-        },
-        {
-            "_id": "6707bdbafbb4ac8fe9e5ba92",
-            "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1728560562/1728560562573_Screenshot_2024-10-09_at_10.09.40_AM.png"
-            ],
-            "catId": "66c0d6d9430f507021d32280",
-            "catName": "Fashion",
-            "subCatId": "66c0df9d3490222862ae78bb",
-            "subCatName": "Men",
-            "__v": 0,
-            "id": "6707bdbafbb4ac8fe9e5ba92"
+            "id": "670f5601e86c762e3cad6d81"
         }
     ],
     "homeBottomBanners": [
         {
-            "_id": "670b49f161347e5c638f8685",
+            "_id": "670f561ce86c762e3cad6d8c",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1728793065/1728793065146_banner-7.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729058330/1729058327686_banner-7.jpg"
             ],
-            "catId": "66c0d6f0430f507021d3228a",
+            "catId": "670f5463e86c762e3cad6c95",
             "catName": "Electronics",
-            "subCatId": "66c0dfb73490222862ae78d3",
+            "subCatId": "670f5511e86c762e3cad6cf1",
             "subCatName": "Mobiles",
             "__v": 0,
-            "id": "670b49f161347e5c638f8685"
+            "id": "670f561ce86c762e3cad6d8c"
         },
         {
-            "_id": "670b4a0161347e5c638f868f",
+            "_id": "670f5627e86c762e3cad6d96",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1728793084/1728793083672_banner-9.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729058341/1729058338771_banner-9.jpg"
             ],
-            "catId": "66c0d6f0430f507021d3228a",
+            "catId": "670f5463e86c762e3cad6c95",
             "catName": "Electronics",
-            "subCatId": "66ebe21ebba6f038380946a5",
+            "subCatId": "670f5527e86c762e3cad6d03",
             "subCatName": "Smart Watch Accessories",
             "__v": 0,
-            "id": "670b4a0161347e5c638f868f"
+            "id": "670f5627e86c762e3cad6d96"
         },
         {
-            "_id": "670b4a4d61347e5c638f87ca",
+            "_id": "670f5635e86c762e3cad6da0",
             "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1728793161/1728793160635_banner-5.jpg"
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729058356/1729058354752_banner-5.jpg"
             ],
-            "catId": "66c0d6f0430f507021d3228a",
+            "catId": "670f5463e86c762e3cad6c95",
             "catName": "Electronics",
-            "subCatId": "66e65df7f3a7f44f94fc7877",
+            "subCatId": "670f5521e86c762e3cad6cfd",
             "subCatName": "Cameras",
             "__v": 0,
-            "id": "670b4a4d61347e5c638f87ca"
+            "id": "670f5635e86c762e3cad6da0"
         }
     ]
 }

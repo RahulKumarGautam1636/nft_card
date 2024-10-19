@@ -354,10 +354,10 @@
             ],
             "brand": "Tazo",
             "price": 450,
-            "oldPrice": 550,
+            "oldPrice": 1000,
             "catName": "Fashion",
             "catId": "670f544ce86c762e3cad6c8b",
-            "subCatId": "670f54fbe86c762e3cad6cdf",
+            "subCatId": "",
             "subCat": "Men",
             "subCatName": "Women",
             "category": {
@@ -373,8 +373,8 @@
                 "__v": 0,
                 "id": "670f544ce86c762e3cad6c8b"
             },
-            "countInStock": 450,
-            "rating": 4,
+            "countInStock": 1500,
+            "rating": 5,
             "isFeatured": false,
             "discount": 12,
             "productRam": [],
@@ -664,7 +664,7 @@
         },
         {
             "_id": "66e135ef67c833713b247307",
-            "name": "Nivea 24 hour Melt-in Moisture Caring Lip Balm, Cherry Shine 4.8 g",
+            "name": "Nivea 24 hour Melt-in Moisture Caring Lip Balm, Cherry Shine 4.8 grras",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
             "images": [
                 "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060807/1729060804222_nivea-24-hour-melt-in-moisture-caring-lip-balm-cherry-shine-4-8-g-product-images-o490180140-p490180140-0-202203170330_1.webp",
@@ -1938,7 +1938,7 @@
             ],
             "brand": "Apple",
             "price": 35600,
-            "oldPrice": 38900,
+            "oldPrice": 389000,
             "catName": "Electronics",
             "catId": "670f5463e86c762e3cad6c95",
             "subCatId": "670f5511e86c762e3cad6cf1",

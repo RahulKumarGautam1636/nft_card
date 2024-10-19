@@ -21,7 +21,6 @@ export async function GET(req, { params }) {
         products = products.filter(i => i.isFeatured);
     } else {
         products = products.find(i => i.id === id);
-        console.log(products);
         if (!products) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
         return NextResponse.json(products);
     }

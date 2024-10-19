@@ -91,13 +91,13 @@ export default function FilterTabs({ categories, filteredProducts }) {
   }; 
 
   useEffect(() => {
-    const getProducts = async () => {
+    const getFilterProducts = async () => {
       setLoading(true);
       const res = await getCatNameProducts(activeCat.slug, 'All');
       setProducts(res);
       setLoading(false);
     }
-    getProducts();
+    getFilterProducts();
   }, [activeCat])
 
   return (
