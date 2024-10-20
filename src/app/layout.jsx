@@ -25,14 +25,16 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const categories = {categoryList: []} // await getCategories('filter'); // 
+  const categories = await getCategories('layout'); // {categoryList: []} // 
+
+  // https://preview.themeforest.net/item/remos-ecommerce-admin-dashboard-react-nextjs-template/full_screen_preview/52160590?_ga=2.84969497.1641132529.1729448630-1728571022.1661442086
 
   return (
     <html lang="en">
       {/* <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-      <body className={inter.className} style={{opacity: '0.1'}}>
+      <body className={inter.className} style={{opacity: '1'}}>
         <StoreProvider>
           <Header categories={categories} />
           {children}

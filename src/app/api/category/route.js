@@ -8,7 +8,7 @@ export async function GET(req, { params }) {
     if (req.method === 'GET') {
 
         let categories = data.category;
-        if (!categories.categoryList.length) return NextResponse.json({ error: 'No Categories found.' }, { status: 404 });
+        // if (!categories.categoryList.length) return NextResponse.json({ error: 'No Categories found.' }, { status: 404 });
         return NextResponse.json(categories);
     }
 }

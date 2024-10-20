@@ -21,7 +21,7 @@ export async function GET(req, { params }) {
         products = products.filter(i => i.isFeatured);
     } else {
         products = products.find(i => i.id === id);
-        if (!products) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
+        // if (!products) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
         return NextResponse.json(products);
     }
 
@@ -41,6 +41,6 @@ export async function GET(req, { params }) {
     //     return NextResponse.json({ products: productsPerPage, page: page, totalPages: totalPages});
     // } 
 
-    if (!products.length) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
+    // if (!products.length) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
     return NextResponse.json(products);
 }

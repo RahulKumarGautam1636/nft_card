@@ -44,7 +44,7 @@ export async function GET(req, { params }) {
     //     return NextResponse.json({ products: productsPerPage, page: page, totalPages: totalPages});
     // } 
 
-    if (!products.length) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
+    // if (!products.length) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
     return NextResponse.json({ products: products, totalPages: 0, page: 0 } );
 }
 

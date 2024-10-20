@@ -33,7 +33,7 @@ export const FilterSection = ({ cat, filteredProducts }) => {
     let location = searchParams.get('location') || 'All';
 
     const filterProducts = async (catName, catId, minPrice=100, maxPrice=100000, location='All') => {
-        setProducts(pre => ({ ...pre, loading: true }));        
+        setProducts(pre => ({ ...pre, loading: true }));       
         const filterResult = await getFilteredProducts(catName, catId, minPrice, maxPrice, location);
         console.log(filterResult);  
         setTimeout(() => {

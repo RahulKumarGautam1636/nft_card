@@ -27,7 +27,7 @@ const Header = ({ categories }) => {
     const dispatch = useDispatch();
     const [active, setActive] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
-    const [products, setProducts] = useState([]);
+    const [productsData, setProductsData] = useState({ products: [] });
     const [searchKey, setSearchKey] = useState('');
     const searchBoxRef = useRef();
     const cart = useSelector(state => state.cart);
@@ -43,7 +43,7 @@ const Header = ({ categories }) => {
         const getSearchProducts = async (key) => {
             const res = await searchProducts(key);
             if (res) {
-                setProducts(res);
+                setProductsData({ products: res });
             }
         }
         const timer = setTimeout(() => {
@@ -57,7 +57,7 @@ const Header = ({ categories }) => {
         const onBodyClick = (event) => {
           if (searchBoxRef.current && searchBoxRef.current.contains(event.target)) return;               
           setSearchOpen(false);                                                                                                                                                                          
-          setProducts([]);                                                                                                   
+          setProductsData({ products: [] });                                                                                                   
         }                                                                                                                       
         document.body.addEventListener('click', onBodyClick, { capture: true });                                                
         return () => document.body.removeEventListener('click', onBodyClick, { capture: true });                                
@@ -139,13 +139,13 @@ const Header = ({ categories }) => {
                             {searchOpen ? <div className="relative md:absolute md:top-full md:left-0 md:right-0 z-10">
                                 <div className="minicart w-full bg-white mt-4 shadow-xl border border-gray-200 rounded-lg py-4 px-5 md:p-6"> 
                                     <div className="flex justify-between pt-1 pb-3">
-                                        <h3 className="text-black">Products Found: {products.length}</h3>
+                                        <h3 className="text-black">Products Found: {productsData.products.length}</h3>
                                         <h3 className="text-blue-800 font-semibold" onClick={() => setSearchOpen(false)}>Close</h3>
                                     </div>
                                     <div className="max-h-[77vh] md:max-h-[57vh] overflow-auto">
-                                        {products.length ? 
+                                        {productsData.products.length ? 
                                         <ul>
-                                            {products.map(i => (
+                                            {productsData.products.map(i => (
                                                 <li key={i.id}>
                                                     <ProductCard_2 data={i} />
                                                 </li>

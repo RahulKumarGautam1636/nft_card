@@ -2,8 +2,8 @@ import axios from "axios";
 import { dummyUser, NEXT_APP_BASE_URL } from "@/constants";
 import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners, productPerPage } from "@/data";
 
-const isLive = false;
-const fixedData = true;
+const isLive = true;
+const fixedData = false;
 const emptyRes = false;
 
 const myBaseURL = `http://localhost:3000`;
@@ -91,14 +91,19 @@ export const getCatIdProducts = async (catTypeName, catIdValue, location) => {
 export const getFilteredProducts = async (catType, id, minPrice=100, maxPrice=100000, location='All') => {
     console.log('getFilteredProducts');
     if (emptyRes) return [];
-    const res = await axios.get(isLive ? `${otherBaseURL}/api/products/fiterByPrice?minPrice=${minPrice}&maxPrice=${maxPrice}&${catType}=${id}&location=${location}` : `${myBaseURL}/api/fiter/${catType}?minPrice=${minPrice}&maxPrice=${maxPrice}&${id}=${id}&location=${location}`);
+    const res = await axios.get(isLive ? `${otherBaseURL}/api/products/fiterByPrice?minPrice=${minPrice}&maxPrice=${maxPrice}&${catType}=${id}&location=${location}` : `${myBaseURL}/api/filter/${catType}?minPrice=${minPrice}&maxPrice=${maxPrice}&id=${id}&location=${location}`);
     return res.data;
 }
 
 export const searchProducts = async (query) => {
     console.log('searchProducts');
-    const res = await axios.get(`${baseURL}/api/search?q=${query}`);
-    return res.data;
+    const res = await axios.get(isLive ? `${baseURL}/api/search?q=${query}` : `${baseURL}/api/products?search=${query}`);
+    if (res.status === 200) {
+        return res.data;
+    } else {
+        alert('ERROR: Something Went wrong.');
+        return false;
+    }
 }
 
 // LOGIN API ---------------------------------------------------------------------------------------

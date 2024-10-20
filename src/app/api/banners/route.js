@@ -10,7 +10,7 @@ export async function GET(req, { params }) {
     let type = searchParams.get('type');           
     let banners = data[type];
     
-    if (!banners?.length) return NextResponse.json({ error: 'No Banners found.' }, { status: 404 });
+    // if (!banners?.length) return NextResponse.json({ error: 'No Banners found.' }, { status: 404 });
     return NextResponse.json(banners);
 }
 
