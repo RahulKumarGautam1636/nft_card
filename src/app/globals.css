@@ -22,7 +22,7 @@
 
 body {
   color: #000c;
-  font-family: Lato, sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 1rem;
   overflow-x: hidden;
 }

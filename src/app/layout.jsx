@@ -1,19 +1,21 @@
-import { Inter } from "next/font/google";
+import { Inter } from "next/font/google";   // Lato
 import "./globals.css";
 import "../css/styles.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'react-toastify/dist/ReactToastify.css';
 
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import StoreProvider from "@/lib/storeProvider";
 import { getCategories } from "@/api/api";
-import { BottomNav } from "@/components/bottomNav";
 import { ToastContainer } from "react-toastify";
-// import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+// const lato = Lato({
+//   subsets: ['latin'],
+//   variable: '--font-lato',
+//   display: 'swap',
+//   weight: ['100', '300', '400', '700', '900'],
+// })
 
 export const metadata = {
   title: "Google",
@@ -25,21 +27,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const categories = await getCategories('layout'); // {categoryList: []} // 
-
   // https://preview.themeforest.net/item/remos-ecommerce-admin-dashboard-react-nextjs-template/full_screen_preview/52160590?_ga=2.84969497.1641132529.1729448630-1728571022.1661442086
 
   return (
-    <html lang="en">
-      {/* <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head> */}
-      <body className={inter.className} style={{opacity: '1'}}>
+    <html lang="en">  {/* ${lato.variable} */}
+      <body className={`${inter.variable}`} style={{opacity: '1'}}>
         <StoreProvider>
-          <Header categories={categories} />
           {children}
-          <Footer />
-          <BottomNav />
           <ToastContainer className="my-toast" />    {/* we can use most of individual toast classes on the this container and that will be applied to all the toast that apear in this container */}
         </StoreProvider>
       </body>
