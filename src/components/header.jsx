@@ -218,8 +218,8 @@ const Header = ({ categories }) => {
                         {isLoggedIn ?
                             <>
                                 <Link href={'/myOrders'} className="hidden md:block"><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
-                                <div className="hidden md:block">
-                                    <Button className="gap-4 bg-slate-50 p-2" style={{border: '1px solid #d8d8d8'}} onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: true}))}>
+                                <div className="hidden md:block relative group">
+                                    <Button className="gap-4 bg-slate-50 p-2" style={{border: '1px solid #d8d8d8'}}>
                                         <div className="p-[0.8rem] rounded-lg bg-pink-600">
                                             <FaRegUser className="text-2xl text-white"/>
                                         </div>
@@ -229,6 +229,16 @@ const Header = ({ categories }) => {
                                         </div>
                                         <FaChevronDown />
                                     </Button>
+                                    <List className="min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full left-0 hidden group-hover:block">
+                                        <ListItemButton onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: true}))} component="button" className="hover:bg-purple-100 w-full">
+                                            <ListItemText primary={'Profile'} />
+                                        </ListItemButton>
+                                        <Link href={`/admin`}>
+                                            <ListItemButton component="button" className="hover:bg-purple-100 w-full">
+                                                <ListItemText primary={'Admin'} />
+                                            </ListItemButton>
+                                        </Link>
+                                    </List>
                                 </div>
                             </>
                             :

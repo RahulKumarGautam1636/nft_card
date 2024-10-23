@@ -17,13 +17,11 @@ export default async function ShopLayout({ children }) {
   const categories = await getCategories('layout'); // {categoryList: []} // 
 
   return (
-    <html lang="en">  
-      <body style={{opacity: '1'}}>
-        <Header categories={categories} />
-        {children}
-        <Footer />
-        <BottomNav />
-      </body>
-    </html>
+    <>
+      <Header categories={categories} />
+      {children}
+      <Footer />
+      <BottomNav />
+    </>
   );
 }

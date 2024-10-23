@@ -2,7 +2,7 @@ import axios from "axios";
 import { dummyUser, NEXT_APP_BASE_URL } from "@/constants";
 import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners, productPerPage } from "@/data";
 
-const isLive = true;
+const isLive = false;
 const fixedData = false;
 const emptyRes = false;
 

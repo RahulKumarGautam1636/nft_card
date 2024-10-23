@@ -90,6 +90,20 @@ body::-webkit-scrollbar {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+.sidebar h5,
+.nav-list > li > span,
+.nav-list > li div span,
+.nav-list > li div .ml-auto {
+    display: none;
+}
+
+.sidebar:hover h5,
+.sidebar:hover .nav-list > li > span,
+.sidebar:hover .nav-list > li div span,
+.sidebar:hover .nav-list > li div .ml-auto {
+    display: inherit;
+}
+
 
 /* @media only screen and (min-width: 768px) {
 
