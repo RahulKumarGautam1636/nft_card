@@ -18,7 +18,8 @@ import "../../css/styles.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'react-toastify/dist/ReactToastify.css';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 
 export default function AdminLayout({ children }) {
@@ -26,20 +27,27 @@ export default function AdminLayout({ children }) {
     const user = useSelector(state => state.user);
     const [active, setActive] = useState(false);
     const sidebarRef = useRef(null);
+    const navRef = useRef(null);
+    const [offset, setOffset] = useState({ top: '', left: 75 });
 
-    console.log(sidebarRef.current);
+    useEffect(() => {
+        setOffset({ top: navRef.current.offsetHeight, left: sidebarRef.current.offsetWidth });
+    }, [sidebarRef.current, navRef.current])
 
     return (
-        <section onClick={() => console.log(sidebarRef.current.style)}>
-            <main className=''>
-                <div style={{paddingLeft: active ? '0' : '75px'}} className="transition duration-300">
-                    <nav className="flex gap-5 items-center justify-between p-4 border border-gray-300 mb-4">
+        <section>
+            <main>
+                <div className="transition duration-500 relative z-10 bg-white">
+                    <nav ref={navRef} className="flex gap-5 items-center justify-between p-4 border border-gray-300">
                         <div className="flex gap-5 items-center flex-1 max-w-[45rem]">
                             <RiMenu2Fill onClick={() => setActive(!active)} className="text-3xl text-blue-600 cursor-pointer" />
-                            <div className="flex gap-3 items-center flex-1 h-[3.8rem] md:h-full rounded-lg">
+                            <Link className="" href={'/'}>
+                                <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
+                            </Link>
+                            <div className="hidden md:flex gap-3 items-center flex-1 h-[3.8rem] md:h-full rounded-lg">
                                 <div className="relative flex-1 h-full">
                                     <input placeholder="Search Products.." className="h-full px-5 py-4 border border-slate-200 bg-slate-100 outline-none text-lg rounded w-full" />
-                                    <IoSearch className="hidden md:block absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-gray-600"/>
+                                    <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-gray-600"/>
                                 </div>
                             </div>
                         </div>
@@ -81,11 +89,9 @@ export default function AdminLayout({ children }) {
                             </div>
                         </div>
                     </nav>
-                    {children}
                 </div>
-                <div ref={sidebarRef} style={{transform: active ? 'translateX(-80px)' : 'translateX(0)'}} className='sidebar overflow-auto transition duration-300 p-4 border-r border-gray-300 fixed top-0 bottom-0 left-0 z-[1111] bg-white'>
-                                                                                                                {/* min-w-72 */}
-                    <div>
+                <div ref={sidebarRef} style={{transform: active ? `translateX(-${offset.left + 5}px)` : 'translateX(0)', paddingTop: `${offset.top}px`}} className='sidebar overflow-auto transition duration-500 z-[5] p-4 border-r border-gray-300 fixed top-0 bottom-0 left-0 bg-white'>                                                                                           {/* min-w-72 */}
+                    <div className="pt-[1.1rem]">
                         <h5 className="font-medium text-slate-500 px-4 text-[0.97rem] mb-1">MAIN HOME</h5>
                         <ul className="nav-list">
                             <li className="group">
@@ -308,7 +314,12 @@ export default function AdminLayout({ children }) {
                         </ul>
                     </div>
                 </div>
+                <div style={{paddingLeft: active ? '0' : `${offset.left}px`, transition: '0.5s'}}>
+                    {children}
+                </div>
             </main>
         </section>
     )
 }
+
+

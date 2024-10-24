@@ -12,6 +12,10 @@ import { addToCart, removeFromCart } from "@/lib/slices";
 // import FormControl from '@mui/material/FormControl';
 import Link from "next/link";
 import withAuth from "@/components/withAuth";
+import { BsCartCheckFill, BsGraphUpArrow } from "react-icons/bs";
+import { FaMoneyBill1Wave } from "react-icons/fa6";
+import { IoGiftSharp } from "react-icons/io5";
+import { FaUsers } from "react-icons/fa6";
 
 
 function Dashboard() {
@@ -24,259 +28,77 @@ function Dashboard() {
     const cartSubtotal = cartItemsValueList.reduce((total, num) => total + num, 0).toFixed(2); 
 
     return (
-        <main className='mt-5 md:mt-12'>
-            {/* <nav className="flex gap-5 items-center justify-between p-4 border border-gray-300 mb-4">
-                <div className="flex gap-5 items-center flex-1 max-w-[45rem]">
-                    <RiMenu2Fill className="text-3xl text-blue-600" />
-                    <div className="flex gap-3 items-center flex-1 h-[3.8rem] md:h-full bg-purple-700 rounded-lg pl-2 md:pl-0">
-                        <div className="relative flex-1 h-full">
-                            <input placeholder="Search Products.." className="h-full px-5 py-4 border border-slate-200 bg-slate-100 outline-none text-lg rounded w-full" />
-                            <IoSearch className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-gray-600"/>
+        <main className='pt-4 px-4 bg-slate-100 h-full'>
+            <h4 className="text-2xl font-semibold mb-4">Add Attrubute</h4>
+            <div className="flex gap-4 flex-wrap">
+                {/* {[1,2,3,4].map(i => ( */}
+                    <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
+                        <div className="flex gap-4">
+                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                                <BsCartCheckFill className="h-full w-full text-green-600" />
+                            </div>
+                            <div>
+                                <p className="mb-1">Total Sales</p>
+                                <h4 className="text-[1.8rem] font-extrabold">34,945</h4>
+                            </div>
+                            <div className="ml-auto">
+                                <BsGraphUpArrow className="text-[2rem] mb-[0.6rem] text-green-600" /> 
+                                <p className="font-bold">1.56%</p>
+                            </div>
                         </div>
+                        <img src="/graph.png" className="w-full" />
                     </div>
-                </div>
-                <div className="flex gap-10 items-center">
-                    <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><FiMoon className="text-2xl text-purple-800"/></ButtonBase></Link>
-                    <Badge badgeContent={5} color="warning" className="font-semibold hidden md:block">
-                        <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdOutlineNotifications className="text-2xl text-purple-800"/></ButtonBase></Link>
-                    </Badge>
-                    <Badge badgeContent={5} color="info" className="font-semibold hidden md:block">
-                        <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><IoChatboxEllipsesOutline className="text-2xl text-purple-800"/></ButtonBase></Link>
-                    </Badge>
-                    <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdFullscreen className="text-2xl text-purple-800"/></ButtonBase></Link>
-                    <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdGridView className="text-2xl text-purple-800"/></ButtonBase></Link>
-                    <div className="hidden md:block">
-                        <Button className="gap-4 bg-slate-50 p-2" style={{border: '1px solid #d8d8d8'}}>
-                            <div className="p-[0.8rem] rounded-lg bg-pink-600">
-                                <FaRegUser className="text-2xl text-white"/>
+                    <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
+                        <div className="flex gap-4">
+                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                                <FaMoneyBill1Wave className="h-full w-full text-blue-600" />
                             </div>
-                            <div className="text-left">
-                                <span className="label text-slate-800 text-sm block mb-1">{user.Name}</span>
-                                <span className="name text-gray-500 text-sm">{user.RegMob1}</span>
+                            <div>
+                                <p className="mb-1">Total Income</p>
+                                <h4 className="text-[1.8rem] font-extrabold">$37,802</h4>
                             </div>
-                            <FaChevronDown />
-                        </Button>
+                            <div className="ml-auto">
+                                <BsGraphUpArrow className="text-[2rem] mb-[0.6rem] text-green-600" /> 
+                                <p className="font-bold">2.25%</p>
+                            </div>
+                        </div>
+                        <img src="/graph.png" className="w-full" />
                     </div>
-                </div>
-            </nav>
-            <div className='p-4 min-w-72 border-r border-gray-300 fixed top-0 bottom-0 left-0 z-[1111] bg-white'>
-                <div>
-                    <h5 className="font-medium text-slate-500 px-4 text-[0.97rem] mb-1">MAIN HOME</h5>
-                    <ul>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <MdGridView className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Dashboard</span>
-                                <FaAngleDown className="ml-auto"/> 
+                    <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
+                        <div className="flex gap-4">
+                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                                <IoGiftSharp className="h-full w-full text-pink-600" />
                             </div>
-                            <div className="hidden group-hover:block pl-4">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Home 1</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Home 1</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Home 1</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Home 1</span>
-                                    </li>
-                                </ul>
+                            <div>
+                                <p className="mb-1">Orders Paid</p>
+                                <h4 className="text-[1.8rem] font-extrabold">34,945</h4>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <div className="mt-5">
-                    <h5 className="font-medium text-slate-500 px-4 text-[0.97rem] mb-1">ALL PAGES</h5>
-                    <ul>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <MdGridView className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Ecommerce</span>
-                                <FaAngleDown className="ml-auto"/> 
+                            <div className="ml-auto">
+                                <BsGraphUpArrow className="text-[2rem] mb-[0.6rem] text-green-600" /> 
+                                <p className="font-bold">0.00%</p>
                             </div>
-                            <div className="hidden group-hover:block pl-4 pb-3">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Products List</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Add Product</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Product Details</span>
-                                    </li>
-                                </ul>
+                        </div>
+                        <img src="/graph.png" className="w-full" />
+                    </div>
+                    <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
+                        <div className="flex gap-4">
+                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                                <FaUsers className="h-full w-full text-yellow-600" />
                             </div>
-                        </li>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <BiLayer className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Category</span>
-                                <FaAngleDown className="ml-auto"/>
+                            <div>
+                                <p className="mb-1">Total Visitor</p>
+                                <h4 className="text-[1.8rem] font-extrabold">34,945</h4>
                             </div>
-                            <div className="hidden group-hover:block pl-4 pb-3">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Products List</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Add Product</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Product Details</span>
-                                    </li>
-                                </ul>
+                            <div className="ml-auto">
+                                <BsGraphUpArrow className="text-[2rem] mb-[0.6rem] text-green-600" /> 
+                                <p className="font-bold">7.05%</p>
                             </div>
-                        </li>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <AiOutlineCodeSandbox className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Attributes</span>
-                                <FaAngleDown className="ml-auto"/>
-                            </div>
-                            <div className="hidden group-hover:block pl-4 pb-3">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Products List</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Add Product</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Product Details</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <LuGift className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Orders</span>
-                                <FaAngleDown className="ml-auto"/>
-                            </div>
-                            <div className="hidden group-hover:block pl-4 pb-3">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Products List</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Add Product</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Product Details</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <FaRegUser className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Users</span>
-                                <FaAngleDown className="ml-auto"/>
-                            </div>
-                            <div className="hidden group-hover:block pl-4 pb-3">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Products List</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Add Product</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Product Details</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <MdOutlineLocationOn className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Locations</span>
-                                <FaAngleDown className="ml-auto"/>
-                            </div>
-                            <div className="hidden group-hover:block pl-4 pb-3">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Products List</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Add Product</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Product Details</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="group">
-                            <div className="flex items-center gap-3 p-4">
-                                <GrGallery className="text-2xl text-purple-800"/> 
-                                <span className="font-semibold text-[1.1rem] text-gray-600">Product Gallery</span>
-                                <FaAngleDown className="ml-auto"/>
-                            </div>
-                            <div className="hidden group-hover:block pl-4 pb-3">
-                                <ul>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Products List</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Add Product</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 px-4 py-3">
-                                        <GoDotFill className="text-xl text-gray-500"/> 
-                                        <span className="font-semibold text-[1rem] text-gray-600">Product Details</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div className="mt-5">
-                    <h5 className="font-medium text-slate-500 px-4 text-[0.97rem] mb-1">SUPPORT</h5>
-                    <ul>
-                        <li className="flex items-center gap-3 p-4">
-                            <FiHelpCircle className="text-2xl text-purple-800"/> 
-                            <span className="font-semibold text-[1.1rem] text-gray-600">Help Center</span>
-                        </li>
-                        <li className="flex items-center gap-3 p-4">
-                            <MdHeadsetMic className="text-2xl text-purple-800"/> 
-                            <span className="font-semibold text-[1.1rem] text-gray-600">FAQs</span>
-                        </li>
-                        <li className="flex items-center gap-3 p-4">
-                            <MdLockOutline className="text-2xl text-purple-800"/> 
-                            <span className="font-semibold text-[1.1rem] text-gray-600">Privacy Policy</span>
-                        </li>
-                    </ul>
-                </div>
-            </div> */}
-            <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
+                        </div>
+                        <img src="/graph.png" className="w-full" />
+                    </div>
+                {/* ))} */}
+            </div>
+            <div className="flex flex-col md:flex-row gap-4">
                 <div className="w-full">
                     <div className="rounded-lg border border-gray-300 bg-gray-50">
                         <div className="table-responsive overflow-auto">

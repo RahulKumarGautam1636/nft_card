@@ -6,7 +6,7 @@ const isLive = false;
 const fixedData = false;
 const emptyRes = false;
 
-const myBaseURL = `http://localhost:3001`;
+const myBaseURL = `http://localhost:3000`;
 const otherBaseURL = 'https://ecommerce-server-node.onrender.com';
 
 const baseURL = isLive ? otherBaseURL : myBaseURL;
