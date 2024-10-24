@@ -34,7 +34,7 @@ function Dashboard() {
                 {/* {[1,2,3,4].map(i => ( */}
                     <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
                         <div className="flex gap-4">
-                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                            <div className="p-2 rounded-full bg-green-100 border border-green-300 h-[4.2rem] grid place-items-center">
                                 <BsCartCheckFill className="h-full w-full text-green-600" />
                             </div>
                             <div>
@@ -50,7 +50,7 @@ function Dashboard() {
                     </div>
                     <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
                         <div className="flex gap-4">
-                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                            <div className="p-2 rounded-full bg-blue-100 border border-blue-300 h-[4.2rem] grid place-items-center">
                                 <FaMoneyBill1Wave className="h-full w-full text-blue-600" />
                             </div>
                             <div>
@@ -66,7 +66,7 @@ function Dashboard() {
                     </div>
                     <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
                         <div className="flex gap-4">
-                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                            <div className="p-2 rounded-full bg-pink-100 border border-pink-300 h-[4.2rem] grid place-items-center">
                                 <IoGiftSharp className="h-full w-full text-pink-600" />
                             </div>
                             <div>
@@ -82,7 +82,7 @@ function Dashboard() {
                     </div>
                     <div className="rounded-3xl p-6 border border-gray-300 bg-gray-50 mb-4 flex-1 min-w-fit">
                         <div className="flex gap-4">
-                            <div className="p-2 rounded-full border border-gray-300 h-[4.2rem] grid place-items-center">
+                            <div className="p-2 rounded-full bg-yellow-100 border border-yellow-300 h-[4.2rem] grid place-items-center">
                                 <FaUsers className="h-full w-full text-yellow-600" />
                             </div>
                             <div>
