@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
   // https://preview.themeforest.net/item/remos-ecommerce-admin-dashboard-react-nextjs-template/full_screen_preview/52160590?_ga=2.84969497.1641132529.1729448630-1728571022.1661442086
 
   return (
-    <html lang="en">  {/* ${lato.variable} */}
+    <html lang="en">
       <body className={`${inter.variable}`} style={{opacity: '1'}}>
         <StoreProvider>
           {children}
