@@ -1,0 +1,86 @@
+[
+    {
+        "_id": {"$oid": "66e185574fc52a6f175322b7"},
+        "images": [
+            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726055766/1726055765071_New_Project_20.jpg"
+        ],
+        "catId": "66c0d705430f507021d32294",
+        "catName": "Groceries",
+        "subCatId": null,
+        "subCatName": null,
+        "__v": 0,
+        "id": "66e185574fc52a6f175322b7"
+    },
+    {
+        "_id": {"$oid": "66e185d44fc52a6f175322fd"},
+        "images": [
+            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726055891/1726055889913_New_Project_18.jpg"
+        ],
+        "catId": "66c0d6f0430f507021d3228a",
+        "catName": "Electronics",
+        "subCatId": "66c0dfb73490222862ae78d3",
+        "subCatName": "Mobiles",
+        "__v": 0,
+        "id": "66e185d44fc52a6f175322fd"
+    },
+    {
+        "_id": {"$oid": "66e186084fc52a6f17532339"},
+        "images": [
+            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726055942/1726055941694_New_Project_22.jpg"
+        ],
+        "catId": "66c0d82c430f507021d322d5",
+        "catName": "Bags",
+        "subCatId": null,
+        "subCatName": null,
+        "__v": 0,
+        "id": "66e186084fc52a6f17532339"
+    },
+    {
+        "_id": {"$oid": "66e186234fc52a6f17532367"},
+        "images": [
+            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726055970/1726055969006_New_Project_23.jpg"
+        ],
+        "catId": "66c0d747430f507021d322a8",
+        "catName": "Beauty",
+        "subCatId": null,
+        "subCatName": null,
+        "__v": 0,
+        "id": "66e186234fc52a6f17532367"
+    },
+    {
+        "_id": {"$oid": "66e1866f4fc52a6f17532396"},
+        "images": [
+            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726056046/1726056045077_New_Project_5.jpg"
+        ],
+        "catId": "66c0d6d9430f507021d32280",
+        "catName": "Fashion",
+        "subCatId": "66c0dfb13490222862ae78cd",
+        "subCatName": "Girls",
+        "__v": 0,
+        "id": "66e1866f4fc52a6f17532396"
+    },
+    {
+        "_id": {"$oid": "66e1867e4fc52a6f175323af"},
+        "images": [
+            "https://res.cloudinary.com/da26rdzwp/image/upload/v1726056061/1726056060441_New_Project_16.jpg"
+        ],
+        "catId": "66c0d6d9430f507021d32280",
+        "catName": null,
+        "subCatId": "66c0dfab3490222862ae78c7",
+        "subCatName": null,
+        "__v": 0,
+        "id": "66e1867e4fc52a6f175323af"
+    },
+    {
+        "_id": {"$oid": "67078ad91bc961020cbe96c3"},
+        "images": [
+            "https://res.cloudinary.com/da26rdzwp/image/upload/v1728547534/1728547533328_Leonardo_Phoenix_Design_a_captivating_YouTube_thumbnail_for_a_0.jpg"
+        ],
+        "catId": "66c0d6d9430f507021d32280",
+        "catName": "Fashion",
+        "subCatId": "66c0df9d3490222862ae78bb",
+        "subCatName": "Men",
+        "__v": 0,
+        "id": "67078ad91bc961020cbe96c3"
+    }
+]

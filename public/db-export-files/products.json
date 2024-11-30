@@ -1,0 +1,4170 @@
+[
+    {
+        "_id": "66cf364a7f21a4cf0943b087",
+        "name": "GESPO Black & Teal Blue Colorblocked Round Neck Half Sleeve Casual T-Shirts",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060421/1729060417283_gespo-black-teal-blue-colorblocked-round-neck-half-sleeve-casual-t-shirt-product-images-rvwmlodbas-0-202304131033.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060423/1729060417302_gespo-black-teal-blue-colorblocked-round-neck-half-sleeve-casual-t-shirt-product-images-rvwmlodbas-1-202304131033.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060425/1729060417306_gespo-black-teal-blue-colorblocked-round-neck-half-sleeve-casual-t-shirt-product-images-rvwmlodbas-2-202304131033.webp"
+        ],
+        "brand": "GESPO",
+        "price": 1000,
+        "oldPrice": 499,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54f5e86c762e3cad6cd9",
+        "subCat": "Men",
+        "subCatName": "Men",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 150,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a61073f4ee2e36a03e90b",
+                "id": "670a61073f4ee2e36a03e90b"
+            },
+            {
+                "value": "AU",
+                "label": "Australia",
+                "_id": "670a61073f4ee2e36a03e90c",
+                "id": "670a61073f4ee2e36a03e90c"
+            },
+            {
+                "value": "US",
+                "label": "United States",
+                "_id": "670a61073f4ee2e36a03e90d",
+                "id": "670a61073f4ee2e36a03e90d"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670a61073f4ee2e36a03e90e",
+                "id": "670a61073f4ee2e36a03e90e"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670a61073f4ee2e36a03e90f",
+                "id": "670a61073f4ee2e36a03e90f"
+            },
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670b50b561347e5c638f8eba",
+                "id": "670b50b561347e5c638f8eba"
+            }
+        ],
+        "dateCreated": "2024-08-28T14:38:02.893Z",
+        "__v": 0,
+        "id": "66cf364a7f21a4cf0943b087"
+    },
+    {
+        "_id": "66d1df5c88319dc216a20017",
+        "name": "VNEED Cotton Blend Straight Kurta with Pant | Women Kurta Pant Set | Girls Cotton Kurti and Pant Set | Women Kurta & Palazzo Pant Set (set of 1 ) (SIZE L)",
+        "description": "This kurta pant set features a stylish straight-cut kurta paired with comfortable pants, offering a chic and effortless look suitable for both casual and semi-formal occasions.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060377/1729060369509_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-0-202205161816.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060379/1729060369574_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-1-202205161817.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060382/1729060369600_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-2-202205161817.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060384/1729060369924_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-3-202205161817.jpg"
+        ],
+        "brand": "VNEED",
+        "price": 455,
+        "oldPrice": 655,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f5502e86c762e3cad6ce5",
+        "subCat": "Girls",
+        "subCatName": "Girls",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 10,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 15,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61243f4ee2e36a03e971",
+                "id": "670a61243f4ee2e36a03e971"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a61243f4ee2e36a03e972",
+                "id": "670a61243f4ee2e36a03e972"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670a61243f4ee2e36a03e973",
+                "id": "670a61243f4ee2e36a03e973"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670a61243f4ee2e36a03e974",
+                "id": "670a61243f4ee2e36a03e974"
+            },
+            {
+                "value": "US",
+                "label": "United States",
+                "_id": "670a61243f4ee2e36a03e975",
+                "id": "670a61243f4ee2e36a03e975"
+            },
+            {
+                "value": "LK",
+                "label": "Sri Lanka",
+                "_id": "670a61243f4ee2e36a03e976",
+                "id": "670a61243f4ee2e36a03e976"
+            }
+        ],
+        "dateCreated": "2024-08-30T15:03:56.294Z",
+        "__v": 0,
+        "updatedAt": "2024-09-09T03:54:32.426Z",
+        "id": "66d1df5c88319dc216a20017"
+    },
+    {
+        "_id": "66d44646aa5c959c5b9fa1c6",
+        "name": "Altecia The Perfect Pair Women Cotton Co Ord Set-Tie & Dye Tracksuit with Insert Pockets-Women Tie & Dye 2-Piece Co-Ord Set-1PAIR (Size-XL)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060317/1729060314394_altecia-tie-and-dye-jogger-with-baggy-trouser-with-t-shirt-for-women-low-price-up-to-off-new-arrival-most-loved-collection-trending-tops-fancy-top-printed-top-printed-trouser-casual-wear-party-wear-daily-wear-.jpg"
+        ],
+        "brand": "Altecia",
+        "price": 650,
+        "oldPrice": 780,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f5502e86c762e3cad6ce5",
+        "subCat": "Girls",
+        "subCatName": "Girls",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 150,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 15,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61413f4ee2e36a03e9a9",
+                "id": "670a61413f4ee2e36a03e9a9"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670a61413f4ee2e36a03e9aa",
+                "id": "670a61413f4ee2e36a03e9aa"
+            },
+            {
+                "value": "AL",
+                "label": "Albania",
+                "_id": "670a61413f4ee2e36a03e9ab",
+                "id": "670a61413f4ee2e36a03e9ab"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a61413f4ee2e36a03e9ac",
+                "id": "670a61413f4ee2e36a03e9ac"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670a61413f4ee2e36a03e9ad",
+                "id": "670a61413f4ee2e36a03e9ad"
+            },
+            {
+                "value": "ZA",
+                "label": "South Africa",
+                "_id": "670a61413f4ee2e36a03e9ae",
+                "id": "670a61413f4ee2e36a03e9ae"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670a61413f4ee2e36a03e9af",
+                "id": "670a61413f4ee2e36a03e9af"
+            }
+        ],
+        "dateCreated": "2024-09-01T10:47:34.389Z",
+        "__v": 0,
+        "id": "66d44646aa5c959c5b9fa1c6"
+    },
+    {
+        "_id": "66d491377d46e49d1b58de97",
+        "name": "CLOSWIF Mens Polo Neck | Solid Shirt | Regular Fit | Full length Sleeve Shirt | Shirt For Mens | Mens Shirt | Mens shirt | Partywear Shirts For Mens | Shirts | shirts | Casual Shirt |",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060054/1729060050308_closwif-mens-polo-neck-solid-shirt-regular-fit-full-length-sleeve-shirt-shirt-for-mens-mens-shirt-mens-shirt-partywear-shirts-for-mens-shirts-shirts-casual-shirt-product-images-rvyj3dsm7i-0-202407121653.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060056/1729060050323_closwif-mens-polo-neck-solid-shirt-regular-fit-full-length-sleeve-shirt-shirt-for-mens-mens-shirt-mens-shirt-partywear-shirts-for-mens-shirts-shirts-casual-shirt-product-images-rvyj3dsm7i-1-202407121653.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060058/1729060050337_closwif-mens-polo-neck-solid-shirt-regular-fit-full-length-sleeve-shirt-shirt-for-mens-mens-shirt-mens-shirt-partywear-shirts-for-mens-shirts-shirts-casual-shirt-product-images-rvyj3dsm7i-2-202407121653.jpg"
+        ],
+        "brand": "CLOSWIF",
+        "price": 450,
+        "oldPrice": 550,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54f5e86c762e3cad6cd9",
+        "subCat": "Men",
+        "subCatName": "Men",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 450,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [
+            "XL",
+            "S",
+            "M",
+            "L"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61593f4ee2e36a03e9d9",
+                "id": "670a61593f4ee2e36a03e9d9"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670a61593f4ee2e36a03e9da",
+                "id": "670a61593f4ee2e36a03e9da"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a61593f4ee2e36a03e9db",
+                "id": "670a61593f4ee2e36a03e9db"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670a61593f4ee2e36a03e9dc",
+                "id": "670a61593f4ee2e36a03e9dc"
+            },
+            {
+                "value": "US",
+                "label": "United States",
+                "_id": "670a61593f4ee2e36a03e9dd",
+                "id": "670a61593f4ee2e36a03e9dd"
+            },
+            {
+                "value": "AU",
+                "label": "Australia",
+                "_id": "670a61593f4ee2e36a03e9de",
+                "id": "670a61593f4ee2e36a03e9de"
+            }
+        ],
+        "dateCreated": "2024-09-01T16:07:19.145Z",
+        "__v": 0,
+        "id": "66d491377d46e49d1b58de97"
+    },
+    {
+        "_id": "66d492927d46e49d1b58df07",
+        "name": "Siril Poly Silk White & Beige Color Saree With Blouse Piece | sarees for Women| saree | sarees",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059967/1729059959244_siril-poly-silk-grey-off-white-color-saree-with-blouse-piece-product-images-rvcpwdyagl-0-202304220521.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059969/1729059959258_siril-poly-silk-grey-off-white-color-saree-with-blouse-piece-product-images-rvcpwdyagl-1-202304220521.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059971/1729059959284_siril-poly-silk-grey-off-white-color-saree-with-blouse-piece-product-images-rvcpwdyagl-2-202304220521.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059974/1729059959295_siril-poly-silk-grey-off-white-color-saree-with-blouse-piece-product-images-rvcpwdyagl-3-202304220521.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059976/1729059959320_siril-poly-silk-grey-off-white-color-saree-with-blouse-piece-product-images-rvcpwdyagl-4-202304220521.webp"
+        ],
+        "brand": "Tazo",
+        "price": 450,
+        "oldPrice": 1000,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "",
+        "subCat": "Men",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61623f4ee2e36a03ea0c",
+                "id": "670a61623f4ee2e36a03ea0c"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670cd4011f039258ce560546",
+                "id": "670cd4011f039258ce560546"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd4011f039258ce560547",
+                "id": "670cd4011f039258ce560547"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670cd4011f039258ce560548",
+                "id": "670cd4011f039258ce560548"
+            }
+        ],
+        "dateCreated": "2024-09-01T16:13:06.752Z",
+        "__v": 0,
+        "id": "66d492927d46e49d1b58df07"
+    },
+    {
+        "_id": "66d595bf247824aacf08cb8a",
+        "name": "Altecia Tie and Dye Jogger with Baggy Trouser with t-shirt for Women low price up to off new arrival most loved collection trending tops fancy top printed top printed trouser casual wear party wear daily wear night wear top bottom set-1Pair(size -XL)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059900/1729059896376_altecia-the-perfect-pair-women-cotton-co-ord-set-tie-dye-tracksuit-with-insert-pockets-women-tie-dye-2-piece-co-ord-set-1pair-size-xl-product-images-rvifrbqagu-0-202408030114.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059902/1729059896441_altecia-the-perfect-pair-women-cotton-co-ord-set-tie-dye-tracksuit-with-insert-pockets-women-tie-dye-2-piece-co-ord-set-1pair-size-xl-product-images-rvifrbqagu-1-202408030114.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059904/1729059896503_altecia-the-perfect-pair-women-cotton-co-ord-set-tie-dye-tracksuit-with-insert-pockets-women-tie-dye-2-piece-co-ord-set-1pair-size-xl-product-images-rvifrbqagu-2-202408030114.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059907/1729059896512_altecia-the-perfect-pair-women-cotton-co-ord-set-tie-dye-tracksuit-with-insert-pockets-women-tie-dye-2-piece-co-ord-set-1pair-size-xl-product-images-rvifrbqagu-3-202408030114.jpg"
+        ],
+        "brand": "Altecia",
+        "price": 1600,
+        "oldPrice": 1800,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f5502e86c762e3cad6ce5",
+        "subCat": "Women",
+        "subCatName": "Girls",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 600,
+        "rating": 3,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XXL"
+        ],
+        "productWeight": [
+            "1KG",
+            "4KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61683f4ee2e36a03ea35",
+                "id": "670a61683f4ee2e36a03ea35"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670cd3bd1f039258ce560496",
+                "id": "670cd3bd1f039258ce560496"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd3bd1f039258ce560497",
+                "id": "670cd3bd1f039258ce560497"
+            }
+        ],
+        "dateCreated": "2024-09-02T10:38:55.907Z",
+        "__v": 0,
+        "id": "66d595bf247824aacf08cb8a"
+    },
+    {
+        "_id": "66df0156d9c220020e25a2a6",
+        "name": "Siril Georgette Pink Color Saree with Blouse piece",
+        "description": "The saree is an outfit which women can carry off with great panache. With the right material and drape, it can accentuate the beauty of women of all ages and forms.\n\n",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059843/1729059839675_siril-georgette-pink-color-saree-with-blouse-piece-product-images-rvrk9p11sk-0-202308161432.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059845/1729059839681_siril-georgette-pink-color-saree-with-blouse-piece-product-images-rvrk9p11sk-1-202308161432.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059847/1729059839692_siril-georgette-pink-color-saree-with-blouse-piece-product-images-rvrk9p11sk-2-202308161432.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059850/1729059839699_siril-georgette-pink-color-saree-with-blouse-piece-product-images-rvrk9p11sk-3-202308161432.webp"
+        ],
+        "brand": "SIRIL",
+        "price": 550,
+        "oldPrice": 650,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54fbe86c762e3cad6cdf",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 150,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a616d3f4ee2e36a03ea5e",
+                "id": "670a616d3f4ee2e36a03ea5e"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670aa0831a0c5f1ae830f794",
+                "id": "670aa0831a0c5f1ae830f794"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670aa0831a0c5f1ae830f795",
+                "id": "670aa0831a0c5f1ae830f795"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670aa0831a0c5f1ae830f796",
+                "id": "670aa0831a0c5f1ae830f796"
+            }
+        ],
+        "dateCreated": "2024-09-09T14:08:22.354Z",
+        "__v": 0,
+        "id": "66df0156d9c220020e25a2a6"
+    },
+    {
+        "_id": "66e1327804413e6a409f9689",
+        "name": "666kg",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059750/1729059746653_aashirvaad-superior-mp-atta-5-kg-product-images-o490750661-p590150648-0-202401260852.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059756/1729059746654_aashirvaad-superior-mp-atta-5-kg-product-images-o490750661-p590150648-1-202401260852.webp"
+        ],
+        "brand": "AASHIRVAAD",
+        "price": 230,
+        "oldPrice": 270,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "670f5534e86c762e3cad6d09",
+        "subCat": "Cooking Essentials",
+        "subCatName": "Cooking Essentials",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 250,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG",
+            "2KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a617c3f4ee2e36a03eab0",
+                "id": "670a617c3f4ee2e36a03eab0"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7ed4fa94c7ca12096598",
+                "id": "670a7ed4fa94c7ca12096598"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:02:32.029Z",
+        "__v": 0,
+        "id": "66e1327804413e6a409f9689"
+    },
+    {
+        "_id": "66e132f304413e6a409f96bd",
+        "name": "Good Life MP Wheat Chakki Atta 1 kg",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059709/1729059705934_good-life-mp-wheat-chakki-atta-1-kg-product-images-o491458271-p491458271-0-202306011947.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729059711/1729059705935_good-life-mp-wheat-chakki-atta-1-kg-product-images-o491458271-p491458271-1-202306011947.webp"
+        ],
+        "brand": "Good Life",
+        "price": 310,
+        "oldPrice": 330,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "670f5534e86c762e3cad6d09",
+        "subCat": "Cooking Essentials",
+        "subCatName": "Cooking Essentials",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 10,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61813f4ee2e36a03ead9",
+                "id": "670a61813f4ee2e36a03ead9"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:04:35.741Z",
+        "__v": 0,
+        "id": "66e132f304413e6a409f96bd"
+    },
+    {
+        "_id": "66e135ef67c833713b247307",
+        "name": "Nivea 24 hour Melt-in Moisture Caring Lip Balm, Cherry Shine 4.8 grras",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060807/1729060804222_nivea-24-hour-melt-in-moisture-caring-lip-balm-cherry-shine-4-8-g-product-images-o490180140-p490180140-0-202203170330_1.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060809/1729060804222_nivea-24-hour-melt-in-moisture-caring-lip-balm-cherry-shine-4-8-g-product-images-o490180140-p490180140-0-202203170330.webp"
+        ],
+        "brand": "Nivea",
+        "price": 420,
+        "oldPrice": 460,
+        "catName": "Beauty",
+        "catId": "670f54b8e86c762e3cad6cbd",
+        "subCatId": "",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f54b8e86c762e3cad6cbd",
+            "name": "Beauty",
+            "slug": "Beauty",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
+            ],
+            "color": "#e3fffa",
+            "createdAt": "2024-10-16T05:52:56.619Z",
+            "updatedAt": "2024-10-16T21:04:53.245Z",
+            "__v": 0,
+            "id": "670f54b8e86c762e3cad6cbd"
+        },
+        "countInStock": 10,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61b23f4ee2e36a03ebaa",
+                "id": "670a61b23f4ee2e36a03ebaa"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:17:19.365Z",
+        "__v": 0,
+        "id": "66e135ef67c833713b247307"
+    },
+    {
+        "_id": "66e1367767c833713b247384",
+        "name": "Nivea Caring Lip Balm, Original Care 4.8 g",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060777/1729060775493_nivea-caring-lip-balm-original-care-4-8-g-product-images-o490180137-p490180137-0-202405271915.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060779/1729060775493_nivea-caring-lip-balm-original-care-4-8-g-product-images-o490180137-p490180137-2-202405271915.jpg"
+        ],
+        "brand": "Nivea",
+        "price": 460,
+        "oldPrice": 510,
+        "catName": "Beauty",
+        "catId": "670f54b8e86c762e3cad6cbd",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54b8e86c762e3cad6cbd",
+            "name": "Beauty",
+            "slug": "Beauty",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
+            ],
+            "color": "#e3fffa",
+            "createdAt": "2024-10-16T05:52:56.619Z",
+            "updatedAt": "2024-10-16T21:04:53.245Z",
+            "__v": 0,
+            "id": "670f54b8e86c762e3cad6cbd"
+        },
+        "countInStock": 150,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61b93f4ee2e36a03ebdb",
+                "id": "670a61b93f4ee2e36a03ebdb"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670d1ff3533694b3d7e97173",
+                "id": "670d1ff3533694b3d7e97173"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:19:35.780Z",
+        "__v": 0,
+        "id": "66e1367767c833713b247384"
+    },
+    {
+        "_id": "66e1374667c833713b247400",
+        "name": "Cipzer Karela Capsule 60's",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060738/1729060736514_cipzer-karela-capsule-60-s-prod-o1096493-p608316768-0-202403020846.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060739/1729060736514_cipzer-karela-capsule-60-s-prod-o1096493-p608316768-2-202403020846.jpg"
+        ],
+        "brand": "CIPZER",
+        "price": 430,
+        "oldPrice": 460,
+        "catName": "Wellness",
+        "catId": "670f54cce86c762e3cad6cc7",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": null,
+        "countInStock": 100,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61c63f4ee2e36a03ec3d",
+                "id": "670a61c63f4ee2e36a03ec3d"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd5931f039258ce560c89",
+                "id": "670cd5931f039258ce560c89"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:23:02.004Z",
+        "__v": 0,
+        "id": "66e1374667c833713b247400"
+    },
+    {
+        "_id": "66e137f967c833713b2474ac",
+        "name": "HP 15-fc0154AU Laptop (AMD Ryzen 3 7320U/8GB DDR5-5500 SDRAM/512GB SSD/AMD Radeon Graphics/Windows 11/MSO/FHD), 39.6 cm (15.6 inch), Natural Silver, 1.59 kgs, 1080P Web Cam",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060706/1729060704565_hp-15-fc0154au-laptop-amd-ryzen-3-7320u-8gb-ddr5-5500-sdram-512gb-ssd-amd-radeon-graphics-windows-11-mso-fhd-39-6-cm-15-6-inch-natural-silver-1-59-kgs-1080p-web-cam-digital-o494352995-p608658148-0-20240402160.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060708/1729060704566_hp-15-fc0154au-laptop-amd-ryzen-3-7320u-8gb-ddr5-5500-sdram-512gb-ssd-amd-radeon-graphics-windows-11-mso-fhd-39-6-cm-15-6-inch-natural-silver-1-59-kgs-1080p-web-cam-digital-o494352995-p608658148-1-20240402160.webp"
+        ],
+        "brand": "HP",
+        "price": 45000,
+        "oldPrice": 55000,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5518e86c762e3cad6cf7",
+        "subCat": "Computers and Accessories",
+        "subCatName": "Computers and Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1500,
+        "rating": 4,
+        "isFeatured": true,
+        "discount": 8,
+        "productRam": [
+            "8GB"
+        ],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61d03f4ee2e36a03ec6e",
+                "id": "670a61d03f4ee2e36a03ec6e"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670aa0df1a0c5f1ae830f9f9",
+                "id": "670aa0df1a0c5f1ae830f9f9"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:26:01.544Z",
+        "__v": 0,
+        "id": "66e137f967c833713b2474ac"
+    },
+    {
+        "_id": "66e139b767c833713b24751e",
+        "name": "HP 15s-fr5012TU Standard Laptop (Intel Core i3-1215U/8 GB/512 GB SSD/Intel UHD Graphics/Windows 11 Home/MSO/FHD), 39.6cm (15.6 inch)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060627/1729060624157_hp-15s-fr5012tu-standard-laptop-intel-core-i3-1215u-8-gb-512-gb-ssd-intel-uhd-graphics-windows-11-home-mso-fhd-39-6cm-15-6-inch-digital-o494421633-p609466420-0-202407041151.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060630/1729060624164_hp-15s-fr5012tu-standard-laptop-intel-core-i3-1215u-8-gb-512-gb-ssd-intel-uhd-graphics-windows-11-home-mso-fhd-39-6cm-15-6-inch-digital-o494421633-p609466420-1-202407041151.webp"
+        ],
+        "brand": "HP",
+        "price": 35000,
+        "oldPrice": 42000,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5518e86c762e3cad6cf7",
+        "subCat": "Computers and Accessories",
+        "subCatName": "Computers and Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 15,
+        "productRam": [
+            "8GB"
+        ],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61d63f4ee2e36a03eca7",
+                "id": "670a61d63f4ee2e36a03eca7"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670aa09a1a0c5f1ae830f80c",
+                "id": "670aa09a1a0c5f1ae830f80c"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670aa09a1a0c5f1ae830f80d",
+                "id": "670aa09a1a0c5f1ae830f80d"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670aa09a1a0c5f1ae830f80e",
+                "id": "670aa09a1a0c5f1ae830f80e"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:33:27.831Z",
+        "__v": 0,
+        "id": "66e139b767c833713b24751e"
+    },
+    {
+        "_id": "66e13a3b67c833713b24759f",
+        "name": "Fortune Sunlite Refined Sunflower Oil 1 L",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060584/1729060581236_fortune-sunlite-refined-sunflower-oil-1-l-product-images-o490000052-p490000052-0-202203150155.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060587/1729060581237_fortune-sunlite-refined-sunflower-oil-1-l-product-images-o490000052-p490000052-1-202203150155.jpg"
+        ],
+        "brand": "Fortune",
+        "price": 150,
+        "oldPrice": 170,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "670f5534e86c762e3cad6d09",
+        "subCat": "Cooking Essentials",
+        "subCatName": "Cooking Essentials",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 400,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 8,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61dc3f4ee2e36a03ecd0",
+                "id": "670a61dc3f4ee2e36a03ecd0"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7f59fa94c7ca12096796",
+                "id": "670a7f59fa94c7ca12096796"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:35:39.653Z",
+        "__v": 0,
+        "id": "66e13a3b67c833713b24759f"
+    },
+    {
+        "_id": "66e13a9e67c833713b2475d9",
+        "name": "Good Life Kachi Ghani Mustard Oil 1 L (Pouch)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060545/1729060542770_good-life-kachi-ghani-mustard-oil-1-l-pouch-product-images-o491334852-p491334852-0-202204281552.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060547/1729060542771_good-life-kachi-ghani-mustard-oil-1-l-pouch-product-images-o491334852-p491334852-1-202204281552.webp"
+        ],
+        "brand": "Good Life",
+        "price": 190,
+        "oldPrice": 210,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "670f5534e86c762e3cad6d09",
+        "subCat": "Cooking Essentials",
+        "subCatName": "Cooking Essentials",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 4500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 9,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61f43f4ee2e36a03ed0e",
+                "id": "670a61f43f4ee2e36a03ed0e"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7e79fa94c7ca12096432",
+                "id": "670a7e79fa94c7ca12096432"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:37:18.172Z",
+        "__v": 0,
+        "id": "66e13a9e67c833713b2475d9"
+    },
+    {
+        "_id": "66e13bcc67c833713b24763a",
+        "name": "ZAALIQA Girls Black Handbag",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060492/1729060487993_zaaliqa-girls-black-handbag-product-images-rvd5gtvjgi-0-202404151052.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060494/1729060488014_zaaliqa-girls-black-handbag-product-images-rvd5gtvjgi-1-202404151052.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060497/1729060488022_zaaliqa-girls-black-handbag-product-images-rvd5gtvjgi-2-202404151052.jpg"
+        ],
+        "brand": "ZAALIQA",
+        "price": 620,
+        "oldPrice": 750,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "66c0dfa43490222862ae78c1",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 11,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a61fb3f4ee2e36a03ed3f",
+                "id": "670a61fb3f4ee2e36a03ed3f"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd6801f039258ce561017",
+                "id": "670cd6801f039258ce561017"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:42:20.690Z",
+        "__v": 0,
+        "id": "66e13bcc67c833713b24763a"
+    },
+    {
+        "_id": "66e13c6867c833713b24768b",
+        "name": "KSC \"KHATUSHYAM COLLECTION\" Grey Pu For Women Handheld Bag",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061842/1729061840848_ksc-khatushyam-collection-black-pu-for-women-handheld-bag-product-images-rvkg3apiuk-2-202405282358.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061845/1729061840850_ksc-khatushyam-collection-grey-pu-for-women-handheld-bag-product-images-rvoxe6ocho-0-202405282359.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061847/1729061840863_ksc-khatushyam-collection-grey-pu-for-women-handheld-bag-product-images-rvoxe6ocho-1-202405282359.webp"
+        ],
+        "brand": "KSC",
+        "price": 460,
+        "oldPrice": 490,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "66c0dfb13490222862ae78cd",
+        "subCat": "Girls",
+        "subCatName": "Girls",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62033f4ee2e36a03ed70",
+                "id": "670a62033f4ee2e36a03ed70"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670b45885efc6a71f2adc4fe",
+                "id": "670b45885efc6a71f2adc4fe"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:44:56.302Z",
+        "__v": 0,
+        "id": "66e13c6867c833713b24768b"
+    },
+    {
+        "_id": "66e13d6267c833713b24772b",
+        "name": "KSC \"KHATUSHYAM COLLECTION\" Red Pu For Women Handheld Bag",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061758/1729061756042_live-fashion-white-women-printed-pu-sling-bag-product-images-rvkzz1hq3e-0-202306302128.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061760/1729061756045_live-fashion-white-women-printed-pu-sling-bag-product-images-rvkzz1hq3e-1-202306302128.webp"
+        ],
+        "brand": "KSC ",
+        "price": 750,
+        "oldPrice": 520,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "66c0dfa43490222862ae78c1",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 9,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62133f4ee2e36a03edd2",
+                "id": "670a62133f4ee2e36a03edd2"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7f34fa94c7ca1209674c",
+                "id": "670a7f34fa94c7ca1209674c"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:49:06.885Z",
+        "__v": 0,
+        "id": "66e13d6267c833713b24772b"
+    },
+    {
+        "_id": "66e13dee67c833713b247765",
+        "name": "LIVE FASHION Black Women PU Sling Bag",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061726/1729061724288_live-fashion-black-women-pu-sling-bag-product-images-rvlrqnkwh2-0-202406040227.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061728/1729061724291_live-fashion-black-women-pu-sling-bag-product-images-rvlrqnkwh2-1-202406040227.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061733/1729061724300_live-fashion-black-women-pu-sling-bag-product-images-rvlrqnkwh2-2-202406040227.jpg"
+        ],
+        "brand": "LIVE FAShion",
+        "price": 650,
+        "oldPrice": 850,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 1500,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a621b3f4ee2e36a03ee03",
+                "id": "670a621b3f4ee2e36a03ee03"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd8bd1f039258ce5616a8",
+                "id": "670cd8bd1f039258ce5616a8"
+            }
+        ],
+        "dateCreated": "2024-09-11T06:51:26.242Z",
+        "__v": 0,
+        "id": "66e13dee67c833713b247765"
+    },
+    {
+        "_id": "66e14052d7b24f428474f35a",
+        "name": "POCO C61, 4GB RAM, 64GB ROM, Ethereal Blue, Smartphone",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061628/1729061627016_poco-c61-4gb-ram-64gb-rom-ethereal-blue-smartphone-product-images-orvmh0bwivm-p608625324-0-202403291512.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061630/1729061627017_poco-c61-4gb-ram-64gb-rom-ethereal-blue-smartphone-product-images-orvmh0bwivm-p608625324-1-202403291512.jpg"
+        ],
+        "brand": "POCO",
+        "price": 13000,
+        "oldPrice": 15000,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5511e86c762e3cad6cf1",
+        "subCat": "Mobiles",
+        "subCatName": "Mobiles",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62223f4ee2e36a03ee34",
+                "id": "670a62223f4ee2e36a03ee34"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd88b1f039258ce5615e2",
+                "id": "670cd88b1f039258ce5615e2"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670cd88b1f039258ce5615e3",
+                "id": "670cd88b1f039258ce5615e3"
+            }
+        ],
+        "dateCreated": "2024-09-11T07:01:38.292Z",
+        "__v": 0,
+        "id": "66e14052d7b24f428474f35a"
+    },
+    {
+        "_id": "66e140e4d7b24f428474f419",
+        "name": "Aqualite Black & Grey Slip-Resistance Sliders for Men",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061560/1729061558501_aqualite-mens-black-grey-slider-product-images-rvlx7wvjex-0-202305251453.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061565/1729061558502_aqualite-mens-black-grey-slider-product-images-rvlx7wvjex-1-202305251453.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061568/1729061558519_aqualite-mens-white-royal-blue-slider-product-images-rvwvatrsa9-0-202305251507.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061571/1729061558555_aqualite-mens-white-royal-blue-slider-product-images-rvwvatrsa9-1-202305251507.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061574/1729061558571_aqualite-mens-white-royal-blue-slider-product-images-rvwvatrsa9-2-202305251507.jpg"
+        ],
+        "brand": "Aqualite",
+        "price": 850,
+        "oldPrice": 920,
+        "catName": "Footwear",
+        "catId": "670f548ce86c762e3cad6ca9",
+        "subCatId": "670f5550e86c762e3cad6d15",
+        "subCat": "Men Footwear",
+        "subCatName": "Men Footwear",
+        "category": {
+            "_id": "670f548ce86c762e3cad6ca9",
+            "name": "Footwear",
+            "slug": "Footwear",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+            ],
+            "color": "#def3ff",
+            "createdAt": "2024-10-16T05:52:12.292Z",
+            "updatedAt": "2024-10-16T05:52:12.292Z",
+            "__v": 0,
+            "id": "670f548ce86c762e3cad6ca9"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a622a3f4ee2e36a03ee65",
+                "id": "670a622a3f4ee2e36a03ee65"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd8501f039258ce561516",
+                "id": "670cd8501f039258ce561516"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670cd8501f039258ce561517",
+                "id": "670cd8501f039258ce561517"
+            },
+            {
+                "value": "US",
+                "label": "United States",
+                "_id": "670cd8501f039258ce561518",
+                "id": "670cd8501f039258ce561518"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670cd8501f039258ce561519",
+                "id": "670cd8501f039258ce561519"
+            },
+            {
+                "value": "NG",
+                "label": "Nigeria",
+                "_id": "670cd8501f039258ce56151a",
+                "id": "670cd8501f039258ce56151a"
+            }
+        ],
+        "dateCreated": "2024-09-11T07:04:04.916Z",
+        "__v": 0,
+        "id": "66e140e4d7b24f428474f419"
+    },
+    {
+        "_id": "66e14d36d7b24f428474f81e",
+        "name": "Fabbmate Casual Sports shoes White Sneakers for Women Girls White Shoes",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061510/1729061501881_fabbmate-casual-sports-shoes-white-sneakers-for-women-girls-white-shoes-product-images-rvouh9agls-0-202406162001.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061515/1729061501902_fabbmate-casual-sports-shoes-white-sneakers-for-women-girls-white-shoes-product-images-rvouh9agls-1-202406162001.jpg"
+        ],
+        "brand": "Fabbmate",
+        "price": 460,
+        "oldPrice": 480,
+        "catName": "Footwear",
+        "catId": "670f548ce86c762e3cad6ca9",
+        "subCatId": "670f5550e86c762e3cad6d15",
+        "subCat": "Women FootWear",
+        "subCatName": "Men Footwear",
+        "category": {
+            "_id": "670f548ce86c762e3cad6ca9",
+            "name": "Footwear",
+            "slug": "Footwear",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+            ],
+            "color": "#def3ff",
+            "createdAt": "2024-10-16T05:52:12.292Z",
+            "updatedAt": "2024-10-16T05:52:12.292Z",
+            "__v": 0,
+            "id": "670f548ce86c762e3cad6ca9"
+        },
+        "countInStock": 1400,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 8,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62343f4ee2e36a03ee96",
+                "id": "670a62343f4ee2e36a03ee96"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd8201f039258ce561454",
+                "id": "670cd8201f039258ce561454"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670cd8201f039258ce561455",
+                "id": "670cd8201f039258ce561455"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670cd8201f039258ce561456",
+                "id": "670cd8201f039258ce561456"
+            },
+            {
+                "value": "US",
+                "label": "United States",
+                "_id": "670cd8201f039258ce561457",
+                "id": "670cd8201f039258ce561457"
+            }
+        ],
+        "dateCreated": "2024-09-11T07:56:38.417Z",
+        "__v": 0,
+        "id": "66e14d36d7b24f428474f81e"
+    },
+    {
+        "_id": "66e15fbacbb9035ac19bca85",
+        "name": "Paragon PUK7014L Women Sandals | Casual Everyday Sandals | Stylish, Comfortable & Durable | For Daily & Occasion Wear",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061447/1729061444526_paragon-puk7014l-women-sandals-casual-everyday-sandals-stylish-comfortable-durable-for-daily-occasion-wear-product-images-rvsahbaae9-0-202309191618.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061453/1729061444553_paragon-puk7014l-women-sandals-casual-everyday-sandals-stylish-comfortable-durable-for-daily-occasion-wear-product-images-rvsahbaae9-1-202309191619.jpg"
+        ],
+        "brand": "Paragon",
+        "price": 320,
+        "oldPrice": 450,
+        "catName": "Footwear",
+        "catId": "670f548ce86c762e3cad6ca9",
+        "subCatId": "670f5559e86c762e3cad6d1b",
+        "subCat": "Women FootWear",
+        "subCatName": "Women FootWear",
+        "category": {
+            "_id": "670f548ce86c762e3cad6ca9",
+            "name": "Footwear",
+            "slug": "Footwear",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+            ],
+            "color": "#def3ff",
+            "createdAt": "2024-10-16T05:52:12.292Z",
+            "updatedAt": "2024-10-16T05:52:12.292Z",
+            "__v": 0,
+            "id": "670f548ce86c762e3cad6ca9"
+        },
+        "countInStock": 1200,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 11,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a623c3f4ee2e36a03eec7",
+                "id": "670a623c3f4ee2e36a03eec7"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670a623c3f4ee2e36a03eec8",
+                "id": "670a623c3f4ee2e36a03eec8"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd7b31f039258ce5612f2",
+                "id": "670cd7b31f039258ce5612f2"
+            }
+        ],
+        "dateCreated": "2024-09-11T09:15:38.977Z",
+        "__v": 0,
+        "id": "66e15fbacbb9035ac19bca85"
+    },
+    {
+        "_id": "66e16de3cbb9035ac19bccf6",
+        "name": "Aqualite Women Pista Green Casual Shoes",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061342/1729061335503_aqualite-women-pink-casual-shoes-product-images-rvjmglffdd-0-202305241611.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061350/1729061335525_aqualite-women-pink-casual-shoes-product-images-rvjmglffdd-3-202305241611.jpg"
+        ],
+        "brand": "Aqualite",
+        "price": 450,
+        "oldPrice": 550,
+        "catName": "Footwear",
+        "catId": "670f548ce86c762e3cad6ca9",
+        "subCatId": "670f5559e86c762e3cad6d1b",
+        "subCat": "Women FootWear",
+        "subCatName": "Women FootWear",
+        "category": {
+            "_id": "670f548ce86c762e3cad6ca9",
+            "name": "Footwear",
+            "slug": "Footwear",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+            ],
+            "color": "#def3ff",
+            "createdAt": "2024-10-16T05:52:12.292Z",
+            "updatedAt": "2024-10-16T05:52:12.292Z",
+            "__v": 0,
+            "id": "670f548ce86c762e3cad6ca9"
+        },
+        "countInStock": 1400,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62773f4ee2e36a03ef41",
+                "id": "670a62773f4ee2e36a03ef41"
+            },
+            {
+                "value": "ID",
+                "label": "Indonesia",
+                "_id": "670cd7631f039258ce561233",
+                "id": "670cd7631f039258ce561233"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd7631f039258ce561234",
+                "id": "670cd7631f039258ce561234"
+            }
+        ],
+        "dateCreated": "2024-09-11T10:16:03.095Z",
+        "__v": 0,
+        "id": "66e16de3cbb9035ac19bccf6"
+    },
+    {
+        "_id": "66e16ee8cbb9035ac19bcd16",
+        "name": "Paragon Women's Trendy Wedge Heel Sandals with Cushioned Sole and Sturdy Construction for Everyday Use",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061283/1729061278212_denill-brown-bellies-for-women-product-images-rvrehaibat-0-202211050253.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061286/1729061278214_denill-brown-bellies-for-women-product-images-rvrehaibat-1-202211050253.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061288/1729061278229_denill-brown-bellies-for-women-product-images-rvrehaibat-2-202211050253.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061292/1729061278234_denill-brown-bellies-for-women-product-images-rvrehaibat-3-202211050253.jpg"
+        ],
+        "brand": "Paragon",
+        "price": 450,
+        "oldPrice": 650,
+        "catName": "Footwear",
+        "catId": "670f548ce86c762e3cad6ca9",
+        "subCatId": "670f5559e86c762e3cad6d1b",
+        "subCat": "Women FootWear",
+        "subCatName": "Women FootWear",
+        "category": {
+            "_id": "670f548ce86c762e3cad6ca9",
+            "name": "Footwear",
+            "slug": "Footwear",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+            ],
+            "color": "#def3ff",
+            "createdAt": "2024-10-16T05:52:12.292Z",
+            "updatedAt": "2024-10-16T05:52:12.292Z",
+            "__v": 0,
+            "id": "670f548ce86c762e3cad6ca9"
+        },
+        "countInStock": 1500,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a627c3f4ee2e36a03ef72",
+                "id": "670a627c3f4ee2e36a03ef72"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd71c1f039258ce56117e",
+                "id": "670cd71c1f039258ce56117e"
+            }
+        ],
+        "dateCreated": "2024-09-11T10:20:24.524Z",
+        "__v": 0,
+        "id": "66e16ee8cbb9035ac19bcd16"
+    },
+    {
+        "_id": "66e17196cbb9035ac19bce4d",
+        "name": "FLORES Stylish Fashion Backpack For Girls and boys",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061152/1729061145352_fytona-medium-laptop-backpack-light-weight-for-school-collage-office-tuition-and-picnic-waterproof-backpack-grey-25-l-product-images-rvyoumccae-0-202402141853.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061182/1729061145369_fytona-medium-laptop-backpack-light-weight-for-school-collage-office-tuition-and-picnic-waterproof-backpack-grey-25-l-product-images-rvyoumccae-2-202402141853.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061196/1729061145391_fytona-medium-laptop-backpack-light-weight-for-school-collage-office-tuition-and-picnic-waterproof-backpack-grey-25-l-product-images-rvyoumccae-3-202402141853.jpg"
+        ],
+        "brand": "FLORES",
+        "price": 560,
+        "oldPrice": 590,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "66c0dfb13490222862ae78cd",
+        "subCat": "Girls",
+        "subCatName": "Girls",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 450,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 8,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62843f4ee2e36a03efab",
+                "id": "670a62843f4ee2e36a03efab"
+            }
+        ],
+        "dateCreated": "2024-09-11T10:31:50.421Z",
+        "__v": 0,
+        "id": "66e17196cbb9035ac19bce4d"
+    },
+    {
+        "_id": "66e17237cbb9035ac19bced8",
+        "name": "Fytona Medium Laptop Backpack | Light weight For School Collage Office Tuition and Picnic | Waterproof Backpack (Grey, 25 L)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063000/1729062998890_fytona-medium-laptop-backpack-light-weight-for-school-collage-office-tuition-and-picnic-waterproof-backpack-blue-25-l-product-images-orvmjkuqezq-p607379380-0-202401161039.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063002/1729062998891_fytona-medium-laptop-backpack-light-weight-for-school-collage-office-tuition-and-picnic-waterproof-backpack-blue-25-l-product-images-orvmjkuqezq-p607379380-3-202401161039.jpg"
+        ],
+        "brand": "Fytona",
+        "price": 480,
+        "oldPrice": 520,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "66c0dfab3490222862ae78c7",
+        "subCat": "Boys",
+        "subCatName": "Boys",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 450,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a628c3f4ee2e36a03efec",
+                "id": "670a628c3f4ee2e36a03efec"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdb771f039258ce5620dd",
+                "id": "670cdb771f039258ce5620dd"
+            }
+        ],
+        "dateCreated": "2024-09-11T10:34:31.443Z",
+        "__v": 0,
+        "id": "66e17237cbb9035ac19bced8"
+    },
+    {
+        "_id": "66e293e22c48007bafc155ab",
+        "name": "DANGAR ENTERPRISE Kundan white Earring for Women and Girls-Terndy Women Pooja And Diwali Special Attractive Earrings Set For Party Occasion-Kundan work studs-Triangle Shape Kundan Stud Earring-1 Pair",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062837/1729062834828_dangar-enterprise-kundan-white-earring-for-women-and-girls-terndy-women-pooja-and-diwali-special-attractive-earrings-set-for-party-occasion-kundan-work-studs-triangle-shape-kundan-stud-earring-1-pair-product-images-rv.jpg"
+        ],
+        "brand": "DANGAR ENTERPRISE",
+        "price": 280,
+        "oldPrice": 320,
+        "catName": "Jewellery",
+        "catId": "670f54e8e86c762e3cad6cd1",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": null,
+        "countInStock": 140,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62913f4ee2e36a03f01d",
+                "id": "670a62913f4ee2e36a03f01d"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670cdb101f039258ce561f46",
+                "id": "670cdb101f039258ce561f46"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdb101f039258ce561f47",
+                "id": "670cdb101f039258ce561f47"
+            }
+        ],
+        "dateCreated": "2024-09-12T07:10:26.046Z",
+        "__v": 0,
+        "id": "66e293e22c48007bafc155ab"
+    },
+    {
+        "_id": "66e50d28ea40d089af7d6bed",
+        "name": "VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for Women | Ethnic Kurta Set for Women (set of 1) (5XL)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062661/1729062657711_need-printed-cotton-straight-kurtis-for-women-fancy-kurti-for-girls-regular-office-college-wear-kurta-for-ladies-kurti-pant-set-of-1-size-l-product-images-rvyi2nw7q6-0-202408011909.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062663/1729062657719_need-printed-cotton-straight-kurtis-for-women-fancy-kurti-for-girls-regular-office-college-wear-kurta-for-ladies-kurti-pant-set-of-1-size-l-product-images-rvyi2nw7q6-1-202408011909.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062666/1729062657734_need-printed-cotton-straight-kurtis-for-women-fancy-kurti-for-girls-regular-office-college-wear-kurta-for-ladies-kurti-pant-set-of-1-size-l-product-images-rvyi2nw7q6-2-202408011910.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062668/1729062657752_need-printed-cotton-straight-kurtis-for-women-fancy-kurti-for-girls-regular-office-college-wear-kurta-for-ladies-kurti-pant-set-of-1-size-l-product-images-rvyi2nw7q6-3-202408011910_1.jpg"
+        ],
+        "brand": "VNEED",
+        "price": 450,
+        "oldPrice": 490,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54f5e86c762e3cad6cd9",
+        "subCat": "Girls",
+        "subCatName": "Men",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1500,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 14,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62963f4ee2e36a03f06e",
+                "id": "670a62963f4ee2e36a03f06e"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670cdae21f039258ce561e76",
+                "id": "670cdae21f039258ce561e76"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdae21f039258ce561e77",
+                "id": "670cdae21f039258ce561e77"
+            }
+        ],
+        "dateCreated": "2024-09-14T04:12:24.553Z",
+        "__v": 0,
+        "id": "66e50d28ea40d089af7d6bed"
+    },
+    {
+        "_id": "66e50df7ea40d089af7d6c1d",
+        "name": "Tecno POP 8 64 GB, 4 GB RAM, Black, Mobile Phone",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062574/1729062572228_tecno-pop-8-64-gb-4-gb-ram-black-mobile-phone-digital-o494351909-p607019073-2-202405071920.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062578/1729062572229_tecno-pop-8-64-gb-4-gb-ram-black-mobile-phone-digital-o494351909-p607019073-3-202405071920.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062580/1729062572230_tecno-pop-8-64-gb-4-gb-ram-black-mobile-phone-digital-o494351909-p607019073-0-202405071920.webp"
+        ],
+        "brand": "Tecno",
+        "price": 12300,
+        "oldPrice": 13500,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5511e86c762e3cad6cf1",
+        "subCat": "Mobiles",
+        "subCatName": "Mobiles",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 10,
+        "rating": 4,
+        "isFeatured": true,
+        "discount": 12,
+        "productRam": [
+            "3GB",
+            "4GB",
+            "6GB"
+        ],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a629b3f4ee2e36a03f0a7",
+                "id": "670a629b3f4ee2e36a03f0a7"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cda971f039258ce561da8",
+                "id": "670cda971f039258ce561da8"
+            }
+        ],
+        "dateCreated": "2024-09-14T04:15:51.476Z",
+        "__v": 0,
+        "id": "66e50df7ea40d089af7d6c1d"
+    },
+    {
+        "_id": "66e50fbfea40d089af7d6c48",
+        "name": "Apple iPhone 13 128 GB, Pink",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062467/1729062465538_apple-iphone-13-128-gb-pink-digital-o491997703-p590798557-0-202208221207.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062468/1729062465538_apple-iphone-13-128-gb-pink-digital-o491997703-p590798557-2-202208221207.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062470/1729062465538_apple-iphone-13-128-gb-pink-digital-o491997703-p590798557-3-202208221207.jpg"
+        ],
+        "brand": "Apple",
+        "price": 35600,
+        "oldPrice": 389000,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5511e86c762e3cad6cf1",
+        "subCat": "Mobiles",
+        "subCatName": "Mobiles",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 150,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 14,
+        "productRam": [
+            "3GB",
+            "4GB",
+            "6GB"
+        ],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62a13f4ee2e36a03f0d8",
+                "id": "670a62a13f4ee2e36a03f0d8"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cda6b1f039258ce561cdc",
+                "id": "670cda6b1f039258ce561cdc"
+            },
+            {
+                "value": "US",
+                "label": "United States",
+                "_id": "670cda6b1f039258ce561cdd",
+                "id": "670cda6b1f039258ce561cdd"
+            }
+        ],
+        "dateCreated": "2024-09-14T04:23:27.825Z",
+        "__v": 0,
+        "id": "66e50fbfea40d089af7d6c48"
+    },
+    {
+        "_id": "66e510aeea40d089af7d6c7a",
+        "name": "Aqualite's Trendy and Stylish Orange Flip Flops & Slides For Women",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062536/1729062531145_aqualite-s-trendy-and-stylish-orange-flip-flops-slides-for-women-product-images-rvr9enxkgt-0-202304181628.jpg"
+        ],
+        "brand": "Aqualite",
+        "price": 480,
+        "oldPrice": 520,
+        "catName": "Footwear",
+        "catId": "670f548ce86c762e3cad6ca9",
+        "subCatId": "670f54fbe86c762e3cad6cdf",
+        "subCat": "Women FootWear",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f548ce86c762e3cad6ca9",
+            "name": "Footwear",
+            "slug": "Footwear",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+            ],
+            "color": "#def3ff",
+            "createdAt": "2024-10-16T05:52:12.292Z",
+            "updatedAt": "2024-10-16T05:52:12.292Z",
+            "__v": 0,
+            "id": "670f548ce86c762e3cad6ca9"
+        },
+        "countInStock": 1400,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62b13f4ee2e36a03f101",
+                "id": "670a62b13f4ee2e36a03f101"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7ee3fa94c7ca120965d8",
+                "id": "670a7ee3fa94c7ca120965d8"
+            }
+        ],
+        "dateCreated": "2024-09-14T04:27:26.448Z",
+        "__v": 0,
+        "id": "66e510aeea40d089af7d6c7a"
+    },
+    {
+        "_id": "66e51372ea40d089af7d6d77",
+        "name": "Paragon PUK7014L Women Sandals | Casual Everyday Sandals | Stylish, Comfortable & Durable | For Daily & Occasion Wear",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062277/1729062274563_paragon-women-s-trendy-wedge-heel-sandals-with-cushioned-sole-and-sturdy-construction-for-everyday-use-product-images-rv9d1dhzig-0-202408051114.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062282/1729062274591_paragon-women-s-trendy-wedge-heel-sandals-with-cushioned-sole-and-sturdy-construction-for-everyday-use-product-images-rv9d1dhzig-1-202408051114.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062285/1729062274609_paragon-women-s-trendy-wedge-heel-sandals-with-cushioned-sole-and-sturdy-construction-for-everyday-use-product-images-rv9d1dhzig-2-202408051114.jpg"
+        ],
+        "brand": "Paragon",
+        "price": 650,
+        "oldPrice": 690,
+        "catName": "Footwear",
+        "catId": "670f548ce86c762e3cad6ca9",
+        "subCatId": "670f5559e86c762e3cad6d1b",
+        "subCat": "Women FootWear",
+        "subCatName": "Women FootWear",
+        "category": {
+            "_id": "670f548ce86c762e3cad6ca9",
+            "name": "Footwear",
+            "slug": "Footwear",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057930/1729057928861_foot.png"
+            ],
+            "color": "#def3ff",
+            "createdAt": "2024-10-16T05:52:12.292Z",
+            "updatedAt": "2024-10-16T05:52:12.292Z",
+            "__v": 0,
+            "id": "670f548ce86c762e3cad6ca9"
+        },
+        "countInStock": 1500,
+        "rating": 4,
+        "isFeatured": true,
+        "discount": 13,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62b63f4ee2e36a03f12a",
+                "id": "670a62b63f4ee2e36a03f12a"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670cd9e71f039258ce561b48",
+                "id": "670cd9e71f039258ce561b48"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd9e71f039258ce561b49",
+                "id": "670cd9e71f039258ce561b49"
+            }
+        ],
+        "dateCreated": "2024-09-14T04:39:14.497Z",
+        "__v": 0,
+        "id": "66e51372ea40d089af7d6d77"
+    },
+    {
+        "_id": "66e5182cea40d089af7d6e4d",
+        "name": "Aqualite's Trendy and Stylish Pista Flip Flops & Slides For Women",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062226/1729062224893_aqualite-s-trendy-and-stylish-pista-flip-flops-slides-for-women-product-images-rvy0j9wdwq-0-202304181637.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729062228/1729062224894_aqualite-s-trendy-and-stylish-pista-flip-flops-slides-for-women-product-images-rvy0j9wdwq-1-202304181637.jpg"
+        ],
+        "brand": "Denill",
+        "price": 260,
+        "oldPrice": 320,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "66c0e00a3490222862ae78f1",
+        "subCat": "Women FootWear",
+        "subCatName": "Women FootWear",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 165,
+        "rating": 4,
+        "isFeatured": true,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62bb3f4ee2e36a03f153",
+                "id": "670a62bb3f4ee2e36a03f153"
+            }
+        ],
+        "dateCreated": "2024-09-14T04:59:24.006Z",
+        "__v": 0,
+        "id": "66e5182cea40d089af7d6e4d"
+    },
+    {
+        "_id": "66e52b5be2e06fb4c9259dd2",
+        "name": "Good Life Refined Rice Bran Oil 1 L",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729067479/1729067477019_good-life-refined-rice-bran-oil-1-l-product-images-o491472706-p491472706-0-202205172238.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729067480/1729067477060_good-life-refined-rice-bran-oil-1-l-product-images-o491472706-p491472706-1-202205172238_1.webp"
+        ],
+        "brand": "Good Life",
+        "price": 190,
+        "oldPrice": 230,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "66c0dfd53490222862ae78df",
+        "subCat": "Cooking Essentials",
+        "subCatName": "Cooking Essentials",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 160,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 8,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62bf3f4ee2e36a03f17c",
+                "id": "670a62bf3f4ee2e36a03f17c"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cd9791f039258ce5619be",
+                "id": "670cd9791f039258ce5619be"
+            }
+        ],
+        "dateCreated": "2024-09-14T06:21:15.971Z",
+        "__v": 0,
+        "id": "66e52b5be2e06fb4c9259dd2"
+    },
+    {
+        "_id": "66e52bc5e2e06fb4c9259e04",
+        "name": "Gemini Refined Sunflower Oil 1 L",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061930/1729061928189_gemini-refined-sunflower-oil-1-l-product-images-o490012719-p490012719-0-202308301722.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729061932/1729061928190_good-life-mp-wheat-chakki-atta-1-kg-product-images-o491458271-p491458271-2-202306011947.webp"
+        ],
+        "brand": "Gemini",
+        "price": 180,
+        "oldPrice": 210,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "670f5534e86c762e3cad6d09",
+        "subCat": "Cooking Essentials",
+        "subCatName": "Cooking Essentials",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 1700,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62c53f4ee2e36a03f1a5",
+                "id": "670a62c53f4ee2e36a03f1a5"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7fc9fa94c7ca120969ee",
+                "id": "670a7fc9fa94c7ca120969ee"
+            }
+        ],
+        "dateCreated": "2024-09-14T06:23:01.356Z",
+        "__v": 0,
+        "id": "66e52bc5e2e06fb4c9259e04"
+    },
+    {
+        "_id": "66e52c1ce2e06fb4c9259e1e",
+        "name": "Saffola Gold Pro Healthy Lifestyle RiceBran Based Blended Oil 1 L",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063459/1729063450762_saffola-gold-pro-healthy-lifestyle-ricebran-based-blended-oil-1-l-product-images-o490000057-p490000057-0-202403191806.webp"
+        ],
+        "brand": "Saffola",
+        "price": 150,
+        "oldPrice": 180,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "66c0dfd53490222862ae78df",
+        "subCat": "Cooking Essentials",
+        "subCatName": "Cooking Essentials",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 100,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62ca3f4ee2e36a03f1ce",
+                "id": "670a62ca3f4ee2e36a03f1ce"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7fb7fa94c7ca120968cb",
+                "id": "670a7fb7fa94c7ca120968cb"
+            }
+        ],
+        "dateCreated": "2024-09-14T06:24:28.887Z",
+        "__v": 0,
+        "id": "66e52c1ce2e06fb4c9259e1e"
+    },
+    {
+        "_id": "66e52c7ee2e06fb4c9259e35",
+        "name": "Tide Naturals Lemon & Chandan Detergent Powder 1 kg",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063411/1729063409228_tide-naturals-lemon-chandan-detergent-powder-1-kg-product-images-o490916874-p490916874-0-202205301924.webp"
+        ],
+        "brand": "Tide",
+        "price": 85,
+        "oldPrice": 95,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "66c0dff73490222862ae78e5",
+        "subCat": "Home Care",
+        "subCatName": "Home Care",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 150,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G",
+            "1KG"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62cf3f4ee2e36a03f1f7",
+                "id": "670a62cf3f4ee2e36a03f1f7"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7f9dfa94c7ca12096877",
+                "id": "670a7f9dfa94c7ca12096877"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670aa05a1a0c5f1ae830f75b",
+                "id": "670aa05a1a0c5f1ae830f75b"
+            }
+        ],
+        "dateCreated": "2024-09-14T06:26:06.093Z",
+        "__v": 0,
+        "id": "66e52c7ee2e06fb4c9259e35"
+    },
+    {
+        "_id": "66e52d1ce2e06fb4c9259e9e",
+        "name": "Surf Excel Matic Front Load Liquid Detergent 2 L",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063371/1729063364638_wipro-safewash-matic-front-load-liquid-detergent-2-l-product-images-o491631729-p491631729-0-202210071628_1.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063384/1729063364643_wipro-safewash-matic-front-load-liquid-detergent-2-l-product-images-o491631729-p491631729-1-202210071628.jpg"
+        ],
+        "brand": "Surf Excel",
+        "price": 356,
+        "oldPrice": 380,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "66c0dff73490222862ae78e5",
+        "subCat": "Home Care",
+        "subCatName": "Home Care",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 1400,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [
+            "500G"
+        ],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62d33f4ee2e36a03f220",
+                "id": "670a62d33f4ee2e36a03f220"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7e9afa94c7ca120964b1",
+                "id": "670a7e9afa94c7ca120964b1"
+            }
+        ],
+        "dateCreated": "2024-09-14T06:28:44.902Z",
+        "__v": 0,
+        "id": "66e52d1ce2e06fb4c9259e9e"
+    },
+    {
+        "_id": "66e6839f49fb19355a7a0630",
+        "name": "Muuchstac Ocean Face Wash for Men, Fights Acne & Pimple, Skin Whitening & Brightening, All Skin Types, 100 Ml Each (Pack Of 2)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063341/1729063338381_muuchstac-ocean-face-wash-for-men-fights-acne-pimple-skin-whitening-brightening-all-skin-types-100-ml-each-pack-of-2-product-images-orvgtzrehky-p5969279.webp"
+        ],
+        "brand": "Muuchstac",
+        "price": 178,
+        "oldPrice": 190,
+        "catName": "Beauty",
+        "catId": "670f54b8e86c762e3cad6cbd",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54b8e86c762e3cad6cbd",
+            "name": "Beauty",
+            "slug": "Beauty",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
+            ],
+            "color": "#e3fffa",
+            "createdAt": "2024-10-16T05:52:56.619Z",
+            "updatedAt": "2024-10-16T21:04:53.245Z",
+            "__v": 0,
+            "id": "670f54b8e86c762e3cad6cbd"
+        },
+        "countInStock": 160,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62d83f4ee2e36a03f249",
+                "id": "670a62d83f4ee2e36a03f249"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdc711f039258ce5626a1",
+                "id": "670cdc711f039258ce5626a1"
+            }
+        ],
+        "dateCreated": "2024-09-15T06:50:07.386Z",
+        "__v": 0,
+        "id": "66e6839f49fb19355a7a0630"
+    },
+    {
+        "_id": "66e6841249fb19355a7a064e",
+        "name": "Vaseline Original Care Lip Therapy 17 g",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063289/1729063286588_vaseline-original-care-lip-therapy-17-g-product-images-o492367867-p590900289-0-202310140619.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063291/1729063286589_vaseline-original-care-lip-therapy-17-g-product-images-o492367867-p590900289-1-202310140619.jpg"
+        ],
+        "brand": "Vaseline",
+        "price": 145,
+        "oldPrice": 165,
+        "catName": "Beauty",
+        "catId": "670f54b8e86c762e3cad6cbd",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54b8e86c762e3cad6cbd",
+            "name": "Beauty",
+            "slug": "Beauty",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
+            ],
+            "color": "#e3fffa",
+            "createdAt": "2024-10-16T05:52:56.619Z",
+            "updatedAt": "2024-10-16T21:04:53.245Z",
+            "__v": 0,
+            "id": "670f54b8e86c762e3cad6cbd"
+        },
+        "countInStock": 150,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 8,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62e13f4ee2e36a03f272",
+                "id": "670a62e13f4ee2e36a03f272"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7e8afa94c7ca12096471",
+                "id": "670a7e8afa94c7ca12096471"
+            }
+        ],
+        "dateCreated": "2024-09-15T06:52:02.859Z",
+        "__v": 0,
+        "id": "66e6841249fb19355a7a064e"
+    },
+    {
+        "_id": "66e684ad49fb19355a7a06d9",
+        "name": "WOW Skin Science Rose Water for Face | Made with Pure Kannauj Rose Extracts | Use It As Toner, Skin Hyderator & Makeup Primer | 100 ml",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063256/1729063254904_wow-skin-science-rose-water-for-face-made-with-pure-kannauj-rose-extracts-use-it-as-toner-skin-hyderator-makeup-primer-100-ml-product-images-orvsfyevzsf-p600863991-0-202304241416.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063258/1729063254905_wow-skin-science-rose-water-for-face-made-with-pure-kannauj-rose-extracts-use-it-as-toner-skin-hyderator-makeup-primer-100-ml-product-images-orvsfyevzsf-p600863991-1-202304241416.jpg"
+        ],
+        "brand": "Wow Skin Science",
+        "price": 150,
+        "oldPrice": 165,
+        "catName": "Beauty",
+        "catId": "670f54b8e86c762e3cad6cbd",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54b8e86c762e3cad6cbd",
+            "name": "Beauty",
+            "slug": "Beauty",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
+            ],
+            "color": "#e3fffa",
+            "createdAt": "2024-10-16T05:52:56.619Z",
+            "updatedAt": "2024-10-16T21:04:53.245Z",
+            "__v": 0,
+            "id": "670f54b8e86c762e3cad6cbd"
+        },
+        "countInStock": 140,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62e53f4ee2e36a03f29b",
+                "id": "670a62e53f4ee2e36a03f29b"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7eaefa94c7ca120964f2",
+                "id": "670a7eaefa94c7ca120964f2"
+            }
+        ],
+        "dateCreated": "2024-09-15T06:54:37.303Z",
+        "__v": 0,
+        "id": "66e684ad49fb19355a7a06d9"
+    },
+    {
+        "_id": "66e685cf49fb19355a7a0a5f",
+        "name": "Nisha Creme Hair Color - 3.5 Chocolate Brown 60 gm",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063222/1729063220485_nisha-creme-hair-color-3-5-chocolate-brown-60-gm-prod-o992688-p608316872-0-202403020848.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063224/1729063220486_nisha-creme-hair-color-3-5-chocolate-brown-60-gm-prod-o992688-p608316872-1-202403020848.jpg"
+        ],
+        "brand": "Nisha",
+        "price": 160,
+        "oldPrice": 170,
+        "catName": "Beauty",
+        "catId": "670f54b8e86c762e3cad6cbd",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54b8e86c762e3cad6cbd",
+            "name": "Beauty",
+            "slug": "Beauty",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
+            ],
+            "color": "#e3fffa",
+            "createdAt": "2024-10-16T05:52:56.619Z",
+            "updatedAt": "2024-10-16T21:04:53.245Z",
+            "__v": 0,
+            "id": "670f54b8e86c762e3cad6cbd"
+        },
+        "countInStock": 160,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62ea3f4ee2e36a03f2c4",
+                "id": "670a62ea3f4ee2e36a03f2c4"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdc0f1f039258ce562421",
+                "id": "670cdc0f1f039258ce562421"
+            }
+        ],
+        "dateCreated": "2024-09-15T06:59:27.733Z",
+        "__v": 0,
+        "id": "66e685cf49fb19355a7a0a5f"
+    },
+    {
+        "_id": "66e6864549fb19355a7a0a9a",
+        "name": "Navratna Ayurvedic Cool Oil 200 ml",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063186/1729063183440_navratna-ayurvedic-cool-oil-200-ml-prod-o412393-p608316522-0-202403020842.webp"
+        ],
+        "brand": "Navratna",
+        "price": 145,
+        "oldPrice": 170,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 10,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a62fb3f4ee2e36a03f325",
+                "id": "670a62fb3f4ee2e36a03f325"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdbe51f039258ce56234e",
+                "id": "670cdbe51f039258ce56234e"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:01:25.456Z",
+        "__v": 0,
+        "id": "66e6864549fb19355a7a0a9a"
+    },
+    {
+        "_id": "66e6875c49fb19355a7a0b73",
+        "name": "The Gianna Ring",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063121/1729063107798_BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194.webp"
+        ],
+        "brand": "Promise Collection",
+        "price": 650,
+        "oldPrice": 780,
+        "catName": "Jewellery",
+        "catId": "670f54e8e86c762e3cad6cd1",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": null,
+        "countInStock": 1500,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63033f4ee2e36a03f366",
+                "id": "670a63033f4ee2e36a03f366"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdbc11f039258ce56227a",
+                "id": "670cdbc11f039258ce56227a"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670cdbc11f039258ce56227b",
+                "id": "670cdbc11f039258ce56227b"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:06:04.316Z",
+        "__v": 0,
+        "id": "66e6875c49fb19355a7a0b73"
+    },
+    {
+        "_id": "66e688ed49fb19355a7a0bb7",
+        "name": "NEW GOLDEN LONG JHUMKI EARRING",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063053/1729063047974_new-golden-long-jhumki-earring-product-images-rv8v7dq4tt-0-202408011906.jpg"
+        ],
+        "brand": "JSV CAHIRA",
+        "price": 350,
+        "oldPrice": 430,
+        "catName": "Jewellery",
+        "catId": "670f54e8e86c762e3cad6cd1",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": null,
+        "countInStock": 10,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63093f4ee2e36a03f38f",
+                "id": "670a63093f4ee2e36a03f38f"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce0911f039258ce563288",
+                "id": "670ce0911f039258ce563288"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:12:45.320Z",
+        "__v": 0,
+        "id": "66e688ed49fb19355a7a0bb7"
+    },
+    {
+        "_id": "66e6899b49fb19355a7a0bef",
+        "name": "VIBRANCE Jewellery Earrings for Women Oxidised Silver Jhumka earrings for Girls and Women",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064809/1729064807131_sirimiri-smer-1011-german-silver-drops-danglers-product-images-rv85yszgdo-1-202408011925.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064812/1729064807131_sirimiri-smer-1011-german-silver-drops-danglers-product-images-rv85yszgdo-2-202408011925.webp"
+        ],
+        "brand": "VIBRANCE",
+        "price": 340,
+        "oldPrice": 370,
+        "catName": "Jewellery",
+        "catId": "670f54e8e86c762e3cad6cd1",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": null,
+        "countInStock": 12,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a630e3f4ee2e36a03f3b8",
+                "id": "670a630e3f4ee2e36a03f3b8"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce05f1f039258ce5631ab",
+                "id": "670ce05f1f039258ce5631ab"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:15:39.101Z",
+        "__v": 0,
+        "id": "66e6899b49fb19355a7a0bef"
+    },
+    {
+        "_id": "66e68a4549fb19355a7a0c1b",
+        "name": "SIRIMIRI SMER-1011 German Silver Drops & Danglers",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064715/1729064713026_sukkhi-astonish-kundan-gold-plated-pearl-chandelier-earring-for-women-product-images-rv9je8a3um-0-202202250139.jpg"
+        ],
+        "brand": "SIRIMIRI",
+        "price": 260,
+        "oldPrice": 290,
+        "catName": "Jewellery",
+        "catId": "670f54e8e86c762e3cad6cd1",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": null,
+        "countInStock": 100,
+        "rating": 4,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63133f4ee2e36a03f3e1",
+                "id": "670a63133f4ee2e36a03f3e1"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce0161f039258ce5630cf",
+                "id": "670ce0161f039258ce5630cf"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:18:29.173Z",
+        "__v": 0,
+        "id": "66e68a4549fb19355a7a0c1b"
+    },
+    {
+        "_id": "66e68b1049fb19355a7a0c4e",
+        "name": "Zandu Chyavanprashad With No Added Sugar 900 gm",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064656/1729064655470_zandu-chyavanprashad-with-no-added-sugar-900-gm-prod-o1096116-p608315853-0-202403020815.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064658/1729064655470_zandu-chyavanprashad-with-no-added-sugar-900-gm-prod-o1096116-p608315853-1-202403020815.jpg"
+        ],
+        "brand": "Zandu",
+        "price": 480,
+        "oldPrice": 520,
+        "catName": "Groceries",
+        "catId": "670f54a3e86c762e3cad6cb3",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54a3e86c762e3cad6cb3",
+            "name": "Groceries",
+            "slug": "Groceries",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057953/1729057952685_gro.png"
+            ],
+            "color": "#ffe8f8",
+            "createdAt": "2024-10-16T05:52:35.762Z",
+            "updatedAt": "2024-10-16T05:52:35.762Z",
+            "__v": 0,
+            "id": "670f54a3e86c762e3cad6cb3"
+        },
+        "countInStock": 1200,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63173f4ee2e36a03f40a",
+                "id": "670a63173f4ee2e36a03f40a"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a7fe6fa94c7ca12096a98",
+                "id": "670a7fe6fa94c7ca12096a98"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:21:52.774Z",
+        "__v": 0,
+        "id": "66e68b1049fb19355a7a0c4e"
+    },
+    {
+        "_id": "66e68c51e51aa3db51455710",
+        "name": "Conbre MultipleXR2 Pro {Upgraded} HD Smart WiFi Wireless IP CCTV Security Camera | Night Vision | 2-Way Audio | Support 64 GB Micro SD Card Slot",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064609/1729064607699_conbre-multiplexr2-pro-upgraded-hd-smart-wifi-wireless-ip-cctv-security-camera-night-vision-2-way-audio-support-64-gb-micro-sd-card-slot-product-images-orvnkptvicq-p594015290-0-202304040248.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064611/1729064607699_conbre-multiplexr2-pro-upgraded-hd-smart-wifi-wireless-ip-cctv-security-camera-night-vision-2-way-audio-support-64-gb-micro-sd-card-slot-product-images-orvnkptvicq-p594015290-2-202304040248.jpg"
+        ],
+        "brand": "Conbre",
+        "price": 1450,
+        "oldPrice": 1760,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5521e86c762e3cad6cfd",
+        "subCat": "Cameras",
+        "subCatName": "Cameras",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1200,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a631b3f4ee2e36a03f433",
+                "id": "670a631b3f4ee2e36a03f433"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdf9a1f039258ce562f0e",
+                "id": "670cdf9a1f039258ce562f0e"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:27:13.034Z",
+        "__v": 0,
+        "id": "66e68c51e51aa3db51455710"
+    },
+    {
+        "_id": "66e68d24e51aa3db51455749",
+        "name": "Sony Alpha ILCE-7M3 Full-Frame 24.2MP Mirrorless Digital SLR Camera Body (4K Full Frame, Real-Time Eye Auto Focus, 4K Vlogging Camera, Tiltable LCD, Low Light Camera), Black",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064522/1729064520069_sony-alpha-ilce-7m3-full-frame-24-2mp-mirrorless-digital-slr-camera-body-4k-full-frame-real-time-eye-auto-focus-4k-vlogging-camera-tiltable-lcd-low-light-camera-black-digital-o491362603-p590038915-0-202009260.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064524/1729064520071_sony-alpha-ilce-7m3-full-frame-24-2mp-mirrorless-digital-slr-camera-body-4k-full-frame-real-time-eye-auto-focus-4k-vlogging-camera-tiltable-lcd-low-light-camera-black-digital-o491362603-p590038915-1-202009260.webp"
+        ],
+        "brand": "Sony",
+        "price": 45000,
+        "oldPrice": 90000,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5521e86c762e3cad6cfd",
+        "subCat": "Cameras",
+        "subCatName": "Cameras",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1200,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 14,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63213f4ee2e36a03f45c",
+                "id": "670a63213f4ee2e36a03f45c"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdf6b1f039258ce562e34",
+                "id": "670cdf6b1f039258ce562e34"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:30:44.015Z",
+        "__v": 0,
+        "id": "66e68d24e51aa3db51455749"
+    },
+    {
+        "_id": "66e68e27e51aa3db514558cd",
+        "name": "boAt Wave Fury Smartwatch with 4.64 cm (1.83 inch) HD Display, Advanced Bluetooth Calling, Functional Crown, 50+ Sports mode, IP67 Dust, Sweat & Splash Resistant (Active Black)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064066/1729064062072_boat-wave-fury-smartwatch-with-4-64-cm-1-83-inch-hd-display-advanced-bluetooth-calling-functional-crown-50-sports-mode-ip67-dust-sweat-splash-resistant-active-black-digital-o494422055-p609566921-0-20240723183.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729064068/1729064062072_boat-wave-fury-smartwatch-with-4-64-cm-1-83-inch-hd-display-advanced-bluetooth-calling-functional-crown-50-sports-mode-ip67-dust-sweat-splash-resistant-active-black-digital-o494422055-p609566921-1-20240723183.webp"
+        ],
+        "brand": "boAt",
+        "price": 1800,
+        "oldPrice": 2100,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5527e86c762e3cad6d03",
+        "subCat": "Smart Watch Accessories",
+        "subCatName": "Smart Watch Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1200,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 8,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63343f4ee2e36a03f485",
+                "id": "670a63343f4ee2e36a03f485"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdf3a1f039258ce562d5b",
+                "id": "670cdf3a1f039258ce562d5b"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:35:03.008Z",
+        "__v": 0,
+        "id": "66e68e27e51aa3db514558cd"
+    },
+    {
+        "_id": "66e68ecae51aa3db5145595b",
+        "name": "Morden Smart Watch for Kids Men Women Boys Girls D116 Water Proof Touchscreen Smart Watch Bluetooth 1.44 HD Screen Smart Watch with Daily Activity Tracker, Heart Rate Sensor, Sleep Monitor - Black",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063984/1729063975177_morden-smart-watch-for-kids-men-women-boys-girls-d116-water-proof-touchscreen-smart-watch-bluetooth-1-44-hd-screen-smart-watch-with-daily-activity-tracker-heart-rate-sensor-sleep-monitor-black-product-images-.webp"
+        ],
+        "brand": "Morden",
+        "price": 2500,
+        "oldPrice": 2700,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5527e86c762e3cad6d03",
+        "subCat": "Smart Watch Accessories",
+        "subCatName": "Smart Watch Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1400,
+        "rating": 4,
+        "isFeatured": true,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63393f4ee2e36a03f4ae",
+                "id": "670a63393f4ee2e36a03f4ae"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdf0b1f039258ce562c83",
+                "id": "670cdf0b1f039258ce562c83"
+            }
+        ],
+        "dateCreated": "2024-09-15T07:37:46.263Z",
+        "__v": 0,
+        "id": "66e68ecae51aa3db5145595b"
+    },
+    {
+        "_id": "66e6ffb410ba0832baba6689",
+        "name": "Mars HD 2IN1 Nutration For Skin Foundation Golden Beige-F07",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063888/1729063887237_mars-hd-2in1-nutration-for-skin-foundation-golden-beige-f07-product-images-orvjaeibjcv-p603656924-0-202308051112.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063890/1729063887237_mars-hd-2in1-nutration-for-skin-foundation-golden-beige-f07-product-images-orvjaeibjcv-p603656924-1-202308051112.webp"
+        ],
+        "brand": "Wow Skin Science",
+        "price": 190,
+        "oldPrice": 210,
+        "catName": "Beauty",
+        "catId": "670f54b8e86c762e3cad6cbd",
+        "subCatId": "",
+        "subCat": "",
+        "subCatName": "",
+        "category": {
+            "_id": "670f54b8e86c762e3cad6cbd",
+            "name": "Beauty",
+            "slug": "Beauty",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057974/1729057972235_beauty.png"
+            ],
+            "color": "#e3fffa",
+            "createdAt": "2024-10-16T05:52:56.619Z",
+            "updatedAt": "2024-10-16T21:04:53.245Z",
+            "__v": 0,
+            "id": "670f54b8e86c762e3cad6cbd"
+        },
+        "countInStock": 150,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63b03f4ee2e36a03f4fb",
+                "id": "670a63b03f4ee2e36a03f4fb"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cdecb1f039258ce562bac",
+                "id": "670cdecb1f039258ce562bac"
+            }
+        ],
+        "dateCreated": "2024-09-15T15:39:32.052Z",
+        "__v": 0,
+        "id": "66e6ffb410ba0832baba6689"
+    },
+    {
+        "_id": "66e7fe39cd09356c5b465f45",
+        "name": "pink solid casual shirt",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063841/1729063839181_zoom_1-1673275594.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063843/1729063839182_zoom_0-1673275594.webp"
+        ],
+        "brand": "V-Mart",
+        "price": 450,
+        "oldPrice": 495,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54f5e86c762e3cad6cd9",
+        "subCat": "Men",
+        "subCatName": "Men",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 150,
+        "rating": 4,
+        "isFeatured": true,
+        "discount": 10,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63ca3f4ee2e36a03f52c",
+                "id": "670a63ca3f4ee2e36a03f52c"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670cde281f039258ce562ad6",
+                "id": "670cde281f039258ce562ad6"
+            }
+        ],
+        "dateCreated": "2024-09-16T09:45:29.901Z",
+        "__v": 0,
+        "id": "66e7fe39cd09356c5b465f45"
+    },
+    {
+        "_id": "66e8eafa3decb32ae2a77c6e",
+        "name": "men spread collared solid formal shirt",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063519/1729063513478_1000014029787-Green-GREEN-1000014029787_01-2100.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063521/1729063513478_1000014029787-Green-GREEN-1000014029787_02-2100.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063523/1729063513480_1000014029787-Green-GREEN-1000014029787_03-2100.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729063524/1729063513480_1000014029787-Green-GREEN-1000014029787_04-2100.jpg"
+        ],
+        "brand": "V-Mart",
+        "price": 460,
+        "oldPrice": 490,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54f5e86c762e3cad6cd9",
+        "subCat": "Men",
+        "subCatName": "Men",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1800,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 10,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63d13f4ee2e36a03f56f",
+                "id": "670a63d13f4ee2e36a03f56f"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670aa0b31a0c5f1ae830f869",
+                "id": "670aa0b31a0c5f1ae830f869"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670aa0b31a0c5f1ae830f86a",
+                "id": "670aa0b31a0c5f1ae830f86a"
+            }
+        ],
+        "dateCreated": "2024-09-17T02:35:38.759Z",
+        "__v": 0,
+        "id": "66e8eafa3decb32ae2a77c6e"
+    },
+    {
+        "_id": "66e8ed483decb32ae2a77ca6",
+        "name": "beatXP Unbound Era 2.01\" Super AMOLED Display Bluetooth Calling Smart Watch, Metal Body, Rotary Crown, 410 * 502px, 1000 Nits, 60Hz Refresh Rate, 100+ Sports Modes (Black)",
+        "description": "Introducing the beatXP Unbound Era smartwatch - the latest in smartwatch technology. This device has an impressive 2.01-inch Super AMOLED Display with a 60Hz refresh rate and a peak brightness of 1000 Nits. It also features an Always On Display. The EzyPair Technology feature allows for seamless communication via Advanced Bluetooth calling, without requiring a phone.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065771/1729065768657_beatxp-vega-x-smartwatch-black-product-images-orvmzcqz19o-p599552554-0-202303181240.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065773/1729065768657_beatxp-vega-x-smartwatch-black-product-images-orvmzcqz19o-p599552554-1-202303181240.webp"
+        ],
+        "brand": "beatXP",
+        "price": 1200,
+        "oldPrice": 1250,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5527e86c762e3cad6d03",
+        "subCat": "Smart Watch Accessories",
+        "subCatName": "Smart Watch Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 10,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63d63f4ee2e36a03f5d0",
+                "id": "670a63d63f4ee2e36a03f5d0"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce3911f039258ce563a99",
+                "id": "670ce3911f039258ce563a99"
+            }
+        ],
+        "dateCreated": "2024-09-17T02:45:28.831Z",
+        "__v": 0,
+        "id": "66e8ed483decb32ae2a77ca6"
+    },
+    {
+        "_id": "66e8ee313decb32ae2a77cfc",
+        "name": "vHP 15-fb0082AX Victus Gaming Laptop(AMD Ryzen5-5600H /8GB/512GB SSD/4 GB Nvidia GeForce RTX 3050 Graphics/Windows 11/MSO/FHD), 39.6 cm (15.6 inch)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065725/1729065723418_hp-victus-15-fb0178ax-gaming-laptop-amd-ryzen-5-5600h-16-gb-512-gb-ssd-nvidia-geforce-rtx-3050-windows-11-home-full-hd-39-62-cm-15-6-inch-performance-blue-digital-o494421777-p609636401-0-202408011804.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065727/1729065723418_hp-victus-15-fb0178ax-gaming-laptop-amd-ryzen-5-5600h-16-gb-512-gb-ssd-nvidia-geforce-rtx-3050-windows-11-home-full-hd-39-62-cm-15-6-inch-performance-blue-digital-o494421777-p609636401-1-202408011804.jpg"
+        ],
+        "brand": "HP",
+        "price": 25000,
+        "oldPrice": 28000,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5518e86c762e3cad6cf7",
+        "subCat": "Computers and Accessories",
+        "subCatName": "Computers and Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 100,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [
+            "6GB",
+            "8GB",
+            "10GB"
+        ],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63db3f4ee2e36a03f5f9",
+                "id": "670a63db3f4ee2e36a03f5f9"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce35d1f039258ce5639b3",
+                "id": "670ce35d1f039258ce5639b3"
+            }
+        ],
+        "dateCreated": "2024-09-17T02:49:21.389Z",
+        "__v": 0,
+        "id": "66e8ee313decb32ae2a77cfc"
+    },
+    {
+        "_id": "66e8ef403decb32ae2a77db4",
+        "name": "Glowworld Women Blue Printed Cotton Kurta",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065654/1729065646918_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-0-202205161816.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065657/1729065646944_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-1-202205161817.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065663/1729065646971_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-2-202205161817.jpg"
+        ],
+        "brand": "Glowworld",
+        "price": 460,
+        "oldPrice": 480,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f5502e86c762e3cad6ce5",
+        "subCat": "Women",
+        "subCatName": "Girls",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1500,
+        "rating": 4,
+        "isFeatured": true,
+        "discount": 10,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63e03f4ee2e36a03f622",
+                "id": "670a63e03f4ee2e36a03f622"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce2b11f039258ce5638ce",
+                "id": "670ce2b11f039258ce5638ce"
+            }
+        ],
+        "dateCreated": "2024-09-17T02:53:52.237Z",
+        "__v": 0,
+        "id": "66e8ef403decb32ae2a77db4"
+    },
+    {
+        "_id": "66e8f0793decb32ae2a77e65",
+        "name": "Siril Georgette Brown Color Saree with Blouse piece",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065595/1729065591861_siril-georgette-brown-color-saree-with-blouse-piece-product-images-rvegeptjtj-0-202308161431.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065598/1729065591865_siril-georgette-brown-color-saree-with-blouse-piece-product-images-rvegeptjtj-1-202308161431.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065600/1729065592188_siril-georgette-brown-color-saree-with-blouse-piece-product-images-rvegeptjtj-2-202308161432.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065602/1729065592191_siril-georgette-brown-color-saree-with-blouse-piece-product-images-rvegeptjtj-3-202308161432.webp"
+        ],
+        "brand": "SIRIL",
+        "price": 450,
+        "oldPrice": 490,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54fbe86c762e3cad6cdf",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 100,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [
+            "S",
+            "M",
+            "L"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63e43f4ee2e36a03f64b",
+                "id": "670a63e43f4ee2e36a03f64b"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce2771f039258ce5637ea",
+                "id": "670ce2771f039258ce5637ea"
+            }
+        ],
+        "dateCreated": "2024-09-17T02:59:05.066Z",
+        "__v": 0,
+        "id": "66e8f0793decb32ae2a77e65"
+    },
+    {
+        "_id": "66ea3a08c017f4365fafc3e2",
+        "name": "LIVE FASHION Black Women PU Sling Bag",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065554/1729065551604_flores-stylish-fashion-backpack-for-girls-and-boys-product-images-rv9zqkovyh-0-202405211637.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065557/1729065551614_flores-stylish-fashion-backpack-for-girls-and-boys-product-images-rv9zqkovyh-1-202405211637.jpg"
+        ],
+        "brand": "LIVE FASHION",
+        "price": 350,
+        "oldPrice": 450,
+        "catName": "Bags",
+        "catId": "670f5477e86c762e3cad6c9f",
+        "subCatId": "66c0dfa43490222862ae78c1",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f5477e86c762e3cad6c9f",
+            "name": "Bags",
+            "slug": "Bags",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057909/1729057908594_bag.png"
+            ],
+            "color": "#fdf0ff",
+            "createdAt": "2024-10-16T05:51:51.640Z",
+            "updatedAt": "2024-10-16T21:01:41.258Z",
+            "__v": 0,
+            "id": "670f5477e86c762e3cad6c9f"
+        },
+        "countInStock": 150,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 10,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63e93f4ee2e36a03f674",
+                "id": "670a63e93f4ee2e36a03f674"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670aa0081a0c5f1ae830f573",
+                "id": "670aa0081a0c5f1ae830f573"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670aa0081a0c5f1ae830f574",
+                "id": "670aa0081a0c5f1ae830f574"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670aa0081a0c5f1ae830f575",
+                "id": "670aa0081a0c5f1ae830f575"
+            }
+        ],
+        "dateCreated": "2024-09-18T02:25:12.268Z",
+        "__v": 0,
+        "id": "66ea3a08c017f4365fafc3e2"
+    },
+    {
+        "_id": "66ea3ba5c017f4365fafc472",
+        "name": "beatXP Vega X 1.43\" Super AMOLED Display, One-Tap BT 5.2 Calling, Metal Body, 60Hz Refresh Rate, WIRELESS CHARGING, AI Voice Assistant Smartwatch (Black)",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065439/1729065437510_beatxp-unbound-era-2-01-super-amoled-display-bluetooth-calling-smart-watch-metal-body-rotary-crown-410-502px-1000-nits-60hz-refresh-rate-100-sports-modes-black-product-images-orv6i4axy8v-p606246617-0-20231219.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065445/1729065437537_beatxp-unbound-era-2-01-super-amoled-display-bluetooth-calling-smart-watch-metal-body-rotary-crown-410-502px-1000-nits-60hz-refresh-rate-100-sports-modes-black-product-images-orv6i4axy8v-p606246617-1-202312191.jpg"
+        ],
+        "brand": "beatXP",
+        "price": 1300,
+        "oldPrice": 1350,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5527e86c762e3cad6d03",
+        "subCat": "Smart Watch Accessories",
+        "subCatName": "Smart Watch Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63ed3f4ee2e36a03f69d",
+                "id": "670a63ed3f4ee2e36a03f69d"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce1d61f039258ce56361a",
+                "id": "670ce1d61f039258ce56361a"
+            }
+        ],
+        "dateCreated": "2024-09-18T02:32:05.013Z",
+        "__v": 0,
+        "id": "66ea3ba5c017f4365fafc472"
+    },
+    {
+        "_id": "66ea3f14c017f4365fafc692",
+        "name": "Apple iPhone 15 256GB Black",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065396/1729065394631_apple-iphone-15-256gb-black-digital-o493839314-p604568785-0-202309141646.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065401/1729065394632_apple-iphone-15-256gb-black-digital-o493839314-p604568785-1-202309141252.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065402/1729065394632_apple-iphone-15-256gb-black-digital-o493839314-p604568785-2-202309141252.webp"
+        ],
+        "brand": "Apple",
+        "price": 32000,
+        "oldPrice": 33500,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5511e86c762e3cad6cf1",
+        "subCat": "Mobiles",
+        "subCatName": "Mobiles",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 8,
+        "productRam": [
+            "8GB",
+            "6GB"
+        ],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63f23f4ee2e36a03f6c6",
+                "id": "670a63f23f4ee2e36a03f6c6"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670ce1aa1f039258ce563536",
+                "id": "670ce1aa1f039258ce563536"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670ce1aa1f039258ce563537",
+                "id": "670ce1aa1f039258ce563537"
+            }
+        ],
+        "dateCreated": "2024-09-18T02:46:44.870Z",
+        "__v": 0,
+        "id": "66ea3f14c017f4365fafc692"
+    },
+    {
+        "_id": "670771e115f0a6583af1cbc1",
+        "name": "Alt Lit Smartwatch with Bluetooth Calling, 1.85 Inch TFT Screen, IPX5 Water Resistance, Heart Rate, SPO2, Upto 7 days battery, Berry Blue",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065336/1729065335049_noise-alt-lit-smartwatch-berry-blue-digital-o494352052-p607510006-0-202401240757.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065338/1729065335049_noise-alt-lit-smartwatch-berry-blue-digital-o494352052-p607510006-2-202401240757.webp"
+        ],
+        "brand": "ALT",
+        "price": 2400,
+        "oldPrice": 2700,
+        "catName": "Electronics",
+        "catId": "670f5463e86c762e3cad6c95",
+        "subCatId": "670f5527e86c762e3cad6d03",
+        "subCat": "Smart Watch Accessories",
+        "subCatName": "Smart Watch Accessories",
+        "category": {
+            "_id": "670f5463e86c762e3cad6c95",
+            "name": "Electronics",
+            "slug": "Electronics",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057889/1729057887903_ele.png"
+            ],
+            "color": "#feefea",
+            "createdAt": "2024-10-16T05:51:31.207Z",
+            "updatedAt": "2024-10-16T05:51:31.207Z",
+            "__v": 0,
+            "id": "670f5463e86c762e3cad6c95"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": true,
+        "discount": 12,
+        "productRam": [],
+        "size": [],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a63f63f4ee2e36a03f6ef",
+                "id": "670a63f63f4ee2e36a03f6ef"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a6f2b150631d6b104798d",
+                "id": "670a6f2b150631d6b104798d"
+            },
+            {
+                "value": "AD",
+                "label": "Andorra",
+                "_id": "670a6ff4150631d6b104811b",
+                "id": "670a6ff4150631d6b104811b"
+            }
+        ],
+        "dateCreated": "2024-10-10T06:19:13.027Z",
+        "__v": 0,
+        "id": "670771e115f0a6583af1cbc1"
+    },
+    {
+        "_id": "670a5a647b760ed48b5b6fbe",
+        "name": "BuyNewTrend Women Black Cotton Blend Top | top for women | women top | top for women | women top",
+        "description": "For girl's seeking a ethnic set that melds classic charm with a contemporary twist, Trilok Fab flared ethnic gown is a perfect choice. It is designed with both comfort and style in mind, this maxi length gown is made to feel luxurious against the skin. The flowing flares allow for ease of movement, ensuring you feel as good as you look throughout the entire event. Despite the occasion that you want to wear it for, this dress leaves a lasting impression of refined elegance wherever you go.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065293/1729065290580_buynewtrend-women-maroon-cotton-blend-top-product-images-rvb22aqlk7-0-202201130044.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065296/1729065290584_buynewtrend-women-maroon-cotton-blend-top-product-images-rvb22aqlk7-1-202201130044.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065298/1729065290600_buynewtrend-women-maroon-cotton-blend-top-product-images-rvb22aqlk7-2-202201130044.jpg"
+        ],
+        "brand": "Trilok Fab",
+        "price": 1500,
+        "oldPrice": 2200,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f5502e86c762e3cad6ce5",
+        "subCat": "Girls",
+        "subCatName": "Girls",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 150,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670a5a647b760ed48b5b6fbf",
+                "id": "670a5a647b760ed48b5b6fbf"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670a5a647b760ed48b5b6fc0",
+                "id": "670a5a647b760ed48b5b6fc0"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670a5dd47b760ed48b5b7031",
+                "id": "670a5dd47b760ed48b5b7031"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670ce0cb1f039258ce56336c",
+                "id": "670ce0cb1f039258ce56336c"
+            },
+            {
+                "value": "NG",
+                "label": "Nigeria",
+                "_id": "670ce0cb1f039258ce56336d",
+                "id": "670ce0cb1f039258ce56336d"
+            }
+        ],
+        "dateCreated": "2024-10-12T11:15:48.297Z",
+        "__v": 0,
+        "id": "670a5a647b760ed48b5b6fbe"
+    },
+    {
+        "_id": "670b4d0961347e5c638f893f",
+        "name": "women red round neck kurta pant set with dupatta",
+        "description": "Save your time mixing and matching various ethnic pieces and invest in beautiful kurta pant set ethnic sets from Ishin brands that give a well-fitted look in all styles.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065189/1729065134169_gosriki-women-s-pink-ethnic-motifs-printed-kurta-with-trouser-dupatta-product-images-rvpkyh5qdr-0-202310141511.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065192/1729065134508_gosriki-women-s-pink-ethnic-motifs-printed-kurta-with-trouser-dupatta-product-images-rvpkyh5qdr-1-202310141511.jpg"
+        ],
+        "brand": "Ishin",
+        "price": 1500,
+        "oldPrice": 1700,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54fbe86c762e3cad6cdf",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670b4d0961347e5c638f8940",
+                "id": "670b4d0961347e5c638f8940"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670b4d0961347e5c638f8941",
+                "id": "670b4d0961347e5c638f8941"
+            },
+            {
+                "value": "US",
+                "label": "United States",
+                "_id": "670b4d0961347e5c638f8942",
+                "id": "670b4d0961347e5c638f8942"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670b4d0961347e5c638f8943",
+                "id": "670b4d0961347e5c638f8943"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670b4d0961347e5c638f8944",
+                "id": "670b4d0961347e5c638f8944"
+            }
+        ],
+        "dateCreated": "2024-10-13T04:31:05.278Z",
+        "__v": 0,
+        "id": "670b4d0961347e5c638f893f"
+    },
+    {
+        "_id": "670b52bc61347e5c638f912a",
+        "name": "men checkered long sleeve casual shirt",
+        "description": "Be a head turner by wearing this casual shirt from BUSHIRT and grab it in brown colour.\nShowcase this top in wonderful prints and wear it for different occasions.\nBuy this outstanding collection in a 47 size & get it in fabric made of cotton material.\nBored of the conventional shirt look? Well, these casual shirts in graceful neck designs and long sleeves will give you a whole new dimension!\nLook dapper in casual shirts priced at ₹1199 and benefit 60% .",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729066021/1729066019364_zoom_0-1713900137.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729066022/1729066019364_zoom_1-1713900137.webp"
+        ],
+        "brand": "BUSHIRT",
+        "price": 850,
+        "oldPrice": 1200,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54f5e86c762e3cad6cd9",
+        "subCat": "Men",
+        "subCatName": "Men",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 10,
+        "productRam": [],
+        "size": [
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670b52bc61347e5c638f912b",
+                "id": "670b52bc61347e5c638f912b"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670b52bc61347e5c638f912c",
+                "id": "670b52bc61347e5c638f912c"
+            },
+            {
+                "value": "PK",
+                "label": "Pakistan",
+                "_id": "670b52bc61347e5c638f912d",
+                "id": "670b52bc61347e5c638f912d"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670b52bc61347e5c638f912e",
+                "id": "670b52bc61347e5c638f912e"
+            }
+        ],
+        "dateCreated": "2024-10-13T04:55:24.244Z",
+        "__v": 0,
+        "id": "670b52bc61347e5c638f912a"
+    },
+    {
+        "_id": "670b88d7acc986ed5b012079",
+        "name": "Deel Band Women Rayon Embroidered Kurta Pant Dupatta Set",
+        "description": "Kurta: The kurta is the top piece, which is a long tunic-style garment that can vary in length, sleeve style, and neckline. In this set, it is made from rayon fabric, which is known for its softness, smooth texture, and breathability. Rayon kurta often comes in a variety of prints, patterns, and colors, catering to different tastes and occasions.",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065985/1729065982783_deel-band-women-rayon-embroidered-kurta-pant-dupatta-set-product-images-rvotwal6de-0-202404071601.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065987/1729065982793_deel-band-women-rayon-embroidered-kurta-pant-dupatta-set-product-images-rvotwal6de-2-202404071601.jpg"
+        ],
+        "brand": "Deel band",
+        "price": 1500,
+        "oldPrice": 1800,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54fbe86c762e3cad6cdf",
+        "subCat": "Women",
+        "subCatName": "Women",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1200,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 12,
+        "productRam": [],
+        "size": [
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670b88d7acc986ed5b01207a",
+                "id": "670b88d7acc986ed5b01207a"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670b88d7acc986ed5b01207b",
+                "id": "670b88d7acc986ed5b01207b"
+            },
+            {
+                "value": "KE",
+                "label": "Kenya",
+                "_id": "670b88d7acc986ed5b01207c",
+                "id": "670b88d7acc986ed5b01207c"
+            }
+        ],
+        "dateCreated": "2024-10-13T08:46:15.277Z",
+        "__v": 0,
+        "id": "670b88d7acc986ed5b012079"
+    },
+    {
+        "_id": "670bff5ddefdab066b32758b",
+        "name": "GESPO Peach Solid Mandarin Collar Half Sleeve Casual T-Shirt",
+        "description": "Rs: Kurta: The kurta is the top piece, which is a long tunic-style garment that can vary in length, sleeve style, and neckline. In this set, it is made from rayon fabric, which is known for its softness, smooth texture, and breathability. Rayon kurta often comes in a variety of prints, patterns, and colors, catering to different tastes and occasions.\n\n",
+        "images": [
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065888/1729065886209_gespo-peach-solid-mandarin-collar-half-sleeve-casual-t-shirt-product-images-rvrtzhyumb-0-202304080900.webp",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065903/1729065886211_gespo-peach-solid-mandarin-collar-half-sleeve-casual-t-shirt-product-images-rvrtzhyumb-1-202304080900.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065933/1729065886219_gespo-peach-solid-mandarin-collar-half-sleeve-casual-t-shirt-product-images-rvrtzhyumb-2-202304080900.jpg",
+            "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065942/1729065886229_gespo-peach-solid-mandarin-collar-half-sleeve-casual-t-shirt-product-images-rvrtzhyumb-3-202304080900.webp"
+        ],
+        "brand": "GESPO",
+        "price": 1500,
+        "oldPrice": 2000,
+        "catName": "Fashion",
+        "catId": "670f544ce86c762e3cad6c8b",
+        "subCatId": "670f54f5e86c762e3cad6cd9",
+        "subCat": "Men",
+        "subCatName": "Men",
+        "category": {
+            "_id": "670f544ce86c762e3cad6c8b",
+            "name": "Fashion",
+            "slug": "Fashion",
+            "images": [
+                "https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729057865/1729057863544_fash.png"
+            ],
+            "color": "#ecffec",
+            "createdAt": "2024-10-16T05:51:08.266Z",
+            "updatedAt": "2024-10-16T05:51:08.266Z",
+            "__v": 0,
+            "id": "670f544ce86c762e3cad6c8b"
+        },
+        "countInStock": 1500,
+        "rating": 5,
+        "isFeatured": false,
+        "discount": 9,
+        "productRam": [],
+        "size": [
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "productWeight": [],
+        "location": [
+            {
+                "value": "All",
+                "label": "All",
+                "_id": "670bff5ddefdab066b32758c",
+                "id": "670bff5ddefdab066b32758c"
+            },
+            {
+                "value": "IN",
+                "label": "India",
+                "_id": "670bff5ddefdab066b32758d",
+                "id": "670bff5ddefdab066b32758d"
+            },
+            {
+                "value": "AF",
+                "label": "Afghanistan",
+                "_id": "670bff5ddefdab066b32758e",
+                "id": "670bff5ddefdab066b32758e"
+            },
+            {
+                "value": "BD",
+                "label": "Bangladesh",
+                "_id": "670bff5ddefdab066b32758f",
+                "id": "670bff5ddefdab066b32758f"
+            }
+        ],
+        "dateCreated": "2024-10-13T17:11:57.651Z",
+        "__v": 0,
+        "id": "670bff5ddefdab066b32758b"
+    }
+]
