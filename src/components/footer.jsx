@@ -95,7 +95,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="ms-auto hidden md:block">
-                    <img className="max-w-full max-h-[330px]" src="https://fullstack-ecommerce.netlify.app/static/media/newsletter.5931358dd220a40019fc.png" alt="slide" />
+                    <img className="max-w-full max-h-[330px]" src="/images/newsletter.png" alt="slide" />
                 </div>
                 </div>
             </section>

@@ -1,21 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from 'fs';
 import generateUniqueId from "generate-unique-id";
-import { Banners } from "@/lib/models";
+import { Banners, HomeBanner, HomeBottomBanners, HomeSideBanners } from "@/lib/models";
 import dbConnect from "@/lib/dbConnect";
 import mongoose from "mongoose";
 
 export async function GET(req, { params }) {
 
     // var data = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/data.json', 'utf8'));
-    // const searchParams = req.nextUrl.searchParams;       
-    // let type = searchParams.get('type');           
+    const searchParams = req.nextUrl.searchParams;       
+    let type = searchParams.get('type');           
     // let banners = data[type];
     // return NextResponse.json(banners);
 
     await dbConnect();
 
-    const banners = await Banners.find({});
+    let banners = [];
+
+    if (type === 'banners') {
+        banners = await Banners.find({});
+    } else if (type === 'homeBanner') {
+        banners = await HomeBanner.find({});
+    } else if (type === 'homeBottomBanners') {
+        banners = await HomeBottomBanners.find({});
+    } else if (type === 'homeSideBanners') {
+        banners = await HomeSideBanners.find({});
+    }
+    // else if (type === 'homeBanners') {
+    //     banners = await HomeBanner.find({});
+    // }
     return NextResponse.json(banners);
 }
 

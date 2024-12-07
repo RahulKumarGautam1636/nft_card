@@ -27,7 +27,7 @@ export default async function Home() {   // homeBanners, banners, categories, fi
             {categories.categoryList.map(i => (
               <div key={i.id} className="text-center min-w-fit cursor-pointer group flex-1 flex flex-col items-center">
                   <div className="rounded-full max-w-[7rem] lg:max-w-[9.5rem] p-[1.7rem] border border-gray-300 group-hover:shadow-xl group-hover:border-gray-400" style={{background: i.color}}>
-                    <img className="max-w-full" src={i.images[0]} />
+                    <img className="max-w-full" src={'/images/categories/' + i.images[0]} />
                   </div>
                   <h3 className="text-lg font-semibold mt-2">{i.name}</h3>
               </div>
@@ -37,7 +37,7 @@ export default async function Home() {   // homeBanners, banners, categories, fi
         <section className="grid grid-cols-2 lg:grid-cols-10 gap-5">
           <div className="relative col-span-2">
             <div className="sticky top-0 flex lg:flex-col gap-5">
-              {homeSideBanners.map(i => (
+              {homeSideBanners.slice(0, 4).map(i => (
                 <div key={i.id}>
                   <img className="w-full" src={i.images[0]} alt="banner" />
                 </div>
@@ -47,7 +47,7 @@ export default async function Home() {   // homeBanners, banners, categories, fi
           <div className="col-span-8">
             <FilterTabs categories={categories.categoryList} filteredProducts={filteredProducts} />
             <div className="mt-4">
-              <PromoBanner banners={banners} />
+              <PromoBanner banners={banners} type={'promo-banner'} path={'/images/banners/'} />
             </div>
             <div className="mt-7">
               <div className="">
@@ -129,7 +129,7 @@ export default async function Home() {   // homeBanners, banners, categories, fi
         </section>
         <section>
           <div className="mt-4">
-            <PromoBanner banners={homeBottomBanners} />
+            <PromoBanner banners={homeBottomBanners} type={'promo-banner'} path={'/images/homeBottomBanners/'}/>
           </div>
         </section>
       </main>

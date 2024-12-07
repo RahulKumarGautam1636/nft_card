@@ -1,0 +1,116 @@
+[
+    {
+        "value": "All",
+        "label": "All",
+        "_id": {"$oid": "6742bf121b10adfb939f0b5e"},
+        "id": "6742bf121b10adfb939f0b5e"
+    },
+    {
+        "value": "IN",
+        "label": "India",
+        "_id": {"$oid": "6742bf121b10adfb939f0b5f"},
+        "id": "6742bf121b10adfb939f0b5f"
+    },
+    {
+        "value": "AU",
+        "label": "Australia",
+        "_id": {"$oid": "670a61593f4ee2e36a03e9de"},
+        "id": "670a61593f4ee2e36a03e9de"
+    },
+    {
+        "value": "US",
+        "label": "United States",
+        "_id": {"$oid": "6734647d6380d4e40d6484fe"},
+        "id": "6734647d6380d4e40d6484fe"
+    },
+    {
+        "value": "PK",
+        "label": "Pakistan",
+        "_id": {"$oid": "6742bf121b10adfb939f0b60"},
+        "id": "6742bf121b10adfb939f0b60"
+    },
+    {
+        "value": "AF",
+        "label": "Afghanistan",
+        "_id": {"$oid": "6742bf121b10adfb939f0b61"},
+        "id": "6742bf121b10adfb939f0b61"
+    },
+    {
+        "value": "LK",
+        "label": "Sri Lanka",
+        "_id": {"$oid": "670a61243f4ee2e36a03e976"},
+        "id": "670a61243f4ee2e36a03e976"
+    },
+    {
+        "value": "AL",
+        "label": "Albania",
+        "_id": {"$oid": "673464ff6380d4e40d648592"},
+        "id": "673464ff6380d4e40d648592"
+    },
+    {
+        "value": "ZA",
+        "label": "South Africa",
+        "_id": {"$oid": "67346a136380d4e40d648978"},
+        "id": "67346a136380d4e40d648978"
+    },
+    {
+        "value": "BD",
+        "label": "Bangladesh",
+        "_id": {"$oid": "670bff5ddefdab066b32758f"},
+        "id": "670bff5ddefdab066b32758f"
+    },
+    {
+        "value": "NG",
+        "label": "Nigeria",
+        "_id": {"$oid": "67346b3c6380d4e40d648b24"},
+        "id": "67346b3c6380d4e40d648b24"
+    },
+    {
+        "value": "ID",
+        "label": "Indonesia",
+        "_id": {"$oid": "670cd7631f039258ce561233"},
+        "id": "670cd7631f039258ce561233"
+    },
+    {
+        "value": "AD",
+        "label": "Andorra",
+        "_id": {"$oid": "670a6ff4150631d6b104811b"},
+        "id": "670a6ff4150631d6b104811b"
+    },
+    {
+        "value": "KE",
+        "label": "Kenya",
+        "_id": {"$oid": "670b88d7acc986ed5b01207c"},
+        "id": "670b88d7acc986ed5b01207c"
+    },
+    {
+        "value": "EC",
+        "label": "Ecuador",
+        "_id": {"$oid": "6716dcc3faf0ddf988e78dbc"},
+        "id": "6716dcc3faf0ddf988e78dbc"
+    },
+    {
+        "value": "VN",
+        "label": "Vietnam",
+        "_id": {"$oid": "673467b76380d4e40d648768"},
+        "id": "673467b76380d4e40d648768"
+    },
+    {
+        "value": "PH",
+        "label": "Philippines",
+        "_id": {"$oid": "67346b3c6380d4e40d648b25"},
+        "id": "67346b3c6380d4e40d648b25"
+    },
+    {
+        "value": "KR",
+        "label": "South Korea",
+        "_id": {"$oid": "67346b3c6380d4e40d648b23"},
+        "id": "67346b3c6380d4e40d648b23"
+    },
+    {
+        "value": "NZ",
+        "label": "New Zealand",
+        "_id": {"$oid": "673467b76380d4e40d648766"},
+        "id": "673467b76380d4e40d648766"
+    }
+]

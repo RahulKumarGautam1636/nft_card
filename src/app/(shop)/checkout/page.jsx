@@ -194,7 +194,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -279,7 +279,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -367,7 +367,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -455,7 +455,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -541,7 +541,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -612,7 +612,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -682,7 +682,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -748,7 +748,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -804,7 +804,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -855,7 +855,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -923,7 +923,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -980,7 +980,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -1038,7 +1038,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -1092,7 +1092,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -1146,7 +1146,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -1201,7 +1201,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -1255,7 +1255,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -1315,7 +1315,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -1393,7 +1393,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -1467,7 +1467,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -1527,7 +1527,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -1589,7 +1589,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -1645,7 +1645,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -1693,7 +1693,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -1746,7 +1746,7 @@ export default function Checkout() {
     //             "name": "Jewellery",
     //             "slug": "Jewellery",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
     //             ],
     //             "color": "#d3ffd9",
     //             "createdAt": "2024-11-04T09:44:31.038Z",
@@ -1807,7 +1807,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -1872,7 +1872,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -1931,7 +1931,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -1996,7 +1996,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -2051,7 +2051,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -2111,7 +2111,7 @@ export default function Checkout() {
     //             "name": "Footwear",
     //             "slug": "Footwear",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428102/1731428100981_foot.png"
     //             ],
     //             "color": "#def3ff",
     //             "createdAt": "2024-10-16T05:52:12.292Z",
@@ -2158,7 +2158,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -2214,7 +2214,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -2270,7 +2270,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -2327,7 +2327,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -2383,7 +2383,7 @@ export default function Checkout() {
     //             "name": "Beauty",
     //             "slug": "Beauty",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
     //             ],
     //             "color": "#e3fffa",
     //             "createdAt": "2024-10-16T05:52:56.619Z",
@@ -2437,7 +2437,7 @@ export default function Checkout() {
     //             "name": "Beauty",
     //             "slug": "Beauty",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
     //             ],
     //             "color": "#e3fffa",
     //             "createdAt": "2024-10-16T05:52:56.619Z",
@@ -2491,7 +2491,7 @@ export default function Checkout() {
     //             "name": "Beauty",
     //             "slug": "Beauty",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
     //             ],
     //             "color": "#e3fffa",
     //             "createdAt": "2024-10-16T05:52:56.619Z",
@@ -2545,7 +2545,7 @@ export default function Checkout() {
     //             "name": "Beauty",
     //             "slug": "Beauty",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
     //             ],
     //             "color": "#e3fffa",
     //             "createdAt": "2024-10-16T05:52:56.619Z",
@@ -2598,7 +2598,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -2651,7 +2651,7 @@ export default function Checkout() {
     //             "name": "Jewellery",
     //             "slug": "Jewellery",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
     //             ],
     //             "color": "#d3ffd9",
     //             "createdAt": "2024-11-04T09:44:31.038Z",
@@ -2752,7 +2752,7 @@ export default function Checkout() {
     //             "name": "Jewellery",
     //             "slug": "Jewellery",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
     //             ],
     //             "color": "#d3ffd9",
     //             "createdAt": "2024-11-04T09:44:31.038Z",
@@ -2805,7 +2805,7 @@ export default function Checkout() {
     //             "name": "Jewellery",
     //             "slug": "Jewellery",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428061/1731428060565_jw.png"
     //             ],
     //             "color": "#d3ffd9",
     //             "createdAt": "2024-11-04T09:44:31.038Z",
@@ -2859,7 +2859,7 @@ export default function Checkout() {
     //             "name": "Groceries",
     //             "slug": "Groceries",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428092/1731428090930_gro.png"
     //             ],
     //             "color": "#ffe8f8",
     //             "createdAt": "2024-10-16T05:52:35.762Z",
@@ -2913,7 +2913,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -2967,7 +2967,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3021,7 +3021,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3074,7 +3074,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3128,7 +3128,7 @@ export default function Checkout() {
     //             "name": "Beauty",
     //             "slug": "Beauty",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
     //             ],
     //             "color": "#e3fffa",
     //             "createdAt": "2024-10-16T05:52:56.619Z",
@@ -3182,7 +3182,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -3245,7 +3245,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -3310,7 +3310,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3364,7 +3364,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3423,7 +3423,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -3483,7 +3483,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -3541,7 +3541,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -3607,7 +3607,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3662,7 +3662,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3725,7 +3725,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -3787,7 +3787,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -3866,7 +3866,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -3946,7 +3946,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4017,7 +4017,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4084,7 +4084,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4165,7 +4165,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4253,7 +4253,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4347,7 +4347,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4436,7 +4436,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4511,7 +4511,7 @@ export default function Checkout() {
     //             "name": "Fashion",
     //             "slug": "Fashion",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428187/1731428186288_fash.png"
     //             ],
     //             "color": "#ecffec",
     //             "createdAt": "2024-10-16T05:51:08.266Z",
@@ -4592,7 +4592,7 @@ export default function Checkout() {
     //             "name": "Wellness",
     //             "slug": "Wellness",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
     //             ],
     //             "color": "#fff3ff",
     //             "createdAt": "2024-10-16T12:54:17.493Z",
@@ -4651,7 +4651,7 @@ export default function Checkout() {
     //             "name": "Wellness",
     //             "slug": "Wellness",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
     //             ],
     //             "color": "#fff3ff",
     //             "createdAt": "2024-10-16T12:54:17.493Z",
@@ -4716,7 +4716,7 @@ export default function Checkout() {
     //             "name": "Wellness",
     //             "slug": "Wellness",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
     //             ],
     //             "color": "#fff3ff",
     //             "createdAt": "2024-10-16T12:54:17.493Z",
@@ -4781,7 +4781,7 @@ export default function Checkout() {
     //             "name": "Wellness",
     //             "slug": "Wellness",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
     //             ],
     //             "color": "#fff3ff",
     //             "createdAt": "2024-10-16T12:54:17.493Z",
@@ -4846,7 +4846,7 @@ export default function Checkout() {
     //             "name": "Wellness",
     //             "slug": "Wellness",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
     //             ],
     //             "color": "#fff3ff",
     //             "createdAt": "2024-10-16T12:54:17.493Z",
@@ -4911,7 +4911,7 @@ export default function Checkout() {
     //             "name": "Wellness",
     //             "slug": "Wellness",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
     //             ],
     //             "color": "#fff3ff",
     //             "createdAt": "2024-10-16T12:54:17.493Z",
@@ -4976,7 +4976,7 @@ export default function Checkout() {
     //             "name": "Wellness",
     //             "slug": "Wellness",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428071/1731428070082_well.png"
     //             ],
     //             "color": "#fff3ff",
     //             "createdAt": "2024-10-16T12:54:17.493Z",
@@ -5041,7 +5041,7 @@ export default function Checkout() {
     //             "name": "Bags",
     //             "slug": "Bags",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428171/1731428170107_bag.png"
     //             ],
     //             "color": "#fdf0ff",
     //             "createdAt": "2024-10-16T05:51:51.640Z",
@@ -5106,7 +5106,7 @@ export default function Checkout() {
     //             "name": "Beauty",
     //             "slug": "Beauty",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
     //             ],
     //             "color": "#e3fffa",
     //             "createdAt": "2024-10-16T05:52:56.619Z",
@@ -5171,7 +5171,7 @@ export default function Checkout() {
     //             "name": "Beauty",
     //             "slug": "Beauty",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428082/1731428081168_beauty.png"
     //             ],
     //             "color": "#e3fffa",
     //             "createdAt": "2024-10-16T05:52:56.619Z",
@@ -5236,7 +5236,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -5303,7 +5303,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -5370,7 +5370,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",
@@ -5439,7 +5439,7 @@ export default function Checkout() {
     //             "name": "Electronics",
     //             "slug": "Electronics",
     //             "images": [
-    //                 "fhttps://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
+    //                 "https://res.cloudinary.com/dkgonwhvj/image/upload/v1731428179/1731428178306_ele.png"
     //             ],
     //             "color": "#feefea",
     //             "createdAt": "2024-10-16T05:51:31.207Z",

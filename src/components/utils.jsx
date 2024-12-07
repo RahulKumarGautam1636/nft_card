@@ -6,7 +6,7 @@ import { BannerCard, ProductCard } from './cards';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { getCatNameProducts } from '@/api/api';
+import { getCatNameProducts, withDB } from '@/api/api';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { globalLoader, localLoader, modalAction } from '@/lib/slices';
@@ -21,7 +21,7 @@ import { toast } from 'react-toastify';
 import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
-import { handleDirectory } from '@/api/actionUtils';
+// import { handleDirectory } from '@/api/actionUtils';
 
 const Arrow = ({ customClass, onClick, el }) => {
   return (
@@ -96,7 +96,7 @@ export const HomeBannerSlider = ({ homeBanners }) => {
     { breakpoint: 700, settings: { slidesToShow: 1, centerPadding: 0, dots: true, arrows: false } }
   ]
 
-  const bannersSlide = homeBanners.map(i => (<BannerCard data={i} key={i.id} classes='px-3' />));
+  const bannersSlide = homeBanners.map(i => (<BannerCard type={'home-banner'} path={'/images/mainBanners/'} data={i} key={i.id} classes='px-3' />));
 
   return (
     <div className="relative">
@@ -106,14 +106,14 @@ export const HomeBannerSlider = ({ homeBanners }) => {
 }
 
 
-export const PromoBanner = ({ banners }) => {
+export const PromoBanner = ({ banners, type, path }) => {
   const responsive_4 = [
     { breakpoint: 1200, settings: { slidesToShow: 3 } },
     { breakpoint: 1000, settings: { slidesToShow: 2 } },
     { breakpoint: 700, settings: { slidesToShow: 1, centerPadding: 0, arrows: false } }
   ]
 
-  const bannersSlide = banners.map(i => (<BannerCard data={i} key={i.id} classes='pe-0 md:pe-3' />));
+  const bannersSlide = banners.map(i => (<BannerCard type={type} path={path} data={i} key={i.id} classes='pe-0 md:pe-3' />));
 
   return (
     <div className="relative">
@@ -130,7 +130,7 @@ export default function FilterTabs({ categories, filteredProducts }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  }; 
+  };   
 
   useEffect(() => {
     const getFilterProducts = async () => {
@@ -300,7 +300,7 @@ export function DescriptionTabs({ tabs, reviews }) {
               <h3 className="text-2xl font-semibold mb-5 md:mb-8">Customer questions & answers</h3>
               <div>
                 <div className="flex gap-6 items-start mb-6 w-full">
-                  <img src="/images/categories/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
+                  <img src="/images/categories/unused/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
                   <div className='flex-1'>
                     <div className="flex justify-between gap-x-4 gap-y-2 flex-wrap w-full">
                       <h4 className="text-xl font-semibold">Satyam Kumar</h4>
@@ -314,7 +314,7 @@ export function DescriptionTabs({ tabs, reviews }) {
                 </div>
                 {reviews.map(review => (
                   <div className="flex gap-6 items-start mb-6 w-full" key={review.id}>
-                    <img src="/images/categories/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
+                    <img src="/images/categories/unused/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
                     <div className='flex-1'>
                       <div className="flex justify-between gap-x-4 gap-y-2 flex-wrap w-full">
                         <h4 className="text-xl font-semibold">{review.customerName}</h4>

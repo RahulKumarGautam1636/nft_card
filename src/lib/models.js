@@ -8,8 +8,16 @@ const homeBannersSchema = new Schema({
     images: [ String ]
 });
 
-// export const HomeBanners = mongoose.models.HomeBannersSchema || mongoose.model("HomeBannersSchema", HomeBannersSchema, 'homeBanners');
+// export const HomeBanner = mongoose.models.HomeBannersSchema || mongoose.model("HomeBannersSchema", HomeBannersSchema, 'homeBanners');
 
+const homeBottomBannersSchema = new Schema({
+    id: String,
+    images: [ String ],
+    catId: String,
+    catName: String,
+    subCatId: String,
+    subCatName: String,
+});
 
 const bannersSchema = new Schema({
     id: String,
@@ -18,6 +26,15 @@ const bannersSchema = new Schema({
     catName: String,
     subCatId: String,
     subCatName: String
+});
+
+const homeSideBannersSchema = new Schema({
+    id: String,
+    images: [ String ],
+    "catId": String,
+    "catName": String,
+    "subCatId": String,
+    "subCatName": String
 });
 
 // export const Banners = mongoose.models.BannersSchema || mongoose.model("BannersSchema", BannersSchema, 'banners');
@@ -78,12 +95,14 @@ productsSchema.plugin(mongoosePaginate);
 // export const Products = mongoose.models.ProductsSchema || mongoose.model("ProductsSchema", ProductsSchema, 'products');
 
 const brandSchema = new Schema({   
-    id: String,
-    name: String,
+    id: { type: String },
+    name: { type: String },
 });
 
 
-export const HomeBanners = mongoose.models.HomeBanners || mongoose.model("HomeBanners", homeBannersSchema, 'homeBanners');
+export const HomeBanner = mongoose.models.HomeBanner || mongoose.model("HomeBanner", homeBannersSchema, 'homeBanner');
+export const HomeBottomBanners = mongoose.models.HomeBottomBanners || mongoose.model("HomeBottomBanners", homeBottomBannersSchema, 'homeBottomBanners');
+export const HomeSideBanners = mongoose.models.HomeSideBanners || mongoose.model("HomeSideBanners", homeSideBannersSchema, 'homeSideBanners');
 export const Banners = mongoose.models.Banners || mongoose.model("Banners", bannersSchema, 'banners');
 export const SubCategory = mongoose.models.SubCategory || mongoose.model("SubCategory", subCategorySchema, 'subCategory');
 export const Category = mongoose.models.Category || mongoose.model("Category", categorySchema, 'category');

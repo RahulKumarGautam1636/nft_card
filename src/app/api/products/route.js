@@ -13,7 +13,7 @@ export async function GET(req, { params }) {
     //     var allProducts = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/products.json', 'utf8'));
 
     //     // let id = params.slug;
-    //     const searchParams = req.nextUrl.searchParams;
+        const searchParams = req.nextUrl.searchParams;
     //     // let allQueryStrings = req.nextUrl.search;
         
     //     let catId = searchParams.get('catId');           
@@ -53,21 +53,33 @@ export async function GET(req, { params }) {
     //     return NextResponse.json({ products: products });
 
     // } else if (withDB) {
-
-        const searchParams = req.nextUrl.searchParams;
         
+        let search = searchParams.get('search');
         let page = searchParams.get('page');  
         let perPage = searchParams.get('perPage');  
+        let catName = searchParams.get('catName');
+        let location = searchParams.get('location');
 
         await dbConnect();
 
-        const options = {
-            page: page || 1,
-            limit: perPage || 10,
-            collation: {locale: 'en'}
-        };
-        const products = await Products.paginate({}, options) //.find().populate('category');
-        return NextResponse.json(products);
+        let products = [];
+        
+        if (search) {
+            products = await Products.find({"name": {"$regex": search, "$options": "i"}});
+            return NextResponse.json(products);
+        } else if (catName) {
+            products = await Products.find({"catName": catName});
+            return NextResponse.json({ products: products });
+        } else {
+            const options = {
+                page: page || 1,
+                limit: perPage || 10,
+                collation: {locale: 'en'}
+            };
+            products = await Products.paginate({}, options)             //.find().populate('category');
+            return NextResponse.json({ ...products, products: products.docs });
+        }
+        
 
         // let products;
     

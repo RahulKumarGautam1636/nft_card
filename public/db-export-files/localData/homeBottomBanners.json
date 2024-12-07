@@ -1,0 +1,38 @@
+[
+    {
+        "_id": {"$oid": "670f561ce86c762e3cad6d8c"},
+        "images": [
+            "1.webp"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "670f5511e86c762e3cad6cf1",
+        "subCatName": null,
+        "__v": 0,
+        "id": "670f561ce86c762e3cad6d8c"
+    },
+    {
+        "_id": {"$oid": "670f5627e86c762e3cad6d96"},
+        "images": [
+            "2.webp"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "670f5527e86c762e3cad6d03",
+        "subCatName": null,
+        "__v": 0,
+        "id": "670f5627e86c762e3cad6d96"
+    },
+    {
+        "_id": {"$oid": "670f5635e86c762e3cad6da0"},
+        "images": [
+            "3.webp"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "670f5521e86c762e3cad6cfd",
+        "subCatName": null,
+        "__v": 0,
+        "id": "670f5635e86c762e3cad6da0"
+    }
+]

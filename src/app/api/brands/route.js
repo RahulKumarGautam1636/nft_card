@@ -9,9 +9,8 @@ import { handleImages } from "../serverUtils";
 export async function GET(req, { params }) {
 
     await dbConnect();
-
-    const banners = await Brands.find()   //.populate('children').exec();
-    return NextResponse.json(banners);
+    const brands = await Brands.find({})   //.populate('children').exec();
+    return NextResponse.json(brands);
 }
 
 // export async function DELETE(req) {

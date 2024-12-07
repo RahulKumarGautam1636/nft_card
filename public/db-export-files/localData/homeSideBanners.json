@@ -1,0 +1,57 @@
+[
+    {
+        "_id": {"$oid": "674c4756cd665ff06a8e1e1e"},
+        "images": [
+            "/images/homeSideBanners/banner-1.jpg"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "673ed528cab231596bf0667d",
+        "subCatName": "Men",
+        "id": "674c4756cd665ff06a8e1e1e"
+    },
+    {
+        "_id": {"$oid": "674c4756cd665ff06a8e1e1f"},
+        "images": [
+            "/images/homeSideBanners/banner-2.jpg"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "673ed528cab231596bf0667d",
+        "subCatName": "Men",
+        "id": "674c4756cd665ff06a8e1e1f"
+    },
+    {
+        "_id": {"$oid": "674c4756cd665ff06a8e1e20"},
+        "images": [
+            "/images/homeSideBanners/banner-3.GIF"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "673ed528cab231596bf0667d",
+        "subCatName": "Men",
+        "id": "674c4756cd665ff06a8e1e20"
+    },
+    {
+        "_id": {"$oid": "674c4756cd665ff06a8e1e21"},
+        "images": [
+            "/images/homeSideBanners/banner-4.webp"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "673ed528cab231596bf0667d",
+        "subCatName": "Men",
+        "id": "674c4756cd665ff06a8e1e21"
+    },
+    {
+        "_id": {"$oid": "674c4756cd665ff06a8e1e22"},
+        "images": [
+            "/images/homeSideBanners/banner-5.webp"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "673ed528cab231596bf0667d",
+        "subCatName": "Men",
+        "id": "674c4756cd665ff06a8e1e22"
+    }
+]

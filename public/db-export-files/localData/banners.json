@@ -1,0 +1,50 @@
+[
+    {
+        "_id": {"$oid": "670f5593e86c762e3cad6d37"},
+        "images": [
+            "1.webp"
+        ],
+        "catId": "670f544ce86c762e3cad6c8b",
+        "catName": null,
+        "subCatId": null,
+        "subCatName": null,
+        "__v": 0,
+        "id": "670f5593e86c762e3cad6d37"
+    },
+    {
+        "_id": {"$oid": "670f55aae86c762e3cad6d41"},
+        "images": [
+            "2.webp"
+        ],
+        "catId": "670f544ce86c762e3cad6c8b",
+        "catName": null,
+        "subCatId": "670f5502e86c762e3cad6ce5",
+        "subCatName": null,
+        "__v": 0,
+        "id": "670f55aae86c762e3cad6d41"
+    },
+    {
+        "_id": {"$oid": "670f55c8e86c762e3cad6d58"},
+        "images": [
+            "3.webp"
+        ],
+        "catId": "670f5463e86c762e3cad6c95",
+        "catName": null,
+        "subCatId": "670f5511e86c762e3cad6cf1",
+        "subCatName": null,
+        "__v": 0,
+        "id": "670f55c8e86c762e3cad6d58"
+    },
+    {
+        "_id": {"$oid": "670f55e8e86c762e3cad6d6c"},
+        "images": [
+            "4.webp"
+        ],
+        "catId": "670f544ce86c762e3cad6c8b",
+        "catName": null,
+        "subCatId": "670f5508e86c762e3cad6ceb",
+        "subCatName": null,
+        "__v": 0,
+        "id": "670f55e8e86c762e3cad6d6c"
+    }
+]

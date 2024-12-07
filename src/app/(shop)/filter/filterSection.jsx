@@ -83,7 +83,7 @@ export const FilterSection = ({ cat, filteredProducts }) => {
     };       
 
     return (
-        <main className='mt-12 '>
+        <main className='mt-6'>
             {products.loading ? <MyLoader /> : ''}
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div>
@@ -136,7 +136,7 @@ export const FilterSection = ({ cat, filteredProducts }) => {
                         <Button onClick={handleFilters} className="bg-purple-600 text-white rounded-lg py-3 hover:bg-purple-500 w-full">Apply Filters</Button>
                     </div>
                     <div>
-                        <img className='max-w-[22rem]' src='/images/sidebar-banner.gif' alt='sidebar' />
+                        <img className='max-w-[22rem]' src='/images/homeSideBanners/banner-3.gif' alt='sidebar' />
                     </div>
                 </div>
                 <div className="w-full">

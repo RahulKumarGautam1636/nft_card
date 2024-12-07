@@ -1,0 +1,56 @@
+[
+    {
+        "_id": {"$oid": "673ed528cab231596bf0667d"},
+        "id": "673ed528cab231596bf0667d",
+        "name": "Men",
+        "images": [],
+        "slug": "Men",
+        "children": [],
+        "parent": "670f544ce86c762e3cad6c8b"
+    },
+    {
+        "_id": {"$oid": "673ed52fcab231596bf06684"},
+        "id": "673ed52fcab231596bf06684",
+        "name": "Women",
+        "images": [],
+        "slug": "Women",
+        "children": [],
+        "parent": "670f544ce86c762e3cad6c8b"
+    },
+    {
+        "_id": {"$oid": "673ed5552ec02680644f278d"},
+        "id": "673ed5552ec02680644f278d",
+        "name": "Mobiles",
+        "images": [],
+        "slug": "Mobiles",
+        "children": [],
+        "parent": "670f5463e86c762e3cad6c95"
+    },
+    {
+        "_id": {"$oid": "673ed55d2ec02680644f2793"},
+        "id": "673ed55d2ec02680644f2793",
+        "name": "Laptops",
+        "images": [],
+        "slug": "Laptops",
+        "children": [],
+        "parent": "670f5463e86c762e3cad6c95"
+    },
+    {
+        "_id": {"$oid": "67415b21f1e1da2b3de3ba8b"},
+        "id": "67415b21f1e1da2b3de3ba8b",
+        "name": "Smart Watch Accessories",
+        "images": [],
+        "slug": "Smart Watch Accessories",
+        "children": [],
+        "parent": "670f5463e86c762e3cad6c95"
+    },
+    {
+        "_id": {"$oid": "67415b2cf1e1da2b3de3ba91"},
+        "id": "67415b2cf1e1da2b3de3ba91",
+        "name": "Cameras",
+        "images": [],
+        "slug": "Cameras",
+        "children": [],
+        "parent": "670f5463e86c762e3cad6c95"
+    }
+]

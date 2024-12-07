@@ -10,11 +10,11 @@ import { IoMdHeart } from "react-icons/io";
 import { MdOutlineShoppingCart, MdShoppingCart } from "react-icons/md";
 import { productToast } from "./utils";
 
-export const BannerCard = ({ data, classes }) => {
+export const BannerCard = ({ data, classes, type, path }) => {
 
     return (
       <div className={`home-banner-card ${classes}`}>
-        <img src={data.images[0]} className="rounded-md" alt="banner" style={{width: '100%'}} />
+        <img src={path + data.images[0]} className="rounded-md" alt="banner" style={{width: '100%'}} />
       </div>
     )
 }

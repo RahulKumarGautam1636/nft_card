@@ -1,3 +1,4 @@
+"use server"
 import mongoose from 'mongoose';
 
 
@@ -6,14 +7,17 @@ const connection = {};
 async function dbConnect() {
   // Check if we have a connection to the database or if it's currently connecting
   if (connection.isConnected) {
-    console.log('Already connected to the database');
+    // console.log('Already connected to the database');
     return;
   }
 
   try {
     // Attempt to connect to the database
-    // const connectionString = `mongodb+srv://admin-rahul:OmMmBHSDSLZS1eiA@ecommerce.vz7ko.mongodb.net/`;
-    const connectionString = 'mongodb://127.0.0.1:27017/ecommerce_db';
+
+    // const connectionString = 'mongodb://127.0.0.1:27017/Ecommerce';
+    const connectionString = process.env.REMOTE_DB_CONNECTION_STRING;
+    // console.log(process.env.LOCAL_DB_CONNECTION_STRING);
+    
     const db = await mongoose.connect(connectionString || '', {});
 
     connection.isConnected = db.connections[0].readyState;

@@ -40,7 +40,6 @@ export async function POST(req) {
     }
 
     const imageUrlList = await handleImages('subCategory', subCategory.images, subCategory.name);
-    console.log(imageUrlList);
 
     var id = new mongoose.Types.ObjectId;
     

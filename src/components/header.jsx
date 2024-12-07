@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Button, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
+import { Badge, Button, IconButton, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronDown, FaChevronLeft, FaRegUser } from "react-icons/fa";
@@ -19,8 +19,8 @@ import { login, searchProducts } from "@/api/api";
 import { ProductCard_2 } from "./cards";
 import { IoMdCart } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
-import { NEXT_APP_BASE_URL } from "@/constants";
-import axios from "axios";
+// import { NEXT_APP_BASE_URL } from "@/constants";
+// import axios from "axios";
 
 const Header = ({ categories }) => {
 
@@ -275,10 +275,14 @@ const Header = ({ categories }) => {
                             </li>
                             {categories.categoryList.map(i => (
                                 <li className="relative group/subGroup" key={i.id}>
-                                    <Button className="justify-between w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-3 md:py-2 px-4"  href="#contained-buttons">{i.name} {i.children.length ? <FaChevronDown /> : ''}</Button>
+                                    <Link href={`/filter/catId/${i.id}`}>
+                                        <Button className="justify-between w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-3 md:py-2 px-4">{i.name} {i.children.length ? <FaChevronDown /> : ''}</Button>
+                                    </Link>
                                     {i.children.length ? <ul className="hidden group-hover/subGroup:flex flex-col shadow-md border border-gray-200 absolute z-10 top-full left-0 md:top-0 md:left-full min-w-full py-2 bg-white">
                                         {i.children.map(x => (
-                                            <Button key={x.id} className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2 px-4"  href="#contained-buttons">{x.name}</Button>
+                                            <Link href={`/filter/subCatId/${x.id}`} key={x.id}>
+                                                <Button className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2 px-4">{x.name}</Button>
+                                            </Link>
                                         ))}
                                     </ul> : ''}
                                 </li>
@@ -288,15 +292,21 @@ const Header = ({ categories }) => {
                             </li>
                         </ul>
                     </div>
-                    <ul className="flex gap-0 md:gap-3 items-center md:flex-wrap whitespace-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
+                    <ul className="flex gap-0 md:gap-[1.15rem] items-center md:flex-wrap whitespace-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
-                                <Button href={`/filter/catId/${i.id}`} className="bg-white text-[1.05rem] font-medium text-gray-700 rounded-full py-2 px-4">{i.name}</Button>
+                                <Link href={`/filter/catId/${i.id}`}>
+                                    <Button className="bg-white hover:bg-slate-100 text-[1.05rem] font-medium text-gray-700 rounded-full py-2 px-4">
+                                        <img className="rounded max-w-[1.8rem] mr-3" src={'/images/categories/' + i.images[0]} alt="Product" /> {i.name}
+                                    </Button>
+                                </Link>
                                 {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full left-0 hidden group-hover:block">
                                     {i.children.map(x => (
-                                        <ListItemButton key={x.id} component="a" href={`/filter/subCatId/${x.id}`} className="hover:bg-purple-100">
-                                            <ListItemText primary={x.name} />
-                                        </ListItemButton>
+                                        <Link href={`/filter/subCatId/${x.id}`} key={x.id}>
+                                            <ListItemButton className="hover:bg-purple-100">
+                                                <ListItemText primary={x.name} />
+                                            </ListItemButton>
+                                        </Link>
                                     ))}
                                 </List> : ''}
                             </li>

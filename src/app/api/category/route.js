@@ -14,8 +14,8 @@ export async function GET(req, { params }) {
 
     await dbConnect();
 
-    const banners = await Category.find()   //.populate('children').exec();
-    return NextResponse.json(banners);
+    const category = await Category.find()   //.populate('children').exec();
+    return NextResponse.json({ categoryList: category });
 
 
 }
@@ -49,9 +49,7 @@ export async function POST(req) {
         color: body.get('color'),
     }
 
-    const imageUrlList = await handleImages('category', category.images, category.name);
-    console.log(imageUrlList);
-    
+    const imageUrlList = await handleImages('category', category.images, category.name);    
 
     // let fileUrlList = [];
     // for (let i = 0; i < category.images.length; i++) {

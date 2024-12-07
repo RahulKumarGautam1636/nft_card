@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from 'fs';
+import { Products } from "@/lib/models";
 
 export async function GET(req, props) {
     const params = await props.params;
 
-    var allProducts = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/products.json', 'utf8'));
+    // var allProducts = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/products.json', 'utf8'));
 
     let id = params.slug;
     // const searchParams = req.nextUrl.searchParams;
@@ -16,13 +17,15 @@ export async function GET(req, props) {
     // let location = searchParams.get('location');
     // let perPage = parseInt(searchParams.get('perPage'));                  
     // let page = parseInt(searchParams.get('page'));
-    let products = allProducts.products;
+    // let products = allProducts.products;
 
+    let products = [];
     if (id === 'featured') {
-        products = products.filter(i => i.isFeatured);
+        // products = products.filter(i => i.isFeatured);
+        products = await Products.find({ isFeatured: true }) 
     } else {
-        products = products.find(i => i.id === id);
-        // if (!products) return NextResponse.json({ error: 'No Products found.' }, { status: 404 });
+        // products = products.find(i => i.id === id);
+        products = await Products.findById(id);
         return NextResponse.json(products);
     }
 
