@@ -9,9 +9,11 @@ const fixedData = false;
 const emptyRes = false;
 
 const myBaseURL = process.env.NEXT_PUBLIC_BASE_URL;
-const otherBaseURL = process.env.NEXT_PUBLIC_REMOTE_BASE_URL;
+const otherBaseURL = 'https://ecommerce-server-node.onrender.com';    // process.env.NEXT_PUBLIC_REMOTE_BASE_URL;
 
 const baseURL = isLive ? otherBaseURL : myBaseURL;
+
+console.log(myBaseURL);
 
 // https://node-server-dux3.onrender.com;
 // https://node-server-utis.onrender.comy
