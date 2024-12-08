@@ -16,7 +16,7 @@ async function dbConnect() {
 
     // const connectionString = 'mongodb://127.0.0.1:27017/Ecommerce';
     const connectionString = process.env.REMOTE_DB_CONNECTION_STRING;
-    // console.log(process.env.LOCAL_DB_CONNECTION_STRING);
+    // const connectionString = process.env.LOCAL_DB_CONNECTION_STRING;
     
     const db = await mongoose.connect(connectionString || '', {});
 

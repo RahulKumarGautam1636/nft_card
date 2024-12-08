@@ -108,3 +108,25 @@ export const SubCategory = mongoose.models.SubCategory || mongoose.model("SubCat
 export const Category = mongoose.models.Category || mongoose.model("Category", categorySchema, 'category');
 export const Products = mongoose.models.Products || mongoose.model("Products", productsSchema, 'products');
 export const Brands = mongoose.models.Brands || mongoose.model("Brands", brandSchema, 'brands');
+
+
+const appointmentSchema = new Schema({   
+    selectedAppnDate: String,
+    Doctor: {
+        PartyId: Number,
+        Name: String
+    },
+    UnderDoctId: Number,
+    AppointDate: String,
+    AppTime: String,
+    Name: String,
+    EncCompanyId: String,
+    RegMob1: String,
+    GenderDesc: String,
+    Address: String,
+    UserId: Number,
+});
+
+appointmentSchema.plugin(mongoosePaginate);
+
+export const Appointment = mongoose.models.Appointment || mongoose.model("Appointment", appointmentSchema, 'appointment');
