@@ -44,7 +44,7 @@ export default function AdminLayout({ children }) {
                     <nav ref={navRef} className="flex gap-5 items-center justify-between p-4 border border-gray-300">
                         <div className="flex gap-5 items-center flex-1 max-w-[45rem]">
                             <RiMenu2Fill onClick={() => setActive(!active)} className="text-3xl text-blue-600 cursor-pointer" />
-                            <Link className="main-logo" href={'/'}>
+                            <Link prefetch={false} className="main-logo" href={'/'}>
                                 <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
                             </Link>
                             <div className="hidden md:flex gap-3 items-center flex-1 h-[3.8rem] md:h-full rounded-lg">
@@ -55,15 +55,15 @@ export default function AdminLayout({ children }) {
                             </div>
                         </div>
                         <div className="flex gap-4 md:gap-10 items-center">
-                            <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><FiMoon className="text-2xl text-purple-800"/></ButtonBase></Link>
+                            <Link prefetch={false} href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><FiMoon className="text-2xl text-purple-800"/></ButtonBase></Link>
                             <Badge badgeContent={5} color="warning" className="font-semibold hidden md:block">
-                                <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdOutlineNotifications className="text-2xl text-purple-800"/></ButtonBase></Link>
+                                <Link prefetch={false} href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdOutlineNotifications className="text-2xl text-purple-800"/></ButtonBase></Link>
                             </Badge>
                             <Badge badgeContent={5} color="info" className="font-semibold hidden md:block">
-                                <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><IoChatboxEllipsesOutline className="text-2xl text-purple-800"/></ButtonBase></Link>
+                                <Link prefetch={false} href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><IoChatboxEllipsesOutline className="text-2xl text-purple-800"/></ButtonBase></Link>
                             </Badge>
-                            <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdFullscreen className="text-2xl text-purple-800"/></ButtonBase></Link>
-                            <Link href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdGridView className="text-2xl text-purple-800"/></ButtonBase></Link>
+                            <Link prefetch={false} href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdFullscreen className="text-2xl text-purple-800"/></ButtonBase></Link>
+                            <Link prefetch={false} href={'#'}><ButtonBase className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><MdGridView className="text-2xl text-purple-800"/></ButtonBase></Link>
                             <div className="hidden md:block relative group">
                                 <Button className="gap-4 bg-slate-50 p-2" style={{border: '1px solid #d8d8d8'}}>
                                     <div className="p-[0.8rem] rounded-lg bg-pink-600">
@@ -100,26 +100,26 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <MdGridView className="text-2xl text-purple-800"/> 
-                                    <Link href={'/admin'} className="font-semibold text-[1.1rem] text-gray-600">Dashboard</Link>
+                                    <Link prefetch={false} href={'/admin'} className="font-semibold text-[1.1rem] text-gray-600">Dashboard</Link>
                                     <FaAngleDown className="ml-auto"/> 
                                 </div>
                                 <div className="hidden group-hover:block pl-4">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Home 1</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -136,22 +136,22 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <IoBagHandleOutline className="text-2xl text-purple-800"/> 
-                                    <Link href={'/admin/ecommerce'} className="font-semibold text-[1.1rem] text-gray-600">Ecommerce</Link>
+                                    <Link prefetch={false} href={'/admin/ecommerce'} className="font-semibold text-[1.1rem] text-gray-600">Ecommerce</Link>
                                     <FaAngleDown className="ml-auto"/> 
                                 </div>
                                 <div className="hidden group-hover:block pl-4 pb-3">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -159,18 +159,18 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <BiLayer className="text-2xl text-purple-800"/> 
-                                    <Link href={'/admin/categories'} className="font-semibold text-[1.1rem] text-gray-600">Category</Link>
+                                    <Link prefetch={false} href={'/admin/categories'} className="font-semibold text-[1.1rem] text-gray-600">Category</Link>
                                     <FaAngleDown className="ml-auto"/>
                                 </div>
                                 <div className="hidden group-hover:block pl-4 pb-3">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'/admin/categories'} className="font-semibold text-[1rem] text-gray-600">Category List</Link>
+                                            <Link prefetch={false} href={'/admin/categories'} className="font-semibold text-[1rem] text-gray-600">Category List</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'/admin/categories'} className="font-semibold text-[1rem] text-gray-600">Add Category</Link>
+                                            <Link prefetch={false} href={'/admin/categories'} className="font-semibold text-[1rem] text-gray-600">Add Category</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -178,22 +178,22 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <AiOutlineCodeSandbox className="text-2xl text-purple-800"/> 
-                                    <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Attributes</Link>
+                                    <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Attributes</Link>
                                     <FaAngleDown className="ml-auto"/>
                                 </div>
                                 <div className="hidden group-hover:block pl-4 pb-3">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -201,22 +201,22 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <LuGift className="text-2xl text-purple-800"/> 
-                                    <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Orders</Link>
+                                    <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Orders</Link>
                                     <FaAngleDown className="ml-auto"/>
                                 </div>
                                 <div className="hidden group-hover:block pl-4 pb-3">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -224,22 +224,22 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <FaRegUser className="text-2xl text-purple-800"/> 
-                                    <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Users</Link>
+                                    <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Users</Link>
                                     <FaAngleDown className="ml-auto"/>
                                 </div>
                                 <div className="hidden group-hover:block pl-4 pb-3">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -247,22 +247,22 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <MdOutlineLocationOn className="text-2xl text-purple-800"/> 
-                                    <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Locations</Link>
+                                    <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Locations</Link>
                                     <FaAngleDown className="ml-auto"/>
                                 </div>
                                 <div className="hidden group-hover:block pl-4 pb-3">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -270,22 +270,22 @@ export default function AdminLayout({ children }) {
                             <li className="group">
                                 <div className="flex items-center gap-3 p-4">
                                     <GrGallery className="text-2xl text-purple-800"/> 
-                                    <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Product Gallery</Link>
+                                    <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Product Gallery</Link>
                                     <FaAngleDown className="ml-auto"/>
                                 </div>
                                 <div className="hidden group-hover:block pl-4 pb-3">
                                     <ul>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Products List</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Add Product</Link>
                                         </li>
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
-                                            <Link href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
+                                            <Link prefetch={false} href={'#'} className="font-semibold text-[1rem] text-gray-600">Product Details</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -300,15 +300,15 @@ export default function AdminLayout({ children }) {
                         <ul className="nav-list">
                             <li className="flex items-center gap-3 p-4">
                                 <FiHelpCircle className="text-2xl text-purple-800"/> 
-                                <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Help Center</Link>
+                                <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600">Help Center</Link>
                             </li>
                             <li className="flex items-center gap-3 p-4">
                                 <MdHeadsetMic className="text-2xl text-purple-800"/> 
-                                <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600">FAQs</Link>
+                                <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600">FAQs</Link>
                             </li>
                             <li className="flex items-center gap-3 p-4">
                                 <MdLockOutline className="text-2xl text-purple-800"/> 
-                                <Link href={'#'} className="font-semibold text-[1.1rem] text-gray-600 mr-16">Privacy Policy</Link>
+                                <Link prefetch={false} href={'#'} className="font-semibold text-[1.1rem] text-gray-600 mr-16">Privacy Policy</Link>
                             </li>
                         </ul>
                     </div>

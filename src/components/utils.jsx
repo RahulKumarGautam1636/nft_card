@@ -495,10 +495,10 @@ export const ProductToastCard = ({ toastData, closeToast }) => {
           </li>
         </ul>
         <div className="flex gap-2 pt-1">
-          <Link className="flex-1" href={'/checkout'} onClick={closeToast}>
+          <Link prefetch={false} className="flex-1" href={'/checkout'} onClick={closeToast}>
             <Button className="bg-pink-600 text-white rounded-lg p-2 hover:bg-pink-500 font-bold w-full">CHECKOUT</Button>
           </Link>
-          <Link className="flex-1" href={toastData.button.link}>
+          <Link prefetch={false} className="flex-1" href={toastData.button.link}>
             <Button className="bg-purple-600 text-white rounded-lg p-2 hover:bg-purple-500 font-bold w-full">{toastData.button.text}</Button>
           </Link>
         </div>

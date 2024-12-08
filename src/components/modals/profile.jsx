@@ -183,20 +183,20 @@ export const Profile = () => {
                        {/* {tabs.map(i => (<li className="p-[0.95rem] border-t border-white flex gap-4 items-center text-white" key={i.name}><span className="text-lg">{i.icon}</span> {i.name}</li>))} */}
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('Personal Information')}><span className="text-xl"><GrCircleInformation /></span> Personal Information</li>
                         <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('shopping-cart')}>
-                            <Link className='flex gap-4 items-center' href='/cart'><span className="text-xl"><PiShoppingCartBold /></span> Shopping Cart</Link>
+                            <Link prefetch={false} className='flex gap-4 items-center' href='/cart'><span className="text-xl"><PiShoppingCartBold /></span> Shopping Cart</Link>
                         </li>
                         <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-orders')}>
-                            <Link className='flex gap-4 items-center' href='/myOrders'><span className="text-xl"><LuGift /></span> My Orders</Link>
+                            <Link prefetch={false} className='flex gap-4 items-center' href='/myOrders'><span className="text-xl"><LuGift /></span> My Orders</Link>
                         </li>
                         <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
-                            <Link className='flex gap-4 items-center' href='/wishlist'><span className="text-xl"><BiHeart /></span> My Wishlist</Link>
+                            <Link prefetch={false} className='flex gap-4 items-center' href='/wishlist'><span className="text-xl"><BiHeart /></span> My Wishlist</Link>
                         </li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('my-addresses')}><span className="text-xl"><IoMdPin /></span> My Addresses</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('payment-methods')}><span className="text-xl"><MdPayment /></span> Payment Methods</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('customer-care')}><span className="text-xl"><RiCustomerService2Fill /></span> Customer Care</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={logOut}><span className="text-lg"><FaPowerOff /></span> Sign Out</li>
                         <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
-                            <Link className='flex gap-4 items-center' href='/admin'><span className="text-xl"><BiHeart /></span> Admin</Link>
+                            <Link prefetch={false} className='flex gap-4 items-center' href='/admin'><span className="text-xl"><BiHeart /></span> Admin</Link>
                         </li>
                     </ul> 
                 </div>

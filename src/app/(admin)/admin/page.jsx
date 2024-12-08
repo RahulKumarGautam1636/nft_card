@@ -444,10 +444,10 @@ function Dashboard() {
                                 <p className="font-semibold text-3xl text-blue-600">₹ {cartSubtotal}</p>
                             </div>
                             <div className="flex gap-2">
-                                <Link className="flex-1" href={`/myOrders`}>
+                                <Link prefetch={false} className="flex-1" href={`/myOrders`}>
                                     <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 w-full">My Orders</Button>
                                 </Link>
-                                <Link className="flex-1" href={`/checkout`}>
+                                <Link prefetch={false} className="flex-1" href={`/checkout`}>
                                     <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
                                 </Link>
                             </div>

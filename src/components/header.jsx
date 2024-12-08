@@ -95,16 +95,16 @@ const Header = ({ categories }) => {
                 <div className="container mx-auto flex justify-between text-sm py-2 px-4">
                     <ul className="flex gap-5">
                         <li>
-                            <Link href={'#'}>About Us</Link>
+                            <Link prefetch={false} href={'#'}>About Us</Link>
                         </li>                        
                         <li>
-                            <Link href={'#'}>My Account</Link>
+                            <Link prefetch={false} href={'#'}>My Account</Link>
                         </li>                        
                         <li>
-                            <Link href={'#'}>Wishlist</Link>
+                            <Link prefetch={false} href={'#'}>Wishlist</Link>
                         </li>                        
                         <li>
-                            <Link href={'#'}>Order Tracking</Link>
+                            <Link prefetch={false} href={'#'}>Order Tracking</Link>
                         </li>
                     </ul>
                     <div className="flex gap-7">
@@ -115,7 +115,7 @@ const Header = ({ categories }) => {
             </div>
             <header className="container mx-auto">
                 <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
-                    <Link className="main-logo" href={'/'}>
+                    <Link prefetch={false} className="main-logo" href={'/'}>
                         <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
                     </Link>
                     <div className="header-search-box flex gap-4 w-full flex-1 mx-auto justify-center">
@@ -165,7 +165,7 @@ const Header = ({ categories }) => {
                     </div>
                     <div className="header-cta flex gap-4 md:gap-7 items-center">
                         <Badge badgeContent={wishlistList.length} color="warning" className="font-semibold hidden md:block">
-                            <Link href={'/wishlist'}><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><BiHeart className="text-2xl text-purple-800"/></Button></Link>
+                            <Link prefetch={false} href={'/wishlist'}><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><BiHeart className="text-2xl text-purple-800"/></Button></Link>
                         </Badge>
                         <Button onClick={() => setSearchOpen(true)} className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><IoSearch className="text-2xl text-purple-800"/></Button>
                         <div className="group relative">
@@ -198,10 +198,10 @@ const Header = ({ categories }) => {
                                             <h3 className="text-blue-800 font-semibold">$ 230.00</h3>
                                         </div>
                                         <div className="flex gap-2">
-                                            <Link className="flex-1" href="/cart">
+                                            <Link prefetch={false} className="flex-1" href="/cart">
                                                 <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 w-full">Visit Cart</Button>
                                             </Link>
-                                            <Link className="flex-1" href="/checkout">
+                                            <Link prefetch={false} className="flex-1" href="/checkout">
                                                 <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
                                             </Link>
                                         </div>
@@ -217,7 +217,7 @@ const Header = ({ categories }) => {
                         </div>
                         {isLoggedIn ?
                             <>
-                                <Link href={'/myOrders'} className="hidden md:block"><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
+                                <Link prefetch={false} href={'/myOrders'} className="hidden md:block"><Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200" style={{border: '1px solid #cbcbcb'}}><LuGift className="text-2xl text-purple-800"/></Button></Link>
                                 <div className="hidden md:block relative group">
                                     <Button className="gap-4 bg-slate-50 p-2" style={{border: '1px solid #d8d8d8'}}>
                                         <div className="p-[0.8rem] rounded-lg bg-pink-600">
@@ -233,7 +233,7 @@ const Header = ({ categories }) => {
                                         <ListItemButton onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: true}))} component="button" className="hover:bg-purple-100 w-full">
                                             <ListItemText primary={'Profile'} />
                                         </ListItemButton>
-                                        <Link href={`/admin`}>
+                                        <Link prefetch={false} href={`/admin`}>
                                             <ListItemButton component="button" className="hover:bg-purple-100 w-full">
                                                 <ListItemText primary={'Admin'} />
                                             </ListItemButton>
@@ -257,7 +257,7 @@ const Header = ({ categories }) => {
                         </Button>
                         <ul className={`flex md:hidden md:group-hover:flex relative p-6 flex-col max-w-[80%] md:max-w-full h-full md:h-fit shadow-md border border-gray-200 md:absolute z-10 md:top-full transition-all ease-in-out duration-500 ${active ? 'left-0' : 'left-[-105%]'} md:left-0 w-full md:py-2 md:px-0 bg-white`} > {/* style={{left: active ? 0 : '-100%'}} */}  
                             <li className="flex justify-between items-center md:hidden">
-                                <Link href={'/'}>
+                                <Link prefetch={false} href={'/'}>
                                     <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
                                 </Link>
                                 <IconButton className="bg-gray-100 text-[2rem]" onClick={() => setActive(false)}>
@@ -275,12 +275,12 @@ const Header = ({ categories }) => {
                             </li>
                             {categories.categoryList.map(i => (
                                 <li className="relative group/subGroup" key={i.id}>
-                                    <Link href={`/filter/catId/${i.id}`}>
+                                    <Link prefetch={false} href={`/filter/catId/${i.id}`}>
                                         <Button className="justify-between w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-3 md:py-2 px-4">{i.name} {i.children.length ? <FaChevronDown /> : ''}</Button>
                                     </Link>
                                     {i.children.length ? <ul className="hidden group-hover/subGroup:flex flex-col shadow-md border border-gray-200 absolute z-10 top-full left-0 md:top-0 md:left-full min-w-full py-2 bg-white">
                                         {i.children.map(x => (
-                                            <Link href={`/filter/subCatId/${x.id}`} key={x.id}>
+                                            <Link prefetch={false} href={`/filter/subCatId/${x.id}`} key={x.id}>
                                                 <Button className="justify-start w-full rounded-none bg-slate-50 hover:bg-slate-200 text-gray-900 py-2 px-4">{x.name}</Button>
                                             </Link>
                                         ))}
@@ -295,14 +295,14 @@ const Header = ({ categories }) => {
                     <ul className="flex gap-0 md:gap-[1.15rem] items-center md:flex-wrap whitespace-nowrap bg-white overflow-auto md:overflow-visible border-b-4 border-gray-200 md:border-0">
                         {categories.categoryList.map(i => (
                             <li key={i.id} className="relative group">
-                                <Link href={`/filter/catId/${i.id}`}>
+                                <Link prefetch={false} href={`/filter/catId/${i.id}`}>
                                     <Button className="bg-white hover:bg-slate-100 text-[1.05rem] font-medium text-gray-700 rounded-full py-2 px-4">
                                         <img className="rounded max-w-[1.8rem] mr-3" src={'/images/categories/' + i.images[0]} alt="Product" /> {i.name}
                                     </Button>
                                 </Link>
                                 {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full left-0 hidden group-hover:block">
                                     {i.children.map(x => (
-                                        <Link href={`/filter/subCatId/${x.id}`} key={x.id}>
+                                        <Link prefetch={false} href={`/filter/subCatId/${x.id}`} key={x.id}>
                                             <ListItemButton className="hover:bg-purple-100">
                                                 <ListItemText primary={x.name} />
                                             </ListItemButton>

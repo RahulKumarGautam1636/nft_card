@@ -229,10 +229,10 @@ export default function Cart() {
                             <p className="font-semibold text-3xl text-blue-600">$34.14</p>
                         </div>
                         <div className="flex gap-2">
-                            <Link className="flex-1" href={`#`}>
+                            <Link prefetch={false} className="flex-1" href={`#`}>
                                 <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 font-bold w-full">CANCEL ORDER</Button>
                             </Link>
-                            <Link className="flex-1" href={`#`}>
+                            <Link prefetch={false} className="flex-1" href={`#`}>
                                 <Button className="bg-purple-600 text-white rounded-lg p-3 hover:bg-purple-500 font-bold w-full">NEED HELP</Button>
                             </Link>
                         </div>

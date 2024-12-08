@@ -112,7 +112,7 @@ const Footer = () => {
                     <div className="pb-4 ps-8 md:ps-12" key={item.title}>
                         <h5 className="text-lg font-semibold mb-5">{item.title}</h5>
                         <ul className="flex flex-col gap-[0.6rem]">
-                            {item.links.map(i => (<li key={i.name}><Link href={i.href}>{i.name}</Link></li>))}
+                            {item.links.map(i => (<li key={i.name}><Link prefetch={false} href={i.href}>{i.name}</Link></li>))}
                         </ul>
                     </div>
                 ))}
@@ -144,9 +144,9 @@ const Footer = () => {
             <section className="container mx-auto px-4 py-5 flex gap-3 justify-center lg:justify-between text-center items-center text-sm flex-wrap">
                 <p>Copyright 2024 © Bacola WordPress Theme. All rights reserved. Powered by KlbTheme.</p>
                 <ul className="flex gap-4 items-center flex-wrap justify-center">
-                    <li><Link href='/'>Privacy Policy</Link></li>
-                    <li><Link href='/'>Terms and Conditions</Link></li>
-                    <li><Link href='/'>Cookie</Link></li>
+                    <li><Link prefetch={false} href='/'>Privacy Policy</Link></li>
+                    <li><Link prefetch={false} href='/'>Terms and Conditions</Link></li>
+                    <li><Link prefetch={false} href='/'>Cookie</Link></li>
                     <li><img src="/images/payments.webp" alt="payments" /></li>
                 </ul>
             </section>

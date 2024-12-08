@@ -44,7 +44,7 @@ export const ProductCard = ({ data, classes, styles={} }) => {
   return (
     <div className={`product-card bg-gray-100 max-w-[186px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`} style={{...styles}}>
       <div className="card-img h-[215px] lg:h-[230px] overflow-hidden bg-white flex justify-center items-center relative">
-        <Link href={`/product/${data.id}`} className="group">
+        <Link prefetch={false} href={`/product/${data.id}`} className="group">
           <img className="max-w-full max-h-full transform group-hover:scale-110 transition-transform" src={data.images[0]} alt="product" />
         </Link>
         {/* <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button> */}
@@ -118,7 +118,7 @@ export const ProductCard_2 = ({ data }) => {
       <div className="h-[6.6rem] w-[6.6rem]">
           <img className="rounded w-full h-full border border-gray-200" src={data.images[0]} alt="Product" />
       </div>
-      <Link href={`/product/${data.id}`} className="text-start border-b border-gray-300 flex-1 overflow-hidden ">
+      <Link prefetch={false} href={`/product/${data.id}`} className="text-start border-b border-gray-300 flex-1 overflow-hidden ">
           <h4 className="whitespace-nowrap text-gray-900 font-semibold overflow-ellipsis overflow-hidden" style={{fontSize: '0.95rem'}}>{data.name}</h4>
           <div className="flex gap-[0.65rem] my-[0.55rem] items-end">
             <span className="text-red-600 text-[0.75rem] line-through">{data.oldPrice}</span>
