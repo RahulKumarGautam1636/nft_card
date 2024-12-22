@@ -164,7 +164,7 @@ export const Login = () => {
     }
 
     const isLoggedIn = false;
-    const compCode = 'FFCeIi27FQMTNGpatwiktw==';
+    const compCode = 'KHLqDFK8CUUxe1p1EotU3g==';
 
 
     return (

@@ -85,7 +85,7 @@ export default function Cart() {
                             </table> */}
                             <table className="table-type-1 w-full md:min-w-[720px]">
                                 <tbody>
-                                    <tr className="text-center hidden md:table-row">
+                                    <tr className="text-center hidden md:table-row bg-slate-100">
                                         <th colSpan={2}>Product</th>
                                         <th>Price</th>
                                         <th>Quantity</th>

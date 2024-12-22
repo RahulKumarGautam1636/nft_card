@@ -33,7 +33,7 @@ function SubCategoryList({ refresh, subCategories, getSubCategories }) {
 
     const deleteItem = async (id) => {
         setLoading(true);
-        const res = await axios.delete(`http://localhost:3000/api/subCategory`, { data: { id: id } });
+        const res = await axios.delete(`https://shopify-seven-iota.vercel.app/api/subCategory`, { data: { id: id } });
         setLoading(false);
         if (res.status === 200) {
             getSubCategories();

@@ -465,21 +465,21 @@ export default withAuth(Dashboard);
 export const products = [
     {
         id: 1,
-        images: ['https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065189/1729065134169_gosriki-women-s-pink-ethnic-motifs-printed-kurta-with-trouser-dupatta-product-images-rvpkyh5qdr-0-202310141511.webp'],
+        images: ['/images/categories/unused/2.jpg'],
         name: 'Patimax Fragrance Long...',
         category: 'Men Fashion',
         totalSale: 45,
         stock: 34
     },{
         id: 2,
-        images: ['https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065189/1729065134169_gosriki-women-s-pink-ethnic-motifs-printed-kurta-with-trouser-dupatta-product-images-rvpkyh5qdr-0-202310141511.webp'],
+        images: ['/images/categories/unused/3.jpg'],
         name: 'Patimax Fragrance Long...',
         category: 'Electronics',
         totalSale: 45,
         stock: 0
     },{
         id: 3,
-        images: ['https://res.cloudinary.com/dy2p0n2xc/image/upload/v1729065189/1729065134169_gosriki-women-s-pink-ethnic-motifs-printed-kurta-with-trouser-dupatta-product-images-rvpkyh5qdr-0-202310141511.webp'],
+        images: ['/images/categories/unused/4.jpg'],
         name: 'Patimax Fragrance Long...',
         category: 'Jwellery',
         totalSale: 45,

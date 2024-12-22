@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from 'fs';
 import { client } from "../utils";
-import { isLive, withDB } from "@/api/api";
+import { isLive, withRemoteDB } from "@/api/api";
 import dbConnect from "@/lib/dbConnect";
 import { Products } from "@/lib/models";
 import mongoose from "mongoose";
@@ -52,7 +52,7 @@ export async function GET(req, { params }) {
 
     //     return NextResponse.json({ products: products });
 
-    // } else if (withDB) {
+    // } else if (withRemoteDB) {
         
         let search = searchParams.get('search');
         let page = searchParams.get('page');  

@@ -21,8 +21,10 @@ function AddProduct() {
 
     const cartItemsValueList = cartList.map(item => item.qty * item.price);                           // Array of all item's price * quantity selected.
     const cartSubtotal = cartItemsValueList.reduce((total, num) => total + num, 0).toFixed(2); 
-    const brands = useFetch('http://localhost:3000/api/brands')[0];
-    const categories = useFetch('http://localhost:3000/api/category')[0];
+    const brands = useFetch('https://shopify-seven-iota.vercel.app/api/brands')[0];
+    const res = useFetch('https://shopify-seven-iota.vercel.app/api/category')[0];
+    let categories = res.categoryList || [];
+    console.log(categories);    
 
     const [product, setProduct] = useState({
         name: '',        
@@ -135,14 +137,14 @@ function AddProduct() {
                     <div className="mt-6">
                         <div className="mb-6 grid gap-4" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(11rem, 1fr))'}}>
                             <div className="h-40 p-5 border border-gray-200 rounded-lg flex justify-center items-center">
-                                <img className="max-h-full" src={'/images/categories/4.jpg'} alt="Product" />
+                                <img className="max-h-full" src={'/images/categories/unused/4.jpg'} alt="Product" />
+                            </div>
+                            {/* <div className="h-40 p-5 border border-gray-200 rounded-lg flex justify-center items-center">
+                                <img className="max-h-full" src={'/images/categories/unused/4.jpg'} alt="Product" />
                             </div>
                             <div className="h-40 p-5 border border-gray-200 rounded-lg flex justify-center items-center">
-                                <img className="max-h-full" src={'/images/categories/4.jpg'} alt="Product" />
-                            </div>
-                            <div className="h-40 p-5 border border-gray-200 rounded-lg flex justify-center items-center">
-                                <img className="max-h-full" src={'/images/categories/4.jpg'} alt="Product" />
-                            </div>
+                                <img className="max-h-full" src={'/images/categories/unused/4.jpg'} alt="Product" />
+                            </div> */}
                             <div className="h-40 px-5 cursor-pointer border border-dashed border-blue-500 bg-gray-50 rounded-lg flex flex-col gap-3 justify-center items-center text-center">
                                 <Download className="text-[4rem] text-pink-600" />
                                 <p className="font-medium text-blue-500">Click or Drop your images here</p>

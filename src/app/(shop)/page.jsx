@@ -1,10 +1,13 @@
 import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
+import { FeaturedCategories } from "@/components/home";
+import { HomeCategoryLoader } from "@/components/home/components";
 import FilterTabs, { HomeBannerSlider, PromoBanner } from "@/components/utils";
 import { Star } from "@mui/icons-material";
 import { Button, ButtonBase } from "@mui/material";
+import { Suspense } from "react";
 
-export default async function Home() {   // homeBanners, banners, categories, filteredProducts, productsData, featuredProducts
+export default async function Home() {   
   
   const homeBanners = await getBanners('homeBanner');   
   const banners = await getBanners('banners');   
@@ -13,15 +16,17 @@ export default async function Home() {   // homeBanners, banners, categories, fi
   const categories = await getCategories('home');
   const filteredProducts = await getCatNameProducts('Fashion', 'All');
   const productsData = await getProducts({ page: 1, perPage: 8, location: 'All' });
-  const featuredProducts = await getFeaturedProducts();
-
- 
+  const featuredProducts = await getFeaturedProducts(); 
 
   return (
     <div className="home mt-3 ">  
       <HomeBannerSlider homeBanners={homeBanners} />
       <main className="container mx-auto px-3">
-        <section className="py-7">
+        <Suspense fallback={<HomeCategoryLoader />}>
+          <FeaturedCategories />
+        </Suspense>
+        
+        {/* <section className="pt-7 pb-4 lg:pb-7">
           <h2 className="text-2xl font-semibold mb-4">Featured Categories</h2>
           <div className="flex overflow-auto gap-3 md:gap-10">
             {categories.categoryList.map(i => (
@@ -33,18 +38,24 @@ export default async function Home() {   // homeBanners, banners, categories, fi
               </div>
             ))}
           </div>
-        </section>
-        <section className="grid grid-cols-2 lg:grid-cols-10 gap-5">
-          <div className="relative col-span-2">
+        </section> */}
+
+        
+        <section className="grid grid-cols-1 lg:grid-cols-10 gap-5">
+          <div className="relative col-span-1 lg:col-span-2 overflow-auto lg:overflow-clip">
+            <div className="mb-4 lg:hidden">
+              <h2 className="text-2xl font-semibold">Trending Offers</h2>
+              <p className="text-gray-500">Do not miss the current offers until the end of March.</p>
+            </div>
             <div className="sticky top-0 flex lg:flex-col gap-5">
               {homeSideBanners.slice(0, 4).map(i => (
                 <div key={i.id}>
-                  <img className="w-full" src={i.images[0]} alt="banner" />
+                  <img className="min-w-56 lg:w-full" src={i.images[0]} alt="banner" />
                 </div>
               ))}
             </div>
           </div>
-          <div className="col-span-8">
+          <div className="col-span-1 lg:col-span-8">
             <FilterTabs categories={categories.categoryList} filteredProducts={filteredProducts} />
             <div className="mt-4">
               <PromoBanner banners={banners} type={'promo-banner'} path={'/images/banners/'} />
@@ -136,49 +147,3 @@ export default async function Home() {   // homeBanners, banners, categories, fi
     </div>
   );
 }
-
-
-// export const kajal = {
-//   "_id": "0000000000000000_1",
-//   "name": "Kajal's Regular Sleeves Printed Women Dark Blue, White, Black Top",
-//   "description": "The saree is an outfit which women can carry off with great panache. With the right material and drape, it can accentuate the beauty of women of all ages and forms.\n\n",
-//   "images": [
-//     "/images/kajal/kajal_1.jpg",
-//     "/images/kajal/kajal_2.jpeg",
-//     "/images/kajal/kajal_3.jpeg",
-//     "/images/kajal/kajal_4.jpeg"
-//   ],
-//   "brand": "SIRIL",
-//   "price": 550,
-//   "oldPrice": 650,
-//   "catName": "Fashion",
-//   "catId": "66c0d6d9430f507021d32280",
-//   "subCatId": "66c0dfa43490222862ae78c1",
-//   "subCat": "Women",
-//   "subCatName": "Women",
-//   "category": {
-//       "_id": "66c0d6d9430f507021d32280",
-//       "name": "Fashion",
-//       "slug": "Fashion",
-//       "images": [
-//           "https://res.cloudinary.com/da26rdzwp/image/upload/v1725960852/1725960851153_fash.png"
-//       ],
-//       "color": "#ecffec",
-//       "createdAt": "2024-08-17T16:59:05.656Z",
-//       "updatedAt": "2024-09-10T09:34:13.338Z",
-//       "__v": 0,
-//       "thirdLevel": "null",
-//       "id": "66c0d6d9430f507021d32280"
-//   },
-//   "countInStock": 150,
-//   "rating": 5,
-//   "isFeatured": true,
-//   "discount": 12,
-//   "productRam": [],
-//   "size": [],
-//   "productWeight": [],
-//   "location": "All",
-//   "dateCreated": "2024-09-09T14:08:22.354Z",
-//   "__v": 0,
-//   "id": "0000000000000000_1"
-// }

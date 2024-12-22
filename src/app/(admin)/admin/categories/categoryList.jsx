@@ -47,7 +47,7 @@ function CategoryList({ refresh, categories, getCategories }) {
 
     const deleteItem = async (id) => {
         setLoading(true);
-        const res = await axios.delete(`http://localhost:3000/api/category`, { data: { id: id } });
+        const res = await axios.delete(`https://shopify-seven-iota.vercel.app/api/category`, { data: { id: id } });
         setLoading(false);
         if (res.status === 200) {
             getCategories();
@@ -87,7 +87,7 @@ function CategoryList({ refresh, categories, getCategories }) {
                                 {categories.map(i => (
                                     <tr className="text-gray-700 font-semibold" key={i.id}>
                                         <td style={{paddingRight: 0}}>
-                                            <img className="rounded h-12" src={i.images[0]} alt="Product" />
+                                            <img className="rounded h-12" src={`/images/categories/${i.images[0]}`} alt="Product" />
                                         </td>
                                         <td className="text-start">
                                             <span className="font-medium text-gray-900 text-end">{i.name}</span>

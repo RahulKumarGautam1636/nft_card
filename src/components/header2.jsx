@@ -63,29 +63,6 @@ const Header = ({ categories }) => {
         return () => document.body.removeEventListener('click', onBodyClick, { capture: true });                                
     }, [])    
 
-    useEffect(() => {
-        const makeLoginRequest = async (params) => {
-            let compCode = 'FFCeIi27FQMTNGpatwiktw==';
-            // loaderAction(true);
-            const res = await login(params.phone, params.password, compCode);
-            // loaderAction(false);
-            if (res.data.Remarks === 'INVALID') {
-                console.log('The username or password is incorrect.');
-            } else if (res.data.Remarks === 'NOTINCOMPANY') {
-                console.log('User is not Registered in this Company.');
-            } else {           
-                dispatch(addUser(res.data));
-                dispatch(loginAction(true));
-             }
-        }
-        const autoLogin = () => {
-            const savedLoginData = JSON.parse(localStorage.getItem('userLogin'));
-            if (savedLoginData && savedLoginData.compCode) {
-                makeLoginRequest({ phone: savedLoginData.phone, password: savedLoginData.password, compCode: savedLoginData.compCode });
-            }
-        } 
-        // autoLogin();                            
-    }, [])    
 
     return (
         <>

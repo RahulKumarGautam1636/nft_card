@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 // modal Reducer ---------------------------------------------------------------------------------------------------------
 
 const loginSlice = createSlice({
-name: 'IS_LOGGED_IN', initialState: true,
+name: 'IS_LOGGED_IN', initialState: false,
 reducers: {
   loginAction: (state, action) => { 
     return action.payload;
@@ -76,6 +76,7 @@ const modals = {
     LOCATION_MODAL: {status: false, data: ''},
     LOGIN_MODAL: {status: false, data: ''},
     PROFILE_MODAL: {status: false, data: ''},
+    SHOP_SIDEBAR: {status: false, data: ''}
 };
 
 const modalSlice = createSlice({

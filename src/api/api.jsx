@@ -4,17 +4,17 @@ import { banners, category, categoryId, catNameData, featured, homeBanners, home
 import { getBanners2, getCategories2, getFilteredProducts2, getProducts2 } from "@/actions/banners";
 
 export const isLive = false;
-export const withDB = true;
+export const withRemoteDB = true;
 const fixedData = false;
 const emptyRes = false;
 
 const myBaseURL = process.env.NEXT_PUBLIC_BASE_URL;
-const otherBaseURL = 'https://ecommerce-server-node.onrender.com';    // process.env.NEXT_PUBLIC_REMOTE_BASE_URL;
+const otherBaseURL = 'https://api.spicezgold.com';    // process.env.NEXT_PUBLIC_REMOTE_BASE_URL;
 
 const baseURL = isLive ? otherBaseURL : myBaseURL;
 
 console.log(myBaseURL);
-
+// https://ecommerce-server-node.onrender.com
 // https://node-server-dux3.onrender.com;
 // https://node-server-utis.onrender.comy
 // https://node-server-jyhc.onrender.com
@@ -35,7 +35,7 @@ export const getBanners = async (type) => {
     // }
     if (emptyRes) return [];
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getBanners2(type);
     } else {
         res = await axios.get(isLive ? `${baseURL}/api/${type}` : `${baseURL}/api/banners?type=${type}`);
@@ -48,7 +48,7 @@ export const getCategories = async (caller) => {
     // if (fixedData) return category;
     if (emptyRes) return { categoryList: [{ name: '', slug: '2342322342', children: [], images: ['']}] };
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getCategories2();
     } else {
         res = await axios.get(isLive ? `${baseURL}/api/category` : `${baseURL}/api/category`);
@@ -61,7 +61,7 @@ export const getProducts = async ({ catName, catId, subCatId, page, perPage, loc
     // if (fixedData) return productPerPage;
     if (emptyRes) return { products: [] };
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getProducts2({
             catName: catName, 
             catId: catId, 
@@ -82,7 +82,7 @@ export const getFeaturedProducts = async () => {
     // if (fixedData) return featured;
     if (emptyRes) return [];
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getProducts2({ featured: true });
         return res;
     } else {
@@ -96,7 +96,7 @@ export const getProduct = async (id) => {
     console.log('getProduct');
     // if (emptyRes) return [];
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getProducts2({ id: id }); 
         return res;
     }
@@ -116,7 +116,7 @@ export const getCatNameProducts = async (catName, location) => {
     // if (emptyRes) return {products: []};
 
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getProducts2({ catName: catName, location: location }); 
         return res;
     }
@@ -128,7 +128,7 @@ export const getCatIdProducts = async (catTypeName, catIdValue, location) => {
     // if (fixedData) return categoryId;
     if (emptyRes) return {products: []};
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getProducts2({[catTypeName]: catIdValue, location: location});
         return res;
     }
@@ -140,7 +140,7 @@ export const getFilteredProducts = async (catType, id, minPrice=100, maxPrice=10
     console.log('getFilteredProducts');
     if (emptyRes) return [];
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = getFilteredProducts2({ catType: catType, id: id, minPrice: minPrice, maxPrice: maxPrice, location: location });
         return res;
     }
@@ -151,7 +151,7 @@ export const getFilteredProducts = async (catType, id, minPrice=100, maxPrice=10
 export const searchProducts = async (query) => {
     console.log('searchProducts');
     let res;
-    if (withDB) {
+    if (withRemoteDB) {
         res = await getProducts2({ search: query });
         return res;
     } else {

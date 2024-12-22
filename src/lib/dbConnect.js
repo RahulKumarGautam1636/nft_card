@@ -1,4 +1,5 @@
 "use server"
+import { withRemoteDB } from '@/api/api';
 import mongoose from 'mongoose';
 
 
@@ -15,8 +16,7 @@ async function dbConnect() {
     // Attempt to connect to the database
 
     // const connectionString = 'mongodb://127.0.0.1:27017/Ecommerce';
-    const connectionString = process.env.REMOTE_DB_CONNECTION_STRING;
-    // const connectionString = process.env.LOCAL_DB_CONNECTION_STRING;
+    const connectionString = withRemoteDB ? process.env.REMOTE_DB_CONNECTION_STRING : process.env.LOCAL_DB_CONNECTION_STRING;
     
     const db = await mongoose.connect(connectionString || '', {});
 

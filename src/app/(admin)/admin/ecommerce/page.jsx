@@ -39,7 +39,7 @@ function Ecommerce() {
     const getProducts = async () => {
         dispatch(localLoader({ name: 'productList', status: true}));
         await waitFor(2000);
-        const res = await axios.get(`http://localhost:3000/api/products?page=${products.page}&perPage=${products.limit}&location=All`);
+        const res = await axios.get(`https://shopify-seven-iota.vercel.app/api/products?page=${products.page}&perPage=${products.limit}&location=All`);
         dispatch(localLoader({ name: 'productList', status: false}));
         setProducts(res.data);            
     }

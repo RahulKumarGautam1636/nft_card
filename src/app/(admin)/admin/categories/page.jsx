@@ -18,10 +18,10 @@ function Categories() {
         setValue(newActive);
     }; 
 
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState({ categoryList: []});
 
     const getCategories = async () => {
-        const res = await axios.get('http://localhost:3000/api/category');
+        const res = await axios.get('https://shopify-seven-iota.vercel.app/api/category');
         setCategories(res.data);
         // let category = await getCategory(handleList);
         // setCategories(JSON.parse(category));            
@@ -30,7 +30,7 @@ function Categories() {
     const [subCategories, setSubCategories] = useState([]);
 
     const getSubCategories = async () => {
-        const res = await axios.get('http://localhost:3000/api/subCategory');
+        const res = await axios.get('https://shopify-seven-iota.vercel.app/api/subCategory');
         setSubCategories(res.data);
         // let category = await getSubCategory();
         // setSubCategories(JSON.parse(category));            
@@ -54,10 +54,10 @@ function Categories() {
                 </Tabs>
                 <div className="tabContent">
                     <div className={`tab-item p-4 ${value === 0 ? 'block' : 'hidden'} `}>
-                        <AddCategory setRefresh={setRefresh} categories={categories} /> 
+                        <AddCategory setRefresh={setRefresh} categories={categories.categoryList} /> 
                     </div>
                     <div className={`tab-item p-4 ${value === 1 ? 'block' : 'hidden'} `}>
-                        <CategoryList categories={categories} getCategories={getCategories} refresh={refresh} />
+                        <CategoryList categories={categories.categoryList} getCategories={getCategories} refresh={refresh} />
                     </div>
                     <div className={`tab-item p-4 ${value === 2 ? 'block' : 'hidden'} `}>
                         <SubCategoryList subCategories={subCategories} getSubCategories={getSubCategories} refresh={refresh} />

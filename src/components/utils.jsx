@@ -6,7 +6,7 @@ import { BannerCard, ProductCard } from './cards';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { getCatNameProducts, withDB } from '@/api/api';
+import { getCatNameProducts, withRemoteDB } from '@/api/api';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { globalLoader, localLoader, modalAction } from '@/lib/slices';
@@ -132,15 +132,22 @@ export default function FilterTabs({ categories, filteredProducts }) {
     setValue(newValue);
   };   
 
-  useEffect(() => {
-    const getFilterProducts = async () => {
+  // useEffect(() => {
+    const getFilterProducts = async (catName) => {
       setLoading(true);
-      const res = await getCatNameProducts(activeCat.slug, 'All');
+      const res = await getCatNameProducts(catName, 'All');
       setProducts(res);
       setLoading(false);
     }
-    getFilterProducts();
-  }, [activeCat])
+  //   getFilterProducts();
+  // }, [activeCat])
+
+  const handleFilter = (category) => {
+    setActiveCat(category);
+    console.log(category);
+    
+    getFilterProducts(category.slug, 'All');
+  }
 
   return (
     <div className='relative'>
@@ -153,7 +160,7 @@ export default function FilterTabs({ categories, filteredProducts }) {
         <div className="max-w-full">
           <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" className="filterTabs">
             {categories.map((category, index) => (
-              <Tab key={category.id} label={category.name} onClick={() => setActiveCat(category)} style={{fontSize: '0.975rem', minHeight: '3.55rem', padding: '1rem 1.2rem', minWidth: '5.625rem'}} />
+              <Tab key={category.id} label={category.name} onClick={() => handleFilter(category)} style={{fontSize: '0.975rem', minHeight: '3.55rem', padding: '1rem 1.2rem', minWidth: '5.625rem'}} />
             ))}
           </Tabs>
         </div>
