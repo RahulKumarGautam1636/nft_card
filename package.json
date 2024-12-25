@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
+    "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev --turbopack",
     "newPort": "next dev -p 3001",
     "build": "next build",
     "start": "next start",

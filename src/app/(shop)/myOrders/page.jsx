@@ -24,12 +24,7 @@ export default function Cart() {
         {
             "_id": "66d595bf247824aacf08cb8a",
             "name": "Altecia Tie and Dye Jogger with Baggy Trouser",
-            "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1725961295/1725961289021_altecia-tie-and-dye-jogger-with-baggy-trouser-with-t-shirt-for-women-low-price-up-to-off-new-arrival-most-loved-collection-trending-tops-fancy-top-printed-top-printed-trouser-casual-wear-party-wear-daily-wear-.jpg",
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1725961323/1725961321448_altecia-tie-and-dye-jogger-with-baggy-trouser-with-t-shirt-for-women-low-price-up-to-off-new-arrival-most-loved-collection-trending-tops-fancy-top-printed-top-printed-trouser-casual-wear-party-wear-daily-w_1.jpg",
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1725961330/1725961321488_altecia-tie-and-dye-jogger-with-baggy-trouser-with-t-shirt-for-women-low-price-up-to-off-new-arrival-most-loved-collection-trending-tops-fancy-top-printed-top-printed-trouser-casual-wear-party-wear-daily-w_2.jpg",
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1725961332/1725961321496_altecia-tie-and-dye-jogger-with-baggy-trouser-with-t-shirt-for-women-low-price-up-to-off-new-arrival-most-loved-collection-trending-tops-fancy-top-printed-top-printed-trouser-casual-wear-party-wear-daily-w_3.jpg"
-            ],
+            "images": ['/images/categories/unused/1.jpg'],
             "brand": "Altecia",
             "price": 1600,
             "oldPrice": 1800,
@@ -60,11 +55,7 @@ export default function Cart() {
             "_id": "66e13bcc67c833713b24763a",
             "name": "ZAALIQA Girls Black Handbag",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726036935/1726036933380_zaaliqa-girls-black-handbag-product-images-rvd5gtvjgi-0-202404151052.jpg",
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726036935/1726036934023_zaaliqa-girls-black-handbag-product-images-rvd5gtvjgi-1-202404151052.webp",
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726036936/1726036934427_zaaliqa-girls-black-handbag-product-images-rvd5gtvjgi-2-202404151052.jpg"
-            ],
+            "images": ['/images/categories/unused/2.jpg'],
             "brand": "ZAALIQA",
             "price": 620,
             "oldPrice": 750,
@@ -91,10 +82,7 @@ export default function Cart() {
             "_id": "66e13c6867c833713b24768b",
             "name": "KSC \"KHATUSHYAM COLLECTION\" Grey Pu For Women Handheld Bag",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "images": [
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726037067/1726037066109_ksc-khatushyam-collection-grey-pu-for-women-handheld-bag-product-images-rvoxe6ocho-0-202405282359.webp",
-                "https://res.cloudinary.com/da26rdzwp/image/upload/v1726037068/1726037066732_ksc-khatushyam-collection-grey-pu-for-women-handheld-bag-product-images-rvoxe6ocho-1-202405282359.webp"
-            ],
+            "images": ['/images/categories/unused/4.jpg'],
             "brand": "KSC",
             "price": 460,
             "oldPrice": 490,
@@ -124,10 +112,10 @@ export default function Cart() {
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div className="w-full">
                     <div className="rounded-lg border border-gray-300 bg-gray-50">
-                        <div className="p-6 border-b border-gray-300 flex gap-8 items-center flex-wrap">
-                            <p className="text-[1.15rem] font-semibold text-gray-400">Order <span className="text-black">#2514</span></p> 
+                        <div className="p-6 border-b border-gray-300 bg-slate-200 flex gap-8 items-center flex-wrap">
+                            <p className="text-[1.15rem] font-semibold text-gray-500">Order <span className="text-black">#2514</span></p> 
                             <div>
-                                <span className="text-green-600 bg-green-100 border border-green-200 text-[1.1rem] font-medium py-[0.2rem] px-[0.8rem] rounded-md me-4">Paid</span>
+                                <span className="text-green-600 bg-green-200 border border-green-200 text-[1.1rem] font-medium py-[0.2rem] px-[0.8rem] rounded-md me-4">Paid</span>
                                 <span className="text-orange-600 bg-orange-100 border border-orange-200 text-[1.1rem] font-medium py-[0.2rem] px-[0.8rem] rounded-md">In Transit</span>
                             </div>
                             <p className="text-[1.05rem] font-semibold text-gray-600 flex gap-8 items-center">
@@ -190,7 +178,7 @@ export default function Cart() {
                         </div>
                     </div>
                 </div>
-                <div className="rounded-lg p-6 border border-gray-300 w-full max-w-[35rem]">
+                <div className="rounded-lg p-6 border border-gray-300 w-full max-w-[35rem] bg-gray-50">
                     <h2 className="text-xl font-semibold border-b border-gray-300 pb-5">Order Details</h2>
                     <div className="pt-8 flex flex-col gap-4">
                         <div className="flex justify-between">
@@ -224,7 +212,7 @@ export default function Cart() {
                             <h4 className="font-semibold">Payment Mode:</h4>
                             <p className="font-semibold">Cash on Delivery</p>
                         </div>
-                        <div className="flex justify-between items-end mt-6 md:mt-28">
+                        <div className="flex justify-between items-end mt-6 md:mt-8">
                             <h4 className="font-semibold">TOTAL:</h4>
                             <p className="font-semibold text-3xl text-blue-600">$34.14</p>
                         </div>

@@ -130,6 +130,26 @@ body::-webkit-scrollbar {
     animation: slideIn .2s ease-out;
 }
 
+.skeleton {
+    position: relative;
+    animation: 2s cubic-bezier(.4, 0, .6, 1) infinite pulse;
+}
+.skeleton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #c1c1c1;
+    z-index: 111;
+    border-radius: 1rem;
+}
+
+.skeleton.border-r-0::before {
+    border-radius: 0;
+}
+.skeleton.rounded-full::before {
+    border-radius: 9999px;
+}
+
 @keyframes slideIn {
     0% {
         opacity: 0;
