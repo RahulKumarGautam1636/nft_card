@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import StoreProvider from "@/lib/storeProvider";
 import { getCategories } from "@/api/api";
 import { ToastContainer } from "react-toastify";
+import { SplashScreen } from "@/components/utils/splashScreen";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter', display: "swap" });
 // const lato = Lato({
@@ -33,8 +34,10 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable}`}>
         <StoreProvider>
-          {children}
-          <ToastContainer className="my-toast" />    {/* we can use most of individual toast classes on the this container and that will be applied to all the toast that apear in this container */}
+          <SplashScreen>
+            {children}
+            <ToastContainer className="my-toast" />    {/* we can use most of individual toast classes on the this container and that will be applied to all the toast that apear in this container */}
+          </SplashScreen>
         </StoreProvider>
       </body>
     </html>

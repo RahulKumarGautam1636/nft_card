@@ -27,7 +27,7 @@ export default async function Home() {
         </Suspense>
         
         {/* <section className="pt-7 pb-4 lg:pb-7">
-          <h2 className="text-2xl font-semibold mb-4">Featured Categories</h2>
+          <h2 className="text-[1.4rem] md:text-2xl font-semibold mb-4">Featured Categories</h2>
           <div className="flex overflow-auto gap-3 md:gap-10">
             {categories.categoryList.map(i => (
               <div key={i.id} className="text-center min-w-fit cursor-pointer group flex-1 flex flex-col items-center">
@@ -42,12 +42,12 @@ export default async function Home() {
 
         
         <section className="grid grid-cols-1 lg:grid-cols-10 gap-5">
-          <div className="relative col-span-1 lg:col-span-2 overflow-auto lg:overflow-clip">
+          <div className="relative col-span-1 lg:col-span-2">
             <div className="mb-4 lg:hidden">
-              <h2 className="text-2xl font-semibold">Trending Offers</h2>
+              <h2 className="text-[1.4rem] md:text-2xl font-semibold">Trending Offers</h2>
               <p className="text-gray-500">Do not miss the current offers until the end of March.</p>
             </div>
-            <div className="sticky top-0 flex lg:flex-col gap-5">
+            <div className="sticky top-0 flex lg:flex-col gap-5 overflow-auto lg:overflow-clip">
               {homeSideBanners.slice(0, 4).map(i => (
                 <div key={i.id}>
                   <img className="min-w-56 lg:w-full" src={i.images[0]} alt="banner" />
@@ -62,7 +62,7 @@ export default async function Home() {
             </div>
             <div className="mt-7">
               <div className="">
-                <h2 className="text-2xl font-semibold">New Products</h2>
+                <h2 className="text-[1.4rem] md:text-2xl font-semibold">New Products</h2>
                 <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
               </div>
               <div className="grid gap-3 mt-4 product-grid">
@@ -72,7 +72,7 @@ export default async function Home() {
             <div className="mt-7">
               <div className="flex justify-between items-end">
                 <div>
-                  <h2 className="text-2xl font-semibold">Featured Products</h2>
+                  <h2 className="text-[1.4rem] md:text-2xl font-semibold">Featured Products</h2>
                   <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
                 </div>
                 <Button className="text-purple-800 bg-white whitespace-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
@@ -92,7 +92,7 @@ export default async function Home() {
               <section className="mt-7">
                 <div className="flex justify-between items-end">
                   <div className="me-4">
-                    <h2 className="text-2xl font-semibold">HOT Product of the Week</h2>
+                    <h2 className="text-[1.4rem] md:text-2xl font-semibold">HOT Product of the Week</h2>
                     <p className="text-gray-500 ">Dont miss this opportunity at a special discount just for this week.</p>
                   </div>
                   <Button className="text-purple-800 bg-white whitespace-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
@@ -102,7 +102,7 @@ export default async function Home() {
                     <img className="max-w-full max-h-80" src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-50.jpg" alt='hot-product' />
                   </div>
                   <div className="card-content flex flex-col gap-2 py-6 px-9 bg-gray-100 w-full">
-                    <h4 className="text-2xl font-semibold">Chobani Complete Vanilla Greek Yogurt</h4>
+                    <h4 className="text-[1.4rem] md:text-2xl font-semibold">Chobani Complete Vanilla Greek Yogurt</h4>
                     <p className="text-green-600">In Stock</p>
                     <h5 className="flex gap-2 text-md">
                       <span className="text-gray-600 line-through">Rs 550</span>

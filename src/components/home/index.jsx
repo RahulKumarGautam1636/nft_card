@@ -6,7 +6,7 @@ export const FeaturedCategories = async () => {
 
     return (
         <section className="pt-7 pb-4 lg:pb-7">
-            <h2 className="text-2xl font-semibold mb-4">Featured Categories</h2>
+            <h2 className="text-[1.4rem] md:text-2xl font-semibold mb-4">Featured Categories</h2>
             <div className="flex overflow-auto gap-3 md:gap-10">
             {categories.categoryList.map(i => (
                 <div key={i.id} className="text-center min-w-fit cursor-pointer group flex-1 flex flex-col items-center">

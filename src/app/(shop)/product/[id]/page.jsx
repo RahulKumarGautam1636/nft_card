@@ -21,9 +21,9 @@ export default async function Product(props) {
   let relatedProducts = await getCatIdProducts('subCatId', product.subCatId, product.location[0].value);
 
   return (
-    <div className="product-page mt-3 pt-4 md:py-8 bg-gray-100 ">  
+    <div className="product-page mt-3 pt-4 md:py-8 bg-gray-200 ">  
       <main className="container mx-auto max-w-[1315px]">
-        <section className="mx-4 md:mx-7 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white">
+        <section className="mx-4 md:mx-7 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white shadow-sm shadow-purple-400">
           <div>
             <h2 className="text-2xl leading-[2.4rem] md:text-3xl font-semibold mb-4 md:mb-5">{product.name}</h2>
             <div className="flex items-center gap-6 font-medium text-[0.95rem] flex-wrap gap-y-[0.8rem]">
@@ -74,10 +74,10 @@ export default async function Product(props) {
             </div>
           </div>
         </section>
-        <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white">
+        <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white shadow-sm shadow-purple-400">
           <DescriptionTabs tabs={tabs} reviews={reviews} />
         </section>
-        <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white">
+        <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white shadow-sm shadow-purple-400">
           <h2 className="text-2xl font-semibold mb-6">Related Products</h2>
           <ProductSlider productsData={relatedProducts} />
         </section>

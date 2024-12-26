@@ -1,7 +1,7 @@
 export const HomeCategoryLoader = () => {
 
     return (
-        <section className="pt-7 pb-4 lg:pb-7">
+        <section className="pt-7 pb-4 lg:pb-7 animate-pulse">
             <h2 className="h-7 md:h-9 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></h2>
             <div className="flex overflow-auto gap-3 md:gap-10">
             {[1,2,3,4,5,6].map(i => (

@@ -154,7 +154,7 @@ export default function FilterTabs({ categories, filteredProducts }) {
       {isLoading ? <div className='absolute inset-0 z-10 flex justify-center items-center' style={{background: '#f8f8f8ad'}}><img src='/loader.svg' alt='loading..' /></div> : ''}
       <div className="flex justify-between flex-wrap">
         <div className="">
-          <h2 className="text-2xl font-semibold">Popular Products</h2>
+          <h2 className="text-[1.4rem] md:text-2xl font-semibold">Popular Products</h2>
           <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
         </div>
         <div className="max-w-full">
@@ -304,7 +304,7 @@ export function DescriptionTabs({ tabs, reviews }) {
         <div className={`tab-item pt-4 px-0 lg:p-4 ${value === 2 ? 'block' : 'hidden'} `}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-16">
             <div>
-              <h3 className="text-2xl font-semibold mb-5 md:mb-8">Customer questions & answers</h3>
+              <h3 className="text-[1.4rem] md:text-2xl font-semibold mb-5 md:mb-8">Customer questions & answers</h3>
               <div>
                 <div className="flex gap-6 items-start mb-6 w-full">
                   <img src="/images/categories/unused/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
@@ -339,7 +339,7 @@ export function DescriptionTabs({ tabs, reviews }) {
               <hr className="mt-6"/>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-4 md:mb-6">Add Your Own Review.</h3>
+              <h3 className="text-[1.4rem] md:text-2xl font-semibold mb-4 md:mb-6">Add Your Own Review.</h3>
               <div className="rounded-xl border border-gray-100 overflow-hidden">
                 <div className="flex gap-5 py-4 px-6 bg-gray-100">
                   <h5 className="text-lg font-semibold">Your Rating :</h5>

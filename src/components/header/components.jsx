@@ -20,9 +20,8 @@ import { IoMdCart } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
 
 
-export function HeaderSearch() {
+export function HeaderSearch({ searchOpen, setSearchOpen }) {
 
-    const [searchOpen, setSearchOpen] = useState(false);
     const [productsData, setProductsData] = useState({ products: [] });
     const [searchKey, setSearchKey] = useState('');
     const searchBoxRef = useRef();
@@ -64,7 +63,7 @@ export function HeaderSearch() {
                     <FaChevronDown />
                 </Button>
             </div>
-            <div ref={searchBoxRef} className={`main-search-box fixed inset-0 bg-gray-50 z-10 md:relative w-full p-6 md:p-0 transition-opacity duration-400 md:opacity-100 ${searchOpen ? 'opacity-100' : 'opacity-0 pointer-events-none md:pointer-events-auto'}`}>
+            <div ref={searchBoxRef} className={`main-search-box fixed inset-0 bg-gray-50 z-10 md:relative w-full p-4 md:p-0 transition-opacity duration-400 md:opacity-100 ${searchOpen ? 'opacity-100' : 'opacity-0 pointer-events-none md:pointer-events-auto'}`}>
                 <div className="flex gap-3 items-center flex-1 h-[3.8rem] md:h-full bg-purple-700 rounded-lg pl-2 md:pl-0">
                     <FaChevronLeft className="close-search text-white text-[1.7rem] md:hidden" onClick={() => setSearchOpen(false)} />
                     <div className="relative flex-1 h-full">
@@ -103,7 +102,7 @@ export function HeaderSearch() {
 }
 
 
-export function HeaderActions() {
+export function HeaderActions({ searchOpen, setSearchOpen }) {
 
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
@@ -247,7 +246,7 @@ export const ExampleLoader = () => {
 
 export const NavLoader = () => {
     return (
-        <div className="flex gap-4 p-4">
+        <div className="flex gap-4 p-4 animate-pulse">
             <div className="h-10 px-[4.75rem] bg-gray-200 rounded-full dark:bg-gray-400 me-auto">&nbsp;</div>
             <div className="h-10 px-[4.75rem] bg-gray-200 rounded-full dark:bg-gray-400">&nbsp;</div>
             <div className="h-10 px-[4.75rem] bg-gray-200 rounded-full dark:bg-gray-400">&nbsp;</div>
@@ -296,14 +295,14 @@ export const ShopSidebar = ({ children }) => {
 }
 
 export const TopNav = () => {
-
+    const [searchOpen, setSearchOpen] = useState(false);
     return (
         <nav className="whitespace-nowrap py-3 md:py-6 px-4 flex items-center gap-3 md:gap-12 justify-between md:mb-3">
             <Link prefetch={false} className="main-logo" href={'/'}>
                 <Image src={'/images/logo.jpg'} className="" width={150} height={50} alt="Logo" />
             </Link>
-            <HeaderSearch />
-            <HeaderActions/>
+            <HeaderSearch searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
+            <HeaderActions searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
         </nav>
     )
 }

@@ -1,7 +1,5 @@
 import { getCategories, getFilteredProducts } from '@/api/api';
 import { FilterSection, SortByDropdown, ShowDropdown } from '../filterSection';
-import { FaListUl } from "react-icons/fa";
-import { BsFillGridFill, BsGrid3X3GapFill  } from "react-icons/bs";
 import { ProductCard } from '@/components/cards';
 import { Suspense } from 'react';
 import { ProductGridLoader } from '@/components/utils/loaders';
@@ -25,8 +23,9 @@ async function Filter(props) {
     const allCategories = categories.categoryList.map(i => i.children).reduce((all, current) => [ ...all, ...current ]);
 
     return (
-        <main className='mt-6'>
-            <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
+        <main className='mt-4 md:mt-6'>
+        
+            {/* <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <FilterSection allCategories={allCategories} catName={catName} catId={catId} minPrice={minPrice} maxPrice={maxPrice} rating={rating} location={location} />
                 <div className="w-full">
                     <ul className='w-full flex flex-wrap gap-4 items-center bg-gray-200 text-gray-600 py-1 px-[1.6rem] mb-4 gap-y-0'>
@@ -47,7 +46,19 @@ async function Filter(props) {
                         })()}
                     </Suspense>
                 </div>
-            </div>
+            </div> */}
+            <FilterSection allCategories={allCategories} catName={catName} catId={catId} minPrice={minPrice} maxPrice={maxPrice} rating={rating} location={location}>
+                <Suspense fallback={<ProductGridLoader cardCount={12} />}>
+                    {(async () => {
+                        const filteredProducts = await getFilteredProducts(catName, catId, minPrice, maxPrice, location);
+                        return (
+                            <div className="grid gap-3 mt-4 product-grid relative">
+                                {filteredProducts.products.map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
+                            </div>
+                        )
+                    })()}
+                </Suspense>
+            </FilterSection>
         </main>
     )
 }
