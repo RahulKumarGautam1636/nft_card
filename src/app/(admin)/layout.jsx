@@ -21,6 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { MyLoader } from "@/components/utils";
+import { TbBrandAuth0 } from "react-icons/tb";
 
 
 export default function AdminLayout({ children }) {
@@ -171,6 +172,25 @@ export default function AdminLayout({ children }) {
                                         <li className="flex items-center gap-3 px-4 py-3">
                                             <GoDotFill className="text-xl text-gray-500"/> 
                                             <Link prefetch={false} href={'/admin/categories'} className="font-semibold text-[1rem] text-gray-600">Add Category</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li className="group">
+                                <div className="flex items-center gap-3 p-4">
+                                    <TbBrandAuth0 className="text-2xl text-purple-800"/> 
+                                    <Link prefetch={false} href={'/admin/brands'} className="font-semibold text-[1.1rem] text-gray-600">Brands</Link>
+                                    <FaAngleDown className="ml-auto"/>
+                                </div>
+                                <div className="hidden group-hover:block pl-4 pb-3">
+                                    <ul>
+                                        <li className="flex items-center gap-3 px-4 py-3">
+                                            <GoDotFill className="text-xl text-gray-500"/> 
+                                            <Link prefetch={false} href={'/admin/brands'} className="font-semibold text-[1rem] text-gray-600">Brands List</Link>
+                                        </li>
+                                        <li className="flex items-center gap-3 px-4 py-3">
+                                            <GoDotFill className="text-xl text-gray-500"/> 
+                                            <Link prefetch={false} href={'/admin/brands'} className="font-semibold text-[1rem] text-gray-600">Add Brands</Link>
                                         </li>
                                     </ul>
                                 </div>

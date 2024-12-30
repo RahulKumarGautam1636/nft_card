@@ -49,7 +49,7 @@ export async function POST(req) {
         color: body.get('color'),
     }
 
-    const imageUrlList = await handleImages('category', category.images, category.name);    
+    const imgSource = await handleImages('categories', category.images, category.name);    
 
     // let fileUrlList = [];
     // for (let i = 0; i < category.images.length; i++) {
@@ -76,7 +76,7 @@ export async function POST(req) {
         _id: id,
         id: id,
         name: category.name,
-        images: imageUrlList,
+        images: imgSource.fileNameList,
         color: category.color,
         slug: category.name,
         children: []

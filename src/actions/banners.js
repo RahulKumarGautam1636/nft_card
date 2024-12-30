@@ -1,8 +1,8 @@
 "use server"
 
-import { Banners, Category, HomeBanner, HomeBottomBanners, HomeSideBanners, Products } from "@/lib/models";
+import { Banners, Brands, Category, HomeBanner, HomeBottomBanners, HomeSideBanners, Products, SubCategory } from "@/lib/models";
 import dbConnect from "@/lib/dbConnect";
-import { parseData } from "@/api/actionUtils";
+import { parseData, waitFor } from "@/api/actionUtils";
 // import mongoose from "mongoose";
 
 export async function getBanners2(type) {
@@ -31,6 +31,35 @@ export async function getCategories2() {
     const category = await Category.find()
     return {
         data: parseData({ categoryList: category })
+    };
+}
+
+export async function deleteEntity({ name, id}) {
+    await dbConnect();
+    if (name === 'category') {
+        await Category.deleteOne({ id: id });    
+    } else if (name === 'subCategory') {
+        await SubCategory.deleteOne({ id: id });    
+    } else if (name === 'product') {
+        await Products.deleteOne({ id: id });    
+    }
+    await waitFor(2000);
+    return { status: 200, message: 'Successfully deleted the Item.' };
+}
+
+export async function getSubCategory() {
+    await dbConnect();
+    const subCategory = await SubCategory.find()
+    return {
+        data: parseData(subCategory)
+    };
+}
+
+export async function getBrands() {
+    await dbConnect();
+    const brands = await Brands.find()
+    return {
+        data: parseData(brands)
     };
 }
 

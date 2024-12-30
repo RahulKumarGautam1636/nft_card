@@ -39,7 +39,7 @@ export async function POST(req) {
         images: body.getAll('images[]'),
     }
 
-    const imageUrlList = await handleImages('subCategory', subCategory.images, subCategory.name);
+    const imgSource = await handleImages('subCategory', subCategory.images, subCategory.name);
 
     var id = new mongoose.Types.ObjectId;
     
@@ -47,7 +47,7 @@ export async function POST(req) {
         _id: id,
         id: id,
         name: subCategory.name,
-        images: imageUrlList,
+        images: imgSource.fileNameList,
         slug: subCategory.name,
         parentCategory: subCategory.parentCategory,
         children: []

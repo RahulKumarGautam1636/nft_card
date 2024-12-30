@@ -7,6 +7,7 @@ import { join } from "path";
 export const handleImages = async (folderName, images, customName) => {
     console.log(folderName, images, customName)
     let fileUrlList = [];
+    let fileNameList = [];
     for (let i = 0; i < images.length; i++) {
         const image = images[i];
   
@@ -22,11 +23,12 @@ export const handleImages = async (folderName, images, customName) => {
         await writeFile(`${absolutePath}/${fileName}`, buffer);
         const fileUrl = `${relativePath}/${fileName}`;
         fileUrlList.push(fileUrl);
+        fileNameList.push(fileName);
     }
-    return fileUrlList;
+    return { fileUrlList: fileUrlList, fileNameList: fileNameList };
 }
 
-export const handleDirectory = async (folderName, rootFolder=`/images/uploaded/`) => {
+export const handleDirectory = async (folderName, rootFolder=`/images/`) => {
     let uploadFolder = rootFolder + folderName;
     const uploadDir = join(process.cwd(), "public", uploadFolder);
     try {

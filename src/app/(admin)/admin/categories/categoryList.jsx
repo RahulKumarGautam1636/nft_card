@@ -17,6 +17,7 @@ import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { MyLoader } from "@/components/utils";
+import { deleteEntity } from "@/actions/banners";
 // import { getCategory } from "@/api/actions";
 
 
@@ -47,7 +48,8 @@ function CategoryList({ refresh, categories, getCategories }) {
 
     const deleteItem = async (id) => {
         setLoading(true);
-        const res = await axios.delete(`https://shopify-seven-iota.vercel.app/api/category`, { data: { id: id } });
+        // const res = await axios.delete(`https://shopify-seven-iota.vercel.app/api/category`, { data: { id: id } });
+        const res = await deleteEntity({ name: 'category', id: id });
         setLoading(false);
         if (res.status === 200) {
             getCategories();

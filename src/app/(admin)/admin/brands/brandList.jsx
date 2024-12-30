@@ -8,47 +8,34 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useEffect, useState } from "react";
-import { products } from "../page";
-import { Button } from "@mui/material";
-import { Download } from "@mui/icons-material";
-import { FaRegEye } from "react-icons/fa6";
-import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
-import axios from "axios";
+import { useState } from "react";
+// import { products } from "../page";
 import { MyLoader } from "@/components/utils";
-import { deleteEntity } from "@/actions/banners";
-// import { getSubCategory } from "@/api/actions";
+import { useSelector } from "react-redux";
 
 
-function SubCategoryList({ refresh, subCategories, getSubCategories }) {
+function ProductList({ products, setProducts }) {
 
     const [age, setAge] = useState(7);
+    const isLoading = useSelector(state => state.isLoading);
 
     const handleChange = (event) => setAge(event.target.value);
-    const [loading, setLoading] = useState(false);
 
-    const [page, setPage] = useState(1);
+    // const [page, setPage] = useState(1);
     const handlePage = (event, value) => {
-      setPage(value);
+    //   setPage(value);
+        setProducts(pre => ({...pre, page: value}));
     };
 
-    const deleteItem = async (id) => {
-        setLoading(true);
-        // const res = await axios.delete(`https://shopify-seven-iota.vercel.app/api/subCategory`, { data: { id: id } });
-        const res = await deleteEntity({ name: 'subCategory', id: id });
-        setLoading(false);
-        if (res.status === 200) {
-            getSubCategories();
-        }
-    }
+    // const [loading, setLoading] = useState(false);
 
     return (
         <section className='h-full relative'>
-            {loading ? <MyLoader classes='absolute' /> : ''}
+            {isLoading.local.productList ? <MyLoader classes='absolute' /> : ''}
             <div className="">
                 <div className="rounded-lg border border-gray-300 bg-white shadow-sm p-4 md:p-6">
                     <div className="flex justify-between items-center pb-4">
-                        <h4 className="text-[1.35rem] font-semibold flex gap-2 items-center"><GoDotFill className="text-xl text-gray-500"/> Categories Overview.</h4>
+                        <h4 className="text-[1.35rem] font-semibold flex gap-2 items-center"><GoDotFill className="text-xl text-gray-500"/> Product Overview.</h4>
                         <FormControl className="m-0 min-w-24" size="small">
                             <InputLabel id="demo-select-small-label">View</InputLabel>
                             <Select labelId="demo-select-small-label" id="demo-select-small" value={age} label="Age" onChange={handleChange}>
@@ -64,40 +51,36 @@ function SubCategoryList({ refresh, subCategories, getSubCategories }) {
                         <table className="table-type-1 header-bg w-full min-w-[730px] text-center border-b border-gray-300">
                             <tbody>
                                 <tr className="border-b-[3px] border-orange-500">
-                                    <th className="text-start">Image</th>
-                                    <th className="text-start">Name</th>
-                                    <th>Color</th>
-                                    <th>Quantity</th>
+                                    <th className="text-start" colSpan={2}>Product</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
                                     <th>Sale</th>
-                                    <th>Start Date</th>
-                                    <th>Action</th>
+                                    <th>Revenue</th>
                                 </tr>
-                                {subCategories.map(i => (
+                                {products.docs.map(i => (
                                     <tr className="text-gray-700 font-semibold" key={i.id}>
                                         <td style={{paddingRight: 0}}>
-                                            <img className="rounded h-12" src={i.images[0] ? i.images[0] : '/images/no-image.png'} alt="Product" />
+                                            <img className="rounded h-12" src={i.images[0]} alt="Product" />
                                         </td>
-                                        <td className="text-start">
+                                        <td className="text-start max-w-80 overflow-hidden overflow-ellipsis whitespace-nowrap">
                                             <span className="font-medium text-gray-900 text-end">{i.name}</span>
                                         </td>
+
+                                        <td className="whitespace-nowrap">
+                                            <span className="text-gray-500">{i.category?.name}</span>
+                                        </td>
+                                        <td className="whitespace-nowrap">
+                                            ₹ 2454.25
+                                        </td>
                                         <td>
-                                            <span className={`${i.color ? 'bg-green-100 border border-green-200' : 'bg-red-100 border border-red-200'} ${i.color ? 'text-green-600' : 'text-red-600'} text-sm font-medium py-[0.25rem] px-[0.7rem] rounded-2xl inline-block`}>{i.color ? `In Stock` : 'Out of Stock'}</span>
+                                            <span className={`${i.stock ? 'bg-green-100 border border-green-200' : 'bg-red-100 border border-red-200'} ${i.stock ? 'text-green-600' : 'text-red-600'} text-sm font-medium py-[0.25rem] px-[0.7rem] rounded-2xl inline-block`}>{i.stock ? `In Stock (${i.stock})` : 'Out of Stock'}</span>
                                         </td>
                                         <td className="whitespace-nowrap">
                                             ₹ 28,672.36
                                         </td>
                                         <td className="whitespace-nowrap">
                                             ₹ 928.41
-                                        </td>
-                                        <td className="whitespace-nowrap">
-                                            12/04/2024
-                                        </td>
-                                        <td className="whitespace-nowrap">
-                                            <div className="flex gap-6 justify-center">
-                                                <FaRegEye className="text-blue-600 text-xl bg-white cursor-pointer"/>
-                                                <FaRegEdit className="text-green-700 text-xl bg-white cursor-pointer"/>
-                                                <FaRegTrashAlt onClick={() => deleteItem(i.id)} className="text-red-600 text-xl bg-white cursor-pointer"/>
-                                            </div>
                                         </td>
                                     </tr>
                                 ))}
@@ -106,8 +89,8 @@ function SubCategoryList({ refresh, subCategories, getSubCategories }) {
                     </div>
                     <div className="mt-6">
                         <Stack spacing={2} className="flex-row flex-wrap gap-4 justify-between items-center">
-                            <Typography>Showing page: {page}</Typography>
-                            <Pagination style={{ marginTop: 0 }} count={10} color="secondary" page={page} onChange={handlePage} />
+                            <Typography>Showing page: {products.page}</Typography>
+                            <Pagination style={{ marginTop: 0 }} count={products.totalPages} color="secondary" page={products.page} onChange={handlePage} />
                         </Stack>
                     </div>
                 </div>
@@ -116,4 +99,4 @@ function SubCategoryList({ refresh, subCategories, getSubCategories }) {
     )   
 }
 
-export default SubCategoryList;
+export default ProductList;

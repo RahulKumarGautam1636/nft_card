@@ -1,17 +1,16 @@
 "use client";
 import withAuth from "@/components/withAuth";
-import ProductList from "./productList";
-import AddProduct from "./addProduct";
+import ProductList from "./brandList";
+import AddProduct from "./addBrand";
 import { useEffect, useState } from "react";
 import { Tab, Tabs } from "@mui/material";
-import axios from "axios";
 import { waitFor } from "@/app/api/utils";
 import { useDispatch } from "react-redux";
 import { localLoader } from "@/lib/slices";
 import { getProducts2 } from "@/actions/banners";
 
 
-function Ecommerce() {
+function Brands() {
 
     const [tab, setTab] = useState('Add Product');
 
@@ -73,4 +72,4 @@ function Ecommerce() {
     )   
 }
 
-export default withAuth(Ecommerce);
+export default withAuth(Brands);

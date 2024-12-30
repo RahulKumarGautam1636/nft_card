@@ -5,7 +5,8 @@ import { Tab, Tabs } from "@mui/material";
 import AddCategory from "./addCategory";
 import CategoryList from "./categoryList";
 import SubCategoryList from "./subCategoryList";
-import axios from "axios";
+// import axios from "axios";
+import { getCategories2, getSubCategory } from "@/actions/banners";
 
 
 function Categories() {
@@ -21,7 +22,8 @@ function Categories() {
     const [categories, setCategories] = useState({ categoryList: []});
 
     const getCategories = async () => {
-        const res = await axios.get('https://shopify-seven-iota.vercel.app/api/category');
+        // const res = await axios.get('https://shopify-seven-iota.vercel.app/api/category');
+        const res = await getCategories2();
         setCategories(res.data);
         // let category = await getCategory(handleList);
         // setCategories(JSON.parse(category));            
@@ -30,7 +32,8 @@ function Categories() {
     const [subCategories, setSubCategories] = useState([]);
 
     const getSubCategories = async () => {
-        const res = await axios.get('https://shopify-seven-iota.vercel.app/api/subCategory');
+        // const res = await axios.get('https://shopify-seven-iota.vercel.app/api/subCategory');
+        const res = await getSubCategory();
         setSubCategories(res.data);
         // let category = await getSubCategory();
         // setSubCategories(JSON.parse(category));            
