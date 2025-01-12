@@ -1,3 +1,4 @@
+import { imgSource } from "@/api/actionUtils";
 import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, getProducts } from "@/api/api";
 import { ProductCard } from "@/components/cards";
 import { FeaturedCategories } from "@/components/home";
@@ -32,7 +33,7 @@ export default async function Home() {
             {categories.categoryList.map(i => (
               <div key={i.id} className="text-center min-w-fit cursor-pointer group flex-1 flex flex-col items-center">
                   <div className="rounded-full max-w-[7rem] lg:max-w-[9.5rem] p-[1.7rem] border border-gray-300 group-hover:shadow-xl group-hover:border-gray-400" style={{background: i.color}}>
-                    <img className="max-w-full" src={'/images/categories/' + i.images[0]} />
+                    <img className="max-w-full" src={imgSource('categories', i.images[0])} />
                   </div>
                   <h3 className="text-lg font-semibold mt-2">{i.name}</h3>
               </div>
@@ -50,7 +51,7 @@ export default async function Home() {
             <div className="sticky top-0 flex lg:flex-col gap-5 overflow-auto lg:overflow-clip">
               {homeSideBanners.slice(0, 4).map(i => (
                 <div key={i.id}>
-                  <img className="min-w-56 lg:w-full" src={i.images[0]} alt="banner" />
+                  <img className="min-w-56 lg:w-full" src={imgSource('homeSideBanners', i.images[0])} alt="banner" />
                 </div>
               ))}
             </div>
@@ -58,7 +59,7 @@ export default async function Home() {
           <div className="col-span-1 lg:col-span-8">
             <FilterTabs categories={categories.categoryList} filteredProducts={filteredProducts} />
             <div className="mt-4">
-              <PromoBanner banners={banners} type={'promo-banner'} path={'/images/banners/'} />
+              <PromoBanner banners={banners} type={'promo-banner'} path={'banners'} />
             </div>
             <div className="mt-7">
               <div className="">
@@ -86,7 +87,7 @@ export default async function Home() {
                   <h3 className="text-gray-900 font-bold text-lg leading-6 md:text-3xl">In store or online your health & safety is our top priority.</h3>
                 </div>
                 <div className="relative">
-                  <img className="absolute h-100 w-full top-1/2 right-0 transform -translate-y-1/2" src="./images/banner-box2.webp" />
+                  <img className="absolute h-100 w-full top-1/2 right-0 transform -translate-y-1/2" src="/images/banner-box2.webp" />
                 </div>
               </div>
               <section className="mt-7">
@@ -140,7 +141,7 @@ export default async function Home() {
         </section>
         <section>
           <div className="mt-4">
-            <PromoBanner banners={homeBottomBanners} type={'promo-banner'} path={'/images/homeBottomBanners/'}/>
+            <PromoBanner banners={homeBottomBanners} type={'promo-banner'} path={'homeBottomBanners'}/>
           </div>
         </section>
       </main>

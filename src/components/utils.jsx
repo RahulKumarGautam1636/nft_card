@@ -21,6 +21,7 @@ import { toast } from 'react-toastify';
 import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
+import { remoteAssets } from '@/constants';
 // import { handleDirectory } from '@/api/actionUtils';
 
 const Arrow = ({ customClass, onClick, el }) => {
@@ -51,8 +52,8 @@ export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) =
 
 export const ProductViewBox = ({ name, dataList, responsive=[], customSettings={}, product }) => {
 
-  const mainSlide = () => product.images.map(i => (<InnerImageZoom key={i} zoomType={'hover'} src={i} zoomSrc={i} />));
-  const thumbSlide = () => product.images.map(i => (<img className="max-w-32 px-2 pt-1" key={i} src={i} alt="User" />));
+  const mainSlide = () => product.images.map(i => (<InnerImageZoom key={i} zoomType={'hover'} src={imgSource('products', i)} zoomSrc={imgSource('products', i)} />));
+  const thumbSlide = () => product.images.map(i => (<img className="max-w-32 px-2 pt-1" key={i} src={imgSource('products', i)} alt="User" />));
 
   const [nav3, setNav3] = useState(null);
   const [nav4, setNav4] = useState(null);
@@ -96,7 +97,7 @@ export const HomeBannerSlider = ({ homeBanners }) => {
     { breakpoint: 700, settings: { slidesToShow: 1, centerPadding: 0, dots: true, arrows: false } }
   ]
 
-  const bannersSlide = homeBanners.map(i => (<BannerCard type={'home-banner'} path={'/images/mainBanners/'} data={i} key={i.id} classes='px-3' />));
+  const bannersSlide = homeBanners.map(i => (<BannerCard type={'home-banner'} path={'mainBanners'} data={i} key={i.id} classes='px-3' />));
 
   return (
     <div className="relative">
@@ -307,7 +308,7 @@ export function DescriptionTabs({ tabs, reviews }) {
               <h3 className="text-[1.4rem] md:text-2xl font-semibold mb-5 md:mb-8">Customer questions & answers</h3>
               <div>
                 <div className="flex gap-6 items-start mb-6 w-full">
-                  <img src="/images/categories/unused/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
+                  <img src="/images/avatar.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
                   <div className='flex-1'>
                     <div className="flex justify-between gap-x-4 gap-y-2 flex-wrap w-full">
                       <h4 className="text-xl font-semibold">Satyam Kumar</h4>
@@ -321,7 +322,7 @@ export function DescriptionTabs({ tabs, reviews }) {
                 </div>
                 {reviews.map(review => (
                   <div className="flex gap-6 items-start mb-6 w-full" key={review.id}>
-                    <img src="/images/categories/unused/1.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
+                    <img src="/images/avatar.jpg" className="max-w-16 lg:max-w-fit rounded-2xl" />
                     <div className='flex-1'>
                       <div className="flex justify-between gap-x-4 gap-y-2 flex-wrap w-full">
                         <h4 className="text-xl font-semibold">{review.customerName}</h4>
@@ -585,4 +586,15 @@ export const useFetch = (url) => {
   }, [fetchData]);
 
   return [data, error];
+}
+
+export const imgSource = (folder, fileName) => {
+  let remoteEnd = 'https://res.cloudinary.com/dmse11kmn/image/upload/Shopify';
+  let path;
+  if (remoteAssets) {
+    path = `${remoteEnd}/${folder}/${fileName}`;
+  } else {
+    path = `/images/${folder}/${fileName}`;
+  }
+  return path;
 }

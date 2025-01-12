@@ -19,6 +19,7 @@ import { login, searchProducts } from "@/api/api";
 import { ProductCard_2 } from "./cards";
 import { IoMdCart } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
+import { imgSource } from "@/api/actionUtils";
 // import { NEXT_APP_BASE_URL } from "@/constants";
 // import axios from "axios";
 
@@ -274,7 +275,7 @@ const Header = ({ categories }) => {
                             <li key={i.id} className="relative group">
                                 <Link prefetch={false} href={`/filter/catId/${i.id}`}>
                                     <Button className="bg-white hover:bg-slate-100 text-[1.05rem] font-medium text-gray-700 rounded-full py-2 px-4">
-                                        <img className="rounded max-w-[1.8rem] mr-3" src={'/images/categories/' + i.images[0]} alt="Product" /> {i.name}
+                                        <img className="rounded max-w-[1.8rem] mr-3" src={imgSource('categories' + i.images[0])} alt="Product" /> {i.name}
                                     </Button>
                                 </Link>
                                 {i.children.length ? <List className="min-w-40 absolute bg-white shadow-xl border border-gray-200 rounded-lg z-10 top-full left-0 hidden group-hover:block">

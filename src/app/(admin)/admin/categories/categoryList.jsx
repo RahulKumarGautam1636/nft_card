@@ -18,6 +18,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { MyLoader } from "@/components/utils";
 import { deleteEntity } from "@/actions/banners";
+import { imgSource } from "@/api/actionUtils";
 // import { getCategory } from "@/api/actions";
 
 
@@ -89,7 +90,7 @@ function CategoryList({ refresh, categories, getCategories }) {
                                 {categories.map(i => (
                                     <tr className="text-gray-700 font-semibold" key={i.id}>
                                         <td style={{paddingRight: 0}}>
-                                            <img className="rounded h-12" src={`/images/categories/${i.images[0]}`} alt="Product" />
+                                            <img className="rounded h-12" src={imgSource('categories', i.images[0])} alt="Product" />
                                         </td>
                                         <td className="text-start">
                                             <span className="font-medium text-gray-900 text-end">{i.name}</span>

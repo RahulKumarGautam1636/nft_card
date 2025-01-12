@@ -8,7 +8,7 @@ const connection = {};
 async function dbConnect() {
   // Check if we have a connection to the database or if it's currently connecting
   if (connection.isConnected) {
-    // console.log('Already connected to the database');
+    console.log('Already connected to the database');
     return;
   }
 

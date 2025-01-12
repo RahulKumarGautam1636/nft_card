@@ -1,4 +1,5 @@
 import { getCategories } from "@/api/api";
+import { imgSource } from "@/api/actionUtils";
 
 export const FeaturedCategories = async () => {
 
@@ -11,7 +12,7 @@ export const FeaturedCategories = async () => {
             {categories.categoryList.map(i => (
                 <div key={i.id} className="text-center min-w-fit cursor-pointer group flex-1 flex flex-col items-center">
                     <div className="rounded-full max-w-[7rem] lg:max-w-[9.5rem] p-[1.7rem] border border-gray-300 group-hover:shadow-xl group-hover:border-gray-400" style={{background: i.color}}>
-                    <img className="max-w-full" src={'/images/categories/' + i.images[0]} />
+                    <img className="max-w-full" src={imgSource('categories', i.images[0])} />
                     </div>
                     <h3 className="text-lg font-semibold mt-2">{i.name}</h3>
                 </div>

@@ -172,10 +172,10 @@ export const Profile = () => {
 
     return (
         <div className="login-modal min-h-screen md:p-4 md:py-10 bg-gray-200 flex justify-center h-full">
-            <div className="container bg-white flex flex-col md:flex-row md:rounded-2xl max-w-[80rem] overflow-hidden shadow-md shadow-gray-400 min-h-[80vh]">
+            <div className="w-full bg-white flex flex-col md:flex-row md:rounded-2xl max-w-[80rem] overflow-hidden shadow-md shadow-gray-400 min-h-[80vh]">
                 <div className="h-full w-full md:w-[25rem] bg-gray-100 p-8" style={{background: 'linear-gradient(#3036ff, #6a31c1, #af28c7, #d31e8b)'}}>    {/* style={{backgroundImage: 'url(/profile-bg-2.jpg)', backgroundSize: '100% 100%', padding: '2rem 0rem', border: '1px solid #e4e4e4'}} */}
                     <div className="flex flex-col items-center">
-                        <img className="rounded-full max-w-32" src="/images/categories/unused/1.jpg" alt="User" />
+                        <img className="rounded-full max-w-32" src="/images/avatar.jpg" alt="User" />
                         <h3 className="mt-5 mb-1 text-lg font-semibold text-white">{user.Name}</h3>
                         <p className="font-semibold text-white">{user.RegMob1}</p>
                     </div>

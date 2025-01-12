@@ -12,6 +12,7 @@ import { Star, StarBorder } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import { BiX } from 'react-icons/bi';
 import { RiFilter2Fill } from 'react-icons/ri';
+import { imgSource } from '@/api/actionUtils';
 
 
 export const FilterSection = ({ children, allCategories, catName, catId, minPrice, maxPrice, location, rating }) => {  
@@ -101,7 +102,7 @@ export const FilterSection = ({ children, allCategories, catName, catId, minPric
                     <Button onClick={handleFilters} className="bg-purple-600 text-white rounded-lg py-3 hover:bg-purple-500 w-full">Apply Filters</Button>
                 </div>
                 <div>
-                    <img className='w-full md:max-w-[22rem]' src='/images/homeSideBanners/banner-3.gif' alt='sidebar' />
+                    <img className='w-full md:max-w-[22rem]' src={imgSource('homeSideBanners', 'banner-3.gif')} alt='sidebar' />
                 </div>
             </div>
 

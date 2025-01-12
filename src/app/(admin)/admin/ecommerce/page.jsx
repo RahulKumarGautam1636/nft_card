@@ -62,7 +62,7 @@ function Ecommerce() {
                 </Tabs>
                 <div className="tabContent">
                     <div className={`tab-item p-4 ${value === 0 ? 'block' : 'hidden'} `}>
-                        <AddProduct /> 
+                        <AddProduct setRefresh={setRefresh} /> 
                     </div>
                     <div className={`tab-item p-4 ${value === 1 ? 'block' : 'hidden'} `}>
                         <ProductList products={products} setProducts={setProducts} />

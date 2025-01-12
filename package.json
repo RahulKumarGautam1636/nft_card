@@ -17,6 +17,7 @@
     "@mui/material": "^5.16.7",
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.6",
+    "cloudinary": "^2.5.1",
     "crypto-js": "^4.2.0",
     "generate-unique-id": "^2.0.3",
     "mongodb": "^6.10.0",

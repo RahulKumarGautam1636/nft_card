@@ -3,8 +3,9 @@ import { SiCodefresh } from "react-icons/si";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
 import { HiMiniArrowUturnLeft } from "react-icons/hi2";
-import { ActionBox, DescriptionTabs, ProductSlider, ProductViewBox } from "@/components/utils";
+import { ActionBox, DescriptionTabs, ProductViewBox } from "@/components/utils";
 import { getProduct, getReviews, getCatIdProducts } from "@/api/api";
+import { ProductCard } from "@/components/cards";
 
 
 export default async function Product(props) {
@@ -79,7 +80,9 @@ export default async function Product(props) {
         </section>
         <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white shadow-sm shadow-purple-400">
           <h2 className="text-2xl font-semibold mb-6">Related Products</h2>
-          <ProductSlider productsData={relatedProducts} />
+          <div className="grid gap-3 mt-4 product-grid">
+            {relatedProducts.products.reverse().map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
+          </div>
         </section>
       </main>
     </div>

@@ -12,6 +12,7 @@ import { useState } from "react";
 // import { products } from "../page";
 import { MyLoader } from "@/components/utils";
 import { useSelector } from "react-redux";
+import { imgSource } from "@/api/actionUtils";
 
 
 function ProductList({ products, setProducts }) {
@@ -61,7 +62,7 @@ function ProductList({ products, setProducts }) {
                                 {products.docs.map(i => (
                                     <tr className="text-gray-700 font-semibold" key={i.id}>
                                         <td style={{paddingRight: 0}}>
-                                            <img className="rounded h-12" src={i.images[0]} alt="Product" />
+                                            <img className="rounded h-12" src={imgSource('products', i.images[0])} alt="Product" />
                                         </td>
                                         <td className="text-start max-w-80 overflow-hidden overflow-ellipsis whitespace-nowrap">
                                             <span className="font-medium text-gray-900 text-end">{i.name}</span>

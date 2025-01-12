@@ -47,9 +47,16 @@ export async function deleteEntity({ name, id}) {
     return { status: 200, message: 'Successfully deleted the Item.' };
 }
 
-export async function getSubCategory() {
+export async function getSubCategory(params={}) {
     await dbConnect();
-    const subCategory = await SubCategory.find()
+    let subCategory;
+
+    if (params.parentId) {
+        subCategory = await SubCategory.find({ parent: params.parentId });
+    } else {
+        subCategory = await SubCategory.find();
+    }
+
     return {
         data: parseData(subCategory)
     };

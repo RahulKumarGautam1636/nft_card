@@ -9,12 +9,14 @@ import { IconButton } from "@mui/material";
 import { IoMdHeart } from "react-icons/io";
 import { MdOutlineShoppingCart, MdShoppingCart } from "react-icons/md";
 import { productToast } from "./utils";
+import { imgSource } from "@/api/actionUtils";
+
 
 export const BannerCard = ({ data, classes, type, path }) => {
 
     return (
       <div className={`home-banner-card ${classes}`}>
-        <img src={path + data.images[0]} className="rounded-md" alt="banner" style={{width: '100%'}} />
+        <img src={imgSource(path, data.images[0])} className="rounded-md" alt="banner" style={{width: '100%'}} />
       </div>
     )
 }
@@ -45,7 +47,7 @@ export const ProductCard = ({ data, classes, styles={} }) => {
     <div className={`product-card bg-gray-100 max-w-[186px] rounded-md overflow-hidden hover:shadow-md border border-gray-300 ${classes}`} style={{...styles}}>
       <div className="card-img h-[215px] lg:h-[230px] overflow-hidden bg-white flex justify-center items-center relative">
         <Link prefetch={false} href={`/product/${data.id}`} className="group">
-          <img className="max-w-full max-h-full transform group-hover:scale-110 transition-transform" src={data.images[0]} alt="product" />
+          <img className="max-w-full max-h-full transform group-hover:scale-110 transition-transform" src={imgSource('products', data.images[0])} alt="product" />
         </Link>
         {/* <Button className="rounded-full bg-purple-50 min-w-0 p-3 hover:bg-purple-200 md:hidden" style={{border: '1px solid #cbcbcb'}}><GiHamburgerMenu className="text-2xl text-purple-800"/></Button> */}
         <div className="flex gap-3 items-center absolute bottom-[3%] right-[4%]">

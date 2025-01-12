@@ -82,10 +82,10 @@ const productsSchema = new Schema({
     rating: Number,
     isFeatured: Boolean,
     discount: Number,
-    productRam: [],
+    productRam: [String],
     size: [String],
-    productWeight: [],
-    location: [],
+    productWeight: [String],
+    location: [String],
     dateCreated: String,
     updatedAt: String,
 });

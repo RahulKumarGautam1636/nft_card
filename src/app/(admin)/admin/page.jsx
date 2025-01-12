@@ -46,7 +46,7 @@ function Dashboard() {
     return (
         <main className='py-4 px-4 h-full'>
             <h4 className="text-2xl font-semibold mb-4">Add Attrubute</h4>
-            <div className="flex gap-4 flex-wrap">
+            <div className="grid gap-4" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'}}>
                 <div className="rounded-3xl p-6 shadow-md border border-gray-300 bg-white flex-1 min-w-fit">
                     <div className="flex gap-4">
                         <div className="p-2 rounded-full bg-green-100 border border-green-300 h-[4.2rem] grid place-items-center">
@@ -465,21 +465,21 @@ export default withAuth(Dashboard);
 export const products = [
     {
         id: 1,
-        images: ['/images/categories/unused/2.jpg'],
+        images: ['/images/avatar.jpg'],
         name: 'Patimax Fragrance Long...',
         category: 'Men Fashion',
         totalSale: 45,
         stock: 34
     },{
         id: 2,
-        images: ['/images/categories/unused/3.jpg'],
+        images: ['/images/avatar.jpg'],
         name: 'Patimax Fragrance Long...',
         category: 'Electronics',
         totalSale: 45,
         stock: 0
     },{
         id: 3,
-        images: ['/images/categories/unused/4.jpg'],
+        images: ['/images/avatar.jpg'],
         name: 'Patimax Fragrance Long...',
         category: 'Jwellery',
         totalSale: 45,

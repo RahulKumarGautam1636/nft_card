@@ -82,7 +82,7 @@ export const ImagePicker = ({ label, name, multiSelect=false, pickerValue }) => 
 }
 
 
-export const ImagePicker2 = ({ label, name, multiSelect=false, pickerValue, setImages, imgCount }) => {
+export const ImagePicker2 = ({ label, name, multiSelect=false, pickerValue, setImages, imgCount, required }) => {
 
   const [files, setFiles] = useState([]);
   const [imgURL, setImgURL] = useState([]);
@@ -111,8 +111,6 @@ export const ImagePicker2 = ({ label, name, multiSelect=false, pickerValue, setI
     setImages(pre => ({...pre, images: files}));
   }
 
-  console.log(imgURL);
-
   function handleSubmit(event) {
     event.preventDefault() 
     if (!files.length) return alert('Please select a file.');     
@@ -126,7 +124,7 @@ export const ImagePicker2 = ({ label, name, multiSelect=false, pickerValue, setI
 
   return (
     <div>
-        <p className="text-black text-[0.9rem] mb-4 block" onClick={() => console.log(imageRef.current.file)}>{label}</p>
+        {label ? <p className="text-black text-[0.9rem] mb-4 block">{label}</p> : ''}
         <div className="grid gap-4" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(11rem, 1fr))'}}>
             {imgURL.length ? 
               <>
@@ -143,7 +141,7 @@ export const ImagePicker2 = ({ label, name, multiSelect=false, pickerValue, setI
             <label htmlFor={name} className="h-40 px-5 cursor-pointer border border-dashed border-blue-500 bg-gray-50 rounded-lg flex flex-col gap-3 justify-center items-center text-center">
                 <Download className="text-[4rem] text-pink-600" />
                 <p className="font-medium text-blue-500">Click or Drop your images here</p>
-                <input className="hidden" type="file" multiple={multiSelect} id={name} ref={imageRef} accept="image/png, image/jpeg" name={name} onChange={handleImageChange} />
+                <input required={required} className="hidden" type="file" multiple={multiSelect} id={name} ref={imageRef} accept="image/png, image/jpeg" name={name} onChange={handleImageChange} />
             </label>
         </div>
     </div>

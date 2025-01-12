@@ -169,7 +169,7 @@ export const Login = () => {
 
     return (
         <div className="login-modal min-h-screen md:p-4 md:py-10 bg-gray-200 flex justify-center h-full">
-            <div className="container bg-white flex flex-col md:flex-row  md:rounded-2xl h-fit max-w-[80rem] overflow-hidden shadow-md shadow-gray-400">
+            <div className="w-full bg-white flex flex-col md:flex-row  md:rounded-2xl h-fit max-w-[80rem] overflow-hidden shadow-md shadow-gray-400">
                 <div className="flex-1 px-2 py-8 md:px-8 md:py-12 bg-purple-500">
                     {/* <h2 className="text-3xl md:text-4xl text-center text-white font-semibold">WELCOME TO</h2> */}
                     <Image src={'/images/logo.jpg'} className="rounded-md mx-auto mt-0 md:mt-10" width={150} height={50} alt="Logo" />

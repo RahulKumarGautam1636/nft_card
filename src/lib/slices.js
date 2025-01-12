@@ -56,15 +56,15 @@ let currentUser = {
 }
 
 const userSlice = createSlice({
-name: 'USER', initialState: currentUser,
-reducers: {
-  addUser: (state, action) => { 
-    return Object.assign(state, action.payload);                 
-  },
-  dumpUser: (state, action) => { 
-    return currentUser;                 
+  name: 'USER', initialState: currentUser,
+  reducers: {
+    addUser: (state, action) => { 
+      return Object.assign(state, action.payload);                 
+    },
+    dumpUser: (state, action) => { 
+      return currentUser;                 
+    }
   }
-}
 })
 const { addUser, dumpUser } = userSlice.actions;
 const userReducer = userSlice.reducer;

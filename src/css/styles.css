@@ -74,6 +74,7 @@ html {
 *::-webkit-scrollbar {
 	width: 5px;
 	background: #ffffff;
+    height: 5px;
 }
 body::-webkit-scrollbar {
     width: 7px;
@@ -100,7 +101,12 @@ body::-webkit-scrollbar {
 .sidebar li {
     cursor: pointer;
 } 
-
+.sidebar .menu-wrapper {
+    display: none;
+}
+.sidebar:hover .menu-wrapper {
+    display: block;
+}
 .sidebar:hover .label > svg {
     display: none;
 }
@@ -148,6 +154,19 @@ body::-webkit-scrollbar {
 }
 .skeleton.rounded-full::before {
     border-radius: 9999px;
+}
+
+.custom-multi-select .MuiSelect-select {
+    padding: 0;
+}
+.custom-multi-select fieldset {
+    border: none;
+}
+
+.menu-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s linear(0, 0.417 25.5%, 0.867 49.4%, 1 57.7%, 0.925 65.1%, 0.908 68.6%, 0.902 72.2%, 0.916 78.2%, 0.988 92.1%, 1);
 }
 
 @keyframes slideIn {

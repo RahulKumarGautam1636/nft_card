@@ -103,7 +103,7 @@ function ProductList() {
                                 {appns.docs.map((i, n) => (
                                     <tr className="text-gray-700 font-semibold" key={n}>
                                         <td style={{paddingRight: 0}}>
-                                            <img className="rounded h-12" src={'/images/categories/unused/1.jpg'} alt="Product" />
+                                            <img className="rounded h-12" src={'/images/avatar.jpg'} alt="Product" />
                                         </td>
                                         <td className="text-start max-w-80 overflow-hidden overflow-ellipsis whitespace-nowrap">
                                             <span className="font-medium text-gray-900 text-end">{i.Name}</span>

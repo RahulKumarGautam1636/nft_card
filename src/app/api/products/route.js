@@ -5,6 +5,7 @@ import { isLive, withRemoteDB } from "@/api/api";
 import dbConnect from "@/lib/dbConnect";
 import { Products } from "@/lib/models";
 import mongoose from "mongoose";
+import { v2 as cloudinary } from 'cloudinary';
 
 export async function GET(req, { params }) {
 
@@ -109,49 +110,114 @@ export async function GET(req, { params }) {
 }
 
 
-export async function POST() {
+export async function POST(req) {
 
-    await dbConnect();
-
-    var id = new mongoose.Types.ObjectId();
     
-    const doc = new Products({ 
+    const body = await req.formData();  
+    const images = body.getAll('images[]');
+
+    const uploadImages = async (imagesList, folder) => {
+        
+        cloudinary.config({
+            cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+            api_key: process.env.CLOUDINARY_API_KEY,
+            api_secret: process.env.CLOUDINARY_API_SECRET,
+        })
+
+        let imageURLs = [];
+
+        for (let i = 0; i < imagesList.length; i++) {
+
+            const fileName = (imagesList[i].name).split('.')[0];            // file name without extension. required by cloudinary docs.
+            const filePath = `Home/` + folder + fileName;
+            const arrayBuffer = await imagesList[i].arrayBuffer();
+            const buffer = Buffer.from(arrayBuffer);
+
+            const res = await new Promise((resolve, reject) => {
+                cloudinary.uploader.upload_stream({public_id: filePath, use_filename: true, unique_filename: false}, function (error, result) {
+                  if (error) {
+                    reject(error);
+                    return;
+                  }
+                  resolve(result);
+                }).end(buffer);
+            });
+            imageURLs.push(res.secure_url);
+        }
+        return imageURLs;
+    }
+
+    const imagesUrlList = await uploadImages(images, 'Shopify/');           // format to pass folder name.
+    var id = new mongoose.Types.ObjectId();
+
+    const product = new Products({
         _id: id,
         id: id,
+        name: body.get('name'),
+        description: body.get('description'),
+        images: imagesUrlList,
+        brand: body.get('brand[name]'),
+        price: body.get('price'),
+        oldPrice: body.get('maxPrice'),
 
-        name: "My New Product Name",
-        description: "This kurta pant set features a stylish straight-cut kurta paired with comfortable pants, offering a chic and effortless look suitable for both casual and semi-formal occasions.",
-        images: [
-            "http://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060377/1729060369509_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-0-202205161816.jpg",
-            "http://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060379/1729060369574_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-1-202205161817.jpg",
-            "http://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060382/1729060369600_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-2-202205161817.jpg",
-            "http://res.cloudinary.com/dy2p0n2xc/image/upload/v1729060384/1729060369924_glowworld-women-blue-printed-cotton-kurta-product-images-rvb5rj3wer-3-202205161817.jpg"
-        ],
-        brand: "VNEED",
-        price: 455,
-        oldPrice: 655,
-        catName: "Fashion",
-        catId: "670f544ce86c762e3cad6c8b",
-        subCatId: "670f5502e86c762e3cad6ce5",
-        subCat: "Girls",
-        subCatName: "Girls",
-        category: {},
-        countInStock: 10,
-        rating: 5,
-        isFeatured: false,
-        discount: 15,
-        productRam: [],
-        size: ["S", "M", "L", "XL"],
-        productWeight: [],
-        location: [],
-        dateCreated: "2024-08-30T15:03:56.294Z",
-        updatedAt: "2024-09-09T03:54:32.426Z",
-    });
+        catName: body.get('category[name]'),
+        catId: body.get('category[id]'),
+        category: body.get('category[id]'),
 
-    await doc.save();  
-    return NextResponse.json({ title: 'Successfully created the item.'});
+        subCatId: body.get('subCategory[id]'),
+        subCat: body.get('subCategory[id]'),
+        subCatName: body.get('subCategory[name]'),
+        
+        countInStock: body.get('countInStock'),
+
+        rating: body.get('rating'),
+
+        isFeatured: body.get('isFeatured'),
+        discount: body.get('discount'),
+        
+        productRam: body.getAll('ram[]'),
+
+        size: body.getAll('sizes[]'),
+        productWeight: body.getAll('weights[]'),
+
+        location: body.getAll('locations[]'),
+
+        dateCreated: body.get('dateCreated'),
+        updatedAt: body.get('dateCreated'),
+    })
+    
+    await dbConnect();
+    await product.save();  
 
 
+    // const images = [
+    //     'https://shopify-seven-iota.vercel.app/images/categories/Electronics.png',
+    //     'https://shopify-seven-iota.vercel.app/images/categories/Bags.png',
+    // ];
+      
+    // (async function run() {
+      
+    //     // Example using a simple for loop
+      
+    //     for ( const image of images ) {
+    //       const result = await cloudinary.uploader.upload(image);
+    //       console.log(`Successfully uploaded ${image}`);
+    //       console.log(`> Result: ${result.secure_url}`);
+    //     }
+      
+        
+        
+    //     // const limit = pLimit(2);                             // Example with paralell uploads and concurrency
+    //     // const imagesToUpload = images.map((image) => {       // Default Cloudinary upload limit for the free tier is 10
+    //     //   return limit(async () => {
+    //     //     const result = await cloudinary.uploader.upload(image);
+    //     //     console.log(`Successfully uploaded ${image}`);
+    //     //     console.log(`> Result: ${result.secure_url}`);
+    //     //     return result;
+    //     //   })
+    //     // });      
+    //     // await Promise.all(imagesToUpload);
+    // })();
 
 
     // var data = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/data.json', 'utf8'));
@@ -173,4 +239,6 @@ export async function POST() {
     // } catch (error) {
     //     return NextResponse.json({ error: 'Something went wrong.' }, { status: 400 });
     // }
+
+    return NextResponse.json({ title: 'Successfully created the item.', product: product});
 }

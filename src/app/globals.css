@@ -29,8 +29,13 @@ body {
   /* opacity: 0.1; */
 }
 
-/* .main-logo {
-  display: none;
-} */
+.main-logo {
+  /* display: none; */
+}
 
+/* @media (width >= 1450px) {
+  .container {
+    max-width: 1450px;
+  }
+} */
 

@@ -2,11 +2,14 @@ import Link from "next/link";
 import { GrSecure } from "react-icons/gr";
 import { PiPhoneCallBold } from "react-icons/pi";
 import { Modals } from "../modals";
-import { Navbar, NavMenu, SideBarCategories } from "./Navbar";
+import { NavMenu, SideBarCategories } from "./Navbar";
 import { ExampleLoader, HeaderActions, HeaderSearch, NavLoader, ShopSidebar, TopNav } from "./components";
 import { Suspense } from "react";
+import { getCategories } from "@/api/api";
 
-const Header = () => {
+export async function Header() {
+
+    const categories = await getCategories('layout');
 
     return (
         <>
@@ -38,10 +41,10 @@ const Header = () => {
                 <TopNav />
                 <div className="flex justify-between items-center gap-5 px-3 ">
                     <ShopSidebar>
-                        <SideBarCategories />
+                        <SideBarCategories categories={categories} />
                     </ShopSidebar>
                     <Suspense fallback={<NavLoader />}>
-                        <NavMenu />
+                        <NavMenu categories={categories} />
                     </Suspense>
                 </div>
             </header>
