@@ -118,7 +118,7 @@ export const ProductCard_2 = ({ data }) => {
   return (
     <div className="minicart-card flex gap-3 py-2 relative">
       <div className="h-[6.6rem] w-[6.6rem]">
-          <img className="rounded w-full h-full border border-gray-200" src={data.images[0]} alt="Product" />
+          <img className="rounded w-full h-full border border-gray-200" src={imgSource('products', data.images[0])} alt="Product" />
       </div>
       <Link prefetch={false} href={`/product/${data.id}`} className="text-start border-b border-gray-300 flex-1 overflow-hidden ">
           <h4 className="whitespace-nowrap text-gray-900 font-semibold overflow-ellipsis overflow-hidden" style={{fontSize: '0.95rem'}}>{data.name}</h4>
