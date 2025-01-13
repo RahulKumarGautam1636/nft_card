@@ -96,6 +96,10 @@ body::-webkit-scrollbar {
 .Toastify__toast {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+.slick-slide > div {
+    display: grid;
+    place-items: center;
+}
 
 /* Admin styles starts ----------------------------------------- */
 .sidebar li {
@@ -215,7 +219,9 @@ body::-webkit-scrollbar {
     html {
         font-size: 75%;
     }
-
+    *::-webkit-scrollbar {
+        height: 0;
+    }
     .product-grid {
         grid-template-columns: 1fr 1fr;
     }

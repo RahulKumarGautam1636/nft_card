@@ -18,6 +18,7 @@ import { getCategories, login, searchProducts } from "@/api/api";
 import { ProductCard_2 } from "../cards";
 import { IoMdCart } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
+import { imgSource } from "@/api/actionUtils";
 
 
 export function HeaderSearch({ searchOpen, setSearchOpen }) {
@@ -134,7 +135,7 @@ export function HeaderActions({ searchOpen, setSearchOpen }) {
                                     <li key={i.id} className="overflow-hidden relative">
                                         <div className="minicart-card inline-flex gap-3 p-2">
                                             <div className="h-20 w-20">
-                                                <img className="rounded h-full w-full" src={i.images[0]} alt="Product" />
+                                                <img className="rounded h-full w-full" src={imgSource('products', data.images[0])} alt="Product" />
                                             </div>
                                             <div className="text-start border-b border-gray-300">
                                                 <h4 className="text-gray-900 mb-1 whitespace-nowrap overflow-ellipsis" style={{fontSize: '0.95rem'}}>{i.name}</h4>

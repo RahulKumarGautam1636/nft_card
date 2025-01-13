@@ -44,7 +44,7 @@ export default async function Product(props) {
             <div className="relative pt-8 pb-4 md:p-0 rounded-xl border border-gray-200 overflow-hidden h-fit me-0 lg:me-8">
               <div className="flex md:flex-col gap-3 items-start absolute top-4 left-4 z-10">
                 <span className="text-gray-200 bg-gray-800 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl inline-block">Recomended</span>
-                <span className="text-cyan-100 bg-cyan-700 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl inline-block">25% OFF</span>
+                <span className="text-cyan-100 bg-cyan-700 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl inline-block">{product.discount}% OFF</span>
               </div>
               <ProductViewBox product={product} />
             </div>
@@ -78,7 +78,7 @@ export default async function Product(props) {
         <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white shadow-sm shadow-purple-400">
           <DescriptionTabs tabs={tabs} reviews={reviews} />
         </section>
-        <section className="mx-4 md:mx-7 mt-4 md:mt-8 rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white shadow-sm shadow-purple-400">
+        <section className="md:mx-7 mt-4 md:mt-8 lg:rounded-[1.3rem] p-5 md:p-7 md:ps-[2.05rem] md:pe-[2.35rem] bg-white shadow-sm shadow-purple-400">
           <h2 className="text-2xl font-semibold mb-6">Related Products</h2>
           <div className="grid gap-3 mt-4 product-grid">
             {relatedProducts.products.reverse().map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}

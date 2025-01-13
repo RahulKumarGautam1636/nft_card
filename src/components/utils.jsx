@@ -81,7 +81,7 @@ export const ProductViewBox = ({ name, dataList, responsive=[], customSettings={
             {mainSlide()}
         </Slider>
       </div>
-      <div className="child-slide">
+      <div className="child-slide mt-3">
         <Slider asNavFor={nav3} ref={slider => (sliderRef4 = slider)} slidesToShow={4} swipeToSlide={true} focusOnSelect={true} className={'child-news-slider'} {...settings}>
             {thumbSlide()}
         </Slider>
@@ -154,7 +154,7 @@ export default function FilterTabs({ categories, filteredProducts }) {
     <div className='relative'>
       {isLoading ? <div className='absolute inset-0 z-10 flex justify-center items-center' style={{background: '#f8f8f8ad'}}><img src='/loader.svg' alt='loading..' /></div> : ''}
       <div className="flex justify-between flex-wrap">
-        <div className="">
+        <div className="hidden lg:block">
           <h2 className="text-[1.4rem] md:text-2xl font-semibold">Popular Products</h2>
           <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
         </div>
