@@ -42,7 +42,10 @@ export async function POST(req) {
     
     // const body = await req.json();
     const body = await req.formData();  
-    
+    // var editId = body.get('id');
+    var recImg = body.getAll('recImg[]');
+    console.log("recImg: ", recImg);
+
     const category = {
         name: body.get('name'),
         images: body.getAll('images[]'),
@@ -82,8 +85,8 @@ export async function POST(req) {
         children: []
     });
 
-    await doc.save();  
-    await waitFor(2000);
+    // await doc.save();  
+    // await waitFor(2000);
     return NextResponse.json({ title: 'Successfully created the item.'});
 
 

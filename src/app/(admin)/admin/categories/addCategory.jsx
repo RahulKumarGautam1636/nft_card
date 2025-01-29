@@ -1,27 +1,64 @@
 "use client";
-import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
-import Typography from '@mui/material/Typography';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import { GoDotFill } from "react-icons/go";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { useActionState, useEffect, useState } from "react";
-import { products } from "../page";
+import { useEffect, useState } from "react";
 import { Button, CircularProgress } from "@mui/material";
-import { Download } from "@mui/icons-material";
-import axios from "axios";
-import { ImagePicker, ImagePicker2 } from "@/app/api/utils";
-import { createCategory, createSubCategory } from "@/api/actions";
+import { ImagePicker2 } from "@/app/api/utils";
 import { useDispatch, useSelector } from "react-redux";
-import { handleFormDataPost, MyLoader } from "@/components/utils";
-import { loader } from "@/lib/slices";
+import { handleFormDataPost } from "@/components/utils";
+import { useSearchParams } from "next/navigation";
+import { getCategories2, getSubCategory } from "@/actions/get";
+import { postCategory } from "@/actions/post";
+import { globalLoader } from "@/lib/slices";
 // import { useFormState, useFormStatus } from 'react-dom';
 
 
 function AddCategory({ setRefresh, categories }) {
+
+    const params = useSearchParams();
+    const editCatId = params.get('catId');
+    const editSubCatId = params.get('subCatId');
+
+    useEffect(() => {
+        if (!editCatId) return;
+        const getCategoryById = async () => {
+            dispatch(globalLoader(true));
+            const res = await getCategories2(editCatId);
+            dispatch(globalLoader(false));
+            if (res) {
+                console.log(res);
+                setCategory({
+                    name: res.name,
+                    color: res.color,
+                    createDate: '',
+                    images: [],
+
+                    recImg: res.images.map(i => ({ folder: `categories`, name: i, delete: false })),
+                })
+            }
+        }
+        getCategoryById();
+    },[editCatId])
+
+    useEffect(() => {
+        if (!editSubCatId) return;
+        const getSubCategoryById = async () => {
+            dispatch(globalLoader(true));
+            const res = await getSubCategory({ id: editSubCatId });
+            dispatch(globalLoader(false));
+            if (res) {
+                console.log(res);
+                setCategory({
+                    name: res.name,
+                    parentCategory: res.parent,
+                    images: [], 
+
+                    recImg: res.images.map(i => ({ folder: `categories`, name: i, delete: false })),
+                })
+            }
+        }
+        getSubCategoryById();
+    },[editSubCatId])
+
+    
 
     const isLoading = useSelector(state => state.isLoading);
     const dispatch = useDispatch();
@@ -32,6 +69,8 @@ function AddCategory({ setRefresh, categories }) {
         images: []  
     });
 
+    console.log(category)
+
     const handleCategory = (e) => {
         const { name, value} = e.target;
         setCategory(pre => ({...pre, [name]: value}));
@@ -39,13 +78,14 @@ function AddCategory({ setRefresh, categories }) {
 
     const makeRequest = async (params) => {
         console.log(params);
-
     }
 
     const handleCategoryForm = async (e) => {
         e.preventDefault();
-        console.log(category)
-        const isSuccess = await handleFormDataPost('category', category, dispatch);
+        // const isSuccess = await handleFormDataPost('category', category, dispatch);
+        dispatch(globalLoader(true));
+        const isSuccess = await postCategory('categories', { ...category, editId: editCatId || '' });
+        dispatch(globalLoader(false));
         if (isSuccess) {
             setRefresh(Math.random() * 10000);
             setCategory({ name: '', color: '', createDate: '', images: [] });
@@ -78,8 +118,10 @@ function AddCategory({ setRefresh, categories }) {
 
     const handleSubCategoryForm = async (e) => {
         e.preventDefault();
-        console.log(subCategory);
-        const isSuccess = await handleFormDataPost('subCategory', subCategory, dispatch);
+        // const isSuccess = await handleFormDataPost('subCategory', subCategory, dispatch);
+        dispatch(globalLoader(true));
+        const isSuccess = await postCategory('category', { ...subCategory, editId: editSubCatId || '' });
+        dispatch(globalLoader(false));
         if (isSuccess) {
             setRefresh(Math.random() * 10000);
             setSubCategory({ name: '', parentCategory: '', createDate: '', images: [] });
@@ -144,7 +186,7 @@ function AddCategory({ setRefresh, categories }) {
                                 <input name="createDate" value={category.createDate} onChange={handleCategory} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="date" />
                             </div>
                         </div>
-                        <ImagePicker2 label="Add Images" name="categoryImage" multiSelect={true} setImages={setCategory} imgCount={category.images.length} />
+                        <ImagePicker2 label="Add Images" name="categoryImage" multiSelect={false} setImages={setCategory} imgCount={category.images.length} recImg={category.recImg} />
                         {category?.message && <p className="text-orange-600 mt-5">{category.message}</p>}
                         <Button type="submit" className="w-full items-center gap-4 bg-pink-600 text-white text-lg shadow-sm shadow-purple-400 rounded-lg py-3 px-8 hover:bg-pink-500 font-bold mt-[2.2rem]">{isLoading.local.category ? <><CircularProgress className="text-white" size="1.2rem" /> Creating... </> : 'Create Category'}</Button>
                     </form>
@@ -192,7 +234,7 @@ function AddCategory({ setRefresh, categories }) {
                                 <label className="text-black text-[0.9rem] mb-2 block"> Parent Category <span className="text-red-500">*</span></label>
                                 {/* <input name="parentCategory" value={subCategory.parentCategory} onChange={handleSubCategory} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}
                                 <select name="parentCategory" onChange={handleSubCategory} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]">
-                                    {categories.map(i => (<option key={i.name} value={i.id}>{i.name}</option>))}
+                                    {categories.map(i => (<option key={i.id} value={i.id}>{i.name}</option>))}
                                 </select>
                             </div>
                         </div>

@@ -1,9 +1,46 @@
 "use server"
 
-import { Banners, Brands, Category, HomeBanner, HomeBottomBanners, HomeSideBanners, Products, SubCategory } from "@/lib/models";
+import { Banners, Brands, Category, HomeBanner, HomeBottomBanners, HomeSideBanners, Locations, Products, Questions, Quiz, SubCategory, User } from "@/lib/models";
 import dbConnect from "@/lib/dbConnect";
 import { parseData, waitFor } from "@/api/actionUtils";
 // import mongoose from "mongoose";
+
+export async function getQuiz(body) {  
+    console.log(body.userId);
+    await dbConnect();
+    let quiz = await Quiz.find({"author": body.userId});
+    if (quiz.length) {
+        return parseData({status: 200, data: quiz})
+    } else {
+        return parseData({status: 204, message: 'NO Content found for the user.'})
+    }
+}
+
+export async function getQuestions(body) {  
+    console.log(body.quizId);
+    await dbConnect();
+    let quiz = await Questions.find({"parentId": body.quizId});
+    if (quiz.length) {
+        return parseData({status: 200, data: quiz})
+    } else {
+        return parseData({status: 204, message: 'NO Content found for the user.'})
+    }
+}
+
+export async function getUser(body) {  
+    await dbConnect();
+    let user = await User.find({"phone": body.phone});
+    if (user.length) {
+        let firstResult = user[0];
+        if (firstResult.password == body.password) {
+            return parseData({status: 200, data: firstResult})
+        } else {
+            return parseData({status: 403, message: 'Your password is incorrect.'})
+        }
+    } else {
+        return parseData({status: 404, message: 'This number is not Registered.'})
+    }
+}
 
 export async function getBanners2(type) {
     
@@ -26,9 +63,14 @@ export async function getBanners2(type) {
     };
 }
 
-export async function getCategories2() {
+export async function getCategories2(id) {
     await dbConnect();
-    const category = await Category.find()
+    let category;
+    if (id) {
+        category = await Category.findById(id)
+        return parseData(category)
+    }
+        category = await Category.find()
     return {
         data: parseData({ categoryList: category })
     };
@@ -53,6 +95,9 @@ export async function getSubCategory(params={}) {
 
     if (params.parentId) {
         subCategory = await SubCategory.find({ parent: params.parentId });
+    } else if (params.id) {
+        subCategory = await SubCategory.findById(id)
+        return parseData(subCategory)
     } else {
         subCategory = await SubCategory.find();
     }
@@ -87,7 +132,7 @@ export async function getProducts2(params) {
         products = await Products.find({"name": {"$regex": search, "$options": "i"}});
         return parseData(products);
     } else if (id) {
-        products = await Products.findById(id);
+        products = await Products.findById(id).populate('category').populate('subCatId').populate('brand').populate({ path: 'location', model: 'Locations'});
         return parseData(products);
     } else if (featured) {
         products = await Products.find({ isFeatured: true })
@@ -118,4 +163,12 @@ export async function getFilteredProducts2(params) {
 
     products = await Products.find({ [catType]: id, price: { $gte: minPrice }, price: { $lte: maxPrice } });   
     return parseData({ products: products, totalPages: 0, page: 0 });
+}
+
+export async function getLocations() {
+    await dbConnect();
+    const locations = await Locations.find();
+    return {
+        data: parseData(locations)
+    };
 }

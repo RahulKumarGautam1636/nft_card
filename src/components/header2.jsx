@@ -202,8 +202,8 @@ const Header = ({ categories }) => {
                                             <FaRegUser className="text-2xl text-white"/>
                                         </div>
                                         <div className="text-left">
-                                            <span className="label text-slate-800 text-sm block mb-1">{user.Name}</span>
-                                            <span className="name text-gray-500 text-sm">{user.RegMob1}</span>
+                                            <span className="label text-slate-800 text-sm block mb-1">{user.name}</span>
+                                            <span className="name text-gray-500 text-sm">{user.phone}</span>
                                         </div>
                                         <FaChevronDown />
                                     </Button>

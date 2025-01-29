@@ -1,9 +1,11 @@
+:root {
+    --rgb-blue-400: 126,167,233;
+    --rgb-seafoam-400: 148,239,183;
+}
+
 html {
     font-size: 85%;
 }
-/* body {
-    opacity: 0.1;
-} */
 
 .custom-arrow {
     position: absolute;
@@ -82,6 +84,9 @@ body::-webkit-scrollbar {
 *::-webkit-scrollbar-thumb {
 	background: #c4c4c4;
 	/* border-radius: 10px; */
+}
+.sidebar::-webkit-scrollbar {
+    width: 0;
 }
 
 .main-search-box {
@@ -172,6 +177,58 @@ body::-webkit-scrollbar {
     overflow: hidden;
     transition: 0.4s linear(0, 0.417 25.5%, 0.867 49.4%, 1 57.7%, 0.925 65.1%, 0.908 68.6%, 0.902 72.2%, 0.916 78.2%, 0.988 92.1%, 1);
 }
+
+/* GRADIENT BACKGROUND in quiz page ------------------------------------------ */
+/* .quiz-home {
+    
+} */
+.background-gradient {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    width: 150vw;
+    height: 1000px;
+    transform: translate3d(-50%, -50%, 0px);
+    mask-image: radial-gradient(farthest-side at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(90deg,rgba(var(--rgb-blue-400),1),rgba(var(--rgb-seafoam-400),1));
+    filter: hue-rotate(0deg);
+}
+.background-gradient {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    width: 150vw;
+    height: 1000px;
+    transform: translate3d(-50%, -50%, 0px);
+    mask-image: radial-gradient(farthest-side at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(90deg,rgba(var(--rgb-blue-400),1),rgba(var(--rgb-seafoam-400),1));
+    filter: hue-rotate(0deg);
+}
+.background-gradient-pattern {
+    position: absolute;
+    inset: 0px;
+    background-image: url("https://column.com/images/guilloche.svg");
+    background-repeat: repeat;
+    background-position: right top;
+    background-size: 20px, 20px;
+    mix-blend-mode: overlay;
+}
+.inview--gradient .background-gradient {
+    animation-name: background-gradient-animation;
+    animation-duration: 8s;
+    animation-iteration-count: 4;
+}
+@keyframes background-gradient-animation {
+    0% {
+        filter: hue-rotate(15deg);
+    } 50% {
+        filter: hue-rotate(-80deg);
+    } 100% {
+        filter: hue-rotate(15deg);
+    }   
+}
+
+/* GRADIENT BACKGROUND ------------------------------------------ */
 
 @keyframes slideIn {
     0% {

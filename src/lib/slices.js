@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 // modal Reducer ---------------------------------------------------------------------------------------------------------
 
 const loginSlice = createSlice({
-name: 'IS_LOGGED_IN', initialState: true,
+name: 'IS_LOGGED_IN', initialState: false,
 reducers: {
   loginAction: (state, action) => { 
     return action.payload;
@@ -15,44 +15,10 @@ const { loginAction } = loginSlice.actions;
 const loginReducer = loginSlice.reducer;
 
 let currentUser = {
-  Name: '',
-  EncCompanyId: 'FFCeIi27FQMTNGpatwiktw==',
-  PartyCode: '',
-  RegMob1: '',
-  Address: '',
-  UserPassword: '',
-  UserType: 'Customer',
-  State: '3',
-  StateName: 'West Bengal',
-  City: '',
-  Pin: '',
-  Address2: '',
-
-  DOB: '',
-  DOBstr: '',
-  Age: '',
-  AgeMonth: '',
-  AgeDay: '',
-  IsDOBCalculated: 'N',
-  GenderDesc: 'Male',
-  Gender: 104,
-  Country: 1,
-  MemberId: '',
-
-  RegNo: "",                                // Unused fields.
-  Aadhaar: "",
-  Salutation: "",
-  Qualification: "",
-  SpecialistId: '',
-  AnniversaryDate: "",
-  AnniversaryDatestr: "",
-  compName: "",
-  compAddress: "",
-  compState: "",
-  compPin: "",
-  compPhone1: "",
-  compPhone2: "",
-  compMail: ""    
+  name: '',
+  phone: '',
+  email: '',
+  password: '',
 }
 
 const userSlice = createSlice({

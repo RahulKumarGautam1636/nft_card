@@ -11,7 +11,6 @@ export const parseData = (obj) => JSON.parse(JSON.stringify(obj));
 
 
 export const imgSource = (folder, fileName) => {
-  let remoteEnd = 'https://res.cloudinary.com/dmse11kmn/image/upload/Shopify';
   let path;
   if (remoteAssets) {
     path = `${remoteEnd}/${folder}/${fileName}`;
@@ -20,3 +19,7 @@ export const imgSource = (folder, fileName) => {
   }
   return path;
 }
+
+
+export const remoteEnd = 'https://res.cloudinary.com/dmse11kmn/image/upload/Shopify';
+

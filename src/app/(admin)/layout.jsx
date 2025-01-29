@@ -23,6 +23,9 @@ import Image from "next/image";
 import { MyLoader } from "@/components/utils";
 import { TbBrandAuth0 } from "react-icons/tb";
 
+// Design Inspiration admin.
+// https://coderthemes.com/ubold/layouts/default/ecommerce-orders.html
+
 export default function AdminLayout({ children }) {
 
     const user = useSelector(state => state.user);
@@ -74,8 +77,8 @@ export default function AdminLayout({ children }) {
                                         <FaRegUser className="text-2xl text-white"/>
                                     </div>
                                     <div className="text-left">
-                                        <span className="label text-slate-800 text-sm block mb-1">{user.Name}</span>
-                                        <span className="name text-gray-500 text-sm">{user.RegMob1}</span>
+                                        <span className="label text-slate-800 text-sm block mb-1">{user.name}</span>
+                                        <span className="name text-gray-500 text-sm">{user.phone}</span>
                                     </div>
                                     <FaChevronDown />
                                 </Button>

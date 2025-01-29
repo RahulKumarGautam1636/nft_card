@@ -16,7 +16,7 @@ import { FaRegEye } from "react-icons/fa6";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import { MyLoader } from "@/components/utils";
-import { deleteEntity } from "@/actions/banners";
+import { deleteEntity } from "@/actions/get";
 // import { getSubCategory } from "@/api/actions";
 
 

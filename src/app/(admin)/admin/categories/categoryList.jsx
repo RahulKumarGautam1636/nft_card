@@ -17,8 +17,9 @@ import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { MyLoader } from "@/components/utils";
-import { deleteEntity } from "@/actions/banners";
+import { deleteEntity } from "@/actions/get";
 import { imgSource } from "@/api/actionUtils";
+import { useRouter } from "next/navigation";
 // import { getCategory } from "@/api/actions";
 
 
@@ -26,6 +27,7 @@ function CategoryList({ refresh, categories, getCategories }) {
 
     const [age, setAge] = useState(7);
     const [loading, setLoading] = useState(false);
+    const router = useRouter()
 
     const handleChange = (event) => setAge(event.target.value);
 
@@ -110,7 +112,7 @@ function CategoryList({ refresh, categories, getCategories }) {
                                         <td className="whitespace-nowrap">
                                             <div className="flex gap-6 justify-center">
                                                 <FaRegEye className="text-blue-600 text-xl bg-white cursor-pointer"/>
-                                                <FaRegEdit className="text-green-700 text-xl bg-white cursor-pointer"/>
+                                                <FaRegEdit onClick={() => router.push(`/admin/categories?pane=1&catId=${i.id}`)} className="text-green-700 text-xl bg-white cursor-pointer"/>
                                                 {/* {loading ? <CircularProgress size="1.2rem" /> : <FaRegTrashAlt onClick={() => deleteItem(i.id)} className="text-red-600 text-xl bg-white cursor-pointer"/>} */}
                                                 <FaRegTrashAlt onClick={() => deleteItem(i.id)} className="text-red-600 text-xl bg-white cursor-pointer"/>
                                             </div>

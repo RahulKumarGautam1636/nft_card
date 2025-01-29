@@ -11,6 +11,7 @@ import { addToCart, dumpCart, removeFromCart } from "@/lib/slices";
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import FormControl from '@mui/material/FormControl';
 import Link from "next/link";
+import { imgSource } from "@/api/actionUtils";
 // import { useState } from "react";
 
 export default function Cart() {
@@ -95,7 +96,7 @@ export default function Cart() {
                                     {cartList.map(i => (
                                         <tr className="text-gray-700 font-semibold block md:table-row" key={i.id}>
                                             <td className="w-full md:w-24 flex justify-center md:table-cell" style={{paddingRight: 0}}>
-                                                <img className="rounded h-60 md:h-24 " src={i.images[0]} alt="Product" />
+                                                <img className="rounded h-60 md:h-24 " src={imgSource(`products`, i.images[0])} alt="Product" />
                                             </td>
                                             <td className="flex justify-between gap-12 md:table-cell">
                                                 <strong className="block md:hidden font-bold">Name</strong>

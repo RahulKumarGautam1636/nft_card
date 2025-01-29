@@ -53,7 +53,7 @@ export const MySlider = ({ name, dataList, responsive=[], customSettings={} }) =
 export const ProductViewBox = ({ name, dataList, responsive=[], customSettings={}, product }) => {
 
   const mainSlide = () => product.images.map(i => (<InnerImageZoom key={i} zoomType={'hover'} src={imgSource('products', i)} zoomSrc={imgSource('products', i)} />));
-  const thumbSlide = () => product.images.map(i => (<img className="max-w-32 px-2 pt-1" key={i} src={imgSource('products', i)} alt="User" />));
+  const thumbSlide = () => product.images.map(i => (<img className="max-w-32 max-h-32 px-2 pt-1" key={i} src={imgSource('products', i)} alt="User" />));
 
   const [nav3, setNav3] = useState(null);
   const [nav4, setNav4] = useState(null);

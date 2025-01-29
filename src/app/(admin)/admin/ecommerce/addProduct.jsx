@@ -11,25 +11,63 @@ import withAuth from "@/components/withAuth";
 import { useEffect, useState } from "react";
 import { Download, Hotel } from "@mui/icons-material";
 import { handleFormDataPost, useFetch } from "@/components/utils";
-import { getBrands, getCategories2, getSubCategory } from "@/actions/banners";
+import { getBrands, getCategories2, getLocations, getProducts2, getSubCategory } from "@/actions/get";
 import { category } from "@/data";
 import { ImagePicker2 } from "@/app/api/utils";
+import { useSearchParams } from "next/navigation";
+import { createProduct } from "@/actions/post";
 
 
 function AddProduct({ setRefresh }) {
 
-    const dispatch = useDispatch();
-    // const cart = useSelector(state => state.cart);
-    // const cartList = Object.values(cart);
+    const params = useSearchParams();
+    const editId = params.get('id');
 
-    // const cartItemsValueList = cartList.map(item => item.qty * item.price);                           // Array of all item's price * quantity selected.
-    // const cartSubtotal = cartItemsValueList.reduce((total, num) => total + num, 0).toFixed(2); 
+    const dispatch = useDispatch();   
+
+    useEffect(() => {
+        if (!editId) return;
+        const getProductById = async () => {
+            dispatch(globalLoader(true));
+            let res = await getProducts2({ id: editId });
+            dispatch(globalLoader(false));
+            if (res) {
+                console.log(res.brand);
+                setProduct({
+                    id: res.id,
+                    name: res.name,        
+                    brand: res.brand,
+                    category: res.category,
+                    subCategory: res.subCatId,
+                    description: res.description,
+                    maxPrice: res.oldPrice, 
+                    price: res.price,
+                    discount: res.discount,
+                    isFeatured: res.isFeatured,
+                    isPopular: res.isPopular || false,
+                    weights: res.productWeight,
+                    sizes: res.size,
+                    countInStock: res.countInStock, 
+                    dateCreated: res.dateCreated,
+                    rating: res.rating,
+                    locations: res.location,
+                    ram: res.productRam,
+                    images: [],
+
+                    recImg: res.images.map(i => ({ folder: `products`, name: i, delete: false })),
+                })
+            }
+        }
+        getProductById();
+    },[editId])
     
     const [categories, setCategories] = useState({ categoryList: [] });
     const [subCategories, setSubCategories] = useState([]);
     const [brands, setBrands] = useState([]);
+    const [locations, setLocations] = useState([]);
 
     const initProduct = {
+        id: '',
         name: '',        
         brand: { id: '', name: '' },
         category: { id: '', name: '' },
@@ -44,11 +82,10 @@ function AddProduct({ setRefresh }) {
         sizes: [],
         countInStock: 0, 
         dateCreated: new Date().toLocaleDateString('en-TT'),
-
         locations: [],
         ram: [],
-
         images: [],
+        rating: 1
     }
 
     const [product, setProduct] = useState(initProduct);
@@ -58,22 +95,24 @@ function AddProduct({ setRefresh }) {
             dispatch(globalLoader(true));
             const brand = await getBrands();
             const category = await getCategories2();
+            const locations = await getLocations();
             setCategories(category.data);          
             setBrands(brand.data);
+            setLocations(locations.data);
             dispatch(globalLoader(false));
         }
         getData();
     },[])
 
-    useEffect(() => {
-        if (!brands.length) return;
-        setProduct(pre => ({...pre, brand: brands[0]}));
-    },[brands.length])
+    // useEffect(() => {
+    //     if (!brands.length) return;
+    //     setProduct(pre => ({...pre, brand: brands[0]}));
+    // },[brands.length])
 
-    useEffect(() => {
-        if (!categories.categoryList.length) return;
-        setProduct(pre => ({...pre, category: categories.categoryList[0]}));
-    },[categories.categoryList.length])
+    // useEffect(() => {
+    //     if (!categories.categoryList.length) return;
+    //     setProduct(pre => ({...pre, category: categories.categoryList[0]}));
+    // },[categories.categoryList.length])
 
     useEffect(() => {
         const getSubCats = async () => {
@@ -109,13 +148,21 @@ function AddProduct({ setRefresh }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // const newProduct = { ...product, brand: product.brand.id, category: product.category.id, subCategory: product.subCategory.id }
-        console.log(product);
-        const isSuccess = await handleFormDataPost('products', product, dispatch);
-        // if (isSuccess) {
-        //     setRefresh(Math.random() * 10000);
-        //     setProduct(initProduct);
-        // }
+        const newProduct = { 
+            ...product, 
+            brand: product.brand.id, 
+            locations: product.locations.map(i => i.id),
+            editMode: editId ? true : false,
+            editId: editId || ''
+        }
+        // const isSuccess = await handleFormDataPost('products', newProduct, dispatch);
+        dispatch(globalLoader(true));       
+        const isSuccess = await createProduct('products', newProduct);
+        dispatch(globalLoader(false));
+        if (isSuccess) {
+            setRefresh(Math.random() * 10000);
+            setProduct(initProduct);
+        }
     }
 
     // const ITEM_HEIGHT = 48;              // dropdown popup styles.
@@ -132,14 +179,26 @@ function AddProduct({ setRefresh }) {
     const weights = ['50gm', '100gm', '500gm', '1kg', '5kg'];
     const ram = ['2gb', '4gb', '6gb', '8gb'];
     const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
-    const locations = ['All', 'Kolkata', 'Delhi', 'Mumbai', 'Uttar Pradesh'];
+
+    const mapArrToObj = (objList, strList) => {
+        let a = [];
+        strList.forEach(i => {
+            let currLoc = objList.find(x => x.id === i);
+            a.push(currLoc);
+        });
+        return a;
+    }
 
     const handleMultiSelect = (e) => {
         const { name, value } = e.target;
+        if (name === 'locations') {
+            setProduct(pre => ({...pre, locations: mapArrToObj(locations, value)}));
+            return;
+        }        
         setProduct(pre => ({...pre, [name]: typeof value === 'string' ? value.split(',') : value}))
     }
-
-    console.log(product);
+    
+    const isChecked = (id) => product.locations.find(i => i.id === id);    
 
     return (
         <section className='h-full w-full'>
@@ -154,7 +213,6 @@ function AddProduct({ setRefresh }) {
                             </div>
                             <div className="flex-1">
                                 <label className="text-black text-[0.9rem] mb-2 block"> Brand</label>
-                                {/* <input required name="brand" value={product.brand} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}
                                 <select name="brand" value={product.brand.id} required onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]">
                                     {brands.map((i, n) => (<option key={i.id} value={i.id}>{i.name}</option>))}
                                 </select>
@@ -163,15 +221,13 @@ function AddProduct({ setRefresh }) {
                         <div className="flex gap-4 mb-5">
                             <div className="flex-1">
                                 <label className="text-black text-[0.9rem] mb-2 block"> Category</label>
-                                {/* <input required name="category" value={product.category} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}
                                 <select name="category" value={product.category.id} required onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]">
                                     {categories.categoryList.map((i, n) => (<option key={i.id} value={i.id}>{i.name}</option>))}
                                 </select>
                             </div>
                             <div className="flex-1">
                                 <label className="text-black text-[0.9rem] mb-2 block"> Sub Category <span className="text-red-500">*</span></label>
-                                {/* <input required name='subCategory' value={product.subCategory} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}
-                                <select name="subCategory" value={product.subCategory.name} required onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]">
+                                <select name="subCategory" value={product.subCategory?.id} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]">
                                     {subCategories.map(i => (<option key={i.id} value={i.id}>{i.name}</option>))}
                                 </select>
                             </div>
@@ -211,22 +267,14 @@ function AddProduct({ setRefresh }) {
                     <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Add Product Images</h2>
                     <div className="mt-6">
                         <div className="mb-6 grid gap-4" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(11rem, 1fr))'}}>
-                            {/* <div className="h-40 p-5 border border-gray-200 rounded-lg flex justify-center items-center">
-                                <img className="max-h-full" src={'/images/avatar.jpg'} alt="Product" />
-                            </div>
-                            <div className="h-40 px-5 cursor-pointer border border-dashed border-blue-500 bg-gray-50 rounded-lg flex flex-col gap-3 justify-center items-center text-center">
-                                <Download className="text-[4rem] text-pink-600" />
-                                <p className="font-medium text-blue-500">Click or Drop your images here</p>
-                            </div> */}
-                            <ImagePicker2 name="productImage" multiSelect={true} setImages={setProduct} imgCount={product.images.length} />
+                            <ImagePicker2 name="productImage" multiSelect={true} setImages={setProduct} imgCount={product.images.length} recImg={product.recImg} />
                         </div>
 
                         <p className="mb-7">You need to add at least 4 images. Pay attention to the quality of the pictures you add, comply with the background color standards. Pictures must be in certain dimensions.</p>
                         <div className="flex gap-4 mb-5">
                             <div className="flex-1">
                                 <label className="text-black text-[0.9rem] mb-2 block"> Weights <span className="text-red-500">*</span></label>
-                                {/* <input required name='weight' value={product.weight} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}                               
-                                <Select className="custom-multi-select" required name="weights"
+                                <Select className="custom-multi-select" name="weights"
                                     labelId="demo-multiple-checkbox-label"
                                     id="demo-multiple-checkbox"
                                     multiple
@@ -234,7 +282,6 @@ function AddProduct({ setRefresh }) {
                                     onChange={handleMultiSelect}
                                     input={<OutlinedInput className="ps-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none" />}
                                     renderValue={(selected) => selected.join(', ')}
-                                    // MenuProps={MenuProps}
                                     >
                                     {weights.map((name) => (
                                         <MenuItem key={name} value={name}>
@@ -246,8 +293,7 @@ function AddProduct({ setRefresh }) {
                             </div>
                             <div className="flex-1">
                                 <label className="text-black text-[0.9rem] mb-2 block"> Product Ram <span className="text-red-500">*</span></label>
-                                {/* <input required name='weight' value={product.ram} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}
-                                <Select className="custom-multi-select" required name="ram"
+                                <Select className="custom-multi-select" name="ram"
                                     labelId="demo-multiple-checkbox-label"
                                     id="demo-multiple-checkbox"
                                     multiple
@@ -255,7 +301,6 @@ function AddProduct({ setRefresh }) {
                                     onChange={handleMultiSelect}
                                     input={<OutlinedInput className="ps-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none" />}
                                     renderValue={(selected) => selected.join(', ')}
-                                    // MenuProps={MenuProps}
                                     >
                                     {ram.map((name) => (
                                         <MenuItem key={name} value={name}>
@@ -267,8 +312,7 @@ function AddProduct({ setRefresh }) {
                             </div>
                             <div className="flex-1">
                                 <label className="text-black text-[0.9rem] mb-2 block"> Sizes</label>
-                                {/* <input required name="sizes" value={product.sizes} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}
-                                <Select className="custom-multi-select" required name="sizes"
+                                <Select className="custom-multi-select" name="sizes"
                                     labelId="demo-multiple-checkbox-label"
                                     id="demo-multiple-checkbox"
                                     multiple
@@ -276,7 +320,6 @@ function AddProduct({ setRefresh }) {
                                     onChange={handleMultiSelect}
                                     input={<OutlinedInput className="ps-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none" />}
                                     renderValue={(selected) => selected.join(', ')}
-                                    // MenuProps={MenuProps}
                                     >
                                     {sizes.map((name) => (
                                         <MenuItem key={name} value={name}>
@@ -294,21 +337,24 @@ function AddProduct({ setRefresh }) {
                             </div>
                             <div className="flex-1">
                                 <label className="text-black text-[0.9rem] mb-2 block"> Locations <span className="text-red-500">*</span></label>
-                                {/* <input required name='countInStock' value={product.location} onChange={handleProduct} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" /> */}
                                 <Select className="custom-multi-select" required name="locations"
                                     labelId="demo-multiple-checkbox-label"
                                     id="demo-multiple-checkbox"
                                     multiple
-                                    value={product.locations}
+                                    value={product.locations.map(i => i.id)}
                                     onChange={handleMultiSelect}
                                     input={<OutlinedInput className="ps-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none" />}
-                                    renderValue={(selected) => selected.join(', ')}
-                                    // MenuProps={MenuProps}
+                                    renderValue={(selected) => {
+                                        // console.log(selected);
+                                        // let render = selected.map(i => i.label).join(', ');
+                                        let names = mapArrToObj(locations, selected).map(i => i?.label).join(', ');
+                                        return names;
+                                    }}
                                     >
-                                    {locations.map((name) => (
-                                        <MenuItem key={name} value={name}>
-                                            <Checkbox checked={product.locations.includes(name)} />
-                                            <ListItemText primary={name} />
+                                    {locations.map((item) => (
+                                        <MenuItem key={item.id} value={item.id}>
+                                            <Checkbox checked={isChecked(item.id) ? true : false} />
+                                            <ListItemText primary={item.label} />
                                         </MenuItem>
                                     ))}
                                 </Select>

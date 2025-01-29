@@ -39,8 +39,8 @@ export default function Location() {
                 <div className='h-[60vh] overflow-auto border border-gray-200 rounded-lg'>
                     <List className="w-full bg-white">
                         {location.map(i => (
-                            <ListItemButton key={i.id} className={`${locations.current.id === i.id ? 'bg-purple-600 text-white hover:bg-purple-400': 'hover:bg-purple-100'}`}>
-                                <ListItemText primary={i.name} onClick={() => handleLocation(i)} />
+                            <ListItemButton onClick={() => handleLocation(i)} key={i.id} className={`${locations.current.id === i.id ? 'bg-purple-600 text-white hover:bg-purple-400': 'hover:bg-purple-100'}`}>
+                                <ListItemText primary={i.name} />
                             </ListItemButton>
                         ))}
                     </List>

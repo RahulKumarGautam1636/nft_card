@@ -13,12 +13,17 @@ import { useState } from "react";
 import { MyLoader } from "@/components/utils";
 import { useSelector } from "react-redux";
 import { imgSource } from "@/api/actionUtils";
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 function ProductList({ products, setProducts }) {
 
     const [age, setAge] = useState(7);
     const isLoading = useSelector(state => state.isLoading);
+    const router = useRouter()
 
     const handleChange = (event) => setAge(event.target.value);
 
@@ -58,14 +63,19 @@ function ProductList({ products, setProducts }) {
                                     <th>Stock</th>
                                     <th>Sale</th>
                                     <th>Revenue</th>
+                                    <th>Action</th>
                                 </tr>
                                 {products.docs.map(i => (
                                     <tr className="text-gray-700 font-semibold" key={i.id}>
                                         <td style={{paddingRight: 0}}>
-                                            <img className="rounded h-12" src={imgSource('products', i.images[0])} alt="Product" />
+                                            <Link href={`/product/${i.id}`}>
+                                                <img className="rounded h-12" src={imgSource('products', i.images[0])} alt="Product" />
+                                            </Link>
                                         </td>
                                         <td className="text-start max-w-80 overflow-hidden overflow-ellipsis whitespace-nowrap">
-                                            <span className="font-medium text-gray-900 text-end">{i.name}</span>
+                                            <Link href={`/product/${i.id}`}>
+                                                <span className="font-medium text-gray-900 text-end">{i.name}</span>
+                                            </Link>
                                         </td>
 
                                         <td className="whitespace-nowrap">
@@ -82,6 +92,14 @@ function ProductList({ products, setProducts }) {
                                         </td>
                                         <td className="whitespace-nowrap">
                                             ₹ 928.41
+                                        </td>
+                                        <td className="whitespace-nowrap">
+                                            <div className="flex gap-6 justify-center">
+                                                <FaRegEye className="text-blue-600 text-xl bg-white cursor-pointer"/>
+                                                <FaRegEdit className="text-green-700 text-xl bg-white cursor-pointer" onClick={() => router.push(`/admin/ecommerce?pane=1&id=${i.id}`)}/>
+                                                {/* {loading ? <CircularProgress size="1.2rem" /> : <FaRegTrashAlt onClick={() => deleteItem(i.id)} className="text-red-600 text-xl bg-white cursor-pointer"/>} */}
+                                                <FaRegTrashAlt onClick={() => deleteItem(i.id)} className="text-red-600 text-xl bg-white cursor-pointer"/>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

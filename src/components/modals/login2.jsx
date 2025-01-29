@@ -12,8 +12,6 @@ import axios from "axios";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import { addUser, loginAction, modalAction } from "@/lib/slices";
 import { getOtp, login, register } from "@/api/api";
-import { createUser } from "@/actions/post";
-import { getUser } from "@/actions/get";
 
 export const Login = () => {
     
@@ -21,19 +19,26 @@ export const Login = () => {
     const [tab, setTab] = useState('login');
     const [loginData, setLoginData] = useState({phone: '', password: ''});
     const [regData, setRegData] = useState({
-        name: '',
-        phone: '',
-        email: '',
-        password: '',
-
-        // addressLine: '',
-        // state: '',
-        // pin: '',
-        // country: ''
+        Name: '',        
+        EncCompanyId: 'FFCeIi27FQMTNGpatwiktw==',
+        PartyCode: '0',
+        PartyId: '0',
+        UserId: '0',
+        RegMob1: '',
+        Email: '', 
+        Address: '',
+        UserPassword: '',
+        UserType: 'Customer',
+        Address2: '',
+        City: '',
+        State: 3,
+        StateName: 'West Bengal',
+        Pin: '',        
     });
-
+    const [statesList, setStatesList] = useState([{Description: 'West Bengal', CodeId: 3}]); 
     const [otp, setOTP] = useState({isOpen: false, recievedValue: 'null', enteredValue: '', sent: false, verified: false, read_only: false});
     const [loginError, setLoginError] = useState({status: false, message: ''});
+    const [allFields, setAllFields] = useState(false);
 
     const handleLoginForm = (e) => {
         const { name, value} = e.target;
@@ -48,21 +53,68 @@ export const Login = () => {
     const handleRegisterFormSubmit = async (e) => {
         e.preventDefault();
         console.log(regData);        
-        // if (!isLoggedIn && otp.verified) {
-            if (regData.phone.length < 10) return alert('phone number is invalid, please try again.');
-            if (regData.password.length < 4) return alert('Minimum length for password is 4.');
-            // let status = await makeRegisterationRequest(regData);
-            let user = await createUser(regData);
-            if (user.status === 200) {
-                dispatch(loginAction(true));
-                dispatch(addUser(user.data));
-                localStorage.setItem("userLogin", JSON.stringify({ phone: user.phone, password: user.password }));
-                dispatch(modalAction({name: 'LOGIN_MODAL', status: false}));
-            } else if (user.status === 409) {
-                setLoginError({status: true, message: user.message});
-            }
-        // }
+        if (!isLoggedIn && otp.verified) {
+            if (regData.RegMob1.length < 10) return alert('phone number is invalid, please try again.');
+            if (regData.UserPassword.length < 4) return alert('Minimum length for password is 4.');
+            let status = await makeRegisterationRequest(regData);
+            if (status) {
+                let loginStatus = await refreshUserInfo(regData);
+                if (loginStatus) {
+                    dispatch(loginAction(true));
+                    dispatch(modalAction({name: 'LOGIN_MODAL', status: false}))
+                } else {
+                    alert('We could not log you in, Please log in again manually.');
+                }
+            } 
+        }
     } 
+
+    const handleNext = async () => {
+        if (!isLoggedIn && !otp.sent) {
+            if (regData.RegMob1.length < 10) return alert('phone number is invalid, please try again.');
+            if (regData.UserPassword.length < 4) return alert('Minimum length for password is 4.');
+            const userExist = await checkExistingUser();
+            if (userExist) return;
+            console.log('sending OTP');
+            const receivedOtp = await getOtp();
+            setOTP({...otp, isOpen: true, sent: true, recievedValue: receivedOtp});
+        } else if (otp.sent) {
+            if (otp.recievedValue !== otp.enteredValue) return alert('Wrong OTP.');
+            console.log('otp matched');
+            setOTP({...otp, isOpen: false, verified: true, read_only: true});
+            // setAllFields(true);
+
+            let status = await register(regData);
+            if (status) {
+                let loginStatus = await refreshUserInfo(regData);
+                if (loginStatus) {
+                    dispatch(loginAction(true));
+                    dispatch(modalAction({name: 'LOGIN_MODAL', status: false}));                  
+                } else {
+                    alert('We could not log you in, Please log in again manually.');
+                }
+            } 
+            console.log(regData);
+        }
+    }
+    
+    const refreshUserInfo = async (params) => {
+        try {
+            // loaderAction(true);
+            const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.RegMob1}&UP=${params.UserPassword}&CID=${compCode}`);
+            // loaderAction(false);
+            if (res.data.UserId === 0) {
+              return false;
+            } else {
+              localStorage.setItem("userLogin", JSON.stringify({ phone: params.RegMob1, password: params.UserPassword, compCode: compCode }));
+              dispatch(addUser(res.data));
+              dispatch(loginAction(true));
+              return true;
+            }
+        } catch (err) {
+            alert(err)
+        }
+    }
 
     const handleLoginFormSubmit = (e) => {
         e.preventDefault();
@@ -73,21 +125,47 @@ export const Login = () => {
     }
 
     const makeLoginRequest = async (params) => {
-        // loaderAction(false);
-        const res = await getUser(loginData);
         // loaderAction(true);
-        console.log(res);        
-        if (res.status === 200) {
+        const res = await login(params.phone, params.password, compCode);
+        // const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserAuth?UN=${params.phone}&UP=${params.password}&CID=${compCode}`);
+        // loaderAction(false);
+        if (res.data.Remarks === 'INVALID') {
+          setLoginError({status: true, message: 'The username or password is incorrect.'});
+        } else if (res.data.Remarks === 'NOTINCOMPANY') {
+            setLoginError({status: true, message: 'The username or password is incorrect.'});
+        } else {           
             dispatch(addUser(res.data));
             dispatch(loginAction(true));
             dispatch(modalAction({name: 'LOGIN_MODAL', status: false}));
-            // localStorage.setItem("userLogin", JSON.stringify({ phone: params.phone, password: params.password, compCode: compCode }));
-        } else {           
-            setLoginError({status: true, message: res.message});   
+            localStorage.setItem("userLogin", JSON.stringify({ phone: params.phone, password: params.password, compCode: compCode }));
         }
     }   
 
+    const checkExistingUser = async () => {
+        if (regData.RegMob1.length > 9) {
+        //   loaderAction(true);
+          const res = await axios.get(`${NEXT_APP_BASE_URL}/api/UserReg?UN=${regData.RegMob1}`);
+        //   loaderAction(false);
+          if (res.data === 'Y') {
+            setLoginError({status: true, message: 'This number is already registered.'});
+            setLoginData(preValue => {
+              return { ...preValue, phone: regData.RegMob1 }
+            })
+            setRegData(preValue => {
+              return { ...preValue, RegMob1: '' }
+            })
+            setTab('login');
+            return true;
+          } else {
+            setLoginError({status: false, message: ''});
+            return false;
+          }
+        }
+    }
+
     const isLoggedIn = false;
+    const compCode = 'KHLqDFK8CUUxe1p1EotU3g==';
+
 
     return (
         <div className="login-modal min-h-screen md:p-4 md:py-10 bg-gray-200 flex justify-center h-full">
@@ -126,24 +204,24 @@ export const Login = () => {
                             <div className="flex gap-4 mb-7">
                                 <div>
                                     <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaUser className="text-purple-700" /> Your Name</label>
-                                    <input name='name' value={regData.name} required onChange={handleRegForm} className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your name." />
+                                    <input name='Name' value={regData.Name} required onChange={handleRegForm} className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your name." />
                                 </div>
                                 <div>
                                     <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaPhoneVolume className="text-purple-700" /> Phone Number</label>
-                                    <input name='phone' readOnly={isLoggedIn || otp.read_only ? true : false} value={regData.phone} required onChange={(e) => handleNumberInputs(e, setRegData)} maxLength='10' className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter phone Number." />
+                                    <input name='RegMob1' readOnly={isLoggedIn || otp.read_only ? true : false} value={regData.RegMob1} required onChange={(e) => handleNumberInputs(e, setRegData)} maxLength='10' className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter phone Number." />
                                 </div>
                             </div>
-                            {/* {!otp.sent && <Button className="mb-32 bg-pink-600 text-white rounded-lg py-[0.85rem] hover:bg-indigo-500 block ml-auto min-w-[48.4%] text-xl shadow-sm shadow-purple-400">NEXT</Button>} */}
+                            {/* {!otp.sent && <Button onClick={handleNext} className="mb-32 bg-pink-600 text-white rounded-lg py-[0.85rem] hover:bg-indigo-500 block ml-auto min-w-[48.4%] text-xl shadow-sm shadow-purple-400">NEXT</Button>} */}
 
                             {/* {allFields && <> */}
                                 <div>
                                     <label className="font-medium text-gray-700 text-lg mb-4 flex items-center gap-4"><FaLock className="text-purple-700" /> Your Password</label>
-                                    <input name='password' value={regData.password} required onChange={handleRegForm} className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border mb-6 border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your password." />
+                                    <input name='UserPassword' value={regData.UserPassword} required onChange={handleRegForm} className="text-lg px-5 py-[0.9rem] bg-gray-100 w-full border mb-6 border-gray-300 rounded-lg outline-none" type="text" placeholder="Enter your password." />
                                 </div>
                                 {otp.isOpen && <div className="flex gap-2 border-8 border-gray-100 bg-gray-100 text-sm rounded mb-7 outline outline-1 outline-gray-300">
                                     <MdSecurity className="text-[3.25rem] my-auto text-purple-800" />
                                     <input name='otp' value={otp.enteredValue} required onChange={(e) => setOTP({...otp, enteredValue: e.target.value})} className="p-3 w-full border-0 outline-none text-lg" placeholder="Enter OTP" />
-                                    <Button className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-10 hover:bg-purple-500">Submit OTP</Button>
+                                    <Button onClick={handleNext} className="bg-purple-800 text-white whitespace-nowrap rounded-lg py-1 px-10 hover:bg-purple-500">Submit OTP</Button>
                                 </div>}
                                 <div className="flex items-center mb-4 gap-3">
                                     <input type="checkbox" checked readOnly />
@@ -155,7 +233,7 @@ export const Login = () => {
                             {loginError.status && <p className="text-red-600 mt-6">{loginError.message}</p>}
                             <div className="flex gap-4 mb-5 mt-6">
                                 <Button onClick={() => setTab('login')} className="bg-gray-300 text-gray-600 rounded-lg py-[0.85rem] hover:bg-indigo-200 flex-1 text-xl shadow-sm shadow-purple-400">LOGIN</Button>
-                                <Button onClick={handleRegisterFormSubmit} className={`bg-pink-600 text-white rounded-lg py-[0.85rem] hover:bg-indigo-500 flex-1 text-xl shadow-sm shadow-purple-400 ${otp.sent && 'opacity-40 pointer-events-none'}`}>REGISTER</Button>
+                                <Button onClick={handleNext} className={`bg-pink-600 text-white rounded-lg py-[0.85rem] hover:bg-indigo-500 flex-1 text-xl shadow-sm shadow-purple-400 ${otp.sent && 'opacity-40 pointer-events-none'}`}>REGISTER</Button>
                             </div>
                         </>
                         }

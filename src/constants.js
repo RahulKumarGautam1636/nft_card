@@ -182,4 +182,4 @@ export const dummyUser = {
     "MODCOUNTER": 0,
     "VisitId": 0,
     "VisitRefType": null
-}
+} 

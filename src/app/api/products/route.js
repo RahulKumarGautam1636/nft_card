@@ -5,7 +5,8 @@ import { isLive, withRemoteDB } from "@/api/api";
 import dbConnect from "@/lib/dbConnect";
 import { Products } from "@/lib/models";
 import mongoose from "mongoose";
-import { v2 as cloudinary } from 'cloudinary';
+import { uploadImages } from "../serverUtils";
+
 
 export async function GET(req, { params }) {
 
@@ -77,7 +78,7 @@ export async function GET(req, { params }) {
                 limit: perPage || 10,
                 collation: {locale: 'en'}
             };
-            products = await Products.paginate({}, options)             //.find().populate('category');
+            products = await Products.paginate({}, options);
             return NextResponse.json({ ...products, products: products.docs });
         }
         
@@ -115,48 +116,19 @@ export async function POST(req) {
     
     const body = await req.formData();  
     const images = body.getAll('images[]');
+    const editMode = body.get('editMode');
 
-    const uploadImages = async (imagesList, folder) => {
-        
-        cloudinary.config({
-            cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-            api_key: process.env.CLOUDINARY_API_KEY,
-            api_secret: process.env.CLOUDINARY_API_SECRET,
-        })
-
-        let imageURLs = [];
-
-        for (let i = 0; i < imagesList.length; i++) {
-
-            const fileName = (imagesList[i].name).split('.')[0];            // file name without extension. required by cloudinary docs.
-            const filePath = `Home/` + folder + fileName;
-            const arrayBuffer = await imagesList[i].arrayBuffer();
-            const buffer = Buffer.from(arrayBuffer);
-
-            const res = await new Promise((resolve, reject) => {
-                cloudinary.uploader.upload_stream({public_id: filePath, use_filename: true, unique_filename: false}, function (error, result) {
-                  if (error) {
-                    reject(error);
-                    return;
-                  }
-                  resolve(result);
-                }).end(buffer);
-            });
-            imageURLs.push(res.secure_url);
-        }
-        return imageURLs;
-    }
-
-    const imagesUrlList = await uploadImages(images, 'Shopify/');           // format to pass folder name.
+    const imagesUrlList = await uploadImages(images, 'Shopify/products');           // format to pass folder name.
     var id = new mongoose.Types.ObjectId();
+    var editId = body.get('id');
 
-    const product = new Products({
-        _id: id,
-        id: id,
+    let product = {
+        _id: editId || id,
+        id: editId || id,
         name: body.get('name'),
         description: body.get('description'),
         images: imagesUrlList,
-        brand: body.get('brand[name]'),
+        brand: body.get('brand'),
         price: body.get('price'),
         oldPrice: body.get('maxPrice'),
 
@@ -184,11 +156,16 @@ export async function POST(req) {
 
         dateCreated: body.get('dateCreated'),
         updatedAt: body.get('dateCreated'),
-    })
-    
-    await dbConnect();
-    await product.save();  
+    }
 
+    await dbConnect();
+    
+    if (editMode) {
+        await Products.findByIdAndUpdate(product.id, product); 
+    } else {
+        let doc = new Products(product)
+        await doc.save();  
+    }    
 
     // const images = [
     //     'https://shopify-seven-iota.vercel.app/images/categories/Electronics.png',

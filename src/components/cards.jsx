@@ -14,11 +14,11 @@ import { imgSource } from "@/api/actionUtils";
 
 export const BannerCard = ({ data, classes, type, path }) => {
 
-    return (
-      <div className={`home-banner-card ${classes}`}>
-        <img src={imgSource(path, data.images[0])} className="rounded-md" alt="banner" style={{width: '100%'}} />
-      </div>
-    )
+  return (
+    <div className={`home-banner-card ${classes}`}>
+      <img src={imgSource(`${path}`, data.images[0])} className="rounded-md" alt="banner" style={{width: '100%'}} />
+    </div>
+  )
 }
   
 export const ProductCard = ({ data, classes, styles={} }) => {

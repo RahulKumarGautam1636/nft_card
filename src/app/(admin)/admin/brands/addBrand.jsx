@@ -11,7 +11,7 @@ import withAuth from "@/components/withAuth";
 import { useEffect, useState } from "react";
 import { Download } from "@mui/icons-material";
 import { useFetch } from "@/components/utils";
-import { getBrands, getCategories2 } from "@/actions/banners";
+import { getBrands, getCategories2 } from "@/actions/get";
 
 
 function AddProduct() {

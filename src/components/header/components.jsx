@@ -133,9 +133,9 @@ export function HeaderActions({ searchOpen, setSearchOpen }) {
                             <ul>
                                 {cartList.map(i => (
                                     <li key={i.id} className="overflow-hidden relative">
-                                        <div className="minicart-card inline-flex gap-3 p-2">
+                                        <div className="minicart-card inline-flex gap-3 py-2">
                                             <div className="h-20 w-20">
-                                                <img className="rounded h-full w-full" src={imgSource('products', data.images[0])} alt="Product" />
+                                                <img className="rounded h-full w-full" src={imgSource('products', i.images[0])} alt="Product" />
                                             </div>
                                             <div className="text-start border-b border-gray-300">
                                                 <h4 className="text-gray-900 mb-1 whitespace-nowrap overflow-ellipsis" style={{fontSize: '0.95rem'}}>{i.name}</h4>
@@ -177,8 +177,8 @@ export function HeaderActions({ searchOpen, setSearchOpen }) {
                                 <FaRegUser className="text-2xl text-white"/>
                             </div>
                             <div className="text-left">
-                                <span className="label text-sm block mb-1 text-blue-800">{user.Name}</span>
-                                <span className="name text-gray-500 text-sm">{user.RegMob1}</span>
+                                <span className="label text-sm block mb-1 text-blue-800">{user.name}</span>
+                                <span className="name text-gray-500 text-sm">{user.phone}</span>
                             </div>
                             <FaChevronDown />
                         </Button>

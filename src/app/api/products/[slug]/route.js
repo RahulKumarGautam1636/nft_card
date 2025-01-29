@@ -19,13 +19,13 @@ export async function GET(req, props) {
     // let page = parseInt(searchParams.get('page'));
     // let products = allProducts.products;
 
-    let products = [];
+    let products = [];  
     if (id === 'featured') {
         // products = products.filter(i => i.isFeatured);
         products = await Products.find({ isFeatured: true }) 
     } else {
         // products = products.find(i => i.id === id);
-        products = await Products.findById(id);
+        products = await Products.findById(id).populate('category').populate('subCatId').populate('brand').populate({ path: 'location', model: 'Locations'});
         return NextResponse.json(products);
     }
 

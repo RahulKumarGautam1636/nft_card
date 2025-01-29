@@ -28,7 +28,7 @@ export default async function Product(props) {
           <div>
             <h2 className="text-2xl leading-[2.4rem] md:text-3xl font-semibold mb-4 md:mb-5">{product.name}</h2>
             <div className="flex items-center gap-6 font-medium text-[0.95rem] flex-wrap gap-y-[0.8rem]">
-              <p className="text-gray-500">Brands: <span className="text-gray-900">{product.brand}</span></p>
+              <p className="text-gray-500">Brands: <span className="text-gray-900">{product.brand.name}</span></p>
               <span className="w-[2px] bg-gray-300 h-4"></span>
               <div className="flex items-center gap-3">
                 <div className="text-yellow-600 flex items-center gap-[0.1rem]">

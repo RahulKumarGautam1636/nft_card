@@ -7,7 +7,7 @@ import { Tab, Tabs } from "@mui/material";
 import { waitFor } from "@/app/api/utils";
 import { useDispatch } from "react-redux";
 import { localLoader } from "@/lib/slices";
-import { getProducts2 } from "@/actions/banners";
+import { getProducts2 } from "@/actions/get";
 
 
 function Brands() {
