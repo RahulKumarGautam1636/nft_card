@@ -7,11 +7,12 @@ import { Avatar, Button, List, ListItemButton, ListItemText } from "@mui/materia
 import { useEffect, useState } from "react";
 import { createQuestion, createQuiz } from "@/actions/post";
 import { FaRegCircleXmark } from "react-icons/fa6";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { deepPurple } from "@mui/material/colors";
 import { getQuiz } from "@/actions/get";
 import { IoArrowBack } from "react-icons/io5";
+import { globalLoader } from "@/lib/slices";
 
 export default function Quiz() {
 
@@ -20,6 +21,7 @@ export default function Quiz() {
     //  const [question, setQuestion] = useState({ title: '', answer: '', explain: '' });
     //  const [options, setOptions] = useState({});
     //  let optionsList = Object.values(options);
+    const dispatch = useDispatch();
 
      const [quizList, setQuizList] = useState([]);
      const [addForm, setAddForm] = useState(false);
@@ -27,7 +29,9 @@ export default function Quiz() {
      useEffect(() => {
         const getInitQuiz = async () => {
             if (!user.id) return;
+            dispatch(globalLoader(true));
             const res = await getQuiz({ userId: user.id });
+            dispatch(globalLoader(false));
             console.log(res);
             if (res.status === 200) {
                 setQuizList(res.data);
@@ -41,7 +45,9 @@ export default function Quiz() {
         console.log(quiz);
 
         if (!user.id) return alert('Invalid User, please login again.');
+        dispatch(globalLoader(true));
         const res = await createQuiz({ ...quiz, author: user.id });    
+        dispatch(globalLoader(false));
         console.log(res)
         if (res.status === 200) {
             setQuizList(pre => [...pre, res.data]);

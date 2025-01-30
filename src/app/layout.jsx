@@ -10,6 +10,7 @@ import { getCategories } from "@/api/api";
 import { ToastContainer } from "react-toastify";
 import { SplashScreen } from "@/components/utils/splashScreen";
 import Script from "next/script";
+import { GlobalLoader } from "@/components/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter', display: "swap" });
 // const lato = Lato({
@@ -36,7 +37,9 @@ export default async function RootLayout({ children }) {
       <body className={`${inter.variable}`}>
         <StoreProvider>
           <SplashScreen>
-            {children}
+            <GlobalLoader>
+              {children}
+            </GlobalLoader>
             <ToastContainer className="my-toast" />    {/* we can use most of individual toast classes on the this container and that will be applied to all the toast that apear in this container */}
           </SplashScreen>
         </StoreProvider>

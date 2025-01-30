@@ -2,6 +2,7 @@
 
 import { useSelector } from "react-redux";
 import { useRouter } from 'next/navigation';
+import { Suspense, useEffect } from "react";
 
 const withAuth = Component => {
     
@@ -12,13 +13,17 @@ const withAuth = Component => {
         const isLoggedIn = useSelector(state => state.isLoggedIn);
   
         // If user is not logged in, return login component
-        if (!isLoggedIn) {
-            return router.push('/');
-        }
+        useEffect(() => {
+            if (!isLoggedIn) {                         // Using useEffect just to make sure it runs in browser. without useEffect is
+                return router.push('/');               // it gives build error due to running in server at build time. The router uses
+            }                                          // history object that is not available in server which is the reason for the error.
+        }, [isLoggedIn, router])
     
         // If user is logged in, return original component
         return (
-            <Component {...props} />
+            <Suspense>
+                <Component {...props} />
+            </Suspense>
         );
     };
   

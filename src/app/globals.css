@@ -29,9 +29,9 @@ body {
   /* opacity: 0.1; */
 }
 
-/* .main-logo {
-  opacity: 0;
-} */
+.main-logo {
+  /* opacity: 0; */
+}
 
 /* @media (width >= 1450px) {
   .container {

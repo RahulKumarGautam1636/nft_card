@@ -532,6 +532,15 @@ export const MyLoader = ({ classes }) => {
   return <div className={`fixed inset-0 z-10 flex justify-center items-center ${classes}`} style={{background: '#66627652'}}><img src='/loader.svg' alt='loading..' /></div>;
 }
 
+export const GlobalLoader = ({ classes, children }) => {
+  const isLoading = useSelector(i => i.isLoading);
+  return (
+    <>
+      {isLoading.global.length ? <MyLoader classes={classes} /> : ''}
+      {children}
+    </>
+  )
+}
 
 export const handleFormDataPost = async (path, params, dispatch) => {
   const url = `http://localhost:3000/api/${path}`;
