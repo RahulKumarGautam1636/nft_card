@@ -15,7 +15,7 @@ export const BottomNav = () => {
     const isLoggedIn = useSelector(state => state.isLoggedIn);
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 border-t border-gray-300 bg-white text-[0.9rem] md:hidden">
+        <div className="fixed bottom-0 left-0 right-0 border-t border-gray-300 bg-white text-[0.9rem] md:hidden z-10">
             <ul className="flex gap-1 items-center">
                 <li className="flex-1">
                     <Link prefetch={false} className="flex flex-col gap-[0.5em] items-center pt-[0.7em] pb-[0.2em]" href='/'>

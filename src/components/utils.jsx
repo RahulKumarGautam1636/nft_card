@@ -372,7 +372,7 @@ export const BasicModal = ({ child, name, direction='up', icon=true, canvas }) =
   }
 
   return (
-    <Modal className={`flex items-center justify-center ${canvas || 'px-4'}`} open={isActive} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+    <Modal className={`flex items-center justify-center ${canvas || 'px-4'} z-[11111]`} open={isActive} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
       <Slide direction={direction} in={isActive} mountOnEnter unmountOnExit>
         <div className={`relative max-h-full overflow-auto ${canvas && 'w-full'}`}>
           {icon && <IconButton className="bg-gray-100 hover:bg-gray-300 text-[2rem] absolute top-4 right-4" onClick={handleClose}>
@@ -529,7 +529,7 @@ export const isEmpty = (obj) => {
 }
 
 export const MyLoader = ({ classes }) => {
-  return <div className={`fixed inset-0 z-10 flex justify-center items-center ${classes}`} style={{background: '#66627652'}}><img src='/loader.svg' alt='loading..' /></div>;
+  return <div className={`fixed inset-0 z-10 flex justify-center items-center ${classes} z-[111111]`} style={{background: '#66627652'}}><img src='/loader.svg' alt='loading..' /></div>;
 }
 
 export const GlobalLoader = ({ classes, children }) => {

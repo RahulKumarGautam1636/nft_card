@@ -10,7 +10,7 @@ import { MdSecurity } from "react-icons/md";
 import { encrypt, handleNumberInputs } from "../utils";
 import axios from "axios";
 import { NEXT_APP_BASE_URL } from "@/constants";
-import { addUser, loginAction, modalAction } from "@/lib/slices";
+import { addUser, globalLoader, loginAction, modalAction } from "@/lib/slices";
 import { getOtp, login, register } from "@/api/api";
 import { createUser } from "@/actions/post";
 import { getUser } from "@/actions/get";
@@ -51,8 +51,9 @@ export const Login = () => {
         // if (!isLoggedIn && otp.verified) {
             if (regData.phone.length < 10) return alert('phone number is invalid, please try again.');
             if (regData.password.length < 4) return alert('Minimum length for password is 4.');
-            // let status = await makeRegisterationRequest(regData);
+            dispatch(globalLoader(true));
             let user = await createUser(regData);
+            dispatch(globalLoader(false));
             if (user.status === 200) {
                 dispatch(loginAction(true));
                 dispatch(addUser(user.data));
@@ -73,9 +74,9 @@ export const Login = () => {
     }
 
     const makeLoginRequest = async (params) => {
-        // loaderAction(false);
-        const res = await getUser(loginData);
-        // loaderAction(true);
+        dispatch(globalLoader(true));
+        const res = await getUser(params);
+        dispatch(globalLoader(false));
         console.log(res);        
         if (res.status === 200) {
             dispatch(addUser(res.data));
@@ -94,7 +95,7 @@ export const Login = () => {
             <div className="w-full bg-white flex flex-col md:flex-row  md:rounded-2xl h-fit max-w-[80rem] overflow-hidden shadow-md shadow-gray-400">
                 <div className="flex-1 px-2 py-8 md:px-8 md:py-12 bg-purple-500">
                     {/* <h2 className="text-3xl md:text-4xl text-center text-white font-semibold">WELCOME TO</h2> */}
-                    <Image src={'/images/logo.jpg'} className="rounded-md mx-auto mt-0 md:mt-10" width={150} height={50} alt="Logo" />
+                    <Image onClick={() => dispatch(globalLoader(true))} src={'/images/logo.jpg'} className="rounded-md mx-auto mt-0 md:mt-10" width={150} height={50} alt="Logo" />
                     <img src={'/online-shop.png'} className="mx-auto max-h-[24rem] md:max-h-[32rem]" alt="Logo" />
                 </div>
                 <div className="flex-1 p-7 md:p-12 flex flex-col items-center">

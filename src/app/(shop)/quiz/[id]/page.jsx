@@ -16,6 +16,8 @@ import Link from "next/link";
 import { deepPurple } from "@mui/material/colors";
 import { IoArrowBack } from "react-icons/io5";
 import { globalLoader } from "@/lib/slices";
+import { MdRefresh } from "react-icons/md";
+import { Chart } from "react-google-charts";
 
 export default function Quiz() {
 
@@ -40,13 +42,11 @@ export default function Quiz() {
             if (res.status === 200) {
                 setQuestionList(res.data);
             } else {
-                alert('No Questions found.');
+                // alert('No Questions found.');
             }
         }
         getInitQuestions();
     }, [quizId])
-
-    console.log(questionList);
 
     // useEffect(() => {
     //     const getInitQuiz = async () => {
@@ -114,6 +114,7 @@ export default function Quiz() {
             description: 'Start taking this quiz', 
             link: '#',
             onClick: () => {
+                if (!qeustions.length) return alert('Your Dont have any qeustions in this quiz. Please add some qeustions to start.')
                 setTab('start-quiz');
             } 
         },
@@ -135,21 +136,67 @@ export default function Quiz() {
         },
     ]
 
+    const [qeustions, setQuestions] = useState([]);
+
+    useEffect(() => {
+        const insertAnsField = questionList.map(i => ({...i, chosenAns: ''}));
+        setQuestions([...insertAnsField]);
+    }, [questionList])
+
     const [active, setActive] = useState(0);
-    const activeQuestion = questionList[active];
-    const [userAnswer, setUserAnswer] = useState('')
+    const activeQuestion = qeustions[active];
 
     const next = () => {
-        if (active === questionList.length - 1) return;
+        if (active === qeustions.length - 1) return;
         setActive(active + 1);
-        setUserAnswer('');
     }
 
     const prev = () => {
         if (active === 0) return;
         setActive(active - 1);
-        setUserAnswer('');
     }
+
+    const handleUserAnswer = (i, n) => {
+        setQuestions(pre => {
+            let arr = [...pre];
+            arr[n] = { ...activeQuestion, correct: i.key === activeQuestion.answer, chosenAns: i.key }
+            return arr;
+        });
+    }
+
+    const reset = (i) => {
+        const insertAnsField = questionList.map(i => ({...i, chosenAns: ''}));
+        setQuestions([...insertAnsField]);
+        setActive(0);
+    }
+
+    const correct = qeustions.filter(i => i.correct);
+    const inCorrect = qeustions.filter(i => !i.correct);
+
+    console.log(correct);
+    console.log(inCorrect);
+
+    const data = [
+        ["Correct", "Incorrect"],
+        ["Correct", correct.length],
+        ["Incorrect", inCorrect.length],
+    ];
+        
+    const options3 = {
+        title: "Your Quiz Results",
+        pieHole: 0.4,
+        is3D: false,
+
+        legend: {
+            position: "bottom",
+            alignment: "center",
+            textStyle: {
+              color: "#233238",
+              fontSize: 14,
+            },
+        }
+    };
+
 
     return (
         <main className='quiz-home'>
@@ -229,12 +276,14 @@ export default function Quiz() {
                                                 <Link prefetch={false} href={`#`}>
                                                     <ListItemButton className="gap-4 bg-slate-100 shadow-sm shadow-purple-400 rounded-lg p-4 hover:bg-purple-100">
                                                         <Avatar className="uppercase" sx={{ bgcolor: deepPurple[500] }}>{(i.heading)?.substr(0, 2)}</Avatar>
-                                                        <div>
+                                                        <div className="text-nowrap overflow-hidden">
                                                             <h4 className="text-md font-semibold">{i.title}</h4>
-                                                            <p className="text-gray-500 mt-1">{i.explain}</p>
+                                                            <p className="text-gray-500 mt-1 overflow-hidden overflow-ellipsis">{i.explain}</p>
                                                         </div>
-                                                        {/* <FaChevronRight className="ml-auto text-2xl text-slate-500" /> */}
-                                                        <FaRegEdit onClick={() => handleEdit(i)} className="ml-auto text-2xl text-pink-600" />
+                                                        <div>
+                                                            {/* <FaChevronRight className="ml-auto text-2xl text-slate-500" /> */}
+                                                            <FaRegEdit onClick={() => handleEdit(i)} className="ml-auto text-2xl text-pink-600" />
+                                                        </div>
                                                     </ListItemButton>
                                                 </Link>
                                             </li>
@@ -250,11 +299,15 @@ export default function Quiz() {
                     </div>
                     <div className={`tab-item ${tab === 'start-quiz' ? 'block' : 'hidden'} `}>
                         <div className="p-6">
-                            <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Answer the Questions <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => {setTab('HOME'); setUserAnswer(''); setActive(0);}} /></h2>
+                            <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center gap-3">
+                                Answer the Questions 
+                                <MdRefresh className='ml-auto text-[1.7rem] text-purple-700' onClick={reset} />
+                                <IoArrowBack className='text-[1.7rem] text-purple-700' onClick={() => {setTab('HOME'); setActive(0);}} />
+                            </h2>
                             <div className="mt-6">
                                 <div className="flex gap-4 mb-5">
                                     <div className="flex-1">
-                                        <label className="text-black text-[0.9rem] mb-2 block"> Question {active+1} <span className="text-red-500">*</span></label>
+                                        <label className="text-black text-[0.9rem] mb-2 block"> Question {active+1} out of {qeustions.length} <span className="text-red-500">*</span></label>
                                         <textarea name='title' value={activeQuestion?.title} readOnly className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Write Your Question"></textarea>
                                     </div>
                                 </div>
@@ -262,99 +315,72 @@ export default function Quiz() {
                                     {activeQuestion?.options?.map(i => {
                                         return (
                                             <div className="flex-1 relative" key={i.key}>
-                                                <div className="flex gap-2 absolute top-1/2 right-4 -translate-y-1/2 text-2xl pointer-events-none">
+                                                <div className="flex gap-2 absolute top-1/2 right-4 -translate-y-1/2 text-2xl pointer-events-none bg-white rounded-full">
                                                 {
-                                                    userAnswer ? 
+                                                    activeQuestion?.chosenAns ? 
                                                     i.key === activeQuestion.answer ? <FaCheckCircle className="text-green-600" /> : <FaRegCircleXmark className="text-pink-600" />
                                                     :                                                                                                                    
                                                     <FaRegCircle className="text-blue-600" />
                                                 }
                                                 </div>
-                                                <input name={i.key} onClick={() => setUserAnswer(i.key)} value={options[i.key]?.content} onChange={handleOptions} className="px-5 py-4 bg-slate-100 w-full rounded-md outline-none text-[1rem] cursor-pointer" type="text" placeholder={`Option ${i.key}`} />
+                                                <input name={i.key} onClick={() => handleUserAnswer(i, active)} readOnly value={i?.content} onChange={handleOptions} className="px-5 py-4 bg-slate-100 w-full rounded-md outline-none text-[1rem] cursor-pointer" type="text" placeholder={`Option ${i.key}`} />
                                             </div>
                                         )
                                     })}
-                                    {userAnswer && <div className="flex-1">
+                                    {activeQuestion?.chosenAns && <div className="flex-1">
                                         <label className="text-black text-[0.9rem] mb-2 block"> Answer Explanation <span className="text-red-500">*</span></label>
                                         <textarea name='explain' value={activeQuestion?.explain} readOnly className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" ></textarea>
                                     </div>}
                                 </div>
                                 <div className="flex flex-wrap gap-4 text-nowrap mt-[5.4rem]">
                                     <Button onClick={prev} className={`${active === 0 && 'opacity-50'} bg-blue-600 min-w-fit text-white rounded-lg px-4 py-3 hover:bg-indigo-500 flex-1 text-lg shadow-sm shadow-purple-400`} type="submit">PREVIOUS</Button>
-                                    <Button onClick={next} className={`${(active === questionList.length - 1) && 'opacity-50'} bg-pink-600 min-w-fit text-white rounded-lg px-4 py-3 hover:bg-indigo-500 flex-1 text-lg shadow-sm shadow-purple-400`}>NEXT</Button>
-                                    {/* <Button className="bg-gray-300 min-w-fit text-gray-600 rounded-lg px-4 py-3 hover:bg-indigo-200 flex-1 text-lg shadow-sm shadow-purple-400">Shedule</Button> */}
+                                    {(active === qeustions.length - 1) ? 
+                                        <Button onClick={() => setTab('results')} className="bg-gray-300 min-w-fit text-gray-600 rounded-lg px-4 py-3 hover:bg-indigo-200 flex-1 text-lg shadow-sm shadow-purple-400">RESULTS</Button> :
+                                        <Button onClick={next} className={` bg-pink-600 min-w-fit text-white rounded-lg px-4 py-3 hover:bg-indigo-500 flex-1 text-lg shadow-sm shadow-purple-400`}>NEXT</Button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={`tab-item ${tab === 'results' ? 'block' : 'hidden'} `}>
+                        <div className="p-6">
+                            <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">View Results <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => {setTab('HOME'); reset()}} /></h2>
+                            <div className="mt-6">
+                                <div>
+                                    {tab === 'results' && <Chart
+                                        chartType="PieChart"
+                                        width="100%"
+                                        height="400px"
+                                        data={data}
+                                        options={options3}
+                                    />}
+                                </div>
+                                <div>
+                                <h2 className="my-4 text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Questions List</h2>
+                                    <ul className="mb-4">
+                                        {qeustions.map(i => (
+                                            <li className="mb-4" key={i.id}>
+                                                <div>
+                                                    <ListItemButton className="gap-4 bg-slate-100 shadow-sm shadow-purple-400 rounded-lg p-4 hover:bg-purple-100">
+                                                        <Avatar className="uppercase" sx={{ bgcolor: deepPurple[500] }}>{(i.heading)?.substr(0, 2)}</Avatar>
+                                                        <div className="text-nowrap overflow-hidden flex-1">
+                                                            <h4 className="text-md font-semibold">{i.title}</h4>
+                                                            <p className="text-gray-500 mt-1 overflow-hidden overflow-ellipsis">{i.explain}</p>
+                                                        </div>
+                                                        <div className="flex gap-3">
+                                                            {i.correct ? <FaCheckCircle className="ml-auto text-2xl text-green-600" /> : <FaRegCircleXmark className="ml-auto text-2xl text-pink-600" />}
+                                                            {/* <FaChevronRight className="ml-auto text-2xl text-slate-500" /> */}
+                                                        </div>
+                                                    </ListItemButton>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {/* {tab ?
-                    <div className="p-6">
-                        <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Add Quiz Question <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => setTab(false)} /></h2>
-                        <div className="mt-6">
-                            <div className="flex gap-4 mb-5">
-                                <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> Write Your Question <span className="text-red-500">*</span></label>
-                                    <textarea name='title' value={question.title} onChange={handleQuestion} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Write Your Question"></textarea>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-4 mb-5">
-                                {optionsList.map(i => {
-                                    return (
-                                        <div className="flex-1 relative" key={i.key}>
-                                            <div className="flex gap-2 absolute top-1/2 right-4 -translate-y-1/2 text-2xl">
-                                                {i.key === question.answer ? 
-                                                    <FaCheckCircle className="text-green-600" onClick={() => setQuestion(pre => ({...pre, answer: '' }))} /> : 
-                                                    <FaRegCircle className="text-blue-600" onClick={() => setQuestion(pre => ({...pre, answer: i.key }))} />
-                                                }                                                                                                                     
-                                                <FaRegCircleXmark className="text-pink-600" onClick={() => deleteOption(i)}/>
-                                            </div>
-                                            <input name={i.key} value={options[i.key]?.content} onChange={handleOptions} className="px-5 py-4 bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" placeholder={`Option ${i.key}`} />
-                                        </div>
-                                    )
-                                })}
-                                {optionsList.length <= 3 && <div onClick={() => setOptions(pre => ({...pre, [optionsList.length+1]: { key: optionsList.length+1, content: '' }}))} className="h-[3.7rem] cursor-pointer border border-dashed border-blue-500 bg-gray-50 rounded-lg flex gap-3 justify-center items-center text-center">
-                                    <IoMdAdd className="text-[1.6rem] text-pink-600" />
-                                    <p className="font-medium text-blue-500 text-[1.15rem]">ADD OPTION</p>
-                                </div>}
-                                <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> Explain The Answer <span className="text-red-500">*</span></label>
-                                    <textarea name='explain' value={question.explain} onChange={handleQuestion} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Explain The Answer (optional)" ></textarea>
-                                </div>
-                            </div>
-                            <Button onClick={questionSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">ADD QUESTION</Button>
-                        </div>
-                    </div>
-                    :
-                    <div className="p-6">
-                        <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Questions List <IoArrowBack onClick={() => router.back()} className='ml-auto text-[1.7rem] text-purple-700' /></h2>
-                        <div className="mt-6">
-                            <div >
-                                <ul className="mb-4">
-                                    {questionList.map(i => (
-                                        <li className="mb-4" key={i.id}>
-                                            <Link prefetch={false} href={`#`}>
-                                                <ListItemButton className="gap-4 bg-slate-100 shadow-sm shadow-purple-400 rounded-lg p-4 hover:bg-purple-100">
-                                                    <Avatar className="uppercase" sx={{ bgcolor: deepPurple[500] }}>{(i.heading)?.substr(0, 2)}</Avatar>
-                                                    <div>
-                                                        <h4 className="text-md font-semibold">{i.title}</h4>
-                                                        <p className="text-gray-500 mt-1">{i.explain}</p>
-                                                    </div>
-                                                    <FaRegEdit onClick={() => handleEdit(i)} className="ml-auto text-2xl text-pink-600" />
-                                                </ListItemButton>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div onClick={() => setTab(true)} className="h-[3.7rem] cursor-pointer border border-dashed border-blue-500 bg-gray-50 rounded-lg flex gap-3 justify-center items-center text-center">
-                                <IoMdAdd className="text-[1.6rem] text-pink-600" />
-                                <p className="font-medium text-blue-500 text-[1.15rem]">ADD NEW QUIZ</p>
-                            </div>
-                        </div>
-                    </div>
-                } */}
             </div>
             {/* <div className="absolute inset-0 z-0" style={{overflowX: 'clip'}}>
                 <div className="background-gradient">

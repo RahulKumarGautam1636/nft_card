@@ -161,7 +161,7 @@ export const Profile = () => {
                         <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: false, data: ''}))}>
                             <Link prefetch={false} className='flex gap-4 items-center' href='/quiz'><span className="text-xl"><MdQuiz /></span> Quiz</Link>
                         </li>
-                        <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('create-quiz')}><span className="text-xl"><RiCustomerService2Fill /></span> Create Quiz</li>
+                        {/* <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('create-quiz')}><span className="text-xl"><RiCustomerService2Fill /></span> Create Quiz</li> */}
                     </ul> 
                 </div>
                 <div className="h-full flex-1">
