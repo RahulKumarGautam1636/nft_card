@@ -1,4 +1,4 @@
-export const remoteAssets = false;
+export const remoteAssets = true;
 
 export const locations = [
     { id: 1, name: 'Mumbai' },
