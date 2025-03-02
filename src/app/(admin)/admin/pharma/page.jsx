@@ -22,26 +22,16 @@ function ProductList() {
     const [age, setAge] = useState(7);
     const [isLoading, setLoading] = useState(false);
 
-    const [appns, setAppns] = useState({ docs: [], page: 1, totalPages: '' });
+    const [appns, setAppns] = useState({ docs: [], page: 1, totalPages: '', limit: 15 });
 
     useEffect(() => {
-        const getAppns = async () => {
-            setLoading(true);
-            try {
-                const res = await axios.get('https://shopify-seven-iota.vercel.app/api/pharma?query=appn');
-                setAppns(res.data);
-            } catch (error) {
-                alert('Something went wrong. Failed to fetch !');
-            }
-            setLoading(false);
-        }
         getAppns();
-    }, [])
+    }, [appns.page, appns.limit])
 
     const getAppns = async () => {
         setLoading(true);
         try {
-            const res = await axios.get('https://shopify-seven-iota.vercel.app/api/pharma?query=appn');
+            const res = await axios.get(`https://shopify-seven-iota.vercel.app/api/pharma?query=appn&page=${appns.page}&perPage=${appns.limit}`);
             setAppns(res.data);
         } catch (error) {
             alert('Something went wrong. Failed to fetch !');
@@ -65,7 +55,7 @@ function ProductList() {
     // const [page, setPage] = useState(1);
     const handlePage = (event, value) => {
     //   setPage(value);
-        // setProducts(pre => ({...pre, page: value}));
+        setAppns(pre => ({...pre, page: value}));
     };
 
     // const [loading, setLoading] = useState(false);
@@ -92,46 +82,44 @@ function ProductList() {
                         <table className="table-type-1 header-bg w-full min-w-[730px] text-center border-b border-gray-300">
                             <tbody>
                                 <tr className="border-b-[3px] border-orange-500">
-                                    <th className="text-start" colSpan={2}>Product</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Stock</th>
-                                    <th>Sale</th>
-                                    <th>Revenue</th>
+                                    <th className="text-start" colSpan={2}>Name</th>
+                                    <th className="text-start">Doctor</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Company ID</th>
                                     <th>Action</th>
                                 </tr>
-                                {appns.docs.map((i, n) => (
-                                    <tr className="text-gray-700 font-semibold" key={n}>
-                                        <td style={{paddingRight: 0}}>
-                                            <img className="rounded h-12" src={'/images/avatar.jpg'} alt="Product" />
-                                        </td>
-                                        <td className="text-start max-w-80 overflow-hidden overflow-ellipsis whitespace-nowrap">
-                                            <span className="font-medium text-gray-900 text-end">{i.Name}</span>
-                                        </td>
-
-                                        <td className="whitespace-nowrap">
-                                            <span className="text-gray-500">{i.Doctor.Name}</span>
-                                        </td>
-                                        <td className="whitespace-nowrap">
-                                            {i.AppointDate}
-                                        </td>
-                                        <td>
-                                            <span className={`${i.stock ? 'bg-green-100 border border-green-200' : 'bg-red-100 border border-red-200'} ${i.stock ? 'text-green-600' : 'text-red-600'} text-sm font-medium py-[0.25rem] px-[0.7rem] rounded-2xl inline-block`}>{i.stock ? `In Stock (${i.stock})` : 'Out of Stock'}</span>
-                                        </td>
-                                        <td className="whitespace-nowrap">
-                                            {i.AppTime}
-                                        </td>
-                                        <td className="whitespace-nowrap">
-                                            {i.EncCompanyId}
-                                        </td>
-                                        <td className="whitespace-nowrap">
-                                            <div className="flex gap-6 justify-center">
-                                                <FaRegEye className="text-blue-600 text-xl bg-white cursor-pointer"/>
-                                                <FaRegTrashAlt onClick={() => deleteAppn(i._id)} className="text-red-600 text-xl bg-white cursor-pointer"/>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))}
+                                {appns.docs.map((i, n) => {
+                                    let slNo = (appns.page - 1) * appns.limit + (n + 1);
+                                    return (
+                                        <tr className="text-gray-700 font-semibold" key={n}>
+                                            <td style={{paddingRight: 0}}>
+                                                <span className="text-blue-800">{slNo}.</span>
+                                            </td>
+                                            <td className="text-start max-w-80 overflow-hidden overflow-ellipsis whitespace-nowrap">
+                                                <span className="font-medium text-gray-900 text-end">{i.Name}</span>
+                                            </td>
+                                            <td className="whitespace-nowrap text-start">
+                                                <span className="text-gray-500">{i.Doctor.Name}</span>
+                                            </td>
+                                            <td className="whitespace-nowrap">
+                                                {i.AppointDate}
+                                            </td>
+                                            <td className="whitespace-nowrap">
+                                                {i.AppTime}
+                                            </td>
+                                            <td className="whitespace-nowrap">
+                                                {i.EncCompanyId}
+                                            </td>
+                                            <td className="whitespace-nowrap">
+                                                <div className="flex gap-6 justify-center">
+                                                    <FaRegEye className="text-blue-600 text-xl bg-white cursor-pointer"/>
+                                                    <FaRegTrashAlt onClick={() => deleteAppn(i._id)} className="text-red-600 text-xl bg-white cursor-pointer"/>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
                             </tbody>
                         </table>
                     </div>
