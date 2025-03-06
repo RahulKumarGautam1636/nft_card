@@ -19,6 +19,7 @@ import { PiCityBold } from "react-icons/pi";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { FaDotCircle } from "react-icons/fa";
 import { GiIsland } from "react-icons/gi";
+import { Title_1 } from "@/components/utils";
 
 export default function Checkout() {
 
@@ -44,23 +45,28 @@ export default function Checkout() {
                     </div>
                     <div className="rounded-lg border border-gray-300 p-6">
                         <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Billing Details</h2>
-                        <div className="my-6 grid gap-4" style={{gridTemplateColumns: '10.2rem 1fr'}}>
-                            <h4 className="font-medium flex gap-3 items-center"><FaMoneyBill1Wave className="text-xl text-[#44558c]" /> Billing To</h4>
-                            <p className="text-blue-600 font-medium">{user.name}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><MdPhoneInTalk className="text-xl text-[#44558c]" /> Phone Number</h4>
-                            <p className="">{user.RegMob1}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><IoMdMail className="text-xl text-[#44558c]" /> Email</h4>
-                            <p className="">1636rahul@gmail.com</p>
-                            <h4 className="font-medium flex gap-3 items-center"><FaLocationPin className="text-xl text-[#44558c]" /> Address</h4>
-                            <p className="">{user.Address}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><PiCityBold className="text-xl text-[#44558c]" /> City</h4>
-                            <p className="">{user.City}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><FaMapMarkedAlt className="text-xl text-[#44558c]" /> State</h4>
-                            <p className="">{user.StateName}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><FaDotCircle className="text-xl text-[#44558c]" /> Pin</h4>
-                            <p className="">{user.Pin}</p>
-                            <h4 className="font-medium flex gap-3 items-center"><GiIsland className="text-xl text-[#44558c]" /> Coutry</h4>
-                            <p className="">INDIA</p>
+                        <div className="flex gap-4">
+                            <div className="my-6 grid gap-4" style={{gridTemplateColumns: '10.2rem 1fr'}}>
+                                <h4 className="font-medium flex gap-3 items-center"><FaMoneyBill1Wave className="text-xl text-[#44558c]" /> Billing To</h4>
+                                <p className="text-blue-600 font-medium">{user.name}</p>
+                                <h4 className="font-medium flex gap-3 items-center"><MdPhoneInTalk className="text-xl text-[#44558c]" /> Phone Number</h4>
+                                <p className="">{user.RegMob1}</p>
+                                <h4 className="font-medium flex gap-3 items-center"><IoMdMail className="text-xl text-[#44558c]" /> Email</h4>
+                                <p className="">1636rahul@gmail.com</p>
+                                <h4 className="font-medium flex gap-3 items-center"><FaLocationPin className="text-xl text-[#44558c]" /> Address</h4>
+                                <p className="">{user.Address}</p>
+                                <h4 className="font-medium flex gap-3 items-center"><PiCityBold className="text-xl text-[#44558c]" /> City</h4>
+                                <p className="">{user.City}</p>
+                                <h4 className="font-medium flex gap-3 items-center"><FaMapMarkedAlt className="text-xl text-[#44558c]" /> State</h4>
+                                <p className="">{user.StateName}</p>
+                                <h4 className="font-medium flex gap-3 items-center"><FaDotCircle className="text-xl text-[#44558c]" /> Pin</h4>
+                                <p className="">{user.Pin}</p>
+                                <h4 className="font-medium flex gap-3 items-center"><GiIsland className="text-xl text-[#44558c]" /> Coutry</h4>
+                                <p className="">INDIA</p>
+                            </div>
+                            <div>
+                                {/* <Title_1 heading='Featured Products' subHeading='Do not miss the current offers until the end of March.' /> */}
+                            </div>
                         </div>
                         <div>
                             <textarea className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>

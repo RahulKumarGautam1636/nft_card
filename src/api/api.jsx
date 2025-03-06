@@ -4,7 +4,7 @@ import { banners, category, categoryId, catNameData, featured, homeBanners, home
 import { getBanners2, getCategories2, getFilteredProducts2, getProducts2 } from "@/actions/get";
 
 export const isLive = false;
-export const withRemoteDB = true;
+export const withRemoteDB = false;
 const fixedData = false;
 const emptyRes = false;
 

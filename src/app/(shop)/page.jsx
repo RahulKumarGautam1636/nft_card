@@ -3,7 +3,7 @@ import { getBanners, getCategories, getCatNameProducts, getFeaturedProducts, get
 import { ProductCard } from "@/components/cards";
 import { FeaturedCategories } from "@/components/home";
 import { HomeCategoryLoader } from "@/components/home/components";
-import FilterTabs, { HomeBannerSlider, PromoBanner } from "@/components/utils";
+import FilterTabs, { HomeBannerSlider, PromoBanner, Title_1 } from "@/components/utils";
 import { Star } from "@mui/icons-material";
 import { Button, ButtonBase } from "@mui/material";
 import { Suspense } from "react";
@@ -50,10 +50,7 @@ export default async function Home() {
         
         <section className="grid grid-cols-1 lg:grid-cols-10 gap-5 mt-4">
           <div className="relative col-span-1 lg:col-span-2">
-            <div className="mb-4 lg:hidden">
-              <h2 className="text-[1.4rem] md:text-2xl font-semibold">Trending Offers</h2>
-              <p className="text-gray-500">Do not miss the current offers until the end of March.</p>
-            </div>
+            <Title_1 classes='mb-4 lg:hidden' heading='Trending Offers' subHeading='Do not miss the current offers until the end of March.' />
             <div className="sticky top-0 flex lg:flex-col gap-5 overflow-auto lg:overflow-clip">
               {homeSideBanners.slice(0, 4).map(i => (
                 <div key={i.id}>
@@ -64,10 +61,7 @@ export default async function Home() {
           </div>
           <div className="col-span-1 lg:col-span-8">
             <div className="flex justify-between items-end">
-              <div>
-                <h2 className="text-[1.4rem] md:text-2xl font-semibold">Featured Products</h2>
-                <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
-              </div>
+              <Title_1 heading='Featured Products' subHeading='Do not miss the current offers until the end of March.' />
               <Button className="text-purple-800 bg-white whitespace-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
             </div>
             <div className="grid gap-3 mt-4 product-grid">
@@ -86,20 +80,14 @@ export default async function Home() {
               <PromoBanner banners={banners} type={'promo-banner'} path={'banners'} />
             </div>
             <div className="mt-4">
-              <div className="">
-                <h2 className="text-[1.4rem] md:text-2xl font-semibold">New Products</h2>
-                <p className="text-gray-500 ">Do not miss the current offers until the end of March.</p>
-              </div>
+              <Title_1 heading='New Products' subHeading='Do not miss the current offers until the end of March.' />
               <div className="grid gap-3 mt-4 product-grid">
                 {productsData.products.reverse().map(i => (<ProductCard key={i.id} data={i} styles={{maxWidth: 'none'}} />))}
               </div>
             </div>
             <section className="mt-4">
               <div className="flex justify-between items-end">
-                <div className="me-4">
-                  <h2 className="text-[1.4rem] md:text-2xl font-semibold">HOT Product of the Week</h2>
-                  <p className="text-gray-500 ">Dont miss this opportunity at a special discount just for this week.</p>
-                </div>
+                <Title_1 heading='HOT Product of the Week' subHeading='Dont miss this opportunity at a special discount just for this week.' />
                 <Button className="text-purple-800 bg-white whitespace-nowrap border-[3px] border-purple-500 rounded-lg py-2 px-7 hover:border-[3px] hover:text-white hover:bg-purple-500" variant="outlined">View All</Button>
               </div>
               <div className="border border-red-500 flex flex-col md:flex-row rounded-lg mt-4 overflow-hidden">
@@ -142,7 +130,6 @@ export default async function Home() {
             </section>
           </div>
         </section>
-
       </main>
     </div>
   );

@@ -493,7 +493,7 @@ export const ProductToastCard = ({ toastData, closeToast }) => {
           <li className="overflow-hidden relative">
               <div className="minicart-card inline-flex gap-3 py-2">
                   <div className="h-16 w-16">
-                      <img className="rounded h-full w-full" src={toastData.product.images[0]} alt="Product" />
+                      <img className="rounded h-full w-full" src={imgSource('products', toastData.product.images[0])} alt="Product" />
                   </div>
                   <div className="text-start border-b border-gray-300">
                       <h4 className="text-gray-900 mb-1 whitespace-nowrap overflow-ellipsis" style={{fontSize: '0.95rem'}}>{toastData.product.name}</h4>
@@ -606,4 +606,13 @@ export const imgSource = (folder, fileName) => {
     path = `/images/${folder}/${fileName}`;
   }
   return path;
+}
+
+export const Title_1 = ({ heading, subHeading, classes }) => {
+  return (
+    <div className={classes}>
+      <h2 className="text-[1.4rem] md:text-2xl font-semibold">{heading}</h2>
+      <p className="text-gray-500 ">{subHeading}</p>
+    </div>
+  )
 }

@@ -138,8 +138,9 @@ export function HeaderActions({ searchOpen, setSearchOpen }) {
                                                 <img className="rounded h-full w-full" src={imgSource('products', i.images[0])} alt="Product" />
                                             </div>
                                             <div className="text-start border-b border-gray-300">
-                                                <h4 className="text-gray-900 mb-1 whitespace-nowrap overflow-ellipsis" style={{fontSize: '0.95rem'}}>{i.name}</h4>
-                                                <p className="text-gray-500">1 &nbsp;x&nbsp;&nbsp;<span className="text-blue-800" style={{fontSize: '1rem'}}>₹ {i.price}</span></p>
+                                                <h4 className="text-blue-700 mb-1 whitespace-nowrap overflow-ellipsis font-semibold" style={{fontSize: '0.95rem'}}>{i.name}</h4>
+                                                <p className="text-gray-500">1 &nbsp;x&nbsp;&nbsp;<span className="text-gray-900" style={{fontSize: '0.95rem'}}>₹ {i.price}</span></p>
+                                                <span className="text-cyan-700 text-[0.9rem] font-medium">{i.discount}% OFF</span>
                                             </div>
                                             <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white z-10 absolute top-1/2 right-0 transform -translate-y-1/2 cursor-pointer" style={{fontSize: '1.95rem'}} />
                                         </div>

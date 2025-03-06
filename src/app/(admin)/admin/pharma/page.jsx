@@ -22,7 +22,7 @@ function ProductList() {
     const [age, setAge] = useState(7);
     const [isLoading, setLoading] = useState(false);
 
-    const [appns, setAppns] = useState({ docs: [], page: 1, totalPages: '', limit: 15 });
+    const [appns, setAppns] = useState({ docs: [], page: 1, totalPages: '', limit: 20 });
 
     useEffect(() => {
         getAppns();

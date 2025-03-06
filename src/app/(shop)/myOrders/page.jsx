@@ -112,11 +112,11 @@ export default function Cart() {
             <div className="container mx-auto px-4 flex flex-col md:flex-row gap-4">
                 <div className="w-full">
                     <div className="rounded-lg border border-gray-300 bg-gray-50">
-                        <div className="p-6 border-b border-gray-300 bg-slate-200 flex gap-8 items-center flex-wrap">
+                        <div className="p-6 border-b border-gray-300 bg-slate-100 flex gap-8 items-center flex-wrap">
                             <p className="text-[1.15rem] font-semibold text-gray-500">Order <span className="text-black">#2514</span></p> 
                             <div>
-                                <span className="text-green-600 bg-green-200 border border-green-200 text-[1.1rem] font-medium py-[0.2rem] px-[0.8rem] rounded-md me-4">Paid</span>
-                                <span className="text-orange-600 bg-orange-100 border border-orange-200 text-[1.1rem] font-medium py-[0.2rem] px-[0.8rem] rounded-md">In Transit</span>
+                                <span className="text-green-600 bg-green-200 border border-green-300 text-[1.1rem] font-medium py-[0.2rem] px-[0.8rem] rounded-md me-4">Paid</span>
+                                <span className="text-orange-600 bg-orange-100 border border-orange-300 text-[1.1rem] font-medium py-[0.2rem] px-[0.8rem] rounded-md">In Transit</span>
                             </div>
                             <p className="text-[1.05rem] font-semibold text-gray-600 flex gap-8 items-center">
                                 <span className="flex gap-2 items-center"><FaRegCalendarAlt className="text-lg"/> 20 March, 2021</span>
