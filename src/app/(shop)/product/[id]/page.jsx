@@ -53,7 +53,7 @@ export default async function Product(props) {
                 <span className="text-gray-500 text-lg line-through">Rs {product.oldPrice}</span>
                 <span className="font-bold text-red-700">Rs {product.price}</span>
               </h5>
-              {product.countInStock ? <span className="bg-green-100 text-green-700 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl mt-4 inline-block">In Stock</span> : ''}
+              {product.countInStock ? <span title={product.countInStock} className="bg-green-100 text-green-700 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl mt-4 inline-block">In Stock</span> : ''}
               <p className="mt-6 mb-[1.8rem] leading-7">{product.description}</p>
               <ActionBox product={product} />
               <ul className="mt-11">

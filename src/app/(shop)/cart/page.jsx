@@ -5,23 +5,35 @@ import { IconButton } from "@mui/material";
 import { BiHeart, BiMinus, BiPlus } from "react-icons/bi";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, dumpCart, removeFromCart } from "@/lib/slices";
+import { addToCart, dumpCart, modalAction, removeFromCart } from "@/lib/slices";
 // import Radio from '@mui/material/Radio';
 // import RadioGroup from '@mui/material/RadioGroup';
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import FormControl from '@mui/material/FormControl';
 import Link from "next/link";
 import { imgSource } from "@/api/actionUtils";
+import { useRouter } from "next/navigation";
 // import { useState } from "react";
 
 export default function Cart() {
 
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
+    const isLoggedIn = useSelector(state => state.isLoggedIn);
     const cartList = Object.values(cart);
+    const router = useRouter();
 
     const cartItemsValueList = cartList.map(item => item.qty * item.price);                           // Array of all item's price * quantity selected.
     const cartSubtotal = cartItemsValueList.reduce((total, num) => total + num, 0).toFixed(2); 
+
+    const handleLogin = (e) => {
+        if (isLoggedIn) {
+            // router.push('/checkout'); 
+        } else {
+            dispatch(modalAction({name: 'LOGIN_MODAL', status: true}));
+            e.preventDefault();
+        }
+    }
 
     return (
         <main className='mt-5 md:mt-12'>
@@ -100,7 +112,13 @@ export default function Cart() {
                                             </td>
                                             <td className="flex justify-between gap-12 md:table-cell">
                                                 <strong className="block md:hidden font-bold">Name</strong>
-                                                <span className="font-medium text-gray-900 text-end">{i.name}</span>
+                                                <div>
+                                                    <span className="font-medium text-blue-900 text-end">{i.name}</span>
+                                                    <div className="block mt-3">
+                                                        <span className="font-medium text-gray-600 me-4">MRP: ₹{i.oldPrice}</span>
+                                                        <span className="text-cyan-100 bg-cyan-700 text-sm font-medium py-[0.35rem] px-[0.8rem] rounded-2xl w-fit">{i.discount}% OFF</span>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td className="whitespace-nowrap flex justify-between md:table-cell">
                                                 <strong className="block md:hidden font-bold">Price</strong>
@@ -126,7 +144,7 @@ export default function Cart() {
                                             </td>
                                             <td className="flex justify-between md:table-cell">
                                                 <strong className="block md:hidden font-bold">Action</strong>
-                                                <div className="flex gap-6">
+                                                <div className="flex gap-6 justify-center">
                                                     <BiHeart  className="text-red-600 text-4xl bg-white cursor-pointer" style={{fontSize: '1.95rem'}}/>
                                                     <TiDelete onClick={() => dispatch(removeFromCart(i.id))} className="text-red-600 text-4xl bg-white cursor-pointer" style={{fontSize: '1.95rem'}} />
                                                 </div>
@@ -186,7 +204,7 @@ export default function Cart() {
                                 <Link prefetch={false} className="flex-1" href={`/myOrders`}>
                                     <Button className="bg-indigo-600 text-white rounded-lg p-3 hover:bg-indigo-500 w-full">My Orders</Button>
                                 </Link>
-                                <Link prefetch={false} className="flex-1" href={`/checkout`}>
+                                <Link prefetch={false} href={'/checkout'} className="flex-1" onClick={handleLogin}>
                                     <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 w-full">Checkout</Button>
                                 </Link>
                             </div>

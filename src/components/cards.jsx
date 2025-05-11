@@ -8,7 +8,7 @@ import { addToCart, addToWishlist } from "@/lib/slices";
 import { IconButton } from "@mui/material";
 import { IoMdHeart } from "react-icons/io";
 import { MdOutlineShoppingCart, MdShoppingCart } from "react-icons/md";
-import { productToast } from "./utils";
+import { addCart, productToast } from "./utils";
 import { imgSource } from "@/api/actionUtils";
 
 
@@ -30,12 +30,6 @@ export const ProductCard = ({ data, classes, styles={} }) => {
   const wishlistList = Object.values(wishlist);
   const isAddedToCart = cartList.find(i => i.id === data.id);
   const isAddedToWishlist = wishlistList.find(i => i.id === data.id);
-
-  const handleCart = () => {
-    dispatch(addToCart({ ...data, qty: 1 }))
-    let productToastData = { msg: 'Added to Cart', product: data, button: {text: 'Visit Cart', link: '/cart'} };
-    productToast(productToastData);
-  }
   
   const handleWishlist = () => {
     dispatch(addToWishlist({ ...data, qty: 1 }));
@@ -54,14 +48,14 @@ export const ProductCard = ({ data, classes, styles={} }) => {
           <IconButton className="bg-gray-50 hover:bg-gray-200 shadow-gray-500 shadow-sm text-[1.35rem] text-red-500 p-[0.4rem]" onClick={handleWishlist}>
             {isAddedToWishlist ? <IoMdHeart /> : <BiHeart title="Add to wishlist" />}
           </IconButton>
-          <IconButton className="bg-gray-50 hover:bg-gray-200 shadow-gray-500 shadow-sm text-[1.35rem] text-purple-500 p-[0.4rem]" onClick={handleCart} >
+          <IconButton className="bg-gray-50 hover:bg-gray-200 shadow-gray-500 shadow-sm text-[1.35rem] text-purple-500 p-[0.4rem]" onClick={() => addCart(data, dispatch)}>
             {isAddedToCart ? <MdShoppingCart /> : <MdOutlineShoppingCart title="Add to cart" />}
           </IconButton>
         </div>
       </div>
       <div className="card-content flex flex-col gap-2 p-3 bg-gray-100">
         <h4 className="text-md font-semibold">{data.name.substr(0, 30)}...</h4>
-        {data.countInStock > 0 ? <p className="text-green-600">In Stock</p> : <p className="text-red-600">Out of Stock</p>}
+        {data.countInStock > 0 ? <p className="text-green-600" title={data.countInStock}>In Stock</p> : <p className="text-red-600">Out of Stock</p>}
         <div className="text-yellow-600 flex gap-[0.4rem]">
           {Array.from(Array(Math.floor(data.rating)).keys()).map(i => (<Star key={i} />))}
           {(data.rating % 1) ? <StarHalf /> : ''}
@@ -136,7 +130,7 @@ export const ProductCard_2 = ({ data }) => {
             {isAddedToWishlist ? <IoMdHeart className="text-[1.7rem] text-pink-600" /> : <BiHeart className="text-[1.7rem] text-pink-600" title="Add to wishlist" onClick={() => dispatch(addToWishlist({ ...data, qty: 1 }))} />}
           </IconButton>
           <IconButton>
-            {isAddedToCart ? <MdShoppingCart className="text-[1.7rem] text-green-600" /> : <MdOutlineShoppingCart className="text-[1.7rem] text-green-600" title="Add to cart" onClick={() => dispatch(addToCart({ ...data, qty: 1 }))} />}
+            {isAddedToCart ? <MdShoppingCart className="text-[1.7rem] text-green-600" /> : <MdOutlineShoppingCart className="text-[1.7rem] text-green-600" title="Add to cart" onClick={() => addCart(data, dispatch)} />}
           </IconButton>
       </div>
   </div>

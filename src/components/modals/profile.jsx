@@ -31,11 +31,11 @@ import axios from "axios";
 import { addUser, modalAction } from "@/lib/slices";
 import { register } from "@/api/api";
 import Link from "next/link";
-import { createQuestion, createUser } from "@/actions/post";
+import { createAddress, createQuestion, createUser } from "@/actions/post";
 import { Download } from "@mui/icons-material";
 import { FaRegCircleXmark } from "react-icons/fa6";
 
-export const Profile = () => {
+export const Profile = ({ handleClose }) => {
 
     const [active, setActive] = useState('personal-info');
 
@@ -59,18 +59,29 @@ export const Profile = () => {
         name: '',
         phone: '',
         email: '',
-        password: ''      
+        password: '',
     });
 
+    const [address, setAddress] = useState({ id: '', addressLine: '', city: '', state: '', pin: '' })
+
     useEffect(() => {
+        if (!isLoggedIn) return;
         setRegData({
             id: user.id,
             name: user.name,
             phone: user.phone,
             email: user.email,
-            password: user.password 
+            password: user.password,
         })
-    }, [user])
+        if (!user.address) return;
+        setAddress({
+            id: user.address.id,
+            addressLine: user.address.addressLine,
+            city: user.address.city,
+            state: user.address.state,
+            pin: user.address.pin
+        })
+    }, [user, isLoggedIn])
 
     const handleRegForm = (e) => {
         const { name, value} = e.target;
@@ -88,47 +99,27 @@ export const Profile = () => {
         }
     }
 
-    // Profile Update ends ----------------------------------------------------------------------------
-    // Quiz section starts ----------------------------------------------------------------------------
+    const handleAddressForm = (e) => {
+        const { name, value} = e.target;
+        setAddress(pre => ({...pre, [name]: value}));
+    } 
 
-    const [question, setQuestion] = useState({ title: '', answer: '', explain: '' });
-    const [options, setOptions] = useState({});
-    let optionsList = Object.values(options);
-
-    const handleQuestion = (e) => {
-        let { name, value } = e.target;
-        setQuestion(pre => ({...pre, [name]: value}))
-    }
-
-    const questionSubmit = async (e) => {
+    const handleAddressSubmit = async (e) => {
         e.preventDefault();
-        console.log(question);
-        console.log(options);
-        if (!question.answer) return alert('Please Select the correct option as answer to your question.');
-        let blankAnswers = optionsList.filter(i => i.content === '');
-        if (blankAnswers.length) return alert('Options cannot be blank, please remove blank options.');
-        const res = await createQuestion({ ...question, options: options });    
-        console.log(res)
-        // if (res.status === 200) {
-        
-        // }
-    }
-    
-    const handleOptions = (e) => {
-        let { name, value } = e.target;
-        setOptions(pre => ({ ...pre, [name]: { key: name, content: value }}));
+        console.log(address);        
+        if (isLoggedIn) {
+            let res = await createAddress({ ...address, userId: user.id });
+            if (res.status === 200) {
+
+                // let res = await createUser({ addAddress: '', address: res.data.id });
+                // if (res.status === 200) {
+                    dispatch(addUser({ address: res.data }));
+                // } 
+            } 
+        }
     }
 
-    const deleteOption = (i) => {
-        setOptions(pre => {
-            delete pre[i.key]
-            return { ...pre };
-        })
-    }
-
-    
-
-    // Quiz section starts ----------------------------------------------------------------------------
+    // Profile Update ends ----------------------------------------------------------------------------
 
     return (
         <div className="login-modal min-h-screen md:p-4 md:py-10 bg-gray-200 flex justify-center h-full">
@@ -146,7 +137,7 @@ export const Profile = () => {
                             <Link prefetch={false} className='flex gap-4 items-center' href='/cart'><span className="text-xl"><PiShoppingCartBold /></span> Shopping Cart</Link>
                         </li>
                         <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-orders')}>
-                            <Link prefetch={false} className='flex gap-4 items-center' href='/myOrders'><span className="text-xl"><LuGift /></span> My Orders</Link>
+                            <Link prefetch={false} className='flex gap-4 items-center' href='/myOrders' onClick={handleClose}><span className="text-xl"><LuGift /></span> My Orders</Link>
                         </li>
                         <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
                             <Link prefetch={false} className='flex gap-4 items-center' href='/wishlist'><span className="text-xl"><BiHeart /></span> My Wishlist</Link>
@@ -195,21 +186,21 @@ export const Profile = () => {
                                         <div className="flex gap-4 mb-5">
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> Street Address <span className="text-red-500">*</span></label>
-                                                <textarea name='Address' value={regData.Address} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
+                                                <textarea name='addressLine' value={address.addressLine} onChange={handleAddressForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
                                             </div>
-                                            {/* <div className="flex-1">
+                                            <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> Town / City <span className="text-red-500">*</span></label>
-                                                <input name='City' value={regData.City} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
-                                            </div> */}
+                                                <input name='city' value={address.city} onChange={handleAddressForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                            </div>
                                         </div>
                                         <div className="flex gap-4 mb-5">
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> State <span className="text-red-500">*</span></label>
-                                                <input readOnly value={regData.StateName} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                                <input name="state" value={address.state} onChange={handleAddressForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                             </div>
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> ZIP Code <span className="text-red-500">*</span></label>
-                                                <input name='Pin' value={regData.Pin} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                                <input name='pin' value={address.pin} onChange={handleAddressForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                             </div>
                                             <div className="flex-1">
                                                 <label className="text-black text-[0.9rem] mb-2 block"> Country</label>
@@ -227,69 +218,7 @@ export const Profile = () => {
                                             <input type="checkbox" checked readOnly />
                                             <p>Make sure your PIN Code is correct.</p>
                                         </div>
-                                        <Button onClick={() => {}} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Update Address</Button>
-                                    </div>
-                                </div>
-                            )
-                        } else if (active === 'create-quiz') {
-                            return (
-                                <div className="p-6">
-
-                                    <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Create a Quiz</h2>
-                                    <div className="mt-6">
-                                        <div className="flex gap-4 mb-5">
-                                            <div className="flex-1">
-                                                <label className="text-black text-[0.9rem] mb-2 block"> Quiz Heading</label>
-                                                <input name='name' value={regData.name} onChange={handleRegForm} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-4 mb-5">
-                                            <div className="flex-1">
-                                                <label className="text-black text-[0.9rem] mb-2 block"> Quiz Description</label>
-                                                <textarea name='explain' value={question.explain} onChange={handleQuestion} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Desctription of the Quiz (optional)" ></textarea>
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-4 mb-5">
-                                            <div className="flex-1">
-                                                <label className="text-black text-[0.9rem] mb-2 block"> Author / Creator <span className="text-red-500">*</span></label>
-                                                <input name='email' readOnly value={user.name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
-                                            </div>
-                                        </div>
-                                        <Button onClick={() => {}} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Create Quiz</Button>
-                                    </div>
-                                    <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Add Quiz Question</h2>
-                                    <div className="mt-6">
-                                        <div className="flex gap-4 mb-5">
-                                            <div className="flex-1">
-                                                <label className="text-black text-[0.9rem] mb-2 block"> Write Your Question <span className="text-red-500">*</span></label>
-                                                <textarea name='title' value={question.title} onChange={handleQuestion} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Write Your Question"></textarea>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-col gap-4 mb-5">
-                                            {optionsList.map(i => {
-                                                return (
-                                                    <div className="flex-1 relative" key={i.key}>
-                                                        <div className="flex gap-2 absolute top-1/2 right-4 -translate-y-1/2 text-2xl">
-                                                            {i.key === question.answer ? 
-                                                                <FaCheckCircle className="text-green-600" onClick={() => setQuestion(pre => ({...pre, answer: '' }))} /> : 
-                                                                <FaRegCircle className="text-blue-600" onClick={() => setQuestion(pre => ({...pre, answer: i.key }))} />
-                                                            }                                                                                                                     
-                                                            <FaRegCircleXmark className="text-pink-600" onClick={() => deleteOption(i)}/>
-                                                        </div>
-                                                        <input name={i.key} value={options[i.key]?.content} onChange={handleOptions} className="px-5 py-4 bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" placeholder={`Option ${i.key}`} />
-                                                    </div>
-                                                )
-                                            })}
-                                            {optionsList.length <= 3 && <label onClick={() => setOptions(pre => ({...pre, [optionsList.length+1]: { key: optionsList.length+1, content: '' }}))} className="h-[3.7rem] cursor-pointer border border-dashed border-blue-500 bg-gray-50 rounded-lg flex gap-3 justify-center items-center text-center">
-                                                <IoMdAdd className="text-[1.6rem] text-pink-600" />
-                                                <p className="font-medium text-blue-500 text-[1.15rem]">ADD OPTION</p>
-                                            </label>}
-                                            <div className="flex-1">
-                                                <label className="text-black text-[0.9rem] mb-2 block"> Explain The Answer <span className="text-red-500">*</span></label>
-                                                <textarea name='explain' value={question.explain} onChange={handleQuestion} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Explain The Answer (optional)" ></textarea>
-                                            </div>
-                                        </div>
-                                        <Button onClick={questionSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">ADD QUESTION</Button>
+                                        <Button onClick={handleAddressSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Add / Update Address</Button>
                                     </div>
                                 </div>
                             )

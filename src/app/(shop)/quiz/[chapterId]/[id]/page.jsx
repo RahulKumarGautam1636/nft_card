@@ -9,7 +9,7 @@ import { createQuestion } from "@/actions/post";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuestions } from "@/actions/get";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 
@@ -19,18 +19,30 @@ import { globalLoader } from "@/lib/slices";
 import { MdRefresh } from "react-icons/md";
 import { Chart } from "react-google-charts";
 
+const initOptionFields = {                
+    "1": { "key": 1, "content": "" },
+    "2": { "key": 2, "content": "" },
+    "3": { "key": 3, "content": "" },
+    "4": { "key": 4, "content": "" }
+}
+const initQuestion = { title: '', answer: '', explain: '' };
+
 export default function Quiz() {
 
     const user = useSelector(state => state.user);
-    const [question, setQuestion] = useState({ title: '', answer: '', explain: '' });
-    const [options, setOptions] = useState({});
-    let optionsList = Object.values(options);
+    const [question, setQuestion] = useState(initQuestion);
+    const [options, setOptions] = useState(initOptionFields);       // Just replace initOptionFields with blank object {} to enable manual "Add Option" button.
+    let optionsList = Object.values(options);                   
     const dispatch = useDispatch();
+
+    const searchParams = useSearchParams();
+    const chapter = searchParams.get('chapter');
 
     const [questionList, setQuestionList] = useState([]);
     const [tab, setTab] = useState('HOME');
     const router = useRouter()
     const params = useParams();
+    console.log(questionList);
     const quizId = params.id;
 
     useEffect(() => {
@@ -65,21 +77,38 @@ export default function Quiz() {
         setQuestion(pre => ({...pre, [name]: value}))
     }
 
-    const questionSubmit = async (e) => {
-        e.preventDefault();
-        console.log(question);
-        console.log(options);
+    const questionSubmit = async (saveNew) => {
+        // e.preventDefault();
         if (!question.answer) return alert('Please Select the correct option as answer to your question.');
         let blankAnswers = optionsList.filter(i => i.content === '');
         if (blankAnswers.length) return alert('Options cannot be blank, please remove blank options.');
         dispatch(globalLoader(true));
-        const res = await createQuestion({ ...question, options: optionsList, parentId: quizId });    
+        const res = await createQuestion({ ...question, options: optionsList, chapterId: quizId });    
         dispatch(globalLoader(false));
         console.log(res)
         if (res.status === 200) {
-            setQuestionList(pre => ([...pre, res.data]))
+            if (question.id) {
+                setQuestionList(pre => {
+                    let target = pre.findIndex(i => i.id === question.id);
+                    if (target === undefined) {
+                        alert('An Error Occured !');
+                        return pre;
+                    }
+                    pre[target] = res.data
+                    return pre;                   
+                })
+            } else {
+                setQuestionList(pre => ([...pre, res.data]))
+            }
+            resetForm();
+            if (saveNew === 'saveNew') return;
             setTab('view-list');
         }
+    }
+
+    const resetForm = () => {
+        setOptions(initOptionFields);
+        setQuestion(initQuestion);
     }
     
     const handleOptions = (e) => {
@@ -126,14 +155,14 @@ export default function Quiz() {
                 setTab('view-list');
             } 
         },
-        { 
-            title: 'Delete Quiz', 
-            description: 'Delete this quiz', 
-            link: '',
-            onClick: () => {
-                alert('Delete kuiz');
-            }  
-        },
+        // { 
+        //     title: 'Delete Quiz', 
+        //     description: 'Delete this quiz', 
+        //     link: '',
+        //     onClick: () => {
+        //         alert('Delete kuiz');
+        //     }  
+        // },
     ]
 
     const [qeustions, setQuestions] = useState([]);
@@ -204,7 +233,7 @@ export default function Quiz() {
                 <div className="tabContent">
                     <div className={`tab-item ${tab === 'HOME' ? 'block' : 'hidden'} `}>
                         <div className="p-6">
-                            <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Quiz Heading <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => router.back()} /></h2>
+                            <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">{chapter} <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => router.back()} /></h2>
                             <div className="mt-6">
                                 <div >
                                     <ul className="mb-4">
@@ -229,7 +258,7 @@ export default function Quiz() {
                     </div>
                     <div className={`tab-item ${tab === 'form' ? 'block' : 'hidden'} `}>
                         <div className="p-6">
-                            <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Add Quiz Question <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => setTab('HOME')} /></h2>
+                            <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Add Question <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => {setTab('view-list');resetForm();}} /></h2>
                             <div className="mt-6">
                                 <div className="flex gap-4 mb-5">
                                     <div className="flex-1">
@@ -261,7 +290,10 @@ export default function Quiz() {
                                         <textarea name='explain' value={question.explain} onChange={handleQuestion} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Explain The Answer (optional)" ></textarea>
                                     </div>
                                 </div>
-                                <Button onClick={questionSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">ADD QUESTION</Button>
+                                <div className="flex justify-end gap-3">
+                                    <Button onClick={() => questionSubmit('saveNew')} className={`bg-blue-600 text-white rounded-lg px-4 py-3 hover:bg-indigo-500 text-lg shadow-sm shadow-purple-400`}>Save & Add New</Button>
+                                    <Button onClick={questionSubmit} className="bg-pink-600 text-white rounded-lg px-4 py-3 hover:bg-pink-500 text-lg shadow-sm shadow-purple-400">ADD QUESTION</Button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -280,7 +312,7 @@ export default function Quiz() {
                                                             <h4 className="text-md font-semibold">{i.title}</h4>
                                                             <p className="text-gray-500 mt-1 overflow-hidden overflow-ellipsis">{i.explain}</p>
                                                         </div>
-                                                        <div>
+                                                        <div className="ml-auto">
                                                             {/* <FaChevronRight className="ml-auto text-2xl text-slate-500" /> */}
                                                             <FaRegEdit onClick={() => handleEdit(i)} className="ml-auto text-2xl text-pink-600" />
                                                         </div>

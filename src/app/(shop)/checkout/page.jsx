@@ -9,7 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import { useEffect, useState } from "react";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import axios from "axios";
-import { addUser, modalAction } from "@/lib/slices";
+import { addUser, globalLoader, modalAction } from "@/lib/slices";
 
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 import { MdPhoneInTalk } from "react-icons/md";
@@ -20,12 +20,14 @@ import { FaMapMarkedAlt } from "react-icons/fa";
 import { FaDotCircle } from "react-icons/fa";
 import { GiIsland } from "react-icons/gi";
 import { Title_1 } from "@/components/utils";
+import { postOrders } from "@/actions/post";
 
 export default function Checkout() {
 
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
     const user = useSelector(state => state.user);
+    const userAddress = user.address || {};
     const isLoggedIn = useSelector(state => state.isLoggedIn);
     const cartList = Object.values(cart);
     
@@ -34,6 +36,32 @@ export default function Checkout() {
     const cartSubtotal = cartItemsValueList.reduce((total, num) => total + num, 0).toFixed(2); 
     const deliveryCharge = deliveryType === 'Home Delivery' ? 50 : 0;
     const grandTotal = parseFloat(cartSubtotal) + deliveryCharge;
+
+    const [note, setNote] = useState('');
+
+    const order = {
+        userId: user.id,
+        orderDate: new Date(),
+        paymentMethod: 'COD',
+        shippingAddress: userAddress.id,
+        orderTotal: grandTotal,
+        products: cartList.map(i => ({ id: i.id, qty: i.qty, rate: i.price, total: i.qty*i.price })),
+        note: note,
+        delivery: { type: deliveryType, charge: deliveryCharge }
+    }
+
+    console.log(order); 
+    
+    const placeOrder = async () => {
+        if (isLoggedIn) {
+            dispatch(globalLoader(true));
+            let res = await postOrders(order);
+             dispatch(globalLoader(false));
+            if (res.status === 200) {
+                console.log(res.data);
+            } 
+        }
+    }
 
     return (
         <main className='mt-5 md:mt-12'>
@@ -50,17 +78,17 @@ export default function Checkout() {
                                 <h4 className="font-medium flex gap-3 items-center"><FaMoneyBill1Wave className="text-xl text-[#44558c]" /> Billing To</h4>
                                 <p className="text-blue-600 font-medium">{user.name}</p>
                                 <h4 className="font-medium flex gap-3 items-center"><MdPhoneInTalk className="text-xl text-[#44558c]" /> Phone Number</h4>
-                                <p className="">{user.RegMob1}</p>
+                                <p className="">{user.phone}</p>
                                 <h4 className="font-medium flex gap-3 items-center"><IoMdMail className="text-xl text-[#44558c]" /> Email</h4>
-                                <p className="">1636rahul@gmail.com</p>
+                                <p className="">{user.email}</p>
                                 <h4 className="font-medium flex gap-3 items-center"><FaLocationPin className="text-xl text-[#44558c]" /> Address</h4>
-                                <p className="">{user.Address}</p>
+                                <p className="">{userAddress.addressLine}</p>
                                 <h4 className="font-medium flex gap-3 items-center"><PiCityBold className="text-xl text-[#44558c]" /> City</h4>
-                                <p className="">{user.City}</p>
+                                <p className="">{userAddress.city}</p>
                                 <h4 className="font-medium flex gap-3 items-center"><FaMapMarkedAlt className="text-xl text-[#44558c]" /> State</h4>
-                                <p className="">{user.StateName}</p>
+                                <p className="">{userAddress.state}</p>
                                 <h4 className="font-medium flex gap-3 items-center"><FaDotCircle className="text-xl text-[#44558c]" /> Pin</h4>
-                                <p className="">{user.Pin}</p>
+                                <p className="">{userAddress.pin}</p>
                                 <h4 className="font-medium flex gap-3 items-center"><GiIsland className="text-xl text-[#44558c]" /> Coutry</h4>
                                 <p className="">INDIA</p>
                             </div>
@@ -69,7 +97,7 @@ export default function Checkout() {
                             </div>
                         </div>
                         <div>
-                            <textarea className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
+                            <textarea name="note" value={note} onChange={(e) => setNote(e.target.value)} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Order notes (optional)" ></textarea>
                         </div>
                         <div className="flex items-centermb-4 gap-3 pt-3 pb-4 md:py-3 text-[0.95rem]">
                             <input type="checkbox" checked readOnly />
@@ -97,7 +125,7 @@ export default function Checkout() {
                         </div>
                         <div className="flex justify-between gap-12 text-end">
                             <h4 className="font-semibold">Address:</h4>
-                            <p className="">{user.Address}</p>
+                            <p className="">{userAddress.addressLine}</p>
                         </div>
                         <div className="flex justify-between items-start">
                             <h4 className="font-semibold pt-2">Delivery Type</h4>
@@ -118,12 +146,12 @@ export default function Checkout() {
                             <h4 className="font-semibold">Payment Mode:</h4>
                             <p className="font-semibold">Cash on Delivery</p>
                         </div>
-                        <div className="flex justify-between items-end mt-6 md:mt-28">
+                        <div className="flex justify-between items-end">
                             <h4 className="font-semibold">TOTAL:</h4>
                             <p className="font-semibold text-3xl text-blue-600">₹ {grandTotal}</p>
                         </div>
                         <div className="flex gap-2">
-                            <Button className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 font-bold flex-1">PLACE ORDER</Button>
+                            <Button onClick={placeOrder} className="bg-pink-600 text-white rounded-lg p-3 hover:bg-pink-500 font-bold flex-1">PLACE ORDER</Button>
                         </div>
                     </div>
                 </div>

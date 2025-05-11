@@ -5,7 +5,7 @@ import { ChevronLeft, Star, StarHalf } from '@mui/icons-material';
 import { BannerCard, ProductCard } from './cards';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { getCatNameProducts, withRemoteDB } from '@/api/api';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,6 +22,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
 import { remoteAssets } from '@/constants';
+import { store } from '@/lib/store';
 // import { handleDirectory } from '@/api/actionUtils';
 
 const Arrow = ({ customClass, onClick, el }) => {
@@ -378,7 +379,8 @@ export const BasicModal = ({ child, name, direction='up', icon=true, canvas }) =
           {icon && <IconButton className="bg-gray-100 hover:bg-gray-300 text-[2rem] absolute top-4 right-4" onClick={handleClose}>
             <BiX />
           </IconButton>}
-          {child}
+          {/* {child} */}
+          {React.cloneElement(child, { handleClose: handleClose })}
         </div>
       </Slide>  
     </Modal>
@@ -615,4 +617,10 @@ export const Title_1 = ({ heading, subHeading, classes }) => {
       <p className="text-gray-500 ">{subHeading}</p>
     </div>
   )
+}
+
+export const addCart = (data, dispatch) => {
+  dispatch(addToCart({ ...data, qty: 1 }))
+  let productToastData = { msg: 'Added to Cart', product: data, button: {text: 'Visit Cart', link: '/cart'} };
+  productToast(productToastData);
 }

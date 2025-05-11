@@ -5,32 +5,36 @@ import { Avatar, Button, List, ListItemButton, ListItemText } from "@mui/materia
 
 
 import { useEffect, useState } from "react";
-import { createQuestion, createQuiz } from "@/actions/post";
+import { createQuestion, createChapter } from "@/actions/post";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { deepPurple } from "@mui/material/colors";
-import { getQuiz } from "@/actions/get";
+import { getChapters } from "@/actions/get";
 import { IoArrowBack, IoClose } from "react-icons/io5";
 import { globalLoader } from "@/lib/slices";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
-export default function Quiz() {
+export default function Chapters() {
 
-     const user = useSelector(state => state.user);
-     const [quiz, setQuiz] = useState({ heading: '', description: '' });
-    //  const [question, setQuestion] = useState({ title: '', answer: '', explain: '' });
-    //  const [options, setOptions] = useState({});
-    //  let optionsList = Object.values(options);
+    const user = useSelector(state => state.user);
+    const [quiz, setQuiz] = useState({ heading: '', description: '' });
     const dispatch = useDispatch();
+    const params = useParams();
+    const searchParams = useSearchParams();
+    const subjectId = params.chapterId;
+    const router = useRouter()
+    const subject = searchParams.get('subject');
+    
 
-     const [quizList, setQuizList] = useState([]);
-     const [addForm, setAddForm] = useState(false);
+    const [quizList, setQuizList] = useState([]);
+    const [addForm, setAddForm] = useState(false);
 
-     useEffect(() => {
+    useEffect(() => {
         const getInitQuiz = async () => {
             if (!user.id) return;
             dispatch(globalLoader(true));
-            const res = await getQuiz({ userId: user.id });
+            const res = await getChapters({ subjectId: subjectId });
             dispatch(globalLoader(false));
             console.log(res);
             if (res.status === 200) {
@@ -38,21 +42,20 @@ export default function Quiz() {
             }
         }
         getInitQuiz();
-     }, [user.id])
- 
-     const quizSubmit = async (e) => {
+    }, [user.id])
+
+    const quizSubmit = async (e) => {
         e.preventDefault();
         console.log(quiz);
 
         if (!user.id) return alert('Invalid User, please login again.');
         dispatch(globalLoader(true));
-        const res = await createQuiz({ ...quiz, author: user.id });    
+        const res = await createChapter({ ...quiz, subjectId: subjectId });    
         dispatch(globalLoader(false));
         console.log(res)
         if (res.status === 200) {
             setQuizList(pre => [...pre, res.data]);
             setAddForm(false);
-            setQuiz({ heading: '', description: '' })
         }
     }
 
@@ -97,13 +100,13 @@ export default function Quiz() {
             </div> */}
             <div className="container mx-auto">
                 <div className="p-6">
-                    <h2 className="text-xl font-semibold border-b border-gray-300 pb-4">Your Subjects</h2>
+                    <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">All Chapters <IoArrowBack className='ml-auto text-[1.7rem] text-purple-700' onClick={() => router.back()} /></h2>
                     <div className="mt-6">
                         <div >
                             <ul className="mb-4">
                                 {quizList.map(i => (
                                     <li className="mb-4" key={i.id}>
-                                        <Link prefetch={false} href={`/quiz/${i.id}?subject=${i.heading}`}>
+                                        <Link prefetch={false} href={`/quiz/${subjectId}/${i.id}?chapter=${i.heading}`}>
                                             <ListItemButton className="gap-4 bg-slate-100 shadow-sm shadow-purple-400 rounded-lg p-4 hover:bg-purple-100">
                                                 <Avatar className="uppercase" sx={{ bgcolor: deepPurple[500] }}>{(i.heading).substr(0, 2)}</Avatar>
                                                 <div>
@@ -120,17 +123,17 @@ export default function Quiz() {
                         </div>
                         {addForm || <div onClick={() => setAddForm(true)} className="h-[3.7rem] cursor-pointer border border-dashed border-blue-500 bg-gray-50 rounded-lg flex gap-3 justify-center items-center text-center">
                             <IoMdAdd className="text-[1.6rem] text-pink-600" />
-                            <p className="font-medium text-blue-500 text-[1.15rem]">ADD NEW SUBJECT</p>
+                            <p className="font-medium text-blue-500 text-[1.15rem]">ADD NEW CHAPTER</p>
                         </div>}
                     </div>
                 </div>
                 {addForm &&                 
                     <div className="p-6">
-                        <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Create a Subject <IoClose className='ml-auto text-[1.7rem] text-rose-700' onClick={() => setAddForm(false)} /></h2>
+                        <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Create a Chapter <IoClose className='ml-auto text-[1.7rem] text-rose-700' onClick={() => setAddForm(false)} /></h2>
                         <form className="mt-6">
                             <div className="flex gap-4 mb-5">
                                 <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> Subject Name</label>
+                                    <label className="text-black text-[0.9rem] mb-2 block"> Chapter Name</label>
                                     <input required name='heading' value={quiz.heading} onChange={(e) => setQuiz(pre => ({...pre, heading: e.target.value}))} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div>
@@ -140,13 +143,13 @@ export default function Quiz() {
                                     <textarea required name='description' value={quiz.description} onChange={(e) => setQuiz(pre => ({...pre, description: e.target.value}))} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" rows={4} type="text" placeholder="Desctription of the Quiz (optional)" ></textarea>
                                 </div>
                             </div> */}
-                            {/* <div className="flex gap-4 mb-5">
+                            <div className="flex gap-4 mb-5">
                                 <div className="flex-1">
-                                    <label className="text-black text-[0.9rem] mb-2 block"> Author / Creator <span className="text-red-500">*</span></label>
-                                    <input name='email' readOnly value={user.name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
+                                    <label className="text-black text-[0.9rem] mb-2 block"> Subject <span className="text-red-500">*</span></label>
+                                    <input name='email' readOnly value={subject} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
-                            </div> */}
-                            <Button onClick={quizSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Create Subject</Button>
+                            </div>
+                            <Button onClick={quizSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Create Quiz</Button>
                         </form>
                     </div> 
                 }

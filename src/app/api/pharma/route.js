@@ -58,6 +58,7 @@ export async function POST(req) {
         GenderDesc: body.GenderDesc,
         Address: body.Address,
         UserId: body.UserId,
+        UserPassword: body.UserPassword
     }
 
     // var data = JSON.parse(fs.readFileSync(process.cwd() + '/src/app/api/pharma/pharmaData.json', 'utf8'));

@@ -1,0 +1,390 @@
+🟡 Example documents
+    const document_1 = {                           // example document in passengers database.
+        "_id": ObjectId("mongodbObjectId"),
+        "name": "Albert Twostone",
+        "age": 68,
+        "hobbies": [ "sports", "cooking" ]
+    }
+
+    const flight_1 = {                            // example document in flightData database.
+        "_id": ObjectId("mongodbObjectId"),
+        "departureAirport": "LHR",
+        "arrivalAirport": "TXL",
+        "aircraft": "Airbus A320",
+        "distance": 950,
+        "intercontinental": false,
+        "status": {
+            "description": "on-time",
+            "lastUpdated": "1 hour ago",
+            "details": { "responsible": "Max Schwarzmueller" }
+        }
+    }
+
+    const patient_1 = {                         // example document in patients database.
+        "firstName": "Max",
+        "lastName": "Schwarzmueller",
+        "age": 29,
+        "history": [
+            { "disease": "cold", "treatment": "syrup" },
+            { "disease": "diabetes", "treatment": "insulin" }
+        ]
+    }
+
+    const movie_1 = {                           // example movie in movies database.
+        "id": 1,
+        "url": "http://www.tvmaze.com/shows/1/under-the-dome",
+        "name": "Under the Dome",
+        "type": "Scripted",
+        "language": "English",
+        "genres": ["Drama", "Science-Fiction", "Thriller"],
+        "status": "Ended",
+        "runtime": 60,
+        "premiered": "2013-06-24",
+        "officialSite": "http://www.cbs.com/shows/under-the-dome/",
+        "schedule": { "time": "22:00", "days": ["Thursday"] },
+        "rating": { "average": 6.5 },
+        "weight": 91,
+        "network": {
+            "id": 2,
+            "name": "CBS",
+            "country": {
+                "name": "United States",
+                "code": "US",
+                "timezone": "America/New_York"
+            }
+        },
+        "webChannel": null,
+        "externals": { "tvrage": 25988, "thetvdb": 264492, "imdb": "tt1553656" },
+        "image": {
+            "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/0/1.jpg",
+            "original": "http://static.tvmaze.com/uploads/images/original_untouched/0/1.jpg"
+        },
+        "summary": "<p><b>Under the Dome</b> is the story of a small town that is suddenly and inexplicably sealed off from the rest of the world by an enormous transparent dome. The town's inhabitants must deal with surviving the post-apocalyptic conditions while searching for answers about the dome, where it came from and if and when it will go away.</p>",
+        "updated": 1529612668,
+        "_links": {
+            "self": { "href": "http://api.tvmaze.com/shows/1" },
+            "previousepisode": { "href": "http://api.tvmaze.com/episodes/185054" }
+        }
+    }
+
+
+25) Delete an item - db.flightData.deleteOne({ name: "TXL" })                               // find and remove ducement having TXL in name field.
+    db.flightData.updateOne( {}, { $set: {marker: "delete"}} )                              // insert new field marker: "delete" in all the documents.
+    db.flightData.updateOne( {distance: 12000}, { $set: {marker: "delete"}} )               // find document with distance: 12000 and insert new field marker: "delete". 
+
+    db.flightData.update({distance: 12000}, {marker: "delete"})                             // replaces whole document with only marker: delete where distance: 12000. Never use this method. for replacement use db.replace method.
+    db.flightData.replaceOne({distance: 12000}, {marker: "delete"})                         // this also replaces the whole document with marker: "delete" same as db.update() method.
+                                                                                    
+    db.flightData.flightData.deleteMany( {marker: "delete"} )                               // find and delete all documents having field marker: "delete".
+
+    db.insertMany([                                                                         // insert multiple documents. insertMany takes array of items.
+        { name: 'Adam' },
+        { name: 'Eve' }
+    ])
+
+    db.flightData.find({ intercontinental: true })                                          // find all documents where intercontinental: true.
+    db.flightData.find({ distance: {$gt: 10000} })                                          // find all documents where distance is greater than 10000.
+    db.flightData.findOne({ distance: {$gt: 10000} })                                       // find one/first document where distance is greater than 10000.
+
+26) find() does not gives all the documents by default. It gives only first 20 items and a cursor object. We can put a foreach() loop on it to iterate over and do anything we want to do
+    with the found results. it is good to prevent loading huge amount of data for lower resource consumption.
+    db.flightData.find().foreach((item) => { printjson(item) })             // run in mongo shell.
+
+27) Projections - Get only the fields that you need from documents to save bandwidth and uncessary use of mongodb resources. This data transformation happens in mongo server.
+
+    db.flightData.find({}, {distance: 1})                       // returns all document's distance field. first parameter is filter parameter used by find() method.
+    -> { "_id": ObjectId("ASOFSF"), "distance": 12000 }         // 1 means to include that field similarly 0 means to omit that field in results. Projection sets all fields to 0 exept id. hence id is still included in
+    db.flightData.find({}, {distance: 1, _id: 0})               // results we need to specify manually put _id: 0 to omit id too from results.
+    -> { "distance": 12000 }                                    // manually excluded id.
+
+29) Embedding ducements - We can nest one document in another document.
+    db.flightData.updateMany(
+        {},
+        {
+            $set: {
+                status: {
+                    description: "On Time", lastUpdated: "1 hour ago"
+                }
+            }
+        }
+    )
+    -> { ...allFields, status: { description: "On Time", lastUpdated: "1 hour ago" } }              // new status field with another sub document is added to all the documents.
+
+30) db.flightData.updateOne({                                       // inserts new field hobbies with arrya into the document where name: "Albert Twostone".
+        name: "Albert Twostone",
+        { $set: { hobbies: ["Sports", "Cooking" ] }}
+    })
+    Some update methods are also show in point 25.
+
+31) Find nested properties.
+
+    db.passengers.findOne({ name: "Albert Twostone" }).hobbies
+    -> ["sports", "cooking"]
+
+    🟡 Find by a value in nested array.
+    db.passengers.find({ hobbies: "sports" }).hobbies       // mongodb understands and finds a document where hobbies array has a value "sports".
+    -> document_1                                           // returns the whole document.
+
+    🟡 Find by value in nested a nested object.
+    db.flightData.find({ "status.description": "on-time" })   // find where the nested object has a properties description: "on-time", double kuote on property name is mandatory.
+    -> flight_1
+
+    db.flightData.find({ "status.details.responsible": "Max Schwarzmueller" })   // example with multiple layer of nesting.
+    -> flight_1
+
+    😍🟡 Find by property value in an array of objects. MongoDB also smart enough to understand that we are searching for a property in array of objects.
+    db.patients.deleteOne({ "history.disease": "Cold" })            // Delete document where array of history contains disease of value Cold.
+
+
+50) $lookup join - Used to join two documents having some commont field value. Ex -
+
+    const customers = [                     // Customers collection.
+        {
+            userName: 'Max',
+            favBooks: ['id1', 'id2']
+        }
+    ]
+
+    const books = [                         // Books collection.
+        {
+            id: 'id1',
+            name: 'Lord of the Rings.'
+        },
+        {
+            id: 'id2',
+            name: 'Harry Potter and the chamber of secrets.'
+        }
+    ]
+
+    customers.aggregate([                       // pass a list of queries because we can perform multiple conditional queries with aggregate method.
+        { 
+            $lookup: {                          // passing $lookup as a query.
+                from: 'books',                  // name of target (books) collection to look upon.
+                localField: 'favBooks',         // name of local (customers) collection's field to use with lookup.
+                foreignField: '_id',            // name of foreign (books) collection's field in which references of localField can be found.
+                as: 'favBookData'               // creates new field which will hold the returned results of the $lookup query.
+            } 
+        }
+    ]);
+    ->  { 
+            userName: 'Max', 
+            favBooks: ['id1', 'id2'], 
+            favBookData: [                  // new key having results of the $lookup query.
+                {
+                    id: 'id1',
+                    name: 'Lord of the Rings.'
+                },
+                {
+                    id: 'id2',
+                    name: 'Harry Potter and the chamber of secrets.'
+                }
+            ],
+        }
+
+53) Schema Validation - If we define a Schema for a collection then it is used to validate the data before saving to database.
+    1. Validation level - What kind of Validation is applied.
+        1) Strict - Validate before running any insert, updated methods.
+        2) Moderate - All inserts are checked but Updates are only checked for documents which were valid before. so If we have an invalid documents before we set an Schema then it can be changed.
+    2. Validation action - What to do when Validation fails.
+    
+54) Adding schema in when working with commandline.
+
+    Ex document = {
+        title: 'Title of post',
+        text: 'Content of the post',
+        creator: ObjectId,                                                  // Id of Author.        
+        comments: [ ObjectId, ObjectId ]                                    // Id of comments that are made on this post.
+    }
+
+    db.createCollection('posts', {                                          // collection name.
+        validator: {                                                        
+            $jsonSchema: {                                                  // validator provided by MongoDB                                         
+            bsonType: 'object',                                             // type of documents.
+            required: ['title', 'text', 'creator', 'comments'],             // field names required in the documents.
+            properties: {                                                   // properties of the all required field.
+                title: {                                                    // properties of title field.
+                    bsonType: 'string',
+                    description: 'must be a string and is required'
+                },
+                text: {                                                     // properties of text field.
+                    bsonType: 'string',
+                    description: 'must be a string and is required'
+                },
+                creator: {                                                  // properties of creator field.
+                    bsonType: 'objectId',
+                    description: 'must be an objectid and is required'
+                },
+                comments: {                                                 // properties of comments field.
+                    bsonType: 'array',                                      // commets is type array of items.
+                    description: 'must be an array and is required',
+                    items: {                                                // properties of items field that is children of comments.
+                        bsonType: 'object',
+                        required: ['text', 'author'],                       // 🟡🟡🟡 NOTICE THE PLACEMENT OF required AND PROPERTIES FIELDS.
+                            properties: {
+                            text: {
+                                bsonType: 'string',
+                                description: 'must be a string and is required'
+                            },
+                            author: {
+                                bsonType: 'objectId',
+                                description: 'must be an objectid and is required'
+                            }
+                        }
+                    }
+                }
+            }
+            }
+        }
+    });
+
+55) Adding schema validation to Existing collection - In this example we're using db.runCommand method to add warning level validation to this collection.
+                                                                    
+    db.runCommand({
+        collMod: 'posts',
+        validator: {                                                        
+            $jsonSchema: {                                                 
+            bsonType: 'object',                                            
+            required: ['title', 'text', 'creator', 'comments'],            
+            properties: {                                                  
+                title: {                                                   
+                    bsonType: 'string',
+                    description: 'must be a string and is required'
+                },
+                text: {                                                    
+                    bsonType: 'string',
+                    description: 'must be a string and is required'
+                },
+                creator: {                                                 
+                    bsonType: 'objectId',
+                    description: 'must be an objectid and is required'
+                },
+                comments: {                                                
+                    bsonType: 'array',                                     
+                    description: 'must be an array and is required',
+                    items: {                                               
+                        bsonType: 'object',
+                        required: ['text', 'author'],                      
+                            properties: {
+                            text: {
+                                bsonType: 'string',
+                                description: 'must be a string and is required'
+                            },
+                            author: {
+                                bsonType: 'objectId',
+                                description: 'must be an objectid and is required'
+                            }
+                        }
+                    }
+                }
+            }
+            }
+        },
+        validationAction: 'warn'                                            // Warning lavel validation. Throws warning but still writes to the database.
+    });
+
+56) *** Consider these before modelling your data structure.
+    1. Avoid duplicating data if your data needs to be changed more frequently.
+    2. Don't use Embedded data if the document size is expected to become significantly big enough. 16mb is the max limit of documents.
+    3. How your data is related to each other. One-to-one, One-to-many or Many-to-many. Use these relation to decide if you need Embedding data or referencing the data to related them. 
+    4. Use Embedded data if documents have one-to-one relations.
+
+57) dbpath and logpath - These are options we can pass to mongod command to configure the mongoDB server. Use mongod --help to see all available options.
+    sudo mongod --dbpath /Users/rahul/db                // This will start mongodb server in /rahul/db folder with a new empty database. No other databases are affected by this. Check /rahul/db folder.
+    sudo mongod --logpath /Users/rahul/logs.log         // This will create a new logs.log file in /rahul folder and will log all the future errors in this file. Check /rahul/db folder.
+
+    *** The instrutor use both above flags togather in his example.
+
+63) Config file - Just like dbpath and logpath we may also need to use more option to the mongoDB server. Passing them in command line each and everytime is not practical. Create config file to save your options and
+                  then use it with mongod command to pass options to mongodb sever. Search mongodb config file for all the available options.
+
+    sudo mongod -f /Users/rahul/config.cfg          // mongodb server will start with the options saved in config.cfg file.
+
+    Example config.cfg - 
+
+    storage:
+        dbpath: "/Users/rahul/db"
+    systemLog:
+        destination: file                          // indicates that the given path is a file. 
+        path: "/Users/rahul/logs.log
+
+64) ***GETTING HELP - Following commands will show commands that can be run on different entities.
+    mongod --help                                 // show all commands available to run on mongoDB server. 
+    mongo --help                                  // show all commands available to run on mongoDB shell itself. MongoDB shell is only a commandline tool to connect and work with mongod / mongodb server.
+
+    // Run below commands in mongo shell. before selecting any databse.
+    help                                          // show all commands available to run on the existing databases.
+    help admin                                    // show all commands available for admin user.
+
+    // Select a database before running below commands.
+    use test                                      // select test database.                              
+    db.help()                                     // shows all commands available to run on currently selected test database.
+    db.myCollection.help()                        // shows all commands available to run on myCollection present in test database.
+
+72) Ordered InsertMany - Control what happens when errors occur during process of inserting multiple documents. Inserts are done in order.  
+    db.insertMany([doc1, doc2, doc3])             // Breaks the insert operation immideately when encounters any error but items that are already inserted are not rolled back. This is default behaviour.
+                                                  // In this example if doc2 gives error then we'll have doc1 inserted but doc3 not because operation Breaks on doc2 error.
+
+    db.insertMany([doc1, doc2, doc3], {ordered: false})       // Completes the insert operation. documents with Errors are ignored and rest of the documents are inserted.
+
+    // Roll back when found error method will be shown later in course.
+
+73) WriteConcern - If we execute some query and if mongodb server is momentarily unavailable for any reason. Then mongo saves our query in a file called Journal that we can setup. When mongodb server becomes available
+                   then it runs the queries stored in that Journal file. This makes sure that our queries are run even if some network issues occured.
+
+                   { w: 1, j: true, wtimeout: 200 }             // w : 1 returns acknowledgment from mongodb server that the query is run. Mongodb waits for responce from the server and then gives result according to
+                                                                         that responce. If w : 0 then mongodb does not wait for server responce and does not confirms if the operation was successful.
+                                                                // j : true return acknowledgment that the write operation is also written in the journal file. Now if the query fails for any reason then mongodb 
+                                                                       will try to run it again by reading the query from journal file.
+                                                                // w : 200 specify a time limit only in which the journal file queries are allowed to run.
+
+    74) Examples - db.persons.insertOne({name: "Michael", age: 51}, {writeConcern: {w: 1, j: true, wtimeout: 200}})      
+
+81) Operators - There are three type of operators.
+    i. Read Operators - Used to only read data from database. they are of types.
+                        1. query Operators - Used to get the matched data from database.
+                        2. Projection Operators - Used to query and modify the response data that we get from database. this does not modifies the original data in database. It only modifies the responce data before
+                                                  sending the responce. We can omit fields from documents that we don't need using projection operators.
+
+   ii. Updata Operators - Used to update the data in database. we'll see in upcoming modules.
+  iii. Aggregation - Combined use of different operators. we'll see in upcoming modules.
+
+82) query Operators - Only to query data from database. Following are their types.
+    i) Comparison Operators -  
+    2) Evaluation - 
+    3) Logical - 
+    4) Array - 
+    5) Element - 
+    6) Comments -
+    7) Geospatial Data Operators - Used to query Geospatial data stored in database.
+
+83) Find and FindOne methods - Used to find data.
+    db.myCollection.find( {age: 32} )                   // {age: 32} is filter here. find where age is 32.
+    db.myCollection.find( {age: {$gt: 30}} )            // $gt (greater than) is an operator. Find where age is greater than 30.
+    db.myCollection.findOne( {age: {$gt: 30}} )         // findOne gives exactly same result but only difference is that it returns only one document that is first met to the given filter condition.
+                            
+84) Comparison Operators - Get data by comparing values.
+    db.myCollection.find( {age: {$ne: 30}} )            // Find where age is not equal to 30.
+    db.myCollection.find( {age: {$gt: 30}} )            // Find where age is greater than 30.
+    db.myCollection.find( {age: {$gte: 30}} )            // Find where age is greater than or equal to 30.
+    db.myCollection.find( {age: {$lt: 30}} )            // Find where age is lower than 30.
+    db.myCollection.find( {age: {$lte: 30}} )            // Find where age is lower than or equal to 30.
+    
+    // Find more Comparison operator in the mongo docs.
+
+85) querying nested / Embedded documents - Below Examples are performed on movies databse described above.
+    db.movies.find({ "rating.average": {$gt: 7} })                  // find movies where rating.average field has value greater than 7.
+
+    🟡🟡🟡 querying field having arrays - We can directly match array values without considering indexes in arrays and find documents. MongoDB understands that we are trying to find the value in each array item.
+    db.movies.find({ genres: "Drama" })               // find all movies where genres array include "Drama".
+    db.movies.find({ genres: ["Drama"] })             // find all movies where genres array has only one value "Drama". find where genres is exactly equal to ["Drama"] array.
+
+86) $in & $nin Operators - 
+    db.movies.find({ runtime: {$in: [30, 42]} })      // find movies where runtime is 30 and 42 minutes. Notice that these are not range between 30 - 42, This is descrete value of 30 and 42.
+    db.movies.find({ runtime: {$nin: [30, 42]} })     // Exactly opposite of $in operator find movies where runtime is not 30 and 42 minutes.
+
+87) Logical Operators - 
+    i. $or Operator - It takes an array of filters and returns all the document that match any of these filters.
+    db.movies.find({$or: [ {"rating.average": {$lt: 5}}, {"rating.average": {$gt: 9.3}} ]})         // find where rating.average is lower than 5 or greater than 9.3. 
+    db.movies.find({$nor: [ {"rating.average": {$lt: 5}}, {"rating.average": {$gt: 9.3}} ]})         // Exactly opposite of $in operator. find where rating.average is not lower than 5 and nor greater than 9.3. 
+
+    

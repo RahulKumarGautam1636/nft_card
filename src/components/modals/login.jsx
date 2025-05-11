@@ -26,10 +26,10 @@ export const Login = () => {
         email: '',
         password: '',
 
-        // addressLine: '',
-        // state: '',
-        // pin: '',
-        // country: ''
+        address: '',
+        city: '',
+        state: '',
+        pin: ''
     });
 
     const [otp, setOTP] = useState({isOpen: false, recievedValue: 'null', enteredValue: '', sent: false, verified: false, read_only: false});
@@ -79,6 +79,7 @@ export const Login = () => {
         dispatch(globalLoader(false));
         console.log(res);        
         if (res.status === 200) {
+            console.log(res.data);
             dispatch(addUser(res.data));
             dispatch(loginAction(true));
             dispatch(modalAction({name: 'LOGIN_MODAL', status: false}));

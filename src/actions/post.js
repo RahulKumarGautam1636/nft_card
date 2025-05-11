@@ -3,7 +3,7 @@
 import { parseData, waitFor } from "@/api/actionUtils";
 import { deleteImages, handleImages, uploadImages } from "@/app/api/serverUtils";
 import dbConnect from "@/lib/dbConnect";
-import { Address, Category, Products, Questions, Quiz, User } from "@/lib/models";
+import { Address, Category, Chapters, Orders, Products, Questions, Subjects, User } from "@/lib/models";
 import mongoose from "mongoose";
 
 
@@ -25,9 +25,32 @@ export async function createQuiz(body) {
     
     await dbConnect();
     if (editId) {
-        await Quiz.findByIdAndUpdate(editId, quiz);
+        await Subjects.findByIdAndUpdate(editId, quiz);
     } else {        
-        let doc = new Quiz(quiz);
+        let doc = new Subjects(quiz);
+        await doc.save(); 
+    }
+    return parseData({status: 200, data: quiz})
+}
+
+export async function createChapter(body) {
+
+    var editId = body.id;
+
+    var id = new mongoose.Types.ObjectId();
+
+    const quiz = {   
+        _id: editId || id,
+        id: editId || id,
+        heading: body.heading,
+        subjectId: body.subjectId
+    };   
+
+    await dbConnect();
+    if (editId) {
+        await Chapters.findByIdAndUpdate(editId, quiz);
+    } else {        
+        let doc = new Chapters(quiz);
         await doc.save(); 
     }
     return parseData({status: 200, data: quiz})
@@ -46,7 +69,7 @@ export async function createQuestion(body) {
         answer: body.answer,
         explain: body.explain,
         options: body.options,
-        parentId: body.parentId
+        chapterId: body.chapterId
     };   
     
     await dbConnect();
@@ -73,7 +96,7 @@ export async function createUser(body) {
         name: body.name,
         phone: body.phone,
         email: body.email,
-        password: body.password
+        password: body.password,
     };    
     
     await dbConnect();
@@ -93,23 +116,27 @@ export async function createUser(body) {
 export async function createAddress(body) {
 
     var id = new mongoose.Types.ObjectId();
-    var editId = body.editId;
+    var editId = body.id;
+    var userId = body.userId;
     
     const address = {   
         _id: editId || id,
         id: editId || id,
-        addressLine: addressLine,
-        state: state,
-        pin: pin,
-        country: country
+        addressLine: body.addressLine,
+        city: body.city,
+        state: body.state,
+        pin: body.pin
     };    
     
     await dbConnect();
     if (editId) {
         await Address.findByIdAndUpdate(editId, address)
     } else {
-        let doc = new Category(address);
-        await doc.save(); 
+        let doc = new Address(address);
+        let res = await doc.save();
+        if (res.id) {
+            await User.updateOne({ id: userId }, { address: res.id });
+        }
     }
     return parseData({status: 200, data: address})
 }
@@ -199,4 +226,30 @@ export async function createProduct(folder, body) {
         await doc.save();  
     }   
     return parseData({ title: 'Successfully created the item.' })
+}
+
+
+export async function postOrders(body) {
+
+    var id = new mongoose.Types.ObjectId();
+    var editId = body.id;
+    
+    const order = {   
+        _id: editId || id,
+        id: editId || id,
+        userId: body.userId,
+        orderDate: body.orderDate,
+        paymentMethod: body.paymentMethod,
+        shippingAddress: body.shippingAddress,
+        orderTotal: body.orderTotal,
+        products: body.products,
+        note: body.note,
+        delivery: { deliveryType: body.delivery.type, charge: body.delivery.charge }
+    };    
+    
+    await dbConnect();
+    let doc = new Orders(order)
+    await doc.save();  
+
+    return parseData({status: 200, data: order})
 }

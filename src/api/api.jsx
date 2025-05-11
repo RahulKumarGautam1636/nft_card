@@ -3,8 +3,8 @@ import { dummyUser, NEXT_APP_BASE_URL } from "@/constants";
 import { banners, category, categoryId, catNameData, featured, homeBanners, homeBottomBanners, homeSideBanners, productPerPage } from "@/data";
 import { getBanners2, getCategories2, getFilteredProducts2, getProducts2 } from "@/actions/get";
 
-export const isLive = false;
-export const withRemoteDB = false;
+export const isLive = true;
+export const withRemoteDB = true;
 const fixedData = false;
 const emptyRes = false;
 

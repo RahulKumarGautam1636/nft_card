@@ -1,6 +1,6 @@
 "use server"
 
-import { Banners, Brands, Category, HomeBanner, HomeBottomBanners, HomeSideBanners, Locations, Products, Questions, Quiz, SubCategory, User } from "@/lib/models";
+import { Banners, Brands, Category, HomeBanner, HomeBottomBanners, HomeSideBanners, Locations, Orders, Products, Questions, Subjects, SubCategory, User, Chapters } from "@/lib/models";
 import dbConnect from "@/lib/dbConnect";
 import { parseData, waitFor } from "@/api/actionUtils";
 // import mongoose from "mongoose";
@@ -8,7 +8,17 @@ import { parseData, waitFor } from "@/api/actionUtils";
 export async function getQuiz(body) {  
     console.log(body.userId);
     await dbConnect();
-    let quiz = await Quiz.find({"author": body.userId});
+    let quiz = await Subjects.find({"author": body.userId});
+    if (quiz.length) {
+        return parseData({status: 200, data: quiz})
+    } else {
+        return parseData({status: 204, message: 'NO Content found for the user.'})
+    }
+}
+
+export async function getChapters(body) {  
+    await dbConnect();
+    let quiz = await Chapters.find({"subjectId": body.subjectId});
     if (quiz.length) {
         return parseData({status: 200, data: quiz})
     } else {
@@ -19,7 +29,7 @@ export async function getQuiz(body) {
 export async function getQuestions(body) {  
     console.log(body.quizId);
     await dbConnect();
-    let quiz = await Questions.find({"parentId": body.quizId});
+    let quiz = await Questions.find({"chapterId": body.quizId});
     if (quiz.length) {
         return parseData({status: 200, data: quiz})
     } else {
@@ -29,7 +39,7 @@ export async function getQuestions(body) {
 
 export async function getUser(body) {  
     await dbConnect();
-    let user = await User.find({"phone": body.phone});
+    let user = await User.find({"phone": body.phone}).populate('address');
     if (user.length) {
         let firstResult = user[0];
         if (firstResult.password == body.password) {
@@ -171,4 +181,16 @@ export async function getLocations() {
     return {
         data: parseData(locations)
     };
+}
+
+export async function getOrders(params) {  
+    await dbConnect();
+    let orders = await Orders.find({ "userId": params.userId }).populate({ 
+        path: 'products', 
+        populate: {
+            path: 'id',
+            model: 'Products'
+        }
+    }).populate('shippingAddress');
+    return parseData({status: 200, data: orders})
 }

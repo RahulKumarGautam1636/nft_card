@@ -110,15 +110,30 @@ const userSchema = new Schema({
     name: String,
     phone: String,
     email: String,
-    password: String
+    password: String,
+    address: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' }
 });
 
 const addressSchema = new Schema({   
     id: String,
     addressLine: String,
+    city: String,
     state: String,
     pin: String,
-    country: String
+});
+
+const orderSchema = new Schema({  
+    id: String, 
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    orderDate: Date,
+    paymentMethod: String,
+    shippingAddress: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
+    orderTotal: Number,
+    products: [
+        { qty: Number, rate: Number, total: Number, id: { type: mongoose.Schema.Types.ObjectId, ref: 'Products' } }
+    ],
+    note: String,
+    delivery: {deliveryType: String, charge: Number}
 });
 
 
@@ -134,6 +149,7 @@ export const Locations = mongoose.models.Locations || mongoose.model("Locations"
 
 export const User = mongoose.models.User || mongoose.model("User", userSchema, 'users');
 export const Address = mongoose.models.Address || mongoose.model("Address", addressSchema, 'addresses');
+export const Orders = mongoose.models.Orders || mongoose.model("Orders", orderSchema, 'orders');
 
 
 const appointmentSchema = new Schema({   
@@ -151,6 +167,7 @@ const appointmentSchema = new Schema({
     GenderDesc: String,
     Address: String,
     UserId: Number,
+    UserPassword: String
 });
 
 appointmentSchema.plugin(mongoosePaginate);
@@ -158,13 +175,17 @@ appointmentSchema.plugin(mongoosePaginate);
 export const Appointment = mongoose.models.Appointment || mongoose.model("Appointment", appointmentSchema, 'appointment');
 
 
-const quizSchema = new Schema({   
+const subjectSchema = new Schema({   
     id: String,
     heading: String,
-    description: String,
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
+const chaptersSchema = new Schema({   
+    id: String,
+    heading: String,
+    subjectId: { type: mongoose.Schema.Types.ObjectId, ref: 'Subjects', required: true },
+});
 
 const questionSchema = new Schema({   
     id: String,
@@ -172,11 +193,12 @@ const questionSchema = new Schema({
     answer: String,
     explain: String,
     options: [{ key: String, content: String }],
-    parentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Quiz' }
+    chapterId: { type: mongoose.Schema.Types.ObjectId, ref: 'Chapters', required: true }
 });
 
+export const Subjects = mongoose.models.Subjects || mongoose.model("Subjects", subjectSchema, 'subjects');
 export const Questions = mongoose.models.Questions || mongoose.model("Questions", questionSchema, 'questions');
-export const Quiz = mongoose.models.Quiz || mongoose.model("Quiz", quizSchema, 'quiz');
+export const Chapters = mongoose.models.Chapters || mongoose.model("Chapters", chaptersSchema, 'chapters');
 
 
 
