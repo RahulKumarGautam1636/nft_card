@@ -145,14 +145,15 @@ export const Profile = ({ handleClose }) => {
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('my-addresses')}><span className="text-xl"><IoMdPin /></span> My Addresses</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('payment-methods')}><span className="text-xl"><MdPayment /></span> Payment Methods</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('customer-care')}><span className="text-xl"><RiCustomerService2Fill /></span> Customer Care</li>
-                        <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={logOut}><span className="text-lg"><FaPowerOff /></span> Sign Out</li>
-                        <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
-                            <Link prefetch={false} className='flex gap-4 items-center' href='/admin'><span className="text-xl"><BiHeart /></span> Admin</Link>
-                        </li>
-                        <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: false, data: ''}))}>
-                            <Link prefetch={false} className='flex gap-4 items-center' href='/quiz'><span className="text-xl"><MdQuiz /></span> Quiz</Link>
-                        </li>
-                        {/* <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('create-quiz')}><span className="text-xl"><RiCustomerService2Fill /></span> Create Quiz</li> */}
+                        {isLoggedIn && <>
+                            <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={logOut}><span className="text-lg"><FaPowerOff /></span> Sign Out</li>
+                            <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
+                                <Link prefetch={false} className='flex gap-4 items-center' href='/admin'><span className="text-xl"><BiHeart /></span> Admin</Link>
+                            </li>
+                            <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: false, data: ''}))}>
+                                <Link prefetch={false} className='flex gap-4 items-center' href='/quiz'><span className="text-xl"><MdQuiz /></span> Quiz</Link>
+                            </li>
+                        </>}
                     </ul> 
                 </div>
                 <div className="h-full flex-1">
