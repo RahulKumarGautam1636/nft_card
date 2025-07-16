@@ -6,11 +6,14 @@ import "slick-carousel/slick/slick-theme.css";
 import 'react-toastify/dist/ReactToastify.css';
 
 import StoreProvider from "@/lib/storeProvider";
-import { getCategories } from "@/api/api";
+// import { getCategories } from "@/api/api";
 import { ToastContainer } from "react-toastify";
 import { SplashScreen } from "@/components/utils/splashScreen";
-import Script from "next/script";
+// import Script from "next/script";
 import { GlobalLoader } from "@/components/utils";
+import { Suspense } from "react";
+import Init from "@/components/common/init";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter', display: "swap" });
 // const lato = Lato({
@@ -36,15 +39,19 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" /> */}
+        <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive" />
       </head>
       <body className={`${inter.variable}`}>
         <StoreProvider>
-          <SplashScreen>
+          {/* <SplashScreen> */}
             <GlobalLoader>
-              {children}
+              <Suspense fallback={<SplashScreen />}>
+                {children}
+                <Init />                               {/* Always check image network request when adding something directly to layout file. adding <Init /> below suspence caouses too many image requests for image in network tab. */}
+              </Suspense>
             </GlobalLoader>
             <ToastContainer className="my-toast" />    {/* we can use most of individual toast classes on the this container and that will be applied to all the toast that apear in this container */}
-          </SplashScreen>
+          {/* </SplashScreen> */}
         </StoreProvider>
         <script src="/js/jquery-3.7.1.min.js"></script>
         <script src="/js/myScript.js"></script>

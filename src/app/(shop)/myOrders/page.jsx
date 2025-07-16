@@ -29,9 +29,9 @@ export default function Cart() {
         const res = await getOrders({ userId: user.id });
         dispatch(globalLoader(false));
         if (res.status === 200) {
-            setOrders(res.data);         
+            setOrders(res.data)         
         } else {
-            alert('Something went wrong!')
+            alert(res.message)
         }
     }
     

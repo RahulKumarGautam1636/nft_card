@@ -1,34 +1,37 @@
-"use server"
 import { withRemoteDB } from '@/api/api';
 import mongoose from 'mongoose';
 
+let cached = global.mongoose;
 
-const connection = {};
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
 
 async function dbConnect() {
-  // Check if we have a connection to the database or if it's currently connecting
-  if (connection.isConnected) {
+  if (cached.conn) {
     console.log(`Already connected to ${withRemoteDB ? 'Remote' : 'Local'} database`);
-    return;
+    return cached.conn;
   }
 
-  try {
-    // Attempt to connect to the database
+  if (!cached.promise) {
+    const connectionString = withRemoteDB
+      ? process.env.REMOTE_DB_CONNECTION_STRING
+      : process.env.LOCAL_DB_CONNECTION_STRING;
 
-    // const connectionString = 'mongodb://127.0.0.1:27017/Ecommerce';
-    const connectionString = withRemoteDB ? process.env.REMOTE_DB_CONNECTION_STRING : process.env.LOCAL_DB_CONNECTION_STRING;
-    
-    const db = await mongoose.connect(connectionString || '', {});
-
-    connection.isConnected = db.connections[0].readyState;
-
-    console.log(`${withRemoteDB ? 'Remote' : 'Local'} Database connected successfully`);
-  } catch (error) {
-    console.error('Database connection failed:', error);
-
-    // Graceful exit in case of a connection error
-    process.exit(1);
+    cached.promise = mongoose.connect(connectionString || '', {   
+      bufferCommands: false,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }).then((mongoose) => {
+      console.log(`${withRemoteDB ? 'Remote' : 'Local'} Database connected successfully`);
+      return mongoose;
+    }).catch((err) => {
+      console.error('Database connection failed:', err);
+      throw err;
+    });
   }
+  cached.conn = await cached.promise;
+  return cached.conn;
 }
 
 export default dbConnect;

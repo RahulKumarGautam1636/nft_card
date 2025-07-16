@@ -3,7 +3,10 @@
 import { Banners, Brands, Category, HomeBanner, HomeBottomBanners, HomeSideBanners, Locations, Orders, Products, Questions, Subjects, SubCategory, User, Chapters } from "@/lib/models";
 import dbConnect from "@/lib/dbConnect";
 import { parseData, waitFor } from "@/api/actionUtils";
-// import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
+import { getUserFromToken } from "@/app/server/actions/login";
 
 export async function getQuiz(body) {  
     console.log(body.userId);
@@ -27,7 +30,6 @@ export async function getChapters(body) {
 }
 
 export async function getQuestions(body) {  
-    console.log(body.quizId);
     await dbConnect();
     let quiz = await Questions.find({"chapterId": body.quizId});
     if (quiz.length) {
@@ -38,12 +40,27 @@ export async function getQuestions(body) {
 }
 
 export async function getUser(body) {  
+    const { phone, password } = body;
+    if (!phone || !password) return parseData({status: 404, message: 'Please enter valid credentials.'})
     await dbConnect();
-    let user = await User.find({"phone": body.phone}).populate('address');
-    if (user.length) {
-        let firstResult = user[0];
-        if (firstResult.password == body.password) {
-            return parseData({status: 200, data: firstResult})
+    let user = await User.findOne({"phone": phone}).populate('address');
+    if (user) {
+        const passwordCorrect = (password === user.password)      // await bcrypt.compare( password, user.password );   // this needs password to be saved in encrypted with bcrypt.
+        if (passwordCorrect) {
+            const token = jwt.sign(
+                { _id: user._id.toString(), phone: user.phone },
+                process.env.JWT_SECRET,
+                { expiresIn: "7d" }
+            );
+            cookies().set({
+                name: "token",
+                value: token,
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                maxAge: 7 * 24 * 60 * 60,
+                path: "/",
+            });
+            return parseData({status: 200, data: user})
         } else {
             return parseData({status: 403, message: 'Your password is incorrect.'})
         }
@@ -51,6 +68,22 @@ export async function getUser(body) {
         return parseData({status: 404, message: 'This number is not Registered.'})
     }
 }
+
+// export async function getUser(body) {  
+//     const { phone, password } = body;
+//     if (!phone || !password) return parseData({status: 404, message: 'Please enter valid credentials.'})
+//     await dbConnect();
+//     let user = await User.findOne({"phone": phone}).populate('address');
+//     if (user) {
+//         if (user.password == password) {
+//             return parseData({status: 200, data: user})
+//         } else {
+//             return parseData({status: 403, message: 'Your password is incorrect.'})
+//         }
+//     } else {
+//         return parseData({status: 404, message: 'This number is not Registered.'})
+//     }
+// }
 
 export async function getBanners2(type) {
     
@@ -183,7 +216,9 @@ export async function getLocations() {
     };
 }
 
-export async function getOrders(params) {  
+export async function getOrders(params) { 
+    const user = await getUserFromToken();
+    if (!user) return { status: 401, message: 'Access Denied. Please Login First.' }
     await dbConnect();
     let orders = await Orders.find({ "userId": params.userId }).populate({ 
         path: 'products', 

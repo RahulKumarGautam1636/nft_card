@@ -13,9 +13,8 @@ import { deepPurple } from "@mui/material/colors";
 import { getQuiz } from "@/actions/get";
 import { IoArrowBack, IoClose } from "react-icons/io5";
 import { globalLoader } from "@/lib/slices";
-import withAuth from "@/components/withAuth";
 
-function Quiz() {
+export default function Quiz() {
 
      const user = useSelector(state => state.user);
      const [quiz, setQuiz] = useState({ heading: '', description: '' });
@@ -128,7 +127,7 @@ function Quiz() {
                 {addForm &&                 
                     <div className="p-6">
                         <h2 className="text-xl font-semibold border-b border-gray-300 pb-4 flex items-center">Create a Subject <IoClose className='ml-auto text-[1.7rem] text-rose-700' onClick={() => setAddForm(false)} /></h2>
-                        <form className="mt-6" onSubmit={quizSubmit}>
+                        <form className="mt-6">
                             <div className="flex gap-4 mb-5">
                                 <div className="flex-1">
                                     <label className="text-black text-[0.9rem] mb-2 block"> Subject Name</label>
@@ -147,7 +146,7 @@ function Quiz() {
                                     <input name='email' readOnly value={user.name} className="px-5 py-[0.81rem] bg-slate-100 w-full rounded-md outline-none text-[1rem]" type="text" />
                                 </div>
                             </div> */}
-                            <Button type="submit" className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Create Subject</Button>
+                            <Button onClick={quizSubmit} className="bg-pink-600 text-white rounded-lg py-3 px-8 hover:bg-pink-500 font-bold block ml-auto">Create Subject</Button>
                         </form>
                     </div> 
                 }
@@ -193,5 +192,3 @@ function Quiz() {
         </main>
     )   
 }
-
-export default withAuth(Quiz);

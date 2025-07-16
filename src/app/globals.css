@@ -25,13 +25,8 @@ body {
   font-family: var(--font-inter), sans-serif;
   font-size: 1rem;
   overflow-x: hidden;
-
-  /* opacity: 0.1; */
 }
 
-/* .main-logo {
-  opacity: 0;
-} */
 
 /* @media (width >= 1450px) {
   .container {

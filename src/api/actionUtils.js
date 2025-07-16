@@ -1,4 +1,4 @@
-import { remoteAssets } from "@/constants";
+import { blur, remoteAssets } from "@/constants";
 
 
 export const waitFor = async (time) => await new Promise((resolve) => setTimeout(resolve, time));
@@ -11,6 +11,7 @@ export const parseData = (obj) => JSON.parse(JSON.stringify(obj));
 
 
 export const imgSource = (folder, fileName) => {
+  if (blur) return '#';
   let path;
   if (remoteAssets) {
     path = `${remoteEnd}/${folder}/${fileName}`;

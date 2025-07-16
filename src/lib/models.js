@@ -111,7 +111,8 @@ const userSchema = new Schema({
     phone: String,
     email: String,
     password: String,
-    address: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' }
+    address: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
+    avatar: String
 });
 
 const addressSchema = new Schema({   

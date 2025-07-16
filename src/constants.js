@@ -1,4 +1,5 @@
 export const remoteAssets = true;
+export const blur = false;
 
 export const locations = [
     { id: 1, name: 'Mumbai' },

@@ -9,7 +9,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { getCatNameProducts, withRemoteDB } from '@/api/api';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { globalLoader, localLoader, modalAction } from '@/lib/slices';
+import { addUser, globalLoader, localLoader, loginAction, modalAction } from '@/lib/slices';
 import { BiX } from 'react-icons/bi';
 import { addToCart, addToWishlist } from "@/lib/slices";
 import { BiMinus, BiPlus } from "react-icons/bi";
@@ -23,6 +23,7 @@ import Image from 'next/image';
 import axios from 'axios';
 import { remoteAssets } from '@/constants';
 import { store } from '@/lib/store';
+import { verifyLogin } from '@/app/server/actions/auth/me';
 // import { handleDirectory } from '@/api/actionUtils';
 
 const Arrow = ({ customClass, onClick, el }) => {
@@ -462,13 +463,6 @@ export const decrypt = (data) => {
   // return decryptedData;
 }
 
-export const logOut = () => {
-  // dispatch(dumpUser());
-  // dispatch(loginAction(false));
-  localStorage.removeItem('userLogin');
-  window.location.reload();
-}
-
 export const ZoomComponent = ({ product }) => {
   return (
     <InnerImageZoom zoomType={'hover'} src={product.images[0]} zoomSrc={product.images[0]} />
@@ -623,4 +617,104 @@ export const addCart = (data, dispatch) => {
   dispatch(addToCart({ ...data, qty: 1 }))
   let productToastData = { msg: 'Added to Cart', product: data, button: {text: 'Visit Cart', link: '/cart'} };
   productToast(productToastData);
+}
+
+export const AutoLogin = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await verifyLogin();
+        if (res.status === 200) {
+          dispatch(addUser(res.data));
+          dispatch(loginAction(true));
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  return null;
+}
+
+
+// export const GoogleLoginBtn = ({ children }) => {
+//   const googleLogin = () => {
+//     const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
+
+//     const options = {
+//       redirect_uri: process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI,
+//       client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+//       access_type: "offline",
+//       response_type: "code",
+//       prompt: "consent",
+//       scope: [
+//         "https://www.googleapis.com/auth/userinfo.email",
+//         "https://www.googleapis.com/auth/userinfo.profile",
+//       ].join(" "),
+//     };
+
+//     const qs = new URLSearchParams(options);
+
+//     window.location.href = `${rootUrl}?${qs.toString()}`;
+//   };
+
+//   return (
+//     <div onClick={googleLogin}>{children}</div>
+//   );
+// }
+
+export const GoogleLoginBtn = ({ children }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    const fetchUser = async () => {
+      try {
+        const res = await verifyLogin();
+        if (res.status === 200) {
+          dispatch(addUser(res.data));
+          dispatch(loginAction(true));
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    if (!window.google) return;
+    const client = window.google.accounts.oauth2.initCodeClient({
+      client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      scope: "openid email profile",
+      redirect_uri: "postmessage",
+      callback: async (response) => {
+        const res = await fetch("/api/auth/google/callback", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ code: response.code }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          dispatch(addUser(data.data));
+          dispatch(loginAction(true));   
+          dispatch(modalAction({name: 'LOGIN_MODAL', status: false}));
+        } else {
+          console.error(data.error);
+        }
+      }
+    });
+
+    document.getElementById("google-login")?.addEventListener("click", () => client.requestCode());
+    return () => document.getElementById("google-login")?.removeEventListener("click", () => client.requestCode());
+  }, []);
+
+  return (
+    <div id='google-login'>{children}</div>
+  );
 }

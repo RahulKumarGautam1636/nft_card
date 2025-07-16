@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { MdSecurity } from "react-icons/md";
-import { encrypt, handleNumberInputs } from "../utils";
+import { encrypt, GoogleLoginBtn, handleNumberInputs } from "../utils";
 import axios from "axios";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import { addUser, globalLoader, loginAction, modalAction } from "@/lib/slices";
@@ -162,7 +162,9 @@ export const Login = () => {
                         </>
                         }
                         <h2 className="text-lg font-medium mt-14 mb-10 text-center">Or continue with Social Account</h2>
-                        <Button variant="outlined" className="rounded-lg py-[0.8rem] gap-3 w-full text-lg shadow-sm shadow-purple-400"><FcGoogle className="text-3xl" /> Sign In with Google</Button>
+                        <GoogleLoginBtn>
+                            <Button variant="outlined" className="rounded-lg py-[0.8rem] gap-3 w-full text-lg shadow-sm shadow-purple-400"><FcGoogle className="text-3xl" /> Sign In with Google</Button>
+                        </GoogleLoginBtn>
                     </div>
                 </div>
             </div>

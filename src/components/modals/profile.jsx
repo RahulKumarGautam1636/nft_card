@@ -22,7 +22,7 @@ import { LuGift } from "react-icons/lu";
 import { PiShoppingCartBold } from "react-icons/pi";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "@mui/material";
-import { logOut } from "../utils";
+import { stringToast } from "../utils";
 
 
 import { useEffect, useState } from "react";
@@ -34,6 +34,7 @@ import Link from "next/link";
 import { createAddress, createQuestion, createUser } from "@/actions/post";
 import { Download } from "@mui/icons-material";
 import { FaRegCircleXmark } from "react-icons/fa6";
+import { logout } from "@/app/server/actions/login";
 
 export const Profile = ({ handleClose }) => {
 
@@ -121,6 +122,17 @@ export const Profile = ({ handleClose }) => {
 
     // Profile Update ends ----------------------------------------------------------------------------
 
+    const logoutUser = async () => {
+        let req = await logout();
+        if (req.status === 200) {
+            dispatch(modalAction({name: 'PROFILE_MODAL', status: false, data: ''}))
+            stringToast(req.message, 'success');
+            window.location.href = "/";
+        } else {
+            alert('Something went wrong.');
+        }
+    }
+
     return (
         <div className="login-modal min-h-screen md:p-4 md:py-10 bg-gray-200 flex justify-center h-full">
             <div className="w-full bg-white flex flex-col md:flex-row md:rounded-2xl max-w-[80rem] overflow-hidden shadow-md shadow-gray-400 min-h-[80vh]">
@@ -145,15 +157,14 @@ export const Profile = ({ handleClose }) => {
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('my-addresses')}><span className="text-xl"><IoMdPin /></span> My Addresses</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('payment-methods')}><span className="text-xl"><MdPayment /></span> Payment Methods</li>
                         <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={() => setActive('customer-care')}><span className="text-xl"><RiCustomerService2Fill /></span> Customer Care</li>
-                        {isLoggedIn && <>
-                            <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={logOut}><span className="text-lg"><FaPowerOff /></span> Sign Out</li>
-                            <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
-                                <Link prefetch={false} className='flex gap-4 items-center' href='/admin'><span className="text-xl"><BiHeart /></span> Admin</Link>
-                            </li>
-                            <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: false, data: ''}))}>
-                                <Link prefetch={false} className='flex gap-4 items-center' href='/quiz'><span className="text-xl"><MdQuiz /></span> Quiz</Link>
-                            </li>
-                        </>}
+                        <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white" onClick={logoutUser}><span className="text-lg"><FaPowerOff /></span> Sign Out</li>
+                        <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => setActive('my-wishlist')}>
+                            <Link prefetch={false} className='flex gap-4 items-center' href='/admin'><span className="text-xl"><BiHeart /></span> Admin</Link>
+                        </li>
+                        <li className="p-[0.95rem] border-t border-gray-400 text-white" onClick={() => dispatch(modalAction({name: 'PROFILE_MODAL', status: false, data: ''}))}>
+                            <Link prefetch={false} className='flex gap-4 items-center' href='/quiz'><span className="text-xl"><MdQuiz /></span> Quiz</Link>
+                        </li>
+                        {/* <li className="p-[0.95rem] border-t border-gray-400 flex gap-4 items-center text-white"><span className="text-xl"><RiCustomerService2Fill /></span> Logout</li> */}
                     </ul> 
                 </div>
                 <div className="h-full flex-1">

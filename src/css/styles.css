@@ -94,7 +94,7 @@ body::-webkit-scrollbar {
 }
 
 .Toastify__toast-body,
-.Toastify__toast-body > div {
+.product-toast .Toastify__toast-body > div {
     width: 100%;
 }
 

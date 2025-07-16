@@ -17,7 +17,7 @@ export default async function ShopLayout({ children }) {
   // const categories = await getCategories('layout'); // {categoryList: []} // 
 
   return (
-    <>
+    <>                  {/* Always check image network request when adding something directly to layout file. adding <style></style> caouses too many image requests for image in network tab. */}
       <Header />
       {children}
       <Footer />
