@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 // import generateUniqueId from "generate-unique-id";
-import { Banners, HomeBanner, HomeBottomBanners, HomeSideBanners, User } from "@/lib/models";
+import { User } from "@/lib/models";
 import dbConnect from "@/lib/dbConnect";
 import axios from "axios";
 import mongoose from "mongoose";
@@ -13,7 +13,7 @@ export async function GET(req, { params }) {
 
     if (!code) return NextResponse.json({ error: "No code returned from Google" });
     
-     // Exchange code for access token
+    // Exchange code for access token
     const tokenRes = await axios.post("https://oauth2.googleapis.com/token", {
             code,
             client_id: process.env.GOOGLE_CLIENT_ID,
