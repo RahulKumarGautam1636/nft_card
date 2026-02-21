@@ -84,8 +84,7 @@ function ProductList() {
                                 <tr className="border-b-[3px] border-orange-500">
                                     <th className="text-start" colSpan={2}>Name</th>
                                     <th className="text-start">Doctor</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
+                                    <th>Date Time</th>
                                     <th>Company ID</th>
                                     <th>Action</th>
                                 </tr>
@@ -98,15 +97,14 @@ function ProductList() {
                                             </td>
                                             <td className="text-start max-w-80 overflow-hidden overflow-ellipsis whitespace-nowrap">
                                                 <span className="font-medium text-gray-900 text-end">{i.Name}</span>
+                                                <span className='block mt-1'>{i.RegMob1}</span>
                                             </td>
                                             <td className="whitespace-nowrap text-start">
                                                 <span className="text-gray-500">{i.Doctor.Name}</span>
                                             </td>
                                             <td className="whitespace-nowrap">
                                                 {i.AppointDate}
-                                            </td>
-                                            <td className="whitespace-nowrap" title={i.UserPassword}>
-                                                {i.AppTime}
+                                                <span className='block mt-1'>{i.AppTime}</span>
                                             </td>
                                             <td className="whitespace-nowrap">
                                                 {i.EncCompanyId}
