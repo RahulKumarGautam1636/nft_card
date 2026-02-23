@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { NEXT_APP_BASE_URL } from "@/constants";
 import axios from "axios";
 import { addUser, globalLoader, modalAction } from "@/lib/slices";
+import { useRouter } from "next/navigation";
 
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 import { MdPhoneInTalk } from "react-icons/md";
@@ -25,6 +26,7 @@ import { postOrders } from "@/actions/post";
 export default function Checkout() {
 
     const dispatch = useDispatch();
+    const router = useRouter();
     const cart = useSelector(state => state.cart);
     const user = useSelector(state => state.user);
     const userAddress = user.address || {};
@@ -58,7 +60,9 @@ export default function Checkout() {
             let res = await postOrders(order);
              dispatch(globalLoader(false));
             if (res.status === 200) {
-                console.log(res.data);
+                setTimeout(() => {
+                    router.push(`/myOrders`);
+                }, 1000);
             } 
         }
     }

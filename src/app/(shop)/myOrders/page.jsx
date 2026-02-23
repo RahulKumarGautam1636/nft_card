@@ -69,7 +69,7 @@ export default function Cart() {
                                             {/* <th>Remove</th> */}
                                         </tr>
                                         {order.products.map(i => (
-                                            <tr className="text-gray-700 font-semibold block md:table-row" key={i.id}>
+                                            <tr className="text-gray-700 font-semibold block md:table-row" key={i._id}>
                                                 <td className="w-full md:w-24 flex justify-center md:table-cell" style={{paddingRight: 0}}>
                                                     <img className="rounded h-60 md:h-24" src={imgSource(`products`, i.id.images[0])} alt="Product" />
                                                 </td>

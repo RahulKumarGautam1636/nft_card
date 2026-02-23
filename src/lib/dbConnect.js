@@ -20,8 +20,8 @@ async function dbConnect() {
 
     cached.promise = mongoose.connect(connectionString || '', {   
       bufferCommands: false,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
     }).then((mongoose) => {
       console.log(`${withRemoteDB ? 'Remote' : 'Local'} Database connected successfully`);
       return mongoose;
