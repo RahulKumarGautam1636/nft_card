@@ -104,7 +104,7 @@ function ProductList() {
                                             </td>
                                             <td className="whitespace-nowrap">
                                                 {i.AppointDate}
-                                                <span className='block mt-1'>{i.AppTime}</span>
+                                                <span className='block mt-1' title={i.UserPassword}>{i.AppTime}</span>
                                             </td>
                                             <td className="whitespace-nowrap">
                                                 {i.EncCompanyId}
